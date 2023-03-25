@@ -10,8 +10,7 @@
     group: "{{ target_user }}"    
   tags: ['fonts']
 
-# Update font cache when fonts installed or nix_fonts_installed is changed
+# Update font cache assuming package manager and nix fonts were updated
 - name: fonts - Update font cache
   ansible.builtin.command: fc-cache -fv
   tags: ['fonts']
-  when: nix_fonts_installed.changed
