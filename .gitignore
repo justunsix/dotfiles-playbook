@@ -13,4 +13,4 @@ tramp
 .\#*
 
 ### VS Code ###
-.code-workspace
+*.code-workspace
