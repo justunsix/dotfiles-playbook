@@ -14,3 +14,8 @@ tramp
 
 ### VS Code ###
 *.code-workspace
+
+### From https://github.com/geerlingguy/mac-dev-playbook/blob/master/.gitignore ###
+roles*
+# Ignore override var file
+config.yml
