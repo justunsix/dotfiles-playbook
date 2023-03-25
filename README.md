@@ -10,6 +10,11 @@ Works on Linux (Fedora, Ubuntu distributions) and Windows Subsystem for Linux (W
 
 Run `bootstrap.sh`.
 
+- When run on a Linux machine, Ansible configures the system it is run on
+- When run in WSL, Ansible will configure Windows hosting WSL
+
+### What the Script Does
+
 - Script will check the Linux distribution and run the appropriate Ansible playbook and install required software and Ansible requirements for the target system.
 - Playbook is designed to work with a repository containing dotfiles and configuration files like my [dotfiles](https://github.com/justunsix/dotfiles) repository. These are configured in the configuration `yaml` files in the `group-vars` and `host-vars` folders.
 
