@@ -1,0 +1,2 @@
+# Ubuntu
+ansible_cron_minute: "*/2"

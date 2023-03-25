@@ -1,0 +1,230 @@
+# Variables for playbooks
+
+downloads: ~/.ansible-downloads/
+
+# Location of this repository
+dotfiles_repo: "git@github.com:justunsix/dotfiles.git"
+dotfiles_repo_version: "main"
+dotfiles_repo_accept_hostkey: false
+dotfiles_repo_local_destination: "~/Code/dotfiles"
+
+dotfiles_home: "~"
+
+dotfiles_directories:
+  - "/home/{{ target_user }}/usr/bin"
+  - "/home/{{ target_user }}/Templates"    
+  - "/home/{{ target_user }}/.config/fish"    
+  - "/home/{{ target_user }}/.config/hunspell"
+  - "/home/{{ target_user }}/.local/share/applications"
+  - "/home/{{ target_user }}/.config/hunspell"
+# - "/home/{{ target_user }}/.config/xmonad"
+# - "/home/{{ target_user }}/.config/xmobar"
+  - "/home/{{ target_user }}/.config/cool-retro-term"
+  - "/home/{{ target_user }}/.config/i3"
+  - "/home/{{ target_user }}/.config/i3status"
+  - "/home/{{ target_user }}/.config/rofi"
+  - "/home/{{ target_user }}/.config/copyq"
+  - "/home/{{ target_user }}/.config/dunst"
+  - "/home/{{ target_user }}/.config/todotxt-cli"
+  - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
+  - "/home/{{ target_user }}/.config/fontconfig/conf.d"
+
+dotfiles_files:
+  - .bashrc
+  - .bash_aliases
+  - .bash_profile
+  - .gitconfig
+  - .inputrc
+  - Templates/New-Text-Document.txt
+  - usr/bin/jt-gc.sh
+  - usr/bin/jt-gs.sh
+  - usr/bin/jt-gt.sh
+  - usr/bin/jt-update-all.sh
+  - usr/bin/jt-post-i3.sh
+  - usr/bin/jt-ocr-to-clipboard.sh  
+#  - .config/Code/User/settings.json
+  - .config/copyq/copyq.conf
+  - .config/copyq/copyq-commands.ini
+  - .config/dunst/dunstrc
+  - .config/emacs/init.el
+  - .config/emacs/setup/extras.el
+  - .config/emacs/setup/minimal.el
+  - .config/emacs/setup/other.el
+  - .config/emacs/setup/variables.el
+  - .config/fish/config.fish
+  - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
+  - .config/i3/config
+  - .config/i3status/config
+  - .config/rofi/config.rasi
+  - .config/todotxt-cli/todo.cfg
+  - .config/todotxt-cli/todo-work.cfg
+  - .config/todotxt-cli/.todo.actions.d/edit
+  - .config/todotxt-cli/.todo.actions.d/pn
+  - .config/kdeglobals
+  - .config/starship.toml  
+
+dotfiles_files_binaries:
+  - usr/bin/jt-gc.sh
+  - usr/bin/jt-gs.sh
+  - usr/bin/jt-gt.sh
+  - usr/bin/jt-update-all.sh
+  - usr/bin/jt-ocr-to-clipboard.sh
+  - usr/bin/jt-post-i3.sh  
+  - .config/todotxt-cli/.todo.actions.d/edit
+  - .config/todotxt-cli/.todo.actions.d/pn  
+  
+# Optional location of dotfile overlay to override or add to existing dotfiles in this repository
+dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
+
+# Whether to configure certain build items
+configure_dotfiles: true
+configure_emacs: true
+configure_devops_b: true
+configure_extras: false
+configure_repos: true
+configure_mpv: false
+configure_gnome: false
+
+# User for which set up is being done for
+# Override with your user name
+target_user: user
+
+# Other people's Git Repositories to be cloned, synchronized
+git_repositories_external:
+  # defaults
+  - git@github.com:todotxt/todo.txt-cli.git
+
+# Yum Repository GPG Keys
+rpm_repo_keys:
+  - https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
+  - https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
+  # Microsoft VS Code Repository key
+  - https://packages.microsoft.com/keys/microsoft.asc
+  # Google Kubernetes key
+  - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+dnf_installed_packages:
+  ## Package Management
+  - flatpak
+  ## System 
+  ## Window Management
+  - dmenu
+  - rofi
+  - keychain
+  - copyq
+### xmonad
+#  - xmobar  
+#  - xmonad
+#  - ghc-xmonad-contrib-devel
+#  - xterm
+### Fedora workaround to usr/lib/rpm/redhat/redhat-annobin-cc1 no such file error during gcc
+#  - redhat-rpm-config
+  ## Web
+  - firefox
+  ## Fonts, Codes
+  - abattis-cantarell-fonts
+  - adobe-source-code-pro-fonts
+  - jetbrains-mono-fonts
+  - fira-code-fonts
+  ## Shell support
+  - fish
+  - alacritty
+  # Known issue, not available on Fedora 37, use sh install for now https://starship.rs/guide/#%F0%9F%9A%80-installation
+  # - starship
+  - bat
+  - fzf
+  - fd-find
+  ## File Management
+  ## Screenshot
+  - flameshot  
+  ## File Synchronization
+  - git
+  - pass
+  - stow
+  ## Office
+  - libreoffice
+  ## Optical Character Recognition (OCR)
+  - tesseract
+  - tesseract-langpack-eng
+  - tesseract-langpack-fra
+  # - gimagereader
+  ## Key Bindings
+  # - input-remapper
+  ## Hardware
+  ## Security
+  - keepassxc
+  ## System
+  - htop
+  - bleachbit
+  ### System - Language
+  ### https://fedoraproject.org/wiki/I18N/Language_Support_Using_Dnf
+  - langpacks-en
+  - langpacks-en_GB
+  - langpacks-fr
+  ## Media, Sound, Video
+  - pavucontrol
+  # - gimp
+  ## DevOps Editors
+  - code
+  - vim
+  ### Emacs and Support
+  - emacs
+  - hunspell
+  - hunspell-en-GB
+  - hunspell-en-US  
+  - hunspell-fr  
+  - ripgrep
+  #### PlantUML
+  - plantuml
+  ## DevOps Languages
+  # - python3
+  # - python3-pip
+  # - python3-virtualenv
+  - nodejs
+  - npm
+  ### Rust
+  #### openssl-devel required for cargo-update
+  - openssl-devel
+  ## DevOps Support
+  - pandoc
+  ## DevOps Infrastructure
+  ## - Ansible installed with pip
+  - kubectl
+
+dnf_installed_packages_gnome:
+  ## System
+  - dconf-editor
+  ### dconf packages needed for GNOME setting changes
+  - dconf
+  - dbus  
+  ## Email
+  - evolution
+  - evolution-ews
+  ## User Interface
+  - gnome-tweaks
+  - gnome-extensions-app
+  
+dnf_removed_packages:
+  - cheese
+  - rhythmbox
+  - gnome-weather
+  - gnome-maps
+
+flatpak_installed_packages:
+  # Productivity, Diagrams
+  - com.jgraph.drawio.desktop
+  - io.github.peazip.PeaZip
+
+rust_installed_packages:
+  - exa
+  - du-dust
+  - procs
+  - bottom
+  - zoxide
+  - broot
+  - monolith
+  - topgrade
+  - sd
+  
+nix_installed_packages:
+  - nixpkgs.iosevka

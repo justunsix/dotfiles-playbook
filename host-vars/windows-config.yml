@@ -1,0 +1,86 @@
+# Basic authentication
+ansible_user: user
+# Using ask-pass
+# ansible_password: Password
+ansible_connection: winrm
+ansible_winrm_transport: basic
+# Use HTTPS port, by default Ansible will use https connection scheme
+ansible_winrm_scheme: https
+ansible_port: 5986
+
+# Ignore self-signed certificate warnings
+ansible_winrm_server_cert_validation: ignore 
+
+dotfiles_repo_local_destination: "~/Code/dotfiles"
+# Optional location of dotfile overlay to override or add to existing dotfiles in this repository
+dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
+
+target_user: user
+
+chocolatey_installed_packages:
+  ## Package Management
+  - chocolatey
+  ## System
+  - microsoft-windows-terminal
+  - autohotkey
+  - ccleaner
+  ## OCR
+  - capture2text  
+  ## Shell
+  - zoxide
+  ### Prompt
+  - starship
+  ## File Management
+  - git
+  - git-credential-manager-for-windows
+  - fzf
+  - fd
+  ### Python required for Ansible management
+  - python3
+  ## Web
+  - firefox
+  # - googlechrome
+  ## Fonts
+  - jetbrainsmono
+  ## Office, Productivity
+  - libreoffice-fresh
+  - peazip
+  - plantuml
+  - drawio  
+  ## Media
+  - vlc
+  - mpv
+  # Security
+  - veracrypt
+  - keepassxc
+  ## DevOps
+  - cygwin
+  - vscode
+  - microsoft-windows-terminal
+  ### Emacs
+  - emacs
+  - ripgrep
+  - hunspell.portable
+  - pandoc
+  - nodejs
+
+chocolatey_installed_packages_work:
+  ## VM
+  - virtualbox
+  ## Graphics
+  - inkscape
+  - gimp
+  ## DevOps
+  - azure-cli
+  - python
+  - maven
+  - mremoteng
+  ## Documents
+  - pdfxchangeeditor
+
+chocolatey_installed_packages_extras:
+  ## Communications
+  - discord
+  ## Games
+  - steam
+  - ubisoft-connect
