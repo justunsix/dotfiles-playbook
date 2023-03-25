@@ -1,0 +1,41 @@
+# Extras - apt - Install packages
+- name: Extras - apt - Install packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ apt_installed_packages_extras }}"
+  tags: ["extras", "apt", "workstation-ubuntu", "package"]
+
+# Extras Refresh and Upgrade all packages installed by pip
+- name: Extras - pip - Upgrade all packages
+  ansible.builtin.pip:
+    name:
+      - "{{ item }}"
+    state: latest
+  loop: "{{ pip_installed_packages_extras }}"
+  tags: ["extras", "workstation-ubuntu", "apt", "pip", "package"]
+  become: true
+  become_user: "{{ target_user }}"
+  
+# Check if PhantomJS is installed and if not install it
+- name: Extras - Check if PhantomJS is installed
+  ansible.builtin.stat:
+    path: /home/{{ target_user }}/usr/bin/phantomjs-2.1.1-linux-x86_64/bin/phantomjs
+  register: phantomjs_installed
+  tags: ["extras", "workstation-ubuntu"]
+
+# Extras - Install PhantomJS
+- name: Extras - Install PhantomJS
+  # Install PhantomJS
+  # - download https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 to ~/Downloads
+  # - cd ~/Downloads
+  # - extract to archive to /home/{{ target_user }}/usr/bin/phantomjs-2.1.1-linux-x86_64
+  ansible.builtin.command: "{{ item }}"
+  with_items:
+    - wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+    - tar -xvf /home/{{ target_user }}/Downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /home/{{ target_user }}/usr/bin
+  when: not phantomjs_installed.stat.exists
+  args:
+    chdir: /home/{{ target_user }}/Downloads
+  become: true
+  become_user: "{{ target_user }}"

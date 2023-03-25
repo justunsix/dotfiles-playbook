@@ -1,0 +1,82 @@
+# Windows Emacs Configuration
+# Assume following are installed by system tasks for Emacs:
+# - Fonts
+# - ripgrep, hunspell, pandoc
+- name: "Set target_user environment variable home to point to user's home directory"
+  ansible.windows.win_environment:
+    name: HOME
+    value: C:\Users\{{ target_user }}
+    state: present
+    #  Set for current Ansible user
+    level: user
+  tags: ['dotfiles', 'emacs']
+# Delete file ~/.emacs and directory ~/.emacs.d if they exist
+- name: "Delete file ~/.emacs and directory ~/.emacs.d if they exist"
+  ansible.windows.win_file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "~/.emacs"
+    - "~/.emacs.d"
+  tags: ['dotfiles', 'emacs']
+  # run as {{ target_user }}
+  become: true
+  become_user: "{{ target_user }}"
+# Create directory ~/.config/emacs
+- name: "Create directory ~/.config/emacs"
+  ansible.windows.win_file:
+    path: "~/.config/emacs"
+    state: directory
+  tags: ['dotfiles', 'emacs']
+  become: true
+  become_user: "{{ target_user }}"
+# Copy contents for files/.config/emacs/ to ~/.config/emacs/
+- name: "Emacs - dotfiles - configuration"
+  ansible.windows.win_copy:
+    src: "{{ dotfiles_repo_local_destination }}/.config/emacs/"
+    dest: C:\Users\{{ target_user }}\.config\emacs
+  tags: ['dotfiles', 'emacs']
+  become: true
+  become_user: "{{ target_user }}"
+# Todo plantuml JAR set up per Linux emacs setup
+  
+# Deprecated with Chocolately install  
+
+# Check if directory '~/.nvm/versions/node/v17.9.1/bin/node' exists
+# - name: "Check if directory '~/.nvm/versions/node/v17.9.1/bin/node' exists"
+#   ansible.windows.win_stat:
+#     path: "~/.nvm/versions/node/v17.9.1/bin/node"
+#   register: nodejs
+#   tags: ['dotfiles', 'emacs']
+#   become: true
+#   become_user: "{{ target_user }}"
+
+# Check if C:\Users\{{ target_user }}\.nvm\versions\node\v17.9.1\bin\ folder exists
+# - name: "Check if node folders exists"
+#   ansible.windows.win_stat:
+#     path: "C:/Users/{{ target_user }}/.nvm/versions/node-v17.9.1-win-x64"
+#   register: nodejs
+#   tags: ['dotfiles', 'emacs']
+#   become: true
+#   become_user: "{{ target_user }}"
+
+# Download Node JS 17.9.1 from https://nodejs.org/download/release/v17.9.1/ and extract it to 
+# ~/.nvm/versions/node/v17.9.1/bin/node
+# - name: "Download Node JS 17.9.1 from https://nodejs.org/download/release/v17.9.1/ and extract it to ~/.nvm/versions/node/v17.9.1/bin/node"
+#   ansible.windows.win_get_url:
+#     url: https://nodejs.org/download/release/v17.9.1/node-v17.9.1-win-x64.zip
+#     dest: C:/Users/{{ target_user }}/Downloads/node-v17.9.1-win-x64.zip
+#   tags: ['dotfiles', 'emacs']
+#   become: true
+#   become_user: "{{ target_user }}"
+#   when: nodejs.stat.exists == false
+
+# - name: "Extract Node JS node directory"
+#   community.windows.win_unzip:
+#     src: C:\Users\{{ target_user }}\Downloads\node-v17.9.1-win-x64.zip
+#     dest: C:\Users\{{ target_user }}\.nvm\versions\
+#     creates: C:\Users\{{ target_user }}\.nvm\versions\node-v17.9.1-win-x64
+#   tags: ['dotfiles', 'emacs']
+#   become: true
+#   become_user: "{{ target_user }}"
+#   when: nodejs.stat.exists == false

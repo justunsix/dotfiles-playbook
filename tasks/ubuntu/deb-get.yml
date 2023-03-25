@@ -1,0 +1,16 @@
+# deb-get - install on list of items
+- name: deb-get - Install packages
+  ansible.builtin.command: deb-get install "{{ item }}"
+  with_items: "{{ deb_get_installed_packages }}"
+  tags: ['workstation-ubuntu', 'deb-get', 'package']
+  ignore_errors: yes
+
+# deb-get - update
+- name: deb-get - Resynchronize the package index files from their sources
+  ansible.builtin.command: deb-get update
+  tags: ['workstation-ubuntu', 'deb-get', 'package']
+
+# deb-get - upgrade
+- name: deb-get - Upgrade packages
+  ansible.builtin.command: deb-get upgrade
+  tags: ['workstation-ubuntu', 'deb-get', 'package']

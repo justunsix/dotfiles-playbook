@@ -1,0 +1,22 @@
+# Add the Flathub Repository
+- name: flatpak - Add Flathub repository
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: system
+  tags: ['workstation-ubuntu','workstation-fedora','flatpak', 'package']
+
+# Install / Update Flatpaks
+- name: flatpak - Install / Update Flatpaks
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+    method: system
+  loop: "{{ flatpak_installed_packages }}"
+  tags: ['workstation-ubuntu','workstation-fedora','flatpak', 'package']
+
+# Update all Flatpaks using Ansible Command
+- name: flatpak - Update all Flatpaks
+  ansible.builtin.command: sudo flatpak update -y
+  tags: ['workstation-ubuntu','workstation-fedora','flatpak', 'package']

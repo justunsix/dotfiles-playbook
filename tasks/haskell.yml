@@ -1,0 +1,54 @@
+# Manually set up GHCUP, HLS, Cabal, and stack using https://www.haskell.org/ghcup/
+# In ~/.config/xmonad, clone xmonad and xmonad-contrib repositories using git
+# git clone https://github.com/xmonad/xmonad
+# git clone https://github.com/xmonad/xmonad-contrib
+- name: Git - Clone xmonad and xmonad-contrib repos on release tag v0.17.1
+  ansible.builtin.git:
+    repo: "{{ item }}"
+    dest: "/home/{{ target_user }}/.config/xmonad/{{ item.split('/')[-1].split('.')[0] }}"
+    force: no
+    version: v0.17.1
+  with_items: "{{ git_repositories_haskell }}"
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']
+
+# Check if xmonad is already installed
+- name: Check if xmonad is already installed
+  ansible.builtin.stat:
+    path: "/home/{{ target_user }}/.local/bin/xmonad"
+  register: xmonad_installed
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']
+
+# Install xmonad and xmonad-contrib if xmonad is not already installed
+- name: Install xmonad and xmonad-contrib
+  ansible.builtin.command: "stack init; stack install"
+  args:
+    chdir: "/home/{{ target_user }}/.config/xmonad/"
+  become: true
+  become_user: "{{ target_user }}"
+  when: not xmonad_installed.stat.exists
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']
+  
+# Force create symlink to ~/.config/xmonad/stack.yml from ~/.xmonad/stack.yml
+# Workaround due to ~/.xmonad directory constantly being recreated and read as default
+- name: Haskell - Force create symlink to ~/.config/xmonad/stack.yml from ~/.xmonad/stack.yml
+  ansible.builtin.file:
+    src: /home/{{ target_user }}/.config/xmonad/stack.yaml
+    dest: /home/{{ target_user }}/.xmonad/stack.yaml
+    state: link
+    force: yes
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']
+
+# Copy files/other/xmonad.desktop to /usr/share/xsessions/xmonad.desktop
+- name: Copy files/other/xmonad.desktop to /usr/share/xsessions/xmonad.desktop
+  ansible.builtin.copy:
+    src: files/other/xmonad.desktop
+    dest: /usr/share/xsessions/xmonad.desktop
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']

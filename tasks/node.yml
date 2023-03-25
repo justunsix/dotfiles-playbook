@@ -1,0 +1,33 @@
+# Install nvm per https://github.com/nvm-sh/nvm#install--update-script as of 2023-03-25
+- name: Install nvm
+  ansible.builtin.shell: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash"
+  args:
+    executable: /bin/bash
+    chdir: "$HOME"
+    creates: "$HOME/.nvm/nvm.sh"
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node']
+  
+- name: Install node
+  ansible.builtin.shell: " . /home/{{ target_user }}/.nvm/nvm.sh && nvm install {{ item }}"
+  args:
+    executable: /bin/bash
+    chdir: "/home/{{ target_user }}"
+    creates: "/home/{{ target_user }}/.nvm/versions/node/v{{ item }}"
+  loop:
+    # lts as of 2023-02-15
+    - 18.14.0
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node']
+
+# Use lts version of node
+#- name: Set lts to node version
+#  ansible.builtin.shell: " . /home/{{ target_user }}/.nvm/nvm.sh && nvm use 18.14.0"
+#  args:
+#    executable: /bin/bash
+#    chdir: "/home/{{ target_user }}"
+#  become: true
+#  become_user: "{{ target_user }}"
+#  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node']

@@ -1,0 +1,8 @@
+- name: dnf - Update listing and install packages
+  ansible.builtin.dnf:
+    name:
+      - "{{ item }}"
+    # included dnf update -y
+    state: latest
+  loop: "{{ dnf_installed_packages_gnome }}"
+  tags: ['dnf-gnome', 'workstation-fedora', 'package']

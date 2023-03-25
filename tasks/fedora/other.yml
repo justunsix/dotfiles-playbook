@@ -1,0 +1,8 @@
+# Set {{ target_user }} as part of group VBoxSF
+# For Fedora running in VirtualBox Virtual Machine
+- name: Add user to group VBoxSF
+  ansible.builtin.user:
+    name: "{{ target_user }}"
+    groups: vboxsf
+    append: yes
+  tags: ['other']

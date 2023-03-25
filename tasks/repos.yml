@@ -1,0 +1,39 @@
+# Git clone a set of repositories with list variable git_repositories
+# The cloned repositories are placed in the target_user's home directory
+# at /home/{{ targer_user }}/Code
+# The destination of each repository is the name of the repository
+# e.g. /home/{{ target_user }}/Code/repository-name
+# Get the latest version of the repository
+# Do not update when the repository exists and has uncommitted changes or unpushed changes
+- name: Git - Sychronize target user's personal repositories
+  ansible.builtin.git:
+    repo: "{{ item }}"
+    dest: "/home/{{ target_user }}/Code/{{ item.split('/')[-1].split('.')[0] }}"
+    force: no
+  with_items: "{{ git_repositories }}"
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu','repos', 'repos-personal']
+  ignore_errors: yes
+
+- name: Git - Create directory ~/Code/External
+  file:
+    path: "/home/{{ target_user }}/Code/External"
+    state: directory
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: 0755
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu','repos', 'repos-external']
+
+- name: Git - Sychronize other external repositories
+  ansible.builtin.git:
+    repo: "{{ item }}"
+    dest: "/home/{{ target_user }}/Code/External/{{ item.split('/')[-1].split('.git')[0] }}"
+    force: no
+  with_items: "{{ git_repositories_external }}"
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu','repos', 'repos-external']
+  ignore_errors: yes  

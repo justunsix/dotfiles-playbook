@@ -1,0 +1,59 @@
+# From https://gist.github.com/zeitounator/fe7bca472f1cb649d91b6bc3794626a9 and
+# https://stackoverflow.com/questions/67951832/ansible-importing-gpg-keys-from-rpm-fusion-not-working
+- name: dnf - Add RPM Fusion, Microsoft VS Code repositories
+  ansible.builtin.rpm_key:
+    state: present
+    key: "{{ item }}"
+  loop: "{{ rpm_repo_keys }}"
+  tags: ['dnf', 'workstation-fedora', 'package']
+  
+- name: dnf - Check VS Code repository exists
+  ansible.builtin.stat:
+    path: "/etc/yum.repos.d/vscode.repo"
+  register: vscoderepo
+  tags: ['dnf', 'workstation-fedora', 'package']  
+
+- name: dnf - Add VS Code Repository to Yum Repos
+  ansible.builtin.command: sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+  when: not vscoderepo.stat.exists
+  tags: ['dnf', 'workstation-fedora', 'package']  
+
+- name: dnf - Check VS Code repository exists
+  ansible.builtin.stat:
+    path: "/etc/yum.repos.d/google-kubernetes.repo"
+  register: gk8srepo
+  tags: ['dnf', 'workstation-fedora', 'package']  
+
+# Add Google Kubernetes repository
+- name: dnf - Add Google Kubernetes repository
+  ansible.builtin.command: sh -c 'echo -e "[google-kubernetes]\nname=Google Kubernetes\nbaseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg" > /etc/yum.repos.d/google-kubernetes.repo'
+  when: not gk8srepo.stat.exists
+  tags: ['dnf', 'workstation-fedora', 'package']  
+
+- name: dnf - Update listing and install packages
+  ansible.builtin.dnf:
+    name:
+      - "{{ item }}"
+    # included dnf update -y
+    state: latest
+  loop: "{{ dnf_installed_packages }}"
+  tags: ['dnf', 'workstation-fedora', 'package']  
+
+- name: dnf - Remove unneeded packages
+  ansible.builtin.dnf:
+    name:
+    - "{{ item }}"
+    state: absent
+  loop: "{{ dnf_removed_packages }}"
+  tags: ['dnf', 'workstation-fedora', 'package']  
+
+- name: dnf - Upgrade all packages
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+  tags: ['dnf', 'workstation-fedora', 'package']    
+
+- name: dnf - Autoremove unneeded packages installed as dependencies
+  ansible.builtin.dnf:
+    autoremove: yes
+  tags: ['dnf', 'workstation-fedora', 'package']    

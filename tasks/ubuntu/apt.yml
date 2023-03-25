@@ -1,0 +1,45 @@
+# Add PPA repositories to apt
+- name: apt - Add PPA repositories
+  ansible.builtin.apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items: "{{ apt_ppa_repositories }}"
+  tags: ['apt', 'workstation-ubuntu', 'package']
+
+# Ensure apt Multiverse repository is enabled
+- name: apt - Ensure Multiverse repository is enabled
+  ansible.builtin.apt_repository:
+    repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse"
+    state: present
+  tags: ['apt', 'workstation-ubuntu', 'package']
+
+# Update and upgrade all apt installed packages
+- name: apt - Update and upgrade all installed packages
+  ansible.builtin.apt:
+    upgrade: yes
+    update_cache: yes
+  tags: ['apt', 'workstation-ubuntu', 'package']
+
+# Remove unneed packages
+# Using list of items variable: apt_removed_packages
+- name: apt - Remove packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ apt_removed_packages }}"
+  tags: ['apt', 'workstation-ubuntu', 'package']
+
+# Install / Check packages with apt 
+# Using list of items variable: apt_installed_packages
+- name: apt - Install / Update / Upgrade packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ apt_installed_packages }}"
+  tags: ['apt', 'workstation-ubuntu', 'package']
+
+# Auto remove packages
+- name: apt - Auto remove packages
+  ansible.builtin.apt:
+    autoremove: yes
+  tags: ['apt', 'workstation-ubuntu', 'package']

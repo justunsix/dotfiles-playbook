@@ -1,0 +1,53 @@
+# Windows dotfiles
+# All dotfile directories that must exist
+- name: dotfiles - Create user binaries, Hunspell directory if it does not exist of target user
+  ansible.windows.win_file:
+    path: "{{ item }}"
+    state: directory
+  tags: ['dotfiles']
+  loop:
+    - "C:/Users/{{ target_user }}/usr/bin"
+    - "C:/Hunspell"
+
+- name: dotfiles - Sync user binaries, Hunspell dictionaries
+  ansible.windows.win_copy:
+    # src with "/"" only copies files in src directory to dest directory
+    # use src without "/" to copy directory itself
+    src: "{{ item.src }}" 
+    dest: "{{ item.dest }}"
+  tags: ['dotfiles']
+  loop:
+    - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "C:/Users/{{ target_user }}/usr/bin" }
+    - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
+
+- name: dotfiles - directory to PATH if it does not exist already
+  ansible.windows.win_path:
+    name: PATH
+    elements: 
+    - C:\Users\{{ target_user }}\usr\bin
+    - C:\ProgramData\chocolatey\bin
+    - C:\Program Files\Git\bin
+    scope: user
+    state: present
+
+- name: dotfiles - Configure .gitconfig file for target user
+  ansible.windows.win_copy:
+    src: "{{ dotfiles_repo_local_destination }}/.gitconfig"
+    dest: C:\Users\{{ target_user }}\.gitconfig
+  tags: ['dotfiles']
+
+- name: dotfiles - Configure Powershell profiles for target user
+  ansible.windows.win_copy:
+    src: "{{ item.src }}" 
+    dest: "{{ item.dest }}"
+  loop:
+    - { src: "{{ dotfiles_repo_local_destination }}/other/Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1' }
+    - { src: "{{ dotfiles_repo_local_destination }}/other/Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1' }
+  tags: ['dotfiles']
+
+# Put mpv config files to target user's %appdata%\mpv\
+- name: dotfiles - Configure mpv config files for target user
+  ansible.windows.win_copy:
+    src: "{{ dotfiles_repo_local_destination }}/.config/mpv/"
+    dest: C:\Users\{{ target_user }}\AppData\Roaming\mpv
+  tags: ['dotfiles']

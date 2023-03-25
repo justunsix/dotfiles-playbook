@@ -1,0 +1,68 @@
+# DevOps Learning requirements
+# Installed in other tasks:
+# - VS Code (deb-get)
+# - Git CLI (apt)
+# - node, npm (apt)
+# - Ansible (shell script)
+
+# DevOps - apt - Install OpenJDK, Maven, Gradle, Amazon Web Services awscli
+# https://itsfoss.com/install-java-ubuntu/
+- name: DevOps - apt
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ apt_installed_packages_devops }}"    
+  tags: ['apt', 'workstation-ubuntu', 'package', 'devops-b']
+
+# DevOps - Elastic Kubernetes Service (EKS) k8x Control using bash
+# https://eksctl.io/introduction/#installation
+
+# Check if eksctl command is installed
+- name: DevOps - Check if eksctl is installed
+  ansible.builtin.stat:
+    path: /usr/local/bin/eksctl
+  register: eksctl_installed
+  tags: ['devops-b', 'workstation-ubuntu']
+
+- name: DevOps - eksctl Elastic Kubernetes Service Kube Control 
+  ansible.builtin.shell: |
+    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+    sudo mv /tmp/eksctl /usr/local/bin
+  args:
+    executable: /bin/bash
+  tags: ['workstation-ubuntu', 'devops-b']
+  when: not eksctl_installed.stat.exists
+
+# Check if this file exists ~/.config/fish/completions/eksctl.fish
+# and store in result
+- name: DevOps - eksctl Elastic Kubernetes Service Kube Control - Fish completion check
+  ansible.builtin.stat:
+    path: ~/.config/fish/completions/eksctl.fish
+  register: eksctl_fish_completion
+  tags: ['workstation-ubuntu', 'devops-b']
+
+# If eksctl_fish_completion does not exist, then set it up
+- name: DevOps - eksctl Elastic Kubernetes Service Kube Control - Create Fish completion
+  ansible.builtin.shell: |
+    mkdir -p ~/.config/fish/completions
+    eksctl completion fish > ~/.config/fish/completions/eksctl.fish
+  args:
+    executable: /bin/bash
+  when: eksctl_fish_completion.stat.exists == False
+  tags: ['workstation-ubuntu', 'devops-b']
+# Add shell completion by adding 
+# kubectl completion fish | source
+# to ~/.config/fish/config.fish
+
+- name: DevOps - deb-get
+  ansible.builtin.command: deb-get install "{{ item }}"
+  with_items: "{{ deb_get_installed_packages_devops}}"
+  tags: ['workstation-ubuntu', 'deb-get', 'package', 'devops-b']
+
+- name: Snap - kubectl, pycharm-community
+  community.general.snap:
+    name: "{{ item }}"
+    classic: yes
+    state: present
+  loop: "{{ snap_installed_packages_devops }}"  
+  tags: ['workstation-ubuntu', 'snap', 'package', 'devops-b']

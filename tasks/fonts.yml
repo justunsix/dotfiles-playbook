@@ -1,0 +1,17 @@
+# ~/.config/fontconfig/conf.d/10-nixpkg-fonts.conf directory and file is configured in dotfiles.yml
+    
+# Create ~/.fonts directory if it does not exist of target user
+- name: fonts - Create ~/.fonts directory if it does not exist of target user
+  ansible.builtin.file:
+    path: /home/{{ target_user }}/.fonts
+    state: directory
+    mode: "0755"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"    
+  tags: ['fonts']
+
+# Update font cache when fonts installed or nix_fonts_installed is changed
+- name: fonts - Update font cache
+  ansible.builtin.command: fc-cache -fv
+  tags: ['fonts']
+  when: nix_fonts_installed.changed
