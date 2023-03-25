@@ -1,0 +1,5 @@
+---
+collections:
+# Collection name:
+- chocolatey.chocolatey
+- community.windows

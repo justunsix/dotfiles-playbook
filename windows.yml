@@ -1,0 +1,29 @@
+# ansible-playbook --diff "windows.yml" --ask-pass -v
+---
+- hosts: workstation_windows
+  vars_files:
+    - host-vars/windows-config.yml
+
+  # Load override
+  pre_tasks:
+    - name: Include playbook configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+      tags: ['always']
+    - name: Include overlay configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ dotfiles_overlay_dir }}/config-windows.yml"
+      tags: ['always']
+    
+  tasks:
+  - name: Install Chocolately packages
+    import_tasks: tasks/windows/choco.yml
+    tags: ['choco', 'workstation-windows', 'package']
+
+  - Import_tasks: tasks/windows/dotfiles-windows.yml
+    tags: ['workstation-windows', 'dotfiles']
+
+  - import_tasks: tasks/windows/emacs-windows.yml
+    tags: ['workstation-windows', 'emacs']

@@ -1,0 +1,36 @@
+---
+- hosts: workstation_ubuntu
+  # Run as root
+  become: true
+
+  # Load default variables
+  vars_files:
+    - group-vars/default-config.yml
+
+  # Load override
+  pre_tasks:
+    - name: Include playbook configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+      tags: ['always']
+    - name: Include overlay configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ dotfiles_overlay_dir }}/config.yml"
+      tags: ['always']
+
+#  roles:
+#    - role: user.dotfiles
+#      when: configure_dotfiles
+#      tags: ['dotfiles']
+   
+  # - hosts: all
+  #   tags: ['base']
+  #   become: true
+  #   roles:
+  #     - workstation-base
+
+  tasks:
+    - name: Set up Linux desktop
+      import_tasks: tasks/linux.yml

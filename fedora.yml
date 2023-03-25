@@ -1,0 +1,26 @@
+---
+- hosts: workstation_fedora
+  # Run with sudo, root
+  become: true
+
+  # Load default variables
+  vars_files:
+    - host-vars/fedora-config.yml
+
+  # Load override
+  pre_tasks:
+    - name: Include playbook configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+      tags: ['always']
+    - name: Include overlay configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ dotfiles_overlay_dir }}/config-fedora.yml"
+      tags: ['always']
+    
+  tasks:
+    - name: Set up Linux desktop
+      import_tasks: tasks/linux.yml
+
