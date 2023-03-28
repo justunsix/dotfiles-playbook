@@ -12,8 +12,8 @@ dotfiles_home: "~"
 
 dotfiles_directories:
   - "/home/{{ target_user }}/usr/bin"
-  - "/home/{{ target_user }}/Templates"    
-  - "/home/{{ target_user }}/.config/fish"    
+  - "/home/{{ target_user }}/Templates"
+  - "/home/{{ target_user }}/.config/fish"
   - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.local/share/applications"
   - "/home/{{ target_user }}/.config/hunspell"
@@ -41,7 +41,9 @@ dotfiles_files:
   - usr/bin/jt-gt.sh
   - usr/bin/jt-update-all.sh
   - usr/bin/jt-post-i3.sh
-  - usr/bin/jt-ocr-to-clipboard.sh  
+  - usr/bin/jt-ocr-to-clipboard.sh
+  - usr/bin/jt-clip-html-to-org.sh
+# Manage VS Code Settings manually due to possible sensitive settings
 #  - .config/Code/User/settings.json
   - .config/copyq/copyq.conf
   - .config/copyq/copyq-commands.ini
@@ -61,7 +63,7 @@ dotfiles_files:
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
   - .config/kdeglobals
-  - .config/starship.toml  
+  - .config/starship.toml
 
 dotfiles_files_binaries:
   - usr/bin/jt-gc.sh
@@ -69,10 +71,11 @@ dotfiles_files_binaries:
   - usr/bin/jt-gt.sh
   - usr/bin/jt-update-all.sh
   - usr/bin/jt-ocr-to-clipboard.sh
-  - usr/bin/jt-post-i3.sh  
+  - usr/bin/jt-post-i3.sh
+  - usr/bin/jt-clip-html-to-org.sh
   - .config/todotxt-cli/.todo.actions.d/edit
-  - .config/todotxt-cli/.todo.actions.d/pn  
-  
+  - .config/todotxt-cli/.todo.actions.d/pn
+
 # Optional location of dotfile overlay to override or add to existing dotfiles in this repository
 dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
 
@@ -106,14 +109,14 @@ rpm_repo_keys:
 dnf_installed_packages:
   ## Package Management
   - flatpak
-  ## System 
+  ## System
   ## Window Management
   - dmenu
   - rofi
   - keychain
   - copyq
 ### xmonad
-#  - xmobar  
+#  - xmobar
 #  - xmonad
 #  - ghc-xmonad-contrib-devel
 #  - xterm
@@ -136,7 +139,7 @@ dnf_installed_packages:
   - fd-find
   ## File Management
   ## Screenshot
-  - flameshot  
+  - flameshot
   ## File Synchronization
   - git
   - pass
@@ -171,8 +174,8 @@ dnf_installed_packages:
   - emacs
   - hunspell
   - hunspell-en-GB
-  - hunspell-en-US  
-  - hunspell-fr  
+  - hunspell-en-US
+  - hunspell-fr
   - ripgrep
   #### PlantUML
   - plantuml
@@ -196,14 +199,14 @@ dnf_installed_packages_gnome:
   - dconf-editor
   ### dconf packages needed for GNOME setting changes
   - dconf
-  - dbus  
+  - dbus
   ## Email
   - evolution
   - evolution-ews
   ## User Interface
   - gnome-tweaks
   - gnome-extensions-app
-  
+
 dnf_removed_packages:
   - cheese
   - rhythmbox
@@ -225,6 +228,6 @@ rust_installed_packages:
   - monolith
   - topgrade
   - sd
-  
+
 nix_installed_packages:
   - nixpkgs.iosevka

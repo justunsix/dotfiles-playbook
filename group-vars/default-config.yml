@@ -12,8 +12,8 @@ dotfiles_home: "~"
 
 dotfiles_directories:
   - "/home/{{ target_user }}/usr/bin"
-  - "/home/{{ target_user }}/Templates"    
-  - "/home/{{ target_user }}/.config/fish"    
+  - "/home/{{ target_user }}/Templates"
+  - "/home/{{ target_user }}/.config/fish"
   - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.local/share/applications"
   - "/home/{{ target_user }}/.config/hunspell"
@@ -45,6 +45,7 @@ dotfiles_files:
   - usr/bin/jt-update-all.sh
   - usr/bin/jt-ocr-to-clipboard.sh
   - usr/bin/jt-post-i3.sh
+  - usr/bin/jt-clip-html-to-org.sh
   - .config/Code/User/settings.json
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
   - .config/copyq/copyq.conf
@@ -78,9 +79,10 @@ dotfiles_files_binaries:
   - usr/bin/jt-update-all.sh
   - usr/bin/jt-ocr-to-clipboard.sh
   - usr/bin/jt-post-i3.sh
+  - usr/bin/jt-clip-html-to-org.sh
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
-  
+
 # Optional location of dotfile overlay to override or add to existing dotfiles in this repository
 dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
 
@@ -115,7 +117,7 @@ git_repositories_external:
 git_repositories_haskell:
   - git@github.com:xmonad/xmonad.git
   - git@github.com:xmonad/xmonad-contrib.git
-  
+
 apt_ppa_repositories:
   # - ppa:christian-boxdoerfer/fsearch-stable
   # - ppa:thopiekar/openrgb
@@ -183,7 +185,7 @@ apt_installed_packages:
   - i3
   - dmenu
   - rofi
-  - lxappearance  
+  - lxappearance
   - copyq
   - redshift
   ### System - Language
@@ -281,7 +283,7 @@ rust_installed_packages:
   - sd
   - cargo-update
   # - alacritty install on Ubuntu using snap
-  
+
 deb_get_installed_packages:
   ## Devops Editors
   - code
@@ -321,7 +323,7 @@ snap_installed_packages:
 
 snap_installed_packages_classic:
   - alacritty
-  
+
 snap_installed_packages_devops:
   - kubectl
   - pycharm-community
