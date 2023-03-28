@@ -39,6 +39,8 @@ dotfiles_files:
   - .local/share/applications/firefox-flatpak.desktop
   - .local/share/applications/fluent-reader.desktop
   - .local/share/applications/vlc-playlist.desktop
+  - .local/share/applications/clipboard-html-to-org.desktop
+  - .local/share/applications/screenshot-ocr.desktop
   - usr/bin/jt-gc.sh
   - usr/bin/jt-gs.sh
   - usr/bin/jt-gt.sh
