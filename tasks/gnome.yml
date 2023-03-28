@@ -34,6 +34,7 @@
     - { key: "/org/gnome/desktop/input-sources/sources", value: "[('xkb', 'us+alt-intl'), ('xkb', 'us')]" }
     # GNOME Custom Keybindings
     ## binding for rofi
+    - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings", value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"}
     - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command", value: "'rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3'"}
     - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name", value: "'rofi'"}
     - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding", value: "'<Alt>F3'"}
