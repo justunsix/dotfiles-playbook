@@ -50,7 +50,6 @@ dotfiles_files:
   - usr/bin/jt-clip-html-to-org.sh
 # Manage VS Code Settings manually due to possible sensitive settings
 #  - .config/Code/User/settings.json  
-  - .config/Code/User/settings.json
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
   - .config/copyq/copyq.conf
   - .config/copyq/copyq-commands.ini
