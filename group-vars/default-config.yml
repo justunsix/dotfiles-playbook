@@ -49,7 +49,7 @@ dotfiles_files:
   - usr/bin/jt-post-i3.sh
   - usr/bin/jt-clip-html-to-org.sh
 # Manage VS Code Settings manually due to possible sensitive settings
-#  - .config/Code/User/settings.json  
+#  - .config/Code/User/settings.json
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
   - .config/copyq/copyq.conf
   - .config/copyq/copyq-commands.ini
@@ -59,6 +59,14 @@ dotfiles_files:
   - .config/emacs/setup/minimal.el
   - .config/emacs/setup/other.el
   - .config/emacs/setup/variables.el
+  - .config/emacs/setup/jt-emacs-org.el
+  - .config/emacs/setup/jt-emacs-ai.el
+  - .config/emacs/setup/jt-emacs-ui.el
+  - .config/emacs/setup/jt-emacs-languages.el
+  - .config/emacs/setup/jt-emacs-terminal.el
+  - .config/emacs/setup/jt-emacs-spelling.el
+  - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
+  - .config/emacs/setup/jt-emacs-dired.el
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/i3/config
