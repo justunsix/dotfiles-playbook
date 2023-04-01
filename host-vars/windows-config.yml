@@ -1,4 +1,5 @@
 # Basic authentication
+# Change to same name as Windows user
 ansible_user: user
 # Using ask-pass
 # ansible_password: Password

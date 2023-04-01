@@ -22,7 +22,7 @@
     import_tasks: tasks/windows/choco.yml
     tags: ['choco', 'workstation-windows', 'package']
 
-  - Import_tasks: tasks/windows/dotfiles-windows.yml
+  - import_tasks: tasks/windows/dotfiles-windows.yml
     tags: ['workstation-windows', 'dotfiles']
 
   - import_tasks: tasks/windows/emacs-windows.yml
