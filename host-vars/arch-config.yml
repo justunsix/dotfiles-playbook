@@ -27,10 +27,10 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
 
 dotfiles_files:
-#  - .bashrc
-#  - .bash_aliases
+  - .bashrc
+  - .bash_aliases
   - .Xresources
-  - .xinit.rc
+  - .xinitrc
   - .bash_profile
   - .gitconfig
   - .inputrc
