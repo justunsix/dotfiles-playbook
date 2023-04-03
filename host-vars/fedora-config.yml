@@ -232,7 +232,7 @@ rust_installed_packages:
   - procs
   - bottom
   - zoxide
-  - broot
+#  - broot
   - monolith
   - topgrade
   - sd

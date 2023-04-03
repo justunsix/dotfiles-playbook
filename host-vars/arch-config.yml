@@ -147,6 +147,7 @@ pacman_installed_packages:
   - fd
   - xclip
   ## File Management
+  - ranger
   ## Sound
   - alsa-utils
   - pulseaudio

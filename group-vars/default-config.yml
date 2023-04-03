@@ -288,7 +288,7 @@ rust_installed_packages:
   - procs
   - bottom
   - zoxide
-  - broot
+#  - broot
   - monolith
   - topgrade
   - sd
@@ -303,6 +303,7 @@ deb_get_installed_packages:
   # Hardware
   - openrgb
   ## File Management
+  - ranger
   ### Peazip will use KDE modules and get them
   - peazip
   - fsearch
@@ -333,7 +334,7 @@ snap_installed_packages:
   - vlc
 
 snap_installed_packages_classic:
-  - alacritty
+#  - alacritty
 
 snap_installed_packages_devops:
   - kubectl
