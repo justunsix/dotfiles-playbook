@@ -1,5 +1,9 @@
 # From https://gist.github.com/zeitounator/fe7bca472f1cb649d91b6bc3794626a9 and
 # https://stackoverflow.com/questions/67951832/ansible-importing-gpg-keys-from-rpm-fusion-not-working
+- name: Run the equivalent of "pacman -Sy" as a separate step
+  community.general.pacman:
+    update_cache: true
+
 - name: pacman - Update listing and install packages
   community.general.pacman:
     name: "{{ item }}"
@@ -7,10 +11,10 @@
   loop: "{{ pacman_installed_packages }}"
   tags: ['pacman', 'workstation-arch', 'package']
 
-- name: yay - Update listing and install packages
-  community.general.pacman:
-    name: "{{ item }}"
-    state: present
-    executable: yay
-  loop: "{{ yay_installed_packages }}"
-  tags: ['pacman', 'workstation-arch', 'package']
+#- name: yay - Update listing and install packages
+#  community.general.pacman:
+#    name: "{{ item }}"
+#    state: present
+#    executable: yay
+#  loop: "{{ yay_installed_packages }}"
+#  tags: ['pacman', 'workstation-arch', 'package']
