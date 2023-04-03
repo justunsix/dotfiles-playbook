@@ -177,7 +177,6 @@ pacman_installed_packages:
   # - gimp
   ## DevOps Editors
 #  - code
-  - emacs
   - vim
   ### Emacs and Support
   - emacs
