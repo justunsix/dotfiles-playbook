@@ -145,6 +145,7 @@ pacman_installed_packages:
   - bat
   - fzf
   - fd
+  - xclip
   ## File Management
   ## Sound
   - alsa-utils
@@ -165,9 +166,9 @@ pacman_installed_packages:
   ## Office
 #  - libreoffice
   ## Optical Character Recognition (OCR)
-#  - tesseract
-#  - tesseract-langpack-eng
-#  - tesseract-langpack-fra
+  - tesseract
+  - tesseract-data-eng
+  - tesseract-data-fra
   # - gimagereader
   ## Key Bindings
   # - input-remapper
