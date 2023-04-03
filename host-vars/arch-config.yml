@@ -199,3 +199,7 @@ pacman_installed_packages:
 #  - openssl-devel
   ## DevOps Support
   - pandoc
+
+yay_installed_packages:
+  - topgrade-bin
+  - peazip-gtk2-bin
