@@ -182,8 +182,8 @@ pacman_installed_packages:
   ### Emacs and Support
   - emacs
   - hunspell
-  - hunspell-en-gb
-  - hunspell-en-us
+  - hunspell-en_gb
+  - hunspell-en_us
   - hunspell-fr
   - ripgrep
   #### PlantUML
