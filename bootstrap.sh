@@ -245,6 +245,6 @@ else
 	fi
 
 	if [ "$isArch" = "true" ]; then
-		ansible-playbook --diff "$DOTFILES/arch.yml" --ask-become-pass -v --tags 'workstation-arch'
+		ansible-playbook --diff "$DOTFILES/arch.yml" --ask-become-pass -v --tags 'pacman','nix','repos','emacs','dotfiles'
 	fi
 fi

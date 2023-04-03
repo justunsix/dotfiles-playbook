@@ -26,7 +26,7 @@
 
 - name: Set up nix packages
   import_tasks: tasks/nix.yml
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-fedora', 'workstation-arch']
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-fedora']
 
 - name: Set up pip packages
   import_tasks: tasks/pip.yml
