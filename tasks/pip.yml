@@ -1,11 +1,11 @@
 # Refresh and Upgrade all packages installed by pip
 - name: pip - Upgrade all packages
   ansible.builtin.pip:
-    name: 
+    name:
       - ansible
       - pip
       - tldr
     state: latest
-  tags: ['workstation-ubuntu', 'apt', 'pip', 'package', 'devops-b']
+  tags: ['workstation-ubuntu', 'apt', 'pip', 'package', 'devops-b', 'workstation-arch']
   become: true
   become_user: "{{ target_user }}"

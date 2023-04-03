@@ -29,6 +29,8 @@ dotfiles_directories:
 dotfiles_files:
 #  - .bashrc
 #  - .bash_aliases
+  - .Xresources
+  - .xinit.rc
   - .bash_profile
   - .gitconfig
   - .inputrc
