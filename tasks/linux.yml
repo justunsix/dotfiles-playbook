@@ -5,28 +5,33 @@
   when: ansible_distribution == "Ubuntu"
 
 - name: Set up apt packages
-  import_tasks: tasks/ubuntu/apt.yml 
+  import_tasks: tasks/ubuntu/apt.yml
   tags: ['workstation-ubuntu', 'apt', 'package', 'laptop-ubuntu']
   when: ansible_distribution == "Ubuntu"
-  
+
 - name: Set up deb-get packages
   import_tasks: tasks/ubuntu/deb-get.yml
   tags: ['workstation-ubuntu', 'deb-get', 'package', 'laptop-ubuntu']
   when: ansible_distribution == "Ubuntu"
-  
+
 - name: Set up dnf packages
   import_tasks: tasks/fedora/dnf.yml
   tags: ['workstation-fedora', 'dnf', 'package']
   when: ansible_distribution == "Fedora"
-  
+
+- name: Set up pacman packages
+  import_tasks: tasks/arch/pacman.yml
+	tags: ['workstation-arch', 'pacman', 'package']
+	when: ansible_distribution == "Archlinux"
+
 - name: Set up nix packages
-  import_tasks: tasks/nix.yml 
+  import_tasks: tasks/nix.yml
   tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-fedora']
-     
+
 - name: Set up pip packages
   import_tasks: tasks/pip.yml
   tags: ['workstation-ubuntu', 'pip', 'package', 'laptop-ubuntu', 'workstation-fedora']
-  
+
 - name: Set up flatpaks
   import_tasks: tasks/flatpak.yml
   tags: ['workstation-ubuntu', 'flatpak', 'package', 'workstation-fedora']
@@ -34,19 +39,19 @@
 - name: Set up Rust packages
   import_tasks: tasks/rust.yml
   tags: ['workstation-ubuntu', 'rust', 'package', 'laptop-ubuntu', 'workstation-fedora']
-  
+
 - name: Set up DevOps packages
   import_tasks: tasks/ubuntu/devops-b.yml
   tags: ['workstation-ubuntu', 'devops-b', 'laptop-ubuntu']
-  when: configure_devops_b and ansible_distribution == "Ubuntu"  
+  when: configure_devops_b and ansible_distribution == "Ubuntu"
 
 - name: Set up extra optional packages
   import_tasks: tasks/ubuntu/extras.yml
   tags: ['workstation-ubuntu', 'extras', 'laptop-ubuntu']
-  when: configure_extras and ansible_distribution == "Ubuntu"    
+  when: configure_extras and ansible_distribution == "Ubuntu"
 
 - name: Configure Gnome settings
-  import_tasks: tasks/gnome.yml 
+  import_tasks: tasks/gnome.yml
   tags: ['workstation-ubuntu', 'gnome', 'desktop', 'workstation-fedora']
   when: configure_gnome
 
@@ -59,12 +64,12 @@
   import_tasks: tasks/fedora/other.yml
   tags: ["workstation-fedora", "other"]
   when: ansible_distribution == "Fedora"
-  
+
 - name: Synchronize git repositories
   import_tasks: tasks/repos.yml
   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'repos', 'workstation-fedora']
   when: configure_repos
-      
+
 - name: Set up Emacs
   import_tasks: tasks/emacs.yml
   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'emacs', 'workstation-fedora']
@@ -74,7 +79,7 @@
   import_tasks: tasks/dotfiles.yml
   when: configure_dotfiles
   tags: ['workstation-ubuntu', 'workstation-fedora', 'laptop-ubuntu', 'dotfiles']
-  
+
 - name: Set up fonts
   import_tasks: tasks/fonts.yml
   when: configure_dotfiles
@@ -85,10 +90,10 @@
   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node', 'workstation-fedora']
   when: configure_emacs
 
-# Use distribution package managers instead      
+# Use distribution package managers instead
 #    - import_tasks: tasks/haskell.yml
 #      tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']
-      
+
 #    - block:
 #        - name: Run configured post-provision ansible task files.
 #          include_tasks: "{{ outer_item }}"
@@ -96,4 +101,3 @@
 #            loop_var: outer_item
 #          with_fileglob: "{{ post_provision_tasks|default(omit) }}"
 #      tags: ['post']
-

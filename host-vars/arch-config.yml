@@ -1,0 +1,200 @@
+# Variables for playbooks
+
+downloads: ~/.ansible-downloads/
+
+# Location of this repository
+dotfiles_repo: "git@github.com:justunsix/dotfiles.git"
+dotfiles_repo_version: "main"
+dotfiles_repo_accept_hostkey: false
+dotfiles_repo_local_destination: "~/Code/dotfiles"
+
+dotfiles_home: "~"
+
+dotfiles_directories:
+  - "/home/{{ target_user }}/usr/bin"
+#  - "/home/{{ target_user }}/Templates"
+  - "/home/{{ target_user }}/.config/fish"
+  - "/home/{{ target_user }}/.config/hunspell"
+  - "/home/{{ target_user }}/.local/share/applications"
+#  - "/home/{{ target_user }}/.config/cool-retro-term"
+  - "/home/{{ target_user }}/.config/i3"
+  - "/home/{{ target_user }}/.config/i3status"
+  - "/home/{{ target_user }}/.config/rofi"
+  - "/home/{{ target_user }}/.config/copyq"
+  - "/home/{{ target_user }}/.config/dunst"
+  - "/home/{{ target_user }}/.config/todotxt-cli"
+  - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
+  - "/home/{{ target_user }}/.config/fontconfig/conf.d"
+
+dotfiles_files:
+#  - .bashrc
+#  - .bash_aliases
+  - .bash_profile
+  - .gitconfig
+  - .inputrc
+#  - Templates/New-Text-Document.txt
+  - .local/share/applications/clipboard-html-to-org.desktop
+  - .local/share/applications/screenshot-ocr.desktop
+  - usr/bin/jt-gc.sh
+  - usr/bin/jt-gs.sh
+  - usr/bin/jt-gt.sh
+  - usr/bin/jt-update-all.sh
+  - usr/bin/jt-post-i3.sh
+  - usr/bin/jt-ocr-to-clipboard.sh
+  - usr/bin/jt-clip-html-to-org.sh
+  - .config/copyq/copyq.conf
+  - .config/copyq/copyq-commands.ini
+  - .config/dunst/dunstrc
+  - .config/emacs/init.el
+  - .config/emacs/setup/extras.el
+  - .config/emacs/setup/minimal.el
+  - .config/emacs/setup/other.el
+  - .config/emacs/setup/variables.el
+  - .config/emacs/setup/jt-emacs-org.el
+  - .config/emacs/setup/jt-emacs-ai.el
+  - .config/emacs/setup/jt-emacs-ui.el
+  - .config/emacs/setup/jt-emacs-languages.el
+  - .config/emacs/setup/jt-emacs-terminal.el
+  - .config/emacs/setup/jt-emacs-spelling.el
+  - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
+  - .config/emacs/setup/jt-emacs-dired.el
+  - .config/fish/config.fish
+#  - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
+  - .config/i3/config
+  - .config/i3status/config
+  - .config/rofi/config.rasi
+  - .config/todotxt-cli/todo.cfg
+  - .config/todotxt-cli/todo-work.cfg
+  - .config/todotxt-cli/.todo.actions.d/edit
+  - .config/todotxt-cli/.todo.actions.d/pn
+  - .config/kdeglobals
+  - .config/starship.toml
+
+dotfiles_files_binaries:
+  - usr/bin/jt-gc.sh
+  - usr/bin/jt-gs.sh
+  - usr/bin/jt-gt.sh
+  - usr/bin/jt-update-all.sh
+  - usr/bin/jt-ocr-to-clipboard.sh
+  - usr/bin/jt-post-i3.sh
+  - usr/bin/jt-clip-html-to-org.sh
+  - .config/todotxt-cli/.todo.actions.d/edit
+  - .config/todotxt-cli/.todo.actions.d/pn
+
+# Optional location of dotfile overlay to override or add to existing dotfiles in this repository
+dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
+
+# Whether to configure certain build items
+configure_dotfiles: true
+configure_emacs: true
+configure_devops_b: false
+configure_extras: false
+configure_repos: false
+configure_mpv: false
+configure_gnome: false
+
+# User for which set up is being done for
+# Override with your user name
+target_user: user
+
+# Other people's Git Repositories to be cloned, synchronized
+git_repositories_external:
+  # defaults
+  - git@github.com:todotxt/todo.txt-cli.git
+
+pacman_installed_packages:
+  ## Package Management
+  - reflector
+  ## System
+  ### X11
+  - xorg
+  - xorg-xinit
+  - i3
+  - numlockx
+  - lightdm
+  - lightdm-gtk-greeter
+  ## Window Management
+  - dmenu
+  - rofi
+  - keychain
+  - copyq
+  ## Web
+  - firefox
+  - firefox-tridactyl
+  ## Fonts, Codes
+  - noto-fonts
+  - ttf-ubuntu-font-family
+  - ttf-dejavu
+  - ttf-freefont
+  - ttf-liberation
+  - ttf-droid
+  - ttf-inconsolata
+  - ttf-roboto
+  - terminus-font
+  - ttf-font-awesome
+  ## Shell support
+  - fish
+  - starship
+  - bat
+  - fzf
+  - fd
+  ## File Management
+  ## Sound
+  - alsa-utils
+  - pulseaudio
+  - pulseaudio-alsa
+  - pavucontrol
+  ## Screenshot
+  - flameshot
+  ## File Synchronization
+  - git
+  - stow
+  - rsync
+  # Terminal
+  - rxvt-unicode
+  - urxvt-perls
+  - perl-anyevent-i3
+  - perl-json-xs
+  ## Office
+#  - libreoffice
+  ## Optical Character Recognition (OCR)
+#  - tesseract
+#  - tesseract-langpack-eng
+#  - tesseract-langpack-fra
+  # - gimagereader
+  ## Key Bindings
+  # - input-remapper
+  ## Hardware
+  ## Security
+  - keepassxc
+  ## System
+  - htop
+#  - bleachbit
+  ### System - Language
+  ## Media, Sound, Video
+  - pavucontrol
+  - mpv
+  # - gimp
+  ## DevOps Editors
+#  - code
+  - emacs
+  - vim
+  ### Emacs and Support
+  - emacs
+  - hunspell
+  - hunspell-en-gb
+  - hunspell-en-us
+  - hunspell-fr
+  - ripgrep
+  #### PlantUML
+#  - plantuml
+  ## DevOps Languages
+  - python
+  - python-pip
+  - nodejs
+  - npm
+  ### Rust
+  #### openssl-devel required for cargo-update
+#  - openssl-devel
+  ## DevOps Support
+  - pandoc

@@ -1,0 +1,8 @@
+# From https://gist.github.com/zeitounator/fe7bca472f1cb649d91b6bc3794626a9 and
+# https://stackoverflow.com/questions/67951832/ansible-importing-gpg-keys-from-rpm-fusion-not-working
+- name: pacman - Update listing and install packages
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ pacman_installed_packages }}"
+  tags: ['pacman', 'workstation-arch', 'package']

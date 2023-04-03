@@ -21,6 +21,7 @@ DOTSSH="$HOME/.ssh"
 isUbuntu="false"
 isFedora="false"
 isWSLUbuntu="false"
+isArch="false"
 
 # Restart shell flag
 restartShell="false"
@@ -45,8 +46,13 @@ if [ -f /etc/fedora-release ]; then
 	isFedora="true"
 fi
 
-# If Linux distribution is not Ubuntu or Fedora, exit
-if [ "$isUbuntu" = "false" ] && [ "$isFedora" = "false" ] && [ "$isWSLUbuntu" = "false" ]; then
+# If Linux distribution is Arch, set isArch variable to "true"
+if [ -f /etc/arch-release ]; then
+	isArch="true"
+fi
+
+# If Linux distribution supported distributions, exit
+if [ "$isUbuntu" = "false" ] && [ "$isFedora" = "false" ] && [ "$isWSLUbuntu" = "false" ] && [ "$isArch" = "false"  ]; then
 	echo "This Linux distribution is not supported by this script."
 	exit 1
 fi
@@ -58,7 +64,7 @@ fi
 install_ansible() {
 
 	# Check if Ansible if installed
-	# If Ansible is not installed, install it, assumes python3 is installed already
+	# If Ansible is not installed, install it, assumes python3/python is installed already
 	# per https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 	# as of 2023-03-25
 	if ! [ -x "$(command -v ansible)" ]; then
@@ -77,19 +83,25 @@ install_ansible() {
 			python3 -m pip install --user pywinrm
 		fi
 
-		python3 -m pip install --user ansible
+		if [ "$isArch" = "true" ]; then
+				sudo pacman -S --noconfirm python python-pip
+				python -m pip install --user ansible
+		fi
 
-		restartShell="true"
+		# if not Arch, install ansible using python3
+		if [ "$isArch" = "false" ]; then
+				python3 -m pip install --user ansible
+		fi
+
+   	restartShell="true"
 
 	fi
 
 }
 
-# Installs commands that the Ansible playbook needs
-# or software that is easier to install in command line
-install_prequisites() {
+# Install software that is easier to install in command line
+install_software_command_line() {
 
-  install_ansible
 
 	# Check if Starship is installed
 	if ! [ -x "$(command -v starship)" ]; then
@@ -142,6 +154,18 @@ install_prequisites() {
 		# as of 2023-02-20
 		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 		restartShell="true"
+	fi
+
+}
+
+# Installs commands that the Ansible playbook needs
+install_prequisites() {
+
+  install_ansible
+
+	# Install software from command line except for Arch
+  if [ "$isArch" = "false" ]; then
+			install_software_command_line
 	fi
 
 	# if restartShell is true, tell user to restart shell and exit script
@@ -217,5 +241,9 @@ else
 
 	if [ "$isWSLUbuntu" = "true" ]; then
 		ansible-playbook --diff "$DOTFILES/windows.yml" --ask-pass -v
+	fi
+
+	if [ "$isArch" = "true" ]; then
+		ansible-playbook --diff "$DOTFILES/arch.yml" --ask-become-pass -v
 	fi
 fi
