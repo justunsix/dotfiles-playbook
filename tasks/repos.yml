@@ -13,7 +13,7 @@
   with_items: "{{ git_repositories }}"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu','repos', 'repos-personal']
+  tags: ['workstation-ubuntu','repos', 'repos-personal', 'workstation-arch']
   ignore_errors: yes
 
 - name: Git - Create directory ~/Code/External
@@ -25,7 +25,7 @@
     mode: 0755
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu','repos', 'repos-external']
+  tags: ['workstation-ubuntu','repos', 'repos-external', 'workstation-arch']
 
 - name: Git - Sychronize other external repositories
   ansible.builtin.git:
@@ -35,5 +35,5 @@
   with_items: "{{ git_repositories_external }}"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu','repos', 'repos-external']
-  ignore_errors: yes  
+  tags: ['workstation-ubuntu','repos', 'repos-external', 'workstation-arch']
+  ignore_errors: yes
