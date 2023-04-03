@@ -1,10 +1,10 @@
 # Dotfiles-Playbook
 
-Ansible playbooks for Managing my Linux (Ubuntu, Fedora) and Windows Machines
+Ansible playbooks for Managing my Linux (Ubuntu, Fedora, Arch) and Windows Machines
 
 ## Prerequisites
 
-Works on Linux (Fedora, Ubuntu distributions) and Windows Subsystem for Linux (WSL2) Ubuntu.
+Works on Linux (Fedora, Ubuntu, Arch distributions) and Windows Subsystem for Linux (WSL2) Ubuntu.
 
 ## Usage
 
@@ -28,7 +28,7 @@ Run `bootstrap.sh`.
 - Make Ansible vars and tasks more flexible instead of hardcoding values with:
   - Use [`ansible.builtin.setup`](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/setup_module.html) settings
     - `Ansible_distribution` for conditionals on Fedora and Ubuntu playbook
-  - Build on `default_config.yaml` and override for Fedora
+  - Build on `default_config.yaml` and override for other Linux distributions
 - Set up [Ansible logging](https://docs.ansible.com/automation-controller/latest/html/administration/logging.html) to more easily read output outside the terminal
 
 ## License
