@@ -14,15 +14,15 @@
   tags: ['workstation-ubuntu', 'deb-get', 'package', 'laptop-ubuntu']
   when: ansible_distribution == "Ubuntu"
 
+- name: Set up pacman packages
+  import_tasks: tasks/arch/pacman.yml
+  tags: ['workstation-arch', 'pacman', 'package']
+  when: ansible_distribution == "Archlinux"
+
 - name: Set up dnf packages
   import_tasks: tasks/fedora/dnf.yml
   tags: ['workstation-fedora', 'dnf', 'package']
   when: ansible_distribution == "Fedora"
-
-- name: Set up pacman packages
-  import_tasks: tasks/arch/pacman.yml
-	tags: ['workstation-arch', 'pacman', 'package']
-	when: ansible_distribution == "Archlinux"
 
 - name: Set up nix packages
   import_tasks: tasks/nix.yml
@@ -30,7 +30,7 @@
 
 - name: Set up pip packages
   import_tasks: tasks/pip.yml
-  tags: ['workstation-ubuntu', 'pip', 'package', 'laptop-ubuntu', 'workstation-fedora']
+  tags: ['workstation-ubuntu', 'pip', 'package', 'laptop-ubuntu', 'workstation-fedora', 'workstation-arch']
 
 - name: Set up flatpaks
   import_tasks: tasks/flatpak.yml
@@ -72,13 +72,13 @@
 
 - name: Set up Emacs
   import_tasks: tasks/emacs.yml
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'emacs', 'workstation-fedora']
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'emacs', 'workstation-fedora', 'workstation-arch']
   when: configure_emacs
 
 - name: Set up and synchronize dotfiles
   import_tasks: tasks/dotfiles.yml
   when: configure_dotfiles
-  tags: ['workstation-ubuntu', 'workstation-fedora', 'laptop-ubuntu', 'dotfiles']
+  tags: ['workstation-ubuntu', 'workstation-fedora', 'laptop-ubuntu', 'dotfiles', 'workstation-arch']
 
 - name: Set up fonts
   import_tasks: tasks/fonts.yml
