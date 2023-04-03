@@ -126,26 +126,6 @@ install_software_command_line() {
 		fi
 	fi
 
-	if [[ "$isWSLUbuntu" = "false" ]]; then
-
-		# Check nix is installed
-		if ! [ -x "$(command -v nix-env)" ]; then
-			echo "Installing Nix..."
-			# Install Nix single user installation
-			# per https://nixos.wiki/wiki/Nix_Installation_Guide
-			# as of 2023-03-25
-			sudo install -d -m755 -o "$(id -u)" -g "$(id -g)" /nix
-			curl -L https://nixos.org/nix/install | sh
-
-			# Add Ansible and Nix bin to PATH
-			echo "export PATH=$PATH:$HOME/.nix-profile/bin/:$HOME/.local/bin" >>~/.bashrc
-			echo "source $HOME/.nix-profile/etc/profile.d/nix.sh" >>~/.bashrc
-
-			restartShell="true"
-		fi
-
-	fi
-
 	# Check rustup is installed
 	if ! [ -x "$(command -v rustup)" ]; then
 		echo "Installing Rustup..."
@@ -166,6 +146,27 @@ install_prequisites() {
 	# Install software from command line except for Arch
   if [ "$isArch" = "false" ]; then
 			install_software_command_line
+	fi
+
+	# Install Nix
+	if [[ "$isWSLUbuntu" = "false" ]]; then
+
+		# Check nix is installed
+		if ! [ -x "$(command -v nix-env)" ]; then
+			echo "Installing Nix..."
+			# Install Nix single user installation
+			# per https://nixos.wiki/wiki/Nix_Installation_Guide
+			# as of 2023-03-25
+			sudo install -d -m755 -o "$(id -u)" -g "$(id -g)" /nix
+			curl -L https://nixos.org/nix/install | sh
+
+			# Add Ansible and Nix bin to PATH
+			echo "export PATH=$PATH:$HOME/.nix-profile/bin/:$HOME/.local/bin" >>~/.bashrc
+			echo "source $HOME/.nix-profile/etc/profile.d/nix.sh" >>~/.bashrc
+
+			restartShell="true"
+		fi
+
 	fi
 
 	# if restartShell is true, tell user to restart shell and exit script

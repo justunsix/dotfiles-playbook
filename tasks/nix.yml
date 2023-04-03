@@ -3,14 +3,14 @@
   ansible.builtin.stat:
     path: /home/{{ target_user }}/.nix-profile/bin/nix
   register: nix_installed
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu']
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch']
 
 # Update Nix
 - name: Nix - Update Nix
   ansible.builtin.command: "nix-channel --update"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu']
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch']
   when: nix_installed.stat.exists
 
 # Upgrade all Nix packages
@@ -18,21 +18,21 @@
   ansible.builtin.command: "nix-env -u"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu']
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch']
   when: nix_installed.stat.exists
-  
+
 # Install Nix packages defined in installed_nix_packages
 - name: Nix - Install Nix packages
   ansible.builtin.command: "nix-env -iA {{ item }}"
   become: true
   become_user: "{{ target_user }}"
   loop: "{{ nix_installed_packages }}"
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu']
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch']
   register: nixenvia_result
   changed_when: "'copying' in nixenvia_result.stdout"
   failed_when: "'error' in nixenvia_result.stdout"
   when: nix_installed.stat.exists
-  
+
 # Garbage collect old packages
 # - name: Nix - Garbage collect old packages
 #  ansible.builtin.command: "nix-collect-garbage -d"

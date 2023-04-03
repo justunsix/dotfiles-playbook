@@ -206,6 +206,6 @@ pacman_installed_packages:
   ## DevOps Support
   - pandoc
 
-yay_installed_packages:
-  - topgrade-bin
-  - peazip-gtk2-bin
+nix_installed_packages:
+  - nixpkgs.gnome.file-roller
+  - nixpkgs.topgrade
