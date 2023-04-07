@@ -22,6 +22,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/cool-retro-term"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
+  - "/home/{{ target_user }}/.config/nvim"
   - "/home/{{ target_user }}/.config/rofi"
   - "/home/{{ target_user }}/.config/copyq"
   - "/home/{{ target_user }}/.config/dunst"
@@ -75,6 +76,7 @@ dotfiles_files:
   - .config/mpv/mpv.conf
   - .config/mpv/scripts/autoload.lua
   - .config/mpv/script-opts/osc.conf
+  - .config/nvim/init.lua
   - .config/rofi/config.rasi
   - .config/todotxt-cli/todo.cfg
   - .config/todotxt-cli/todo-work.cfg
@@ -353,3 +355,4 @@ nix_installed_packages:
   - nixpkgs.source-code-pro
   # even though installed by apt, require for program like exa
   - nixpkgs.fira-code
+  - nixpkgs.neovim
