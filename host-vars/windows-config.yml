@@ -22,7 +22,8 @@ chocolatey_installed_packages:
   ## Package Management
   - chocolatey
   ## System
-  - microsoft-windows-terminal
+  ### Manage terminal using Windows store/winget instead
+  ###- microsoft-windows-terminal
   - autohotkey
   - ccleaner
   ## OCR
@@ -57,7 +58,6 @@ chocolatey_installed_packages:
   ## DevOps
   - cygwin
   - vscode
-  - microsoft-windows-terminal
   ### Emacs
   - emacs
   - ripgrep
