@@ -18,3 +18,31 @@
 #    executable: yay
 #  loop: "{{ yay_installed_packages }}"
 #  tags: ['pacman', 'workstation-arch', 'package']
+
+# pacman settings
+# credit to: https://github.com/DoTheEvo/ansible-arch
+# settings per: [GUIDE] How to install Arch Linux! https://youtu.be/5y09CR6iCf0?t=818
+
+- name: pacman - enable color
+  lineinfile:
+    path: /etc/pacman.conf
+    regexp: '^#Color$'
+    line: 'Color'
+
+- name: pacman - enable ParallelDownloads = 5
+  lineinfile:
+    path: /etc/pacman.conf
+    regexp: '#ParallelDownloads = 5'
+    line: 'ParallelDownloads = 5'
+
+- name: pacman - enable multilib
+  lineinfile:
+    path: /etc/pacman.conf
+    regexp: '#[multilib]'
+    line: '[multilib]'
+
+- name: pacman - enable multilib
+  lineinfile:
+    path: /etc/pacman.conf
+    regexp: '#Include = /etc/pacman.d/mirrorlist'
+    line: 'Include = /etc/pacman.d/mirrorlist'
