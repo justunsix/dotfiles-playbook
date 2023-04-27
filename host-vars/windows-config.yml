@@ -1,6 +1,6 @@
 # Basic authentication
 # Change to same name as Windows user
-ansible_user: user
+ansible_user: justi
 # Using ask-pass
 # ansible_password: Password
 ansible_connection: winrm
