@@ -68,14 +68,16 @@ chocolatey_installed_packages:
 chocolatey_installed_packages_work:
   ## VM
   - virtualbox
-  ## Graphics
+  ## Graphics and Media
   - inkscape
   - gimp
+  - obs-studio
   ## DevOps
   - azure-cli
   - python
   - maven
   - mremoteng
+  - terraform
   ## Documents
   - pdfxchangeeditor
 
