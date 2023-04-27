@@ -9,17 +9,23 @@
     - "C:/Users/{{ target_user }}/usr/bin"
     - "C:/Hunspell"
 
-- name: dotfiles - Sync user binaries, Hunspell dictionaries
+- name: dotfiles - Sync user binaries, Hunspell dictionary folder
   ansible.windows.win_copy:
     # src with "/"" only copies files in src directory to dest directory
     # use src without "/" to copy directory itself
     src: "{{ item.src }}" 
     dest: "{{ item.dest }}"
   tags: ['dotfiles']
-  loop:
-    - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "C:/Users/{{ target_user }}/usr/bin" }
-    - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
+  loop: "{{ dotfiles_items }}"
 
+- name: dotfiles - Sync Hunspell dictionaries with Libreoffice dictionaries on Windows
+  ansible.windows.win_copy:
+    src: "{{ item.src }}" 
+    dest: "{{ item.dest }}"
+    remote_src: yes
+  tags: ['dotfiles']
+  loop: "{{ hunspell_dictionaries }}"
+    
 - name: dotfiles - directory to PATH if it does not exist already
   ansible.windows.win_path:
     name: PATH

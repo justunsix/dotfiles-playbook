@@ -85,3 +85,25 @@ chocolatey_installed_packages_extras:
   ## Games
   - steam
   - ubisoft-connect
+
+# Default dictionary directories installed by chocolately
+hunspell_dict_en_dir: "C:\\Program Files\\LibreOffice\\share\\extensions\\dict-en"
+hunspell_dict_fr_dir: "C:\\Program Files\\LibreOffice\\share\\extensions\\dict-fr"
+
+dotfiles_items: 
+    - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "C:/Users/{{ target_user }}/usr/bin" }
+    - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
+
+hunspell_dictionaries:
+    - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_AU.dic", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_CA.aff", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_CA.dic", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_GB.aff", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_GB.dic", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_US.aff", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_US.dic", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_ZA.aff", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_en_dir }}\\en_ZA.dic", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_fr_dir }}\\fr.aff", dest: 'C:/Hunspell' }
+    - { src: "{{ hunspell_dict_fr_dir }}\\fr.dic", dest: 'C:/Hunspell' }
