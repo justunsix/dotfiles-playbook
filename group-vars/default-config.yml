@@ -356,4 +356,4 @@ nix_installed_packages:
   # even though installed by apt, require for program like exa
   - nixpkgs.fira-code
   - nixpkgs.neovim
-	- nixpkgs.img2pdf
+  - nixpkgs.img2pdf
