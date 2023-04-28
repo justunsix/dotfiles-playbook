@@ -57,3 +57,11 @@
     src: "{{ dotfiles_repo_local_destination }}/.config/mpv/"
     dest: C:\Users\{{ target_user }}\AppData\Roaming\mpv
   tags: ['dotfiles']
+
+# Install PSReadline module from PSGallery
+- name: dotfiles - Add a PowerShell module
+  community.windows.win_psmodule:
+    name: PSReadline
+    repository: PSGallery
+    state: latest
+  tags: ['dotfiles', 'powershell']
