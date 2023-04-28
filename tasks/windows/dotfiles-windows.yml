@@ -47,8 +47,8 @@
     src: "{{ item.src }}" 
     dest: "{{ item.dest }}"
   loop:
-    - { src: "{{ dotfiles_repo_local_destination }}/other/Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1' }
-    - { src: "{{ dotfiles_repo_local_destination }}/other/Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1' }
+    - { src: "{{ dotfiles_repo_local_destination }}/other//WindowsPowerShell//Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1' }
+    - { src: "{{ dotfiles_repo_local_destination }}/other//PowerShell//Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1' }
   tags: ['dotfiles', 'powershell']
 
 # Put mpv config files to target user's %appdata%\mpv\
