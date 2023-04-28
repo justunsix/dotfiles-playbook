@@ -13,23 +13,23 @@
   ansible.windows.win_copy:
     # src with "/"" only copies files in src directory to dest directory
     # use src without "/" to copy directory itself
-    src: "{{ item.src }}" 
+    src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   tags: ['dotfiles']
   loop: "{{ dotfiles_items }}"
 
 - name: dotfiles - Sync Hunspell dictionaries with Libreoffice dictionaries on Windows
   ansible.windows.win_copy:
-    src: "{{ item.src }}" 
+    src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     remote_src: yes
   tags: ['dotfiles']
   loop: "{{ hunspell_dictionaries }}"
-    
+
 - name: dotfiles - directory to PATH if it does not exist already
   ansible.windows.win_path:
     name: PATH
-    elements: 
+    elements:
     - C:\Users\{{ target_user }}\usr\bin
     - C:\ProgramData\chocolatey\bin
     - C:\Program Files\Git\bin
@@ -44,7 +44,7 @@
 
 - name: dotfiles - Configure Powershell profiles for target user
   ansible.windows.win_copy:
-    src: "{{ item.src }}" 
+    src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   loop:
     - { src: "{{ dotfiles_repo_local_destination }}/other/Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1' }
@@ -78,9 +78,12 @@
   tags: ['dotfiles', 'powershell']
 
 # Install PSFzf module from PSGallery
-- name: dotfiles - Add a PowerShell module PSFzf
+- name: dotfiles - Add PowerShell modules
   community.windows.win_psmodule:
-    name: PSFzf
+    name: {{ item }}
     repository: PSGallery
     state: latest
+  loop:
+    - PSFzf
+    - CompletionPredictor
   tags: ['dotfiles', 'powershell']
