@@ -86,4 +86,6 @@
   loop:
     - PSFzf
     - CompletionPredictor
+    - Az.Accounts
+    - Az.Tools.Predictor
   tags: ['dotfiles', 'powershell']
