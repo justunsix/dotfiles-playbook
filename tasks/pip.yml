@@ -5,6 +5,8 @@
       - ansible
       - pip
       - tldr
+      # For Emacs Python
+      - python-lsp-server
     state: latest
   tags: ['workstation-ubuntu', 'apt', 'pip', 'package', 'devops-b', 'workstation-arch']
   become: true
