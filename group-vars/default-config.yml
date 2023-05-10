@@ -303,7 +303,7 @@ deb_get_installed_packages:
   # Office, Diagramming
   - draw.io
   # Hardware
-  - openrgb
+  # - openrgb
   ## File Management
   - ranger
   ### Peazip will use KDE modules and get them
