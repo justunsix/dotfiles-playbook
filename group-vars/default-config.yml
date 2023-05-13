@@ -68,6 +68,7 @@ dotfiles_files:
   - .config/emacs/setup/jt-emacs-spelling.el
   - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
   - .config/emacs/setup/jt-emacs-dired.el
+  - .config/emacs/snippets
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/i3/config

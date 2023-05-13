@@ -23,7 +23,7 @@
     mode: "0744"
   loop:
     - "~/.config/emacs"
-    - "~/.config/emacs/setup"    
+    - "~/.config/emacs/setup"
   tags: ['dotfiles', 'emacs']
   become: true
   become_user: "{{ target_user }}"
@@ -48,7 +48,5 @@
     group: "{{ target_user }}"
     mode: "0644"
   become: true
-  become_user: "{{ target_user }}"    
+  become_user: "{{ target_user }}"
   tags: ['dotfiles', 'emacs']
-    
-  
