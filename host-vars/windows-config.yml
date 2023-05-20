@@ -10,7 +10,7 @@ ansible_winrm_scheme: https
 ansible_port: 5986
 
 # Ignore self-signed certificate warnings
-ansible_winrm_server_cert_validation: ignore 
+ansible_winrm_server_cert_validation: ignore
 
 dotfiles_repo_local_destination: "~/Code/dotfiles"
 # Optional location of dotfile overlay to override or add to existing dotfiles in this repository
@@ -27,7 +27,7 @@ chocolatey_installed_packages:
   - autohotkey
   - ccleaner
   ## OCR
-  - capture2text  
+  - capture2text
   ## Shell
   - zoxide
   ### Prompt
@@ -45,10 +45,10 @@ chocolatey_installed_packages:
   ## Fonts
   - jetbrainsmono
   ## Office, Productivity
-  - libreoffice-fresh
+  # - libreoffice-fresh
   - peazip
   - plantuml
-  - drawio  
+  - drawio
   ## Media
   - vlc
   - mpv
@@ -92,7 +92,7 @@ chocolatey_installed_packages_extras:
 hunspell_dict_en_dir: "C:\\Program Files\\LibreOffice\\share\\extensions\\dict-en"
 hunspell_dict_fr_dir: "C:\\Program Files\\LibreOffice\\share\\extensions\\dict-fr"
 
-dotfiles_items: 
+dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "C:/Users/{{ target_user }}/usr/bin" }
     - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
 
