@@ -38,15 +38,10 @@ chocolatey_installed_packages:
   - jetbrainsmono
   # Security
   - veracrypt
-  - keepassxc
   ## DevOps
   - cygwin
-  - vscode
   ### Emacs
-  - emacs
-  - ripgrep
   - hunspell.portable
-  - pandoc
   - nodejs
 
 # For information, variable not used
@@ -68,6 +63,14 @@ chocolatey_installed_packages-migrated-to-scoop:
   ## Media
   - vlc
   - mpv  
+  ## Security
+  - keepassxc
+  ## DevOps
+  - vscode
+  ### Emacs
+  - emacs
+  - ripgrep  
+  - pandoc
 
 chocolatey_installed_packages_work:
   ## VM
@@ -120,6 +123,14 @@ scoop_installed_packages:
   ## Media
   - vlc
   - mpv  
+  ## Security
+  - keepassxc
+  ## DevOps
+  - vscode
+  ### Emacs
+  - emacs
+  - ripgrep
+  - pandoc
 
 # Default dictionary directories installed by chocolately
 libre_office_dir: "C:\\Users\\{{ target_user }}\\scoop\\apps\\libreoffice\\current\\LibreOffice"
