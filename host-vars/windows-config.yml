@@ -18,6 +18,8 @@ dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
 
 target_user: user
 
+target_user_home_dir: "C:/Users/{{ target_user }}"
+
 chocolatey_installed_packages:
   ## Package Management
   - chocolatey
@@ -120,8 +122,9 @@ scoop_installed_packages:
   - mpv  
 
 # Default dictionary directories installed by chocolately
-hunspell_dict_en_dir: "C:\\Program Files\\LibreOffice\\share\\extensions\\dict-en"
-hunspell_dict_fr_dir: "C:\\Program Files\\LibreOffice\\share\\extensions\\dict-fr"
+libre_office_dir: "C:\\Users\\{{ target_user }}\\scoop\\apps\\libreoffice\\current\\LibreOffice"
+hunspell_dict_en_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-en"
+hunspell_dict_fr_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-fr"
 
 dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "C:/Users/{{ target_user }}/usr/bin" }

@@ -6,7 +6,7 @@
     state: directory
   tags: ['dotfiles']
   loop:
-    - "C:/Users/{{ target_user }}/usr/bin"
+    - "{{ target_user_home_dir }}/usr/bin"
     - "C:/Hunspell"
 
 - name: dotfiles - Sync user binaries, Hunspell dictionary folder
@@ -80,7 +80,7 @@
 # Install PSFzf module from PSGallery
 - name: dotfiles - Add PowerShell modules
   community.windows.win_psmodule:
-    name: {{ item }}
+    name: "{{ item }}"
     repository: PSGallery
     state: latest
   loop:
