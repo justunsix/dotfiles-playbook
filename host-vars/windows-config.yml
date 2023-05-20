@@ -22,36 +22,18 @@ chocolatey_installed_packages:
   ## Package Management
   - chocolatey
   ## System
+  - autohotkey  
   ### Manage terminal using Windows store/winget instead
   ###- microsoft-windows-terminal
-  - autohotkey
   - ccleaner
-  ## OCR
-  - capture2text
-  ## Shell
-  - zoxide
-  ### Prompt
-  - starship
   ## File Management
   - git
   - git-credential-manager-for-windows
-  - fzf
-  - fd
   ### Python required for Ansible management
   - python3
-  ## Web
-  - firefox
   # - googlechrome
   ## Fonts
   - jetbrainsmono
-  ## Office, Productivity
-  # - libreoffice-fresh
-  - peazip
-  - plantuml
-  - drawio
-  ## Media
-  - vlc
-  - mpv
   # Security
   - veracrypt
   - keepassxc
@@ -64,6 +46,26 @@ chocolatey_installed_packages:
   - hunspell.portable
   - pandoc
   - nodejs
+
+# For information, variable not used
+chocolatey_installed_packages-migrated-to-scoop:  
+  ## Web
+  - firefox
+  ## OCR
+  - capture2text
+  ## Shell
+  - zoxide  
+  ## Office, Productivity
+  - libreoffice-fresh
+  - peazip
+  - plantuml
+  - drawio
+  ## File Management
+  - fzf
+  - fd
+  ## Media
+  - vlc
+  - mpv  
 
 chocolatey_installed_packages_work:
   ## VM
@@ -81,12 +83,41 @@ chocolatey_installed_packages_work:
   ## Documents
   - pdfxchangeeditor
 
+scoop_installed_packages_work:
+  ## Graphics and Media
+  - inkscape
+  - gimp
+
 chocolatey_installed_packages_extras:
   ## Communications
   - discord
   ## Games
   - steam
   - ubisoft-connect
+
+scoop_installed_packages:
+  # Media
+  - krita
+  - upscayl
+  ## Web
+  - firefox
+  ## OCR
+  - capture2text
+  ## Shell
+  - zoxide
+  ### Prompt
+  - starship  
+  ## Office, Productivity
+  - libreoffice
+  - peazip
+  - plantuml
+  - draw.io
+  ## File Management
+  - fzf
+  - fd
+  ## Media
+  - vlc
+  - mpv  
 
 # Default dictionary directories installed by chocolately
 hunspell_dict_en_dir: "C:\\Program Files\\LibreOffice\\share\\extensions\\dict-en"

@@ -22,6 +22,10 @@
     import_tasks: tasks/windows/choco.yml
     tags: ['choco', 'workstation-windows', 'package']
 
+  - name: Install scoop packages
+    import_tasks: tasks/windows/scoop.yml
+    tags: ['scoop', 'workstation-windows', 'package']
+
   - import_tasks: tasks/windows/dotfiles-windows.yml
     tags: ['workstation-windows', 'dotfiles']
 

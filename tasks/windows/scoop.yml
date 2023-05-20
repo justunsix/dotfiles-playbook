@@ -1,0 +1,12 @@
+- name: Add the extras bucket
+  community.windows.win_scoop_bucket:
+    name: extras
+    state: present
+
+- name: Install Scoop packages
+  community.windows.win_scoop:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ scoop_installed_packages }}"
+  tags: ['scoop', 'workstation-windows', 'package']
+

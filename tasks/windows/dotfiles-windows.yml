@@ -55,7 +55,7 @@
 - name: dotfiles - Configure mpv config files for target user
   ansible.windows.win_copy:
     src: "{{ dotfiles_repo_local_destination }}/.config/mpv/"
-    dest: C:\Users\{{ target_user }}\AppData\Roaming\mpv
+    dest: C:\Users\{{ target_user }}\scoop\apps\mpv\current\portable_config
   tags: ['dotfiles']
 
 # PSReadline requirements:
