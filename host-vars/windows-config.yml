@@ -48,6 +48,7 @@ chocolatey_installed_packages:
 chocolatey_installed_packages-migrated-to-scoop:  
   ## Web
   - firefox
+  - googlechrome  
   ## OCR
   - capture2text
   ## Shell
@@ -94,8 +95,6 @@ scoop_installed_packages_work:
   - gimp
 
 chocolatey_installed_packages_extras:
-  ## Communications
-  - discord
   ## Games
   - steam
   - ubisoft-connect
@@ -106,6 +105,7 @@ scoop_installed_packages:
   - upscayl
   ## Web
   - firefox
+  - googlechrome  
   ## OCR
   - capture2text
   ## Shell
@@ -131,6 +131,10 @@ scoop_installed_packages:
   - emacs
   - ripgrep
   - pandoc
+
+scoop_installed_packages_extras:
+  ## Communications
+  - discord
 
 # Default dictionary directories installed by chocolately
 libre_office_dir: "C:\\Users\\{{ target_user }}\\scoop\\apps\\libreoffice\\current\\LibreOffice"
