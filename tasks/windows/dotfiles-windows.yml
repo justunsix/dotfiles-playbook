@@ -7,6 +7,7 @@
   tags: ['dotfiles']
   loop:
     - "{{ target_user_home_dir }}/usr/bin"
+    - "{{ target_user_home_dir }}/AppData/Local/nvim"
     - "C:/Hunspell"
 
 - name: dotfiles - Sync user binaries, Hunspell dictionary folder

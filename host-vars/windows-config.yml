@@ -147,6 +147,7 @@ hunspell_dict_fr_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-fr"
 dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "C:/Users/{{ target_user }}/usr/bin" }
     - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/nvim/", dest: "C:/Users/{{ target_user }}/AppData/Local/nvim" }
 
 hunspell_dictionaries:
     - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: 'C:/Hunspell' }
