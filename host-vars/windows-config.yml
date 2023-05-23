@@ -24,7 +24,7 @@ chocolatey_installed_packages:
   ## Package Management
   - chocolatey
   ## System
-  - autohotkey  
+  - autohotkey
   ### Manage terminal using Windows store/winget instead
   ###- microsoft-windows-terminal
   - ccleaner
@@ -45,14 +45,14 @@ chocolatey_installed_packages:
   - nodejs
 
 # For information, variable not used
-chocolatey_installed_packages-migrated-to-scoop:  
+chocolatey_installed_packages-migrated-to-scoop:
   ## Web
   - firefox
-  - googlechrome  
+  - googlechrome
   ## OCR
   - capture2text
   ## Shell
-  - zoxide  
+  - zoxide
   ## Office, Productivity
   - libreoffice-fresh
   - peazip
@@ -63,14 +63,14 @@ chocolatey_installed_packages-migrated-to-scoop:
   - fd
   ## Media
   - vlc
-  - mpv  
+  - mpv
   ## Security
   - keepassxc
   ## DevOps
   - vscode
   ### Emacs
   - emacs
-  - ripgrep  
+  - ripgrep
   - pandoc
 
 chocolatey_installed_packages_work:
@@ -105,13 +105,13 @@ scoop_installed_packages:
   - upscayl
   ## Web
   - firefox
-  - googlechrome  
+  - googlechrome
   ## OCR
   - capture2text
   ## Shell
   - zoxide
   ### Prompt
-  - starship  
+  - starship
   ## Office, Productivity
   - libreoffice
   - peazip
@@ -122,7 +122,7 @@ scoop_installed_packages:
   - fd
   ## Media
   - vlc
-  - mpv  
+  - mpv
   ## Security
   - keepassxc
   ## DevOps
@@ -131,6 +131,9 @@ scoop_installed_packages:
   - emacs
   - ripgrep
   - pandoc
+  ### Neovim
+  - neovim
+  - gcc
 
 scoop_installed_packages_extras:
   ## Communications
