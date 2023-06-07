@@ -30,6 +30,7 @@ Run `bootstrap.sh`.
     - `Ansible_distribution` for conditionals on Fedora and Ubuntu playbook
   - Build on `default_config.yaml` and override for other Linux distributions
 - Set up [Ansible logging](https://docs.ansible.com/automation-controller/latest/html/administration/logging.html) to more easily read output outside the terminal
+- Improve README to describe repository structure and tasks
 
 ## License
 
