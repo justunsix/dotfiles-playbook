@@ -305,8 +305,6 @@ deb_get_installed_packages:
   - draw.io
   # Hardware
   # - openrgb
-  ## File Management
-  - ranger
   ### Peazip will use KDE modules and get them
   - peazip
   - fsearch
@@ -358,3 +356,5 @@ nix_installed_packages:
   - nixpkgs.fira-code
   - nixpkgs.neovim
   - nixpkgs.img2pdf
+  ## File Management
+  - nixpkgs.ranger
