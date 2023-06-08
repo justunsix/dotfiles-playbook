@@ -83,6 +83,7 @@ dotfiles_files:
   - .config/todotxt-cli/todo-work.cfg
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
+  - .config/dolphinrc
   - .config/kdeglobals
   - .config/starship.toml
 
@@ -96,6 +97,8 @@ dotfiles_files_binaries:
   - usr/bin/jt-clip-html-to-org.sh
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
+  # ensure directory is executable as a symlink
+  - .config/emacs/snippets
 
 # Optional location of dotfile overlay to override or add to existing dotfiles in this repository
 dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
