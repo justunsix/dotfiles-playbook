@@ -5,9 +5,9 @@
     state: directory
     # User can rwx
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"    
+    group: "{{ target_user }}"
     mode: "744"
-  with_items: "{{ dotfiles_directories }}"    
+  with_items: "{{ dotfiles_directories }}"
   tags: ['dotfiles']
 
 ###################################################################################################
@@ -43,8 +43,8 @@
   when: "'@' not in item.1.stdout"
   with_indexed_items: "{{ existing_dotfile_info.results }}"
   become: true
-  become_user: "{{ target_user }}"  
-  tags: ['dotfiles', 'dotfiles-symlink']  
+  become_user: "{{ target_user }}"
+  tags: ['dotfiles', 'dotfiles-symlink']
 
 - name: Link dotfiles into home folder.
   ansible.builtin.file:
@@ -55,19 +55,19 @@
   become: true
   become_user: "{{ target_user }}"
   with_items: "{{ dotfiles_files }}"
-  tags: ['dotfiles', 'dotfiles-symlink']  
+  tags: ['dotfiles', 'dotfiles-symlink']
 
 # End geerlinguy ansible role adaptation
 ###################################################################################################
 
-- name: dotfiles - Ensure binaries are executable
+- name: dotfiles - Ensure symlink binaries and directories are executable
   ansible.builtin.file:
     path: "{{ dotfiles_repo_local_destination }}/{{ item }}"
     mode: "0744"
   become: true
   become_user: "{{ target_user }}"
   with_items: "{{ dotfiles_files_binaries }}"
-  tags: ['dotfiles', 'dotfiles-symlink-binaries']  
+  tags: ['dotfiles', 'dotfiles-symlink-binaries']
 
 # Force create symlink to ~/Code/External/todo.txt-cli/todo.sh from ~/usr/bin
 - name: dotfiles - Force create symlink to latest todo.sh
@@ -77,9 +77,9 @@
      state: link
      force: yes
      owner: "{{ target_user }}"
-     group: "{{ target_user }}"      
+     group: "{{ target_user }}"
   tags: ['dotfiles', 'symlink']
-  
+
 # Create ~/.config/mpv directory if it does not exist of target user
 - name: dotfiles - Create ~/.config/mpv directory if it does not exist of target user
   ansible.builtin.file:
@@ -87,7 +87,7 @@
     state: directory
     # User can rw
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"    
+    group: "{{ target_user }}"
     mode: "744"
   tags: ['dotfiles']
   when: configure_mpv
@@ -104,16 +104,16 @@
   tags: ['dotfiles', 'symlink']
   loop:
     - { src: '/home/{{ target_user }}/Code/External/mpv-osc-tethys/osc_tethys.lua', dest: '/home/{{ target_user }}/.config/mpv/scripts/osc_tethys.lua' }
-    - { src: '/home/{{ target_user }}/Code/External/mpv-osc-tethys/mpv_thumbnail_script_server.lua', dest: '/home/{{ target_user }}/.config/mpv/scripts/mpv_thumbnail_script_server.lua' }    
+    - { src: '/home/{{ target_user }}/Code/External/mpv-osc-tethys/mpv_thumbnail_script_server.lua', dest: '/home/{{ target_user }}/.config/mpv/scripts/mpv_thumbnail_script_server.lua' }
   when: configure_mpv
-  
+
 # Check if Clamd is installed
 - name: dotfiles - Check if Clamd is installed
   ansible.builtin.stat:
     path: /usr/bin/clamd
   register: clamd_installed
   tags: ['dotfiles']
-  
+
 # Copy ClamAV clamd.conf to /etc/clamav/clamd.conf
 - name: dotfiles - Copy ClamAV clamd.conf to /etc/clamav/clamd.conf
   ansible.builtin.copy:

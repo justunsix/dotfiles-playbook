@@ -90,6 +90,10 @@
   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node', 'workstation-fedora']
   when: configure_emacs
 
+- name: Set up tmux
+  import_tasks: tasks/tmux.yml
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'tmux', 'workstation-fedora']
+
 # Use distribution package managers instead
 #    - import_tasks: tasks/haskell.yml
 #      tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']

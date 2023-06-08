@@ -366,4 +366,4 @@ nix_installed_packages:
   ## File Management
   - nixpkgs.ranger
   ## Terminal
-	- nixpkgs.tmux
+  - nixpkgs.tmux

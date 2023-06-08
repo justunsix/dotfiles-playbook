@@ -1,8 +1,8 @@
 - name: tmux - Set up tmux package manager
   ansible.builtin.git:
     repo: "git@github.com:tmux-plugins/tpm.git"
-    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+    dest: "/home/{{ target_user }}/.tmux/plugins/tpm"
     force: no
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu','tmux', 'workstation-fedora']
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'tmux', 'workstation-fedora']
