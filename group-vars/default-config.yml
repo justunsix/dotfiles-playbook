@@ -29,6 +29,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/todotxt-cli"
   - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
+  - "/home/{{ target_user }}/.config/tmux"
 
 dotfiles_files:
   - .bashrc
@@ -83,6 +84,7 @@ dotfiles_files:
   - .config/todotxt-cli/todo-work.cfg
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
+  - .config/tmux/tmux.conf
   - .config/dolphinrc
   - .config/kdeglobals
   - .config/starship.toml
@@ -363,3 +365,5 @@ nix_installed_packages:
   - nixpkgs.img2pdf
   ## File Management
   - nixpkgs.ranger
+  ## Terminal
+	- nixpkgs.tmux
