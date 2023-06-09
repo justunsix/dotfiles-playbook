@@ -92,6 +92,19 @@
   tags: ['dotfiles']
   when: configure_mpv
 
+# Copy dolphinrc to ~/.config/dolphinrc
+# dotfile is copied by Ansible instea of symlink due to frequent changes to the file
+# when Dolphin is opened and window position variables are changed
+- name: dotfiles - Copy dolphinrc from dotfiles repository to ~/.config/dolphinrc
+  ansible.builtin.copy:
+    src: "{{ dotfiles_repo_local_destination }}/.config/dolphinrc"
+    dest: "/home/{{ target_user }}/.config/dolphinrc"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: "0644"
+  tags: ['dotfiles', 'dolphin']
+  when: configure_dolphin
+
 # Force create symlinks to ~/Code/External/mpv-osc-tethys from ~/.config/mpv/scripts
 - name: dotfiles - Force create symlink to latest mpv tethys theme files
   ansible.builtin.file:

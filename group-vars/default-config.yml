@@ -85,7 +85,9 @@ dotfiles_files:
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
   - .config/tmux/tmux.conf
-  - .config/dolphinrc
+# Manage Dolphin file manager settings with copy due to frequently
+# window position changes from opening the program
+# - .config/dolphinrc
   - .config/kdeglobals
   - .config/starship.toml
 
@@ -113,6 +115,7 @@ configure_extras: false
 configure_repos: true
 configure_mpv: false
 configure_gnome: true
+configure_dolphin: true
 
 # Dotfiles under management of this repository
 # dotfiles_files:
