@@ -354,7 +354,7 @@ flatpak_installed_packages:
   ## Bino (3d, VR player) (Optional)
   ## - org.bino3d.bino
   # Productivity - Windows Programs
-  - flathub com.usebottles.bottles
+  - com.usebottles.bottles
 
 nix_installed_packages:
   - nixpkgs.iosevka
