@@ -52,7 +52,7 @@
     - { src: "{{ dotfiles_repo_local_destination }}/other//PowerShell//Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1' }
   tags: ['dotfiles', 'powershell']
 
-# Put mpv config files to target user's %appdata%\mpv\
+# Put mpv config files to target user's mpv installation by scoop package manager
 - name: dotfiles - Configure mpv config files for target user
   ansible.windows.win_copy:
     src: "{{ dotfiles_repo_local_destination }}/.config/mpv/"
@@ -90,3 +90,5 @@
     - Az.Accounts
     - Az.Tools.Predictor
   tags: ['dotfiles', 'powershell']
+  # Allow errors due to CompletionPredictor module
+  ignore_errors: yes
