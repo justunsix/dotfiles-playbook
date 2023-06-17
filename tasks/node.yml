@@ -8,7 +8,7 @@
   become: true
   become_user: "{{ target_user }}"
   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node']
-  
+
 - name: Install node
   ansible.builtin.shell: " . /home/{{ target_user }}/.nvm/nvm.sh && nvm install {{ item }}"
   args:
@@ -16,8 +16,8 @@
     chdir: "/home/{{ target_user }}"
     creates: "/home/{{ target_user }}/.nvm/versions/node/v{{ item }}"
   loop:
-    # lts as of 2023-02-15
-    - 18.14.0
+    # lts as of 2023-06-16
+    - 18.16.0
   become: true
   become_user: "{{ target_user }}"
   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node']
