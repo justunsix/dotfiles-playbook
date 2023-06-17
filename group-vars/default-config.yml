@@ -370,3 +370,5 @@ nix_installed_packages:
   - nixpkgs.ranger
   ## Terminal
   - nixpkgs.tmux
+  ## Productivity
+  - nixpkgs.super-productivity
