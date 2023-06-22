@@ -64,6 +64,7 @@ chocolatey_installed_packages-migrated-to-scoop:
   ## Media
   - vlc
   - mpv
+  - obs-studio
   ## Security
   - keepassxc
   ## DevOps
@@ -79,7 +80,6 @@ chocolatey_installed_packages_work:
   ## Graphics and Media
   - inkscape
   - gimp
-  - obs-studio
   ## DevOps
   - azure-cli
   - python
@@ -106,6 +106,7 @@ scoop_installed_packages:
   # Media
   - krita
   - upscayl
+  - obs-studio
   ## Web
   - firefox
   - googlechrome
