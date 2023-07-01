@@ -127,14 +127,14 @@ install_software_command_line() {
 	fi
 
 	# Check rustup is installed
-	if ! [ -x "$(command -v rustup)" ]; then
-		echo "Installing Rustup..."
-		# Install Rustup
-		# per https://www.rust-lang.org/tools/install
-		# as of 2023-02-20
-		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-		restartShell="true"
-	fi
+	# if ! [ -x "$(command -v rustup)" ]; then
+	#  	echo "Installing Rustup..."
+	#	# Install Rustup
+	#	# per https://www.rust-lang.org/tools/install
+	#	# as of 2023-02-20
+	#	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	#	restartShell="true"
+	# fi
 
 }
 

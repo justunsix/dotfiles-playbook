@@ -36,9 +36,9 @@
   import_tasks: tasks/flatpak.yml
   tags: ['workstation-ubuntu', 'flatpak', 'package', 'workstation-fedora']
 
-- name: Set up Rust packages
-  import_tasks: tasks/rust.yml
-  tags: ['workstation-ubuntu', 'rust', 'package', 'laptop-ubuntu', 'workstation-fedora']
+# - name: Set up Rust packages
+#   import_tasks: tasks/rust.yml
+#   tags: ['workstation-ubuntu', 'rust', 'package', 'laptop-ubuntu', 'workstation-fedora']
 
 - name: Set up DevOps packages
   import_tasks: tasks/ubuntu/devops-b.yml

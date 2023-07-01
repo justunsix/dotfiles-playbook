@@ -371,5 +371,15 @@ nix_installed_packages:
   - nixpkgs.ranger
   ## Terminal
   - nixpkgs.tmux
+  ### Former rust cargo installs
+  - nixpkgs.du-dust
+  - nixpkgs.exa
+  - nixpkgs.monolith
+  - nixpkgs.procs
+  - nixpkgs.topgrade
+  - nixpkgs.zoxide
+  #### Lower Priority
+  # - nixpkgs.bottom
+  # - nixpkgs.sd
   ## Productivity
   - nixpkgs.super-productivity
