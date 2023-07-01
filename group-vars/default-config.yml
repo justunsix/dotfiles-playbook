@@ -62,6 +62,7 @@ dotfiles_files:
   - .config/emacs/setup/other.el
   - .config/emacs/setup/variables.el
   - .config/emacs/setup/jt-emacs-org.el
+  - .config/emacs/setup/jt-emacs-org-roam.el
   - .config/emacs/setup/jt-emacs-ai.el
   - .config/emacs/setup/jt-emacs-ui.el
   - .config/emacs/setup/jt-emacs-languages.el
