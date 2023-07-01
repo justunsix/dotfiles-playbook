@@ -40,6 +40,8 @@ chocolatey_installed_packages:
   ### Emacs
   - hunspell.portable
   - nodejs
+  #### org-roam sqlite
+  - msys2
 
 # For information, variable not used
 chocolatey_installed_packages-migrated-to-scoop:
