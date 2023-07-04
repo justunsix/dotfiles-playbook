@@ -40,8 +40,8 @@ chocolatey_installed_packages:
   ### Emacs
   - hunspell.portable
   - nodejs
-  #### org-roam sqlite
-  - msys2
+  #### msys2 for org-roam sqlite gcc, replaced by scoop gcc
+  #### - msys2
 
 # For information, variable not used
 chocolatey_installed_packages-migrated-to-scoop:
@@ -140,6 +140,7 @@ scoop_installed_packages:
   - pandoc
   ### Neovim
   - neovim
+  #### For Neovim and Emacs org-roam SQLite
   - gcc
 
 scoop_installed_packages_extras:
