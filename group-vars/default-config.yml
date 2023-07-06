@@ -372,6 +372,7 @@ nix_installed_packages:
   - nixpkgs.img2pdf
   ## File Management
   - nixpkgs.ranger
+  - nixpkgs.gitui
   ## Terminal
   - nixpkgs.tmux
   ### Former rust cargo installs
