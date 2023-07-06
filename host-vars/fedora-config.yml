@@ -55,7 +55,7 @@ dotfiles_files:
   - .config/emacs/setup/other.el
   - .config/emacs/setup/variables.el
   - .config/emacs/setup/jt-emacs-org.el
-  - .config/emacs/setup/jt-emacs-org-roam.el  
+  - .config/emacs/setup/jt-emacs-org-roam.el
   - .config/emacs/setup/jt-emacs-ai.el
   - .config/emacs/setup/jt-emacs-ui.el
   - .config/emacs/setup/jt-emacs-languages.el
@@ -63,7 +63,9 @@ dotfiles_files:
   - .config/emacs/setup/jt-emacs-spelling.el
   - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
   - .config/emacs/setup/jt-emacs-dired.el
-  - .config/emacs/snippets
+  - .config/emacs/snippets/org-mode/filetags
+  - .config/emacs/snippets/org-mode/new-note
+  - .config/emacs/snippets/org-mode/plantuml
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/i3/config
