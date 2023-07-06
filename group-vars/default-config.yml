@@ -70,7 +70,9 @@ dotfiles_files:
   - .config/emacs/setup/jt-emacs-spelling.el
   - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
   - .config/emacs/setup/jt-emacs-dired.el
-  - .config/emacs/snippets
+  - .config/emacs/snippets/org-mode/filetags
+  - .config/emacs/snippets/org-mode/new-note
+  - .config/emacs/snippets/org-mode/plantuml
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/i3/config
@@ -103,7 +105,7 @@ dotfiles_files_binaries:
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
   # ensure directory is executable as a symlink
-  - .config/emacs/snippets
+  # - .config/emacs/snippets
 
 # Optional location of dotfile overlay to override or add to existing dotfiles in this repository
 dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"

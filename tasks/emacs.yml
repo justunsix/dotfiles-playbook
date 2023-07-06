@@ -13,7 +13,7 @@
   # run as {{ target_user }}
   become: true
   become_user: "{{ target_user }}"
-# Create directory ~/.config/emacs
+# Create directory ~/.config/emacs and subdirectories
 - name: "Create directory ~/.config/emacs"
   ansible.builtin.file:
     path: "{{ item }}"
@@ -24,6 +24,8 @@
   loop:
     - "~/.config/emacs"
     - "~/.config/emacs/setup"
+    - "~/.config/emacs/snippets"
+    - "~/.config/emacs/snippets/org-mode"
   tags: ['dotfiles', 'emacs']
   become: true
   become_user: "{{ target_user }}"
