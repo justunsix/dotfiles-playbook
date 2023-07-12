@@ -46,6 +46,7 @@ dotfiles_files:
   - usr/bin/jt-post-i3.sh
   - usr/bin/jt-ocr-to-clipboard.sh
   - usr/bin/jt-clip-html-to-org.sh
+  - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
   - .config/copyq/copyq.conf
   - .config/copyq/copyq-commands.ini
   - .config/dunst/dunstrc
@@ -87,6 +88,7 @@ dotfiles_files_binaries:
   - usr/bin/jt-ocr-to-clipboard.sh
   - usr/bin/jt-post-i3.sh
   - usr/bin/jt-clip-html-to-org.sh
+  - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
 

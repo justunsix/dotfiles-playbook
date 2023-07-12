@@ -50,6 +50,7 @@ dotfiles_files:
   - usr/bin/jt-ocr-to-clipboard.sh
   - usr/bin/jt-post-i3.sh
   - usr/bin/jt-clip-html-to-org.sh
+  - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
 # Manage VS Code Settings manually due to possible sensitive settings
 #  - .config/Code/User/settings.json
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
@@ -102,6 +103,7 @@ dotfiles_files_binaries:
   - usr/bin/jt-ocr-to-clipboard.sh
   - usr/bin/jt-post-i3.sh
   - usr/bin/jt-clip-html-to-org.sh
+  - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
   # ensure directory is executable as a symlink

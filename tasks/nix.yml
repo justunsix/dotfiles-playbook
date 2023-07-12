@@ -33,9 +33,9 @@
   failed_when: "'error' in nixenvia_result.stdout"
   when: nix_installed.stat.exists
 
-# Garbage collect old packages
-# - name: Nix - Garbage collect old packages
-#  ansible.builtin.command: "nix-collect-garbage -d"
-#  become: true
-#  become_user: "{{ target_user }}"
-#  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu']
+# Garbage collect old generations
+- name: Nix - Garbage collect generations older than 30 days
+  ansible.builtin.command: "nix-collect-garbage --delete-older-than 30d"
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch']
