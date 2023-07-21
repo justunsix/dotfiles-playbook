@@ -134,6 +134,8 @@ scoop_installed_packages:
   - keepassxc
   ## DevOps
   - vscode
+  ### Python
+  - miniconda3
   ### Emacs
   - emacs
   - ripgrep
