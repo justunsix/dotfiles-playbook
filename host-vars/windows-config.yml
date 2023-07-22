@@ -117,6 +117,7 @@ scoop_installed_packages:
   - capture2text
   ## Shell
   - zoxide
+  - gsudo
   ### Prompt
   - starship
   ## Office, Productivity
