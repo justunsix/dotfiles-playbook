@@ -102,7 +102,9 @@ chocolatey_installed_packages_extras:
   - ubisoft-connect
 
 scoop_installed_packages:
-    ## File Management
+  ## Packagement
+  - topgrade
+  ## File Management
   - git
   - git-credential-manager
   - gitui
