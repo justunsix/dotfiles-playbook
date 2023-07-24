@@ -385,6 +385,9 @@ nix_installed_packages:
   - nixpkgs.procs
   - nixpkgs.topgrade
   - nixpkgs.zoxide
+  ## DevOps
+  ### Python
+  - nixpkgs.conda
   #### Lower Priority
   # - nixpkgs.bottom
   # - nixpkgs.sd

@@ -1,0 +1,29 @@
+# Refresh and Upgrade all packages installed by pip at user level
+- name: pip - Upgrade all packages
+  ansible.builtin.pip:
+    name:
+      - ansible
+      - pip
+      - tldr
+      # For Emacs Python
+      - python-lsp-server
+    state: latest
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'pip', 'package', 'devops-b', 'workstation-arch', 'python']
+  become: true
+  become_user: "{{ target_user }}"
+
+# Set up conda package manager installed by Nix
+# Per conda section at https://nixos.wiki/wiki/Python
+# Shell configuration changes have already been made in dotfiles repo
+- name: conda - Set up conda package manager from conda-shell installed by Nix
+  ansible.builtin.shell: |
+    conda-shell
+    conda-install
+  args:
+    executable: /bin/bash
+    chdir: "/home/{{ target_user }}"
+    creates: "$HOME/.conda/bin/conda"
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
+  when: ansible_distribution == "Ubuntu"

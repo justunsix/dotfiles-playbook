@@ -28,9 +28,9 @@
   import_tasks: tasks/nix.yml
   tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-fedora']
 
-- name: Set up pip packages
-  import_tasks: tasks/pip.yml
-  tags: ['workstation-ubuntu', 'pip', 'package', 'laptop-ubuntu', 'workstation-fedora', 'workstation-arch']
+- name: Set up Python packages
+  import_tasks: tasks/python.yml
+  tags: ['workstation-ubuntu', 'python', 'pip', 'package', 'laptop-ubuntu', 'workstation-fedora', 'workstation-arch']
 
 - name: Set up flatpaks
   import_tasks: tasks/flatpak.yml
