@@ -120,6 +120,7 @@ scoop_installed_packages:
   ## Shell
   - zoxide
   - gsudo
+  - mprocs
   ### Prompt
   - starship
   ## Office, Productivity
