@@ -10,3 +10,8 @@
   loop: "{{ scoop_installed_packages }}"
   tags: ['scoop', 'workstation-windows', 'package']
 
+- name: Initialize conda scoop package for PowerShell
+  ansible.windows.win_powershell:
+    script: |
+      conda init powershell
+  tags: ['scoop', 'workstation-windows', 'package', 'conda']
