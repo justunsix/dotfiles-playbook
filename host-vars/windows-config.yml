@@ -148,6 +148,8 @@ scoop_installed_packages:
   - neovim
   #### For Neovim and Emacs org-roam SQLite
   - gcc
+  ### Polyglot literate programming
+  - dotnet-sdk
 
 scoop_installed_packages_extras:
   ## Communications
