@@ -26,6 +26,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/rofi"
   - "/home/{{ target_user }}/.config/copyq"
   - "/home/{{ target_user }}/.config/dunst"
+  - "/home/{{ target_user }}/.config/mprocs"
   - "/home/{{ target_user }}/.config/todotxt-cli"
   - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
@@ -83,6 +84,7 @@ dotfiles_files:
   - .config/mpv/mpv.conf
   - .config/mpv/scripts/autoload.lua
   - .config/mpv/script-opts/osc.conf
+  - .config/mprocs/mprocs.yaml
   - .config/nvim/init.lua
   - .config/rofi/config.rasi
   - .config/todotxt-cli/todo.cfg
@@ -367,17 +369,18 @@ flatpak_installed_packages:
   - com.usebottles.bottles
 
 nix_installed_packages:
+  # Fonts
   - nixpkgs.iosevka
   - nixpkgs.source-code-pro
-  # even though installed by apt, require for program like exa
+  # Even though installed by apt, require for program like exa
   - nixpkgs.fira-code
-  - nixpkgs.neovim
-  - nixpkgs.img2pdf
   ## File Management
   - nixpkgs.ranger
   - nixpkgs.gitui
+  - nixpkgs.img2pdf
   ## Terminal
   - nixpkgs.tmux
+  - nixpkgs.mprocs
   ### Former rust cargo installs
   - nixpkgs.du-dust
   - nixpkgs.exa
@@ -385,7 +388,9 @@ nix_installed_packages:
   - nixpkgs.procs
   - nixpkgs.topgrade
   - nixpkgs.zoxide
+
   ## DevOps
+  - nixpkgs.neovim
   ### Python
   - nixpkgs.conda
   #### Lower Priority

@@ -25,6 +25,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/rofi"
   - "/home/{{ target_user }}/.config/copyq"
   - "/home/{{ target_user }}/.config/dunst"
+  - "/home/{{ target_user }}/.config/mprocs"
   - "/home/{{ target_user }}/.config/todotxt-cli"
   - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
@@ -57,7 +58,7 @@ dotfiles_files:
   - .config/emacs/setup/variables.el
   - .config/emacs/setup/jt-emacs-org.el
   - .config/emacs/setup/jt-emacs-org-roam.el
-  - .config/emacs/setup/jt-emacs-org-babel-literate.el  
+  - .config/emacs/setup/jt-emacs-org-babel-literate.el
   - .config/emacs/setup/jt-emacs-ai.el
   - .config/emacs/setup/jt-emacs-ui.el
   - .config/emacs/setup/jt-emacs-languages.el
@@ -72,6 +73,7 @@ dotfiles_files:
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/i3/config
   - .config/i3status/config
+  - .config/mprocs/mprocs.yaml
   - .config/rofi/config.rasi
   - .config/todotxt-cli/todo.cfg
   - .config/todotxt-cli/todo-work.cfg
