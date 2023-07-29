@@ -140,6 +140,8 @@ scoop_installed_packages:
   - vscode
   ### Python
   - miniconda3
+  ### Java
+  - temurin-lts-jdk
   ### Emacs
   - emacs
   - ripgrep
