@@ -85,7 +85,6 @@ chocolatey_installed_packages_work:
   ## DevOps
   - azure-cli
   - python
-  - maven
   - mremoteng
   - terraform
   ## Documents
@@ -142,6 +141,7 @@ scoop_installed_packages:
   - miniconda3
   ### Java
   - temurin-lts-jdk
+  - maven
   ### Emacs
   - emacs
   - ripgrep
