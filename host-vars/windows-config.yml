@@ -146,6 +146,8 @@ scoop_installed_packages:
   - emacs
   - ripgrep
   - pandoc
+  #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
+  - shellcheck
   ### Neovim
   - neovim
   #### For Neovim and Emacs org-roam SQLite

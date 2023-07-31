@@ -232,6 +232,8 @@ apt_installed_packages:
   - hunspell-en-gb
   - hunspell-fr
   - ripgrep
+  #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
+  - shellcheck
   ## DevOps Languages
   - python3
   - python3-pip
