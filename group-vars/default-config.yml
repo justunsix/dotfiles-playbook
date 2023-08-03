@@ -100,6 +100,11 @@ dotfiles_files:
   - .config/kdeglobals
   - .config/starship.toml
 
+dotfiles_to_be_removed:
+  - "/home/{{ target_user }}/.config/topgrade.toml"
+  - "/home/{{ target_user }}/.emacs"
+  - "/home/{{ target_user }}/.emacs.d"
+
 dotfiles_files_binaries:
   - usr/bin/jt-gc.sh
   - usr/bin/jt-gs.sh

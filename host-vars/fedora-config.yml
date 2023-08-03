@@ -28,7 +28,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/mprocs"
   - "/home/{{ target_user }}/.config/todotxt-cli"
   - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
-  - "/home/{{ target_user }}/.config/topgrade"  
+  - "/home/{{ target_user }}/.config/topgrade"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
   - "/home/{{ target_user }}/.config/tmux"
 
@@ -80,10 +80,15 @@ dotfiles_files:
   - .config/todotxt-cli/todo-work.cfg
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
-  - .config/topgrade/topgrade.toml  
+  - .config/topgrade/topgrade.toml
   - .config/tmux/tmux.conf
   - .config/kdeglobals
   - .config/starship.toml
+
+dotfiles_to_be_removed:
+  - "/home/{{ target_user }}/.config/topgrade.toml"
+  - "/home/{{ target_user }}/.emacs"
+  - "/home/{{ target_user }}/.emacs.d"
 
 dotfiles_files_binaries:
   - usr/bin/jt-gc.sh
@@ -200,7 +205,7 @@ dnf_installed_packages:
   - hunspell-fr
   - ripgrep
   #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
-  - shellcheck  
+  - shellcheck
   #### PlantUML
   - plantuml
   ## DevOps Languages

@@ -10,6 +10,18 @@
   with_items: "{{ dotfiles_directories }}"
   tags: ['dotfiles']
 
+# Remove any dotfiles in different locations if they exist already
+# These files might have been automatically generated when a program was run before
+# This step prevent extra dotfiles conflicting with the latest ones set up in this task
+- name: dotfiles - Remove any dotfiles in different locations if they exist already
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  with_items: "{{ dotfiles_to_be_removed }}"
+  tags: ['dotfiles']
+  become: true
+  become_user: "{{ target_user }}"
+
 ###################################################################################################
 # Adapted from https://github.com/geerlingguy/ansible-role-dotfiles/blob/master/tasks/main.yml
 # Under MIT License

@@ -54,7 +54,7 @@ dotfiles_files:
   - .config/emacs/setup/variables.el
   - .config/emacs/setup/jt-emacs-org.el
   - .config/emacs/setup/jt-emacs-org-roam.el
-  - .config/emacs/setup/jt-emacs-org-babel-literate.el  
+  - .config/emacs/setup/jt-emacs-org-babel-literate.el
   - .config/emacs/setup/jt-emacs-ai.el
   - .config/emacs/setup/jt-emacs-ui.el
   - .config/emacs/setup/jt-emacs-languages.el
@@ -73,6 +73,11 @@ dotfiles_files:
   - .config/todotxt-cli/.todo.actions.d/pn
   - .config/kdeglobals
   - .config/starship.toml
+
+dotfiles_to_be_removed:
+  - "/home/{{ target_user }}/.config/topgrade.toml"
+  - "/home/{{ target_user }}/.emacs"
+  - "/home/{{ target_user }}/.emacs.d"
 
 dotfiles_files_binaries:
   - usr/bin/jt-gc.sh
