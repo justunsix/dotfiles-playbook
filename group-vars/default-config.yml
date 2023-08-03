@@ -158,7 +158,7 @@ git_repositories_haskell:
 apt_ppa_repositories:
   # - ppa:christian-boxdoerfer/fsearch-stable
   # - ppa:thopiekar/openrgb
-  - ppa:kelleyk/emacs
+  # - ppa:kelleyk/emacs
   - ppa:fish-shell/release-3
 
 apt_installed_packages:
@@ -234,7 +234,7 @@ apt_installed_packages:
   ## DevOps Editors
   - vim
   ### Emacs
-  - emacs28-nativecomp
+  # - emacs28-nativecomp
   - hunspell
   - hunspell-en-gb
   - hunspell-fr
@@ -362,6 +362,7 @@ snap_installed_packages:
 
 snap_installed_packages_classic:
 #  - alacritty
+- emacs
 
 snap_installed_packages_devops:
   - kubectl

@@ -6,11 +6,12 @@
     state: present
   loop: "{{ snap_installed_packages }}"
   tags: ['workstation-ubuntu', 'workstation-fedora', 'snap', 'package']
+
 # Install / Check packages with snap installed as classic
-#- name: Snap -classic - Install / Check packages
-#  community.general.snap:
-#    name: "{{ item }}"
-#    state: present
-#    classic: yes    
-#  loop: "{{ snap_installed_packages_classic }}"
-#  tags: ['workstation-ubuntu', 'workstation-fedora', 'snap', 'package']  
+- name: Snap -classic - Install / Check packages
+  community.general.snap:
+    name: "{{ item }}"
+    state: present
+    classic: yes    
+  loop: "{{ snap_installed_packages_classic }}"
+  tags: ['workstation-ubuntu', 'workstation-fedora', 'snap', 'package']  
