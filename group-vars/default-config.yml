@@ -29,6 +29,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/mprocs"
   - "/home/{{ target_user }}/.config/todotxt-cli"
   - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
+  - "/home/{{ target_user }}/.config/topgrade"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
   - "/home/{{ target_user }}/.config/tmux"
 
@@ -91,6 +92,7 @@ dotfiles_files:
   - .config/todotxt-cli/todo-work.cfg
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
+  - .config/topgrade/topgrade.toml
   - .config/tmux/tmux.conf
 # Manage Dolphin file manager settings with copy due to frequently
 # window position changes from opening the program
