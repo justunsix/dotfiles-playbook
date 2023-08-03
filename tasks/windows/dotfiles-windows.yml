@@ -59,6 +59,13 @@
     dest: C:\Users\{{ target_user }}\scoop\apps\mpv\current\portable_config
   tags: ['dotfiles']
 
+# Put topgrade config files to target user's %APPDATA% directory
+- name: dotfiles - Configure topgrade config files for target user
+  ansible.windows.win_copy:
+    src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/"
+    dest: C:\Users\{{ target_user }}\AppData\Roaming\topgrade
+  tags: ['dotfiles']
+
 # PSReadline requirements:
 # Ensure NuGet Package Provider is installed as latest version
 # Ensure Powershell Gallery is installed
