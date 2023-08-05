@@ -5,10 +5,17 @@
     path: "{{ item }}"
     state: directory
   tags: ['dotfiles']
-  loop:
-    - "{{ target_user_home_dir }}/usr/bin"
-    - "{{ target_user_home_dir }}/AppData/Local/nvim"
-    - "C:/Hunspell"
+  with_items: "{{ dotfiles_directories }}"
+
+# Remove any dotfiles in different locations if they exist already
+# These files might have been automatically generated when a program was run before
+# This step prevent extra dotfiles conflicting with the latest ones set up in this task
+- name: dotfiles - Remove any dotfiles in different locations if they exist already
+  ansible.windows.win_file:
+    path: "{{ item }}"
+    state: absent
+  tags: ['dotfiles']
+  with_items: "{{ dotfiles_to_be_removed }}"
 
 - name: dotfiles - Sync user binaries, Hunspell dictionary folder
   ansible.windows.win_copy:
@@ -51,20 +58,6 @@
     - { src: "{{ dotfiles_repo_local_destination }}/other//WindowsPowerShell//Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1' }
     - { src: "{{ dotfiles_repo_local_destination }}/other//PowerShell//Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1' }
   tags: ['dotfiles', 'powershell']
-
-# Put mpv config files to target user's mpv installation by scoop package manager
-- name: dotfiles - Configure mpv config files for target user
-  ansible.windows.win_copy:
-    src: "{{ dotfiles_repo_local_destination }}/.config/mpv/"
-    dest: C:\Users\{{ target_user }}\scoop\apps\mpv\current\portable_config
-  tags: ['dotfiles']
-
-# Put topgrade config files to target user's %APPDATA% directory
-- name: dotfiles - Configure topgrade config files for target user
-  ansible.windows.win_copy:
-    src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/"
-    dest: C:\Users\{{ target_user }}\AppData\Roaming\topgrade
-  tags: ['dotfiles']
 
 # PSReadline requirements:
 # Ensure NuGet Package Provider is installed as latest version

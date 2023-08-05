@@ -164,10 +164,23 @@ libre_office_dir: "C:\\Users\\{{ target_user }}\\scoop\\apps\\libreoffice\\curre
 hunspell_dict_en_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-en"
 hunspell_dict_fr_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-fr"
 
+dotfiles_directories:
+    - "{{ target_user_home_dir }}/.config"
+    - "{{ target_user_home_dir }}/usr/bin"
+    - "{{ target_user_home_dir }}/AppData/Local/nvim"
+    - "{{ target_user_home_dir }}/AppData/Roaming/topgrade"
+    - "C:/Hunspell"
+
+dotfiles_to_be_removed:
+    - "{{ target_user_home_dir }}/AppData/Local/topgrade.toml"
+
 dotfiles_items:
-    - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "C:/Users/{{ target_user }}/usr/bin" }
+    - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "{{ target_user_home_dir }}/usr/bin" }
     - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/nvim/", dest: "C:/Users/{{ target_user }}/AppData/Local/nvim" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/nvim/", dest: "{{ target_user_home_dir }}/AppData/Local/nvim" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/mpv/", dest: "{{ target_user_home_dir }}/scoop/apps/mpv/current/portable_config" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/", dest: "{{ target_user_home_dir }}/AppData/Roaming/topgrade" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/starship.toml", dest: "{{ target_user_home_dir }}/.config/starship.toml" }
 
 hunspell_dictionaries:
     - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: 'C:/Hunspell' }
