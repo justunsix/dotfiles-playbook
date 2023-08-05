@@ -181,6 +181,7 @@ dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/mpv/", dest: "{{ target_user_home_dir }}/scoop/apps/mpv/current/portable_config" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/", dest: "{{ target_user_home_dir }}/AppData/Roaming/topgrade" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/starship.toml", dest: "{{ target_user_home_dir }}/.config/starship.toml" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/vlc/", dest: "{{ target_user_home_dir }}/scoop/apps/vlc/current/portable_config" }    
 
 hunspell_dictionaries:
     - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: 'C:/Hunspell' }

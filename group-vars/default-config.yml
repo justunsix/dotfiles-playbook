@@ -32,6 +32,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/topgrade"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
   - "/home/{{ target_user }}/.config/tmux"
+  - "/home/{{ target_user }}/.config/vlc"  
 
 dotfiles_files:
   - .bashrc
@@ -94,6 +95,8 @@ dotfiles_files:
   - .config/todotxt-cli/.todo.actions.d/pn
   - .config/topgrade/topgrade.toml
   - .config/tmux/tmux.conf
+  - .config/vlc/vlcrc
+
 # Manage Dolphin file manager settings with copy due to frequently
 # window position changes from opening the program
 # - .config/dolphinrc
@@ -193,7 +196,8 @@ apt_installed_packages:
   - git-all
   - stow
   ## Email
-  - evolution-ews
+  ## Replaced with Thunderbird
+  # - evolution-ews
   ## Office
   - libreoffice
   ## Optical Character Recognition (OCR)
@@ -372,6 +376,10 @@ flatpak_installed_packages:
   # Web
   - org.mozilla.firefox
   - com.github.tchx84.Flatseal
+  ## RSS
+  - me.hyliu.fluentreader
+  ## YouTube
+  - io.freetubeapp.FreeTube
   # Media
   ## Bino (3d, VR player) (Optional)
   ## - org.bino3d.bino
@@ -384,6 +392,8 @@ nix_installed_packages:
   - nixpkgs.source-code-pro
   # Even though installed by apt, require for program like exa
   - nixpkgs.fira-code
+  ## Email
+  - nixpkgs.thunderbird
   ## File Management
   - nixpkgs.ranger
   - nixpkgs.gitui
