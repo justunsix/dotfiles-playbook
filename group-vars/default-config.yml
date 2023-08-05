@@ -196,8 +196,8 @@ apt_installed_packages:
   - git-all
   - stow
   ## Email
-  ## Replaced with Thunderbird
-  # - evolution-ews
+  ### Replacing with Thunderbird, in testing
+  - evolution-ews
   ## Office
   - libreoffice
   ## Optical Character Recognition (OCR)
