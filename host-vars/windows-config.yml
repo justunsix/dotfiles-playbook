@@ -114,6 +114,8 @@ scoop_installed_packages:
   ## Web
   - firefox
   - googlechrome
+  ### RSS
+  - fluent-reader
   ## OCR
   - capture2text
   ## Shell
