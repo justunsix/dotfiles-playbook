@@ -32,7 +32,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/topgrade"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
   - "/home/{{ target_user }}/.config/tmux"
-  - "/home/{{ target_user }}/.config/vlc"  
+  - "/home/{{ target_user }}/.config/vlc"
 
 dotfiles_files:
   - .bashrc
@@ -68,6 +68,7 @@ dotfiles_files:
   - .config/emacs/setup/jt-emacs-org.el
   - .config/emacs/setup/jt-emacs-org-roam.el
   - .config/emacs/setup/jt-emacs-org-babel-literate.el
+  - .config/emacs/setup/jt-emacs-org-srs-anki.el
   - .config/emacs/setup/jt-emacs-ai.el
   - .config/emacs/setup/jt-emacs-ui.el
   - .config/emacs/setup/jt-emacs-languages.el
