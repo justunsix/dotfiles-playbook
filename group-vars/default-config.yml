@@ -377,6 +377,11 @@ flatpak_installed_packages:
   # Web
   - org.mozilla.firefox
   - com.github.tchx84.Flatseal
+  # Learning
+  ## Books
+  - com.calibre_ebook.calibre
+  ## SRS - Anki
+  - net.ankiweb.Anki
   ## RSS
   - me.hyliu.fluentreader
   ## YouTube
