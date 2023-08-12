@@ -174,12 +174,16 @@ dotfiles_directories:
     - "{{ target_user_home_dir }}/usr/bin"
     - "{{ target_user_home_dir }}/AppData/Local/nvim"
     - "{{ target_user_home_dir }}/AppData/Roaming/topgrade"
+    - "{{ target_user_home_dir }}/.config/emacs"
     - "C:/Hunspell"
 
 dotfiles_to_be_removed:
     - "{{ target_user_home_dir }}/AppData/Local/topgrade.toml"
+    - "{{ target_user_home_dir }}/.emacs"
+    - "{{ target_user_home_dir }}/.emacs.d"
 
 dotfiles_items:
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/emacs/", dest: "{{ target_user_home_dir }}/.config/emacs" }
     - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "{{ target_user_home_dir }}/usr/bin" }
     - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/nvim/", dest: "{{ target_user_home_dir }}/AppData/Local/nvim" }
@@ -187,6 +191,9 @@ dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/", dest: "{{ target_user_home_dir }}/AppData/Roaming/topgrade" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/starship.toml", dest: "{{ target_user_home_dir }}/.config/starship.toml" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/vlc/", dest: "{{ target_user_home_dir }}/scoop/apps/vlc/current/portable_config" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.gitconfig", dest: "{{ target_user_home_dir }}/.gitconfig" }
+    - { src: "{{ dotfiles_repo_local_destination }}/other/WindowsPowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1' }
+    - { src: "{{ dotfiles_repo_local_destination }}/other/PowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1' }
 
 hunspell_dictionaries:
     - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: 'C:/Hunspell' }

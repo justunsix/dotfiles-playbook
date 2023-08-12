@@ -17,7 +17,7 @@
   tags: ['dotfiles']
   with_items: "{{ dotfiles_to_be_removed }}"
 
-- name: dotfiles - Sync user binaries, Hunspell dictionary folder
+- name: dotfiles - Sync user dotfiles, scripts
   ansible.windows.win_copy:
     # src with "/"" only copies files in src directory to dest directory
     # use src without "/" to copy directory itself
@@ -34,7 +34,7 @@
   tags: ['dotfiles']
   loop: "{{ hunspell_dictionaries }}"
 
-- name: dotfiles - directory to PATH if it does not exist already
+- name: dotfiles - add directories to PATH if they do not exist already
   ansible.windows.win_path:
     name: PATH
     elements:
@@ -44,20 +44,20 @@
     scope: user
     state: present
 
-- name: dotfiles - Configure .gitconfig file for target user
-  ansible.windows.win_copy:
-    src: "{{ dotfiles_repo_local_destination }}/.gitconfig"
-    dest: C:\Users\{{ target_user }}\.gitconfig
-  tags: ['dotfiles']
+# Windows Emacs Configuration
+# Assume following are installed by system tasks for Emacs:
+# - Fonts
+# - ripgrep, hunspell, pandoc
+- name: "Set target_user environment variable home to point to user's home directory"
+  ansible.windows.win_environment:
+    name: HOME
+    value: C:\Users\{{ target_user }}
+    state: present
+    #  Set for current Ansible user
+    level: user
+  tags: ['dotfiles', 'emacs']
 
-- name: dotfiles - Configure Powershell profiles for target user
-  ansible.windows.win_copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-  loop:
-    - { src: "{{ dotfiles_repo_local_destination }}/other//WindowsPowerShell//Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1' }
-    - { src: "{{ dotfiles_repo_local_destination }}/other//PowerShell//Microsoft.PowerShell_profile.ps1", dest: 'C:\Users\{{ target_user }}\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1' }
-  tags: ['dotfiles', 'powershell']
+# TODO plantuml JAR set up per Linux emacs setup  
 
 # PSReadline requirements:
 # Ensure NuGet Package Provider is installed as latest version
