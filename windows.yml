@@ -29,5 +29,6 @@
   - import_tasks: tasks/windows/dotfiles-windows.yml
     tags: ['workstation-windows', 'dotfiles']
 
-  - import_tasks: tasks/windows/emacs-windows.yml
-    tags: ['workstation-windows', 'emacs']
+  # Archived, moved tasks to dotfiles-windows.yml
+  # - import_tasks: tasks/windows/emacs-windows.yml
+  #   tags: ['workstation-windows', 'emacs']
