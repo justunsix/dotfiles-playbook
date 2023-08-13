@@ -61,9 +61,12 @@ dotfiles_files:
   - .config/emacs/setup/jt-emacs-org-roam.el
   - .config/emacs/setup/jt-emacs-org-babel-literate.el
   - .config/emacs/setup/jt-emacs-org-srs-anki.el
+  - .config/emacs/setup/jt-emacs-org-present.el
   - .config/emacs/setup/jt-emacs-ai.el
   - .config/emacs/setup/jt-emacs-ui.el
   - .config/emacs/setup/jt-emacs-languages.el
+  - .config/emacs/setup/jt-emacs-languages-python.el
+  - .config/emacs/setup/jt-emacs-languages-java.el  
   - .config/emacs/setup/jt-emacs-terminal.el
   - .config/emacs/setup/jt-emacs-spelling.el
   - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
