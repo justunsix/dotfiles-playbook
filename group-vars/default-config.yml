@@ -17,8 +17,8 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.local/share/applications"
   - "/home/{{ target_user }}/.config/hunspell"
-# - "/home/{{ target_user }}/.config/xmonad"
-# - "/home/{{ target_user }}/.config/xmobar"
+  # - "/home/{{ target_user }}/.config/xmonad"
+  # - "/home/{{ target_user }}/.config/xmobar"
   - "/home/{{ target_user }}/.config/cool-retro-term"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
@@ -42,6 +42,7 @@ dotfiles_files:
   - .inputrc
   - Templates/New-Text-Document.txt
   - .local/share/applications/firefox-flatpak.desktop
+  # Converted to Flatpak:
   # - .local/share/applications/fluent-reader.desktop
   - .local/share/applications/vlc-playlist.desktop
   - .local/share/applications/clipboard-html-to-org.desktop
@@ -54,8 +55,8 @@ dotfiles_files:
   - usr/bin/jt-post-i3.sh
   - usr/bin/jt-clip-html-to-org.sh
   - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
-# Manage VS Code Settings manually due to possible sensitive settings
-#  - .config/Code/User/settings.json
+  # Manage VS Code Settings manually due to possible sensitive settings
+  #  - .config/Code/User/settings.json
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
   - .config/copyq/copyq.conf
   - .config/copyq/copyq-commands.ini
@@ -97,10 +98,9 @@ dotfiles_files:
   - .config/topgrade/topgrade.toml
   - .config/tmux/tmux.conf
   - .config/vlc/vlcrc
-
-# Manage Dolphin file manager settings with copy due to frequently
-# window position changes from opening the program
-# - .config/dolphinrc
+  # Manage Dolphin file manager settings with copy due to frequently
+  # window position changes from opening the program
+  # - .config/dolphinrc
   - .config/kdeglobals
   - .config/starship.toml
 
@@ -135,10 +135,6 @@ configure_repos: true
 configure_mpv: false
 configure_gnome: true
 configure_dolphin: true
-
-# Dotfiles under management of this repository
-# dotfiles_files:
-#  - .bashrc
 
 # User for which set up is being done for
 # Override with your user name
@@ -250,22 +246,23 @@ apt_installed_packages:
   - python3
   - python3-pip
   - python3-virtualenv
-# use nvm instead
-#  - nodejs
-  - npm
+  ### Node
+  #### use nvm instead
+  #### - nodejs
+  #### - npm
   ### Rust
   #### pkg-config required for cargo-update
-  - pkg-config
+  #### - pkg-config
   ### Haskell - GHCup Dependencies
-  ### Install GHCup manually
-  - build-essential
-  - libffi-dev
-  - libffi8ubuntu1
-  - libgmp-dev
-  - libgmp10
-  - libncurses-dev
-  - libncurses5
-  - libtinfo5
+  #### Install GHCup manually
+  #### - build-essential
+  #### - libffi-dev
+  #### - libffi8ubuntu1
+  #### - libgmp-dev
+  #### - libgmp10
+  #### - libncurses-dev
+  #### - libncurses5
+  #### - libtinfo5
   ## DevOps Support
   ### Document conversion, Emacs exports
   - pandoc
@@ -275,7 +272,7 @@ apt_installed_packages:
   #### PlantUML
   - plantuml
   ### DevOps Infrastructure
-  ### - Ansible installed with pip
+  #### - Ansible installed with pip
   ## Media
   - mpv
 
@@ -322,7 +319,7 @@ rust_installed_packages:
   - procs
   - bottom
   - zoxide
-#  - broot
+  # - broot
   - monolith
   - topgrade
   - sd
@@ -366,8 +363,8 @@ snap_installed_packages:
   - vlc
 
 snap_installed_packages_classic:
-#  - alacritty
-- emacs
+  # - alacritty
+  - emacs
 
 snap_installed_packages_devops:
   - kubectl
@@ -414,7 +411,8 @@ nix_installed_packages:
   - nixpkgs.procs
   - nixpkgs.topgrade
   - nixpkgs.zoxide
-
+  ## Productivity
+  - nixpkgs.super-productivity
   ## DevOps
   - nixpkgs.neovim
   ### Python
@@ -422,5 +420,3 @@ nix_installed_packages:
   #### Lower Priority
   # - nixpkgs.bottom
   # - nixpkgs.sd
-  ## Productivity
-  - nixpkgs.super-productivity
