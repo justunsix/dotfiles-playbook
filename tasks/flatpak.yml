@@ -8,7 +8,9 @@
   tags: ['workstation-ubuntu','workstation-fedora','flatpak', 'package']
 
 # Install / Update Flatpaks
-- name: flatpak - Install / Update Flatpaks
+# Method: system meaning installed on system available to all users
+# from https://docs.flathub.org/docs/for-users/user-vs-system-install/
+- name: flatpak - Install / Update Flatpaks system wide
   community.general.flatpak:
     name: "{{ item }}"
     state: present
@@ -19,4 +21,6 @@
 # Update all Flatpaks using Ansible Command
 - name: flatpak - Update all Flatpaks
   ansible.builtin.command: sudo flatpak update -y
+  register: flatpak_update_output
+  changed_when: "'app/' in flatpak_update_output.stdout"
   tags: ['workstation-ubuntu','workstation-fedora','flatpak', 'package']
