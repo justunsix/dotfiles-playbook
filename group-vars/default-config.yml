@@ -16,7 +16,6 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/fish"
   - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.local/share/applications"
-  - "/home/{{ target_user }}/.config/hunspell"
   # - "/home/{{ target_user }}/.config/xmonad"
   # - "/home/{{ target_user }}/.config/xmobar"
   - "/home/{{ target_user }}/.config/cool-retro-term"
