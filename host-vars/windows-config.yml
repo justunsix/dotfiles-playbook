@@ -47,7 +47,7 @@ chocolatey_installed_packages-migrated-to-scoop:
   ## File Management
   - git
   - git-credential-manager-for-windows
-  - ccleaner  
+  - ccleaner
   ## Web
   - firefox
   - googlechrome
@@ -142,6 +142,7 @@ scoop_installed_packages:
   - keepassxc
   ## DevOps
   - vscode
+  - pycharm
   ### Python
   - miniconda3
   ### Java
