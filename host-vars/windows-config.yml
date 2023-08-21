@@ -27,7 +27,6 @@ chocolatey_installed_packages:
   - autohotkey
   ### Manage terminal using Windows store/winget instead
   ###- microsoft-windows-terminal
-  - ccleaner
   ### Python required for Ansible management
   - python3
   # - googlechrome
@@ -48,6 +47,7 @@ chocolatey_installed_packages-migrated-to-scoop:
   ## File Management
   - git
   - git-credential-manager-for-windows
+  - ccleaner  
   ## Web
   - firefox
   - googlechrome
@@ -107,6 +107,8 @@ scoop_installed_packages:
   - git
   - git-credential-manager
   - gitui
+  - bleachbit
+  - ccleaner
   # Media
   - krita
   - upscayl
