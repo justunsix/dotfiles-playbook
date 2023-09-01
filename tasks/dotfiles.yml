@@ -72,7 +72,7 @@
 # End geerlinguy ansible role adaptation
 ###################################################################################################
 
-- name: dotfiles - Ensure symlink binaries and directories are executable
+- name: dotfiles - Ensure symlink scripts, binaries and directories are executable
   ansible.builtin.file:
     path: "{{ dotfiles_repo_local_destination }}/{{ item }}"
     mode: "0744"
@@ -91,6 +91,15 @@
      owner: "{{ target_user }}"
      group: "{{ target_user }}"
   tags: ['dotfiles', 'symlink']
+
+- name: dotfiles - install cheat.sh script
+  ansible.builtin.get_url:
+    url: https://cht.sh/:cht.sh
+    dest: /home/{{ target_user }}/usr/bin/cht.sh
+    mode: "0744"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+  tags: ['dotfiles', 'cheat.sh']
 
 # Create ~/.config/mpv directory if it does not exist of target user
 - name: dotfiles - Create ~/.config/mpv directory if it does not exist of target user
