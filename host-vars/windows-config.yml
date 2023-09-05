@@ -134,6 +134,7 @@ scoop_installed_packages:
   - plantuml
   - draw.io
   - anki
+  - calibre
   ## Media
   - vlc
   - mpv
