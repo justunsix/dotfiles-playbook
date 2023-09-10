@@ -267,7 +267,8 @@ nix_installed_packages:
   - nixpkgs.tmux
   ### Former rust cargo installs
   - nixpkgs.du-dust
-  - nixpkgs.exa
+  # - nixpkgs.exa
+  - nixpkgs.eza
   # - nixpkgs.monolith
   # - nixpkgs.procs
   - nixpkgs.topgrade
