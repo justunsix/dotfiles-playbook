@@ -410,7 +410,8 @@ nix_installed_packages:
   - nixpkgs.mprocs
   ### Former rust cargo installs
   - nixpkgs.du-dust
-  - nixpkgs.exa
+  #### Remove unmaintained - nixpkgs.exa
+  - nixpkgs.eza
   - nixpkgs.monolith
   - nixpkgs.procs
   - nixpkgs.topgrade
