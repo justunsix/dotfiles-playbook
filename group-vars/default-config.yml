@@ -340,8 +340,6 @@ deb_get_installed_packages:
   ## Web
   # - google-chrome-stable / requires manual acceptance EULA
   - microsoft-edge-stable
-  ## Games
-  # - lutris / requires manual install due to old PPA
   ## Security
   - nordvpn
   - keepassxc
@@ -384,6 +382,8 @@ flatpak_installed_packages:
   - me.hyliu.fluentreader
   ## YouTube
   - io.freetubeapp.FreeTube
+  ## Games
+  ### - net.lutris.Lutris
   # Media
   ## Bino (3d, VR player) (Optional)
   ## - org.bino3d.bino
