@@ -405,9 +405,12 @@ nix_installed_packages:
   - nixpkgs.ranger
   - nixpkgs.gitui
   - nixpkgs.img2pdf
+  - nixpkgs.duf
+  - nixpkgs.bottom
   ## Terminal
   - nixpkgs.tmux
   - nixpkgs.mprocs
+  - nixpkgs.dogdns
   ### Former rust cargo installs
   - nixpkgs.du-dust
   #### Remove unmaintained - nixpkgs.exa

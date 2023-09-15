@@ -111,6 +111,8 @@ scoop_installed_packages:
   - ccleaner
   - fzf
   - fd
+  - duf
+  - bottom
   # Media
   - krita
   - upscayl
@@ -122,10 +124,11 @@ scoop_installed_packages:
   - fluent-reader
   ## OCR
   - capture2text
-  ## Shell
+  ## Shell / Terminal
   - zoxide
   - gsudo
   - mprocs
+  - dog
   ### Prompt
   - starship
   ## Office, Productivity
