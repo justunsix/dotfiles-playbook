@@ -24,9 +24,9 @@
     # Show weekday in clock
     - { key: "/org/gnome/desktop/interface/clock-show-weekday", value: "true" }
     # Set GNOME Background to Black with no wallpaper
-    - { key: "/org/gnome/desktop/background/picture-uri", value: "'none'" }
+    - { key: "/org/gnome/desktop/background/picture-uri", value: "''" }
     # Remove wallpaper - dark theme
-    - { key: "/org/gnome/desktop/background/picture-uri-dark", value: "'none'" }
+    - { key: "/org/gnome/desktop/background/picture-uri-dark", value: "''" }
     # Set background to black
     - { key: "/org/gnome/desktop/background/primary-color", value: "'#000000000000'" }
     # GNOME Desktop Languages
