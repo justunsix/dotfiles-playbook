@@ -184,6 +184,7 @@ apt_installed_packages:
   - flameshot
   ## File Management
   - dolphin
+  - kde-cli-tools
   - qt5ct
   - adwaita-qt
   - konsole
