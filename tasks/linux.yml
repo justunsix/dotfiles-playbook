@@ -45,9 +45,9 @@
   tags: ['workstation-ubuntu', 'devops-b', 'laptop-ubuntu']
   when: configure_devops_b and ansible_distribution == "Ubuntu"
 
-- name: Set up extra optional packages
-  import_tasks: tasks/ubuntu/extras.yml
-  tags: ['workstation-ubuntu', 'extras', 'laptop-ubuntu']
+- name: Set up yt-dlp optional packages
+  import_tasks: tasks/ubuntu/extras-ytdlp.yml
+  tags: ['workstation-ubuntu', 'extras', 'laptop-ubuntu', 'ytdlp']
   when: configure_extras and ansible_distribution == "Ubuntu"
 
 - name: Configure Gnome settings

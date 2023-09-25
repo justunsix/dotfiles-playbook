@@ -1,31 +1,31 @@
 # Extras - apt - Install packages
-- name: Extras - apt - Install packages
+- name: Extras yt-dlp - apt - Install packages
   ansible.builtin.apt:
     name: "{{ item }}"
     state: latest
-  loop: "{{ apt_installed_packages_extras }}"
-  tags: ["extras", "apt", "workstation-ubuntu", "package"]
+  loop: "{{ apt_installed_packages_extras_ytdlp }}"
+  tags: ["extras", "apt", "workstation-ubuntu", "package", 'ytdlp']
 
 # Extras Refresh and Upgrade all packages installed by pip
-- name: Extras - pip - Upgrade all packages
+- name: Extras yt-dlp - pip - Upgrade all packages
   ansible.builtin.pip:
     name:
       - "{{ item }}"
     state: latest
-  loop: "{{ pip_installed_packages_extras }}"
-  tags: ["extras", "workstation-ubuntu", "apt", "pip", "package"]
+  loop: "{{ pip_installed_packages_extras_ytdlp }}"
+  tags: ["extras", "workstation-ubuntu", "apt", "pip", "package", 'ytdlp']
   become: true
   become_user: "{{ target_user }}"
   
 # Check if PhantomJS is installed and if not install it
-- name: Extras - Check if PhantomJS is installed
+- name: Extras yt-dlp - Check if PhantomJS is installed
   ansible.builtin.stat:
     path: /home/{{ target_user }}/usr/bin/phantomjs-2.1.1-linux-x86_64/bin/phantomjs
   register: phantomjs_installed
-  tags: ["extras", "workstation-ubuntu"]
+  tags: ["extras", "workstation-ubuntu", 'ytdlp']
 
 # Extras - Install PhantomJS
-- name: Extras - Install PhantomJS
+- name: Extras yt-dlp - Install PhantomJS
   # Install PhantomJS
   # - download https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 to ~/Downloads
   # - cd ~/Downloads
@@ -39,3 +39,4 @@
     chdir: /home/{{ target_user }}/Downloads
   become: true
   become_user: "{{ target_user }}"
+  tags: ["extras", "workstation-ubuntu", 'ytdlp']

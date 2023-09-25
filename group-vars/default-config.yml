@@ -287,10 +287,7 @@ apt_installed_packages_devops:
   - docker-compose
   - awscli
 
-apt_ppa_repositories_extras:
-  - ppa:yt-dlp/unstable
-
-apt_installed_packages_extras:
+apt_installed_packages_extras_ytdlp:
   ## yt-dlp
   - ffmpeg
   ## Downloaders
@@ -299,7 +296,7 @@ apt_installed_packages_extras:
   ### Download GUI, can use aria2
   # - uget
 
-pip_installed_packages_extras:
+pip_installed_packages_extras_ytdlp:
   ## yt-dlp
   - yt-dlp
   ### Recommended - Certificates - Mozilla root certificate bundle
