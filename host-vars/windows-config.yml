@@ -38,12 +38,11 @@ chocolatey_installed_packages:
   - cygwin
   ### Emacs
   - hunspell.portable
-  - nodejs
   #### msys2 for org-roam sqlite gcc, replaced by scoop gcc
   #### - msys2
 
 # For information, variable not used
-chocolatey_installed_packages-migrated-to-scoop:
+chocolatey_installed_packages_migrated_to_scoop:
   ## File Management
   - git
   - git-credential-manager-for-windows
@@ -75,6 +74,7 @@ chocolatey_installed_packages-migrated-to-scoop:
   - emacs
   - ripgrep
   - pandoc
+  - nodejs
 
 chocolatey_installed_packages_work:
   ## VM
@@ -195,6 +195,7 @@ scoop_installed_packages:
   - vscode
   - pycharm
   - cht
+  - nodejs  
   ### Python
   - miniconda3
   ### Java
@@ -203,7 +204,7 @@ scoop_installed_packages:
   ### Emacs
   - emacs
   - ripgrep
-  - pandoc
+  - pandoc  
   #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
   - shellcheck
   #### Used by org-download for clipboard pasting to org
