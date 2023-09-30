@@ -84,8 +84,8 @@ install_ansible() {
 		fi
 
 		if [ "$isArch" = "true" ]; then
-				sudo pacman -S --noconfirm python python-pip
-				python -m pip install --user ansible
+				sudo pacman -S --noconfirm python python-pipx
+				pipx install --include-deps ansible
 		fi
 
 		# if not Arch, install ansible using python3

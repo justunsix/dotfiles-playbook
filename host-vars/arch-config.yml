@@ -106,6 +106,7 @@ configure_extras: false
 configure_repos: false
 configure_mpv: false
 configure_gnome: false
+configure_dolphin: false
 
 # User for which set up is being done for
 # Override with your user name
