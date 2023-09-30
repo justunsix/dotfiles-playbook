@@ -224,6 +224,12 @@ dnf_installed_packages:
   ## - Ansible installed with pip
   - kubectl
 
+pipx_installed_packages:
+  - ansible
+  - tldr
+  # For Emacs Python
+  - python-lsp-server
+
 dnf_installed_packages_gnome:
   ## System
   - dconf-editor

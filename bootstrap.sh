@@ -63,39 +63,35 @@ fi
 
 install_ansible() {
 
-	# Check if Ansible if installed
-	# If Ansible is not installed, install it, assumes python3/python is installed already
-	# per https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
-	# as of 2023-03-25
-	if ! [ -x "$(command -v ansible)" ]; then
-		echo "Ansible is not installed. Installing Ansible using pip/x..."
+		# Check if Ansible if installed
+		# If Ansible is not installed, install it, assumes python3/python is installed already
+		# per https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+		# as of 2023-03-25
+		if ! [ -x "$(command -v ansible)" ]; then
+				echo "Ansible is not installed. Installing Ansible using pip/x..."
 
-		if [ "$isUbuntu" = "true" ]; then
-			sudo apt install pipx -y
+				if [ "$isUbuntu" = "true" ]; then
+						sudo apt install pipx -y
+				fi
+
+				if [ "$isArch" = "true" ]; then
+						sudo pacman -S --noconfirm python python-pipx
+				fi
+
+				if [ "$isFedora" = "true" ]; then
+						sudo dnf install pipx -y
+				fi
+
+				if [ "$isWSLUbuntu" = "true" ]; then
+						sudo apt install python3-pip -y
+						python3 -m pip install --user pywinrm ansible
+				else
+						pipx install --include-deps ansible
+				fi
+
+   			restartShell="true"
+
 		fi
-
-		if [ "$isArch" = "true" ]; then
-			sudo pacman -S --noconfirm python python-pipx
-		fi
-
-		if [ "$isFedora" = "true" ]; then
-			sudo dnf install python3-pip -y
-		fi
-
-		if [ "$isWSLUbuntu" = "true" ]; then
-			sudo apt install python3-pip -y
-			python3 -m pip install --user pywinrm
-		fi
-
-		if [ "$isArch" = "true" ] || [ "$isUbuntu" = "true" ]; then
-				pipx install --include-deps ansible
-		else
-				python3 -m pip install --user ansible
-		fi
-
-   	restartShell="true"
-
-	fi
 
 }
 
