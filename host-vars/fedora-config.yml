@@ -141,6 +141,7 @@ dnf_installed_packages:
   ## Package Management
   - flatpak
   ## System
+  - pipx
   ## Window Management
   - dmenu
   - rofi
