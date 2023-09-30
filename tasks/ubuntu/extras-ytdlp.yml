@@ -6,14 +6,23 @@
   loop: "{{ apt_installed_packages_extras_ytdlp }}"
   tags: ["extras", "apt", "workstation-ubuntu", "package", 'ytdlp']
 
-# Extras Refresh and Upgrade all packages installed by pip
+# Extras Refresh and Upgrade all packages installed by pipx
 - name: Extras yt-dlp - pipx - Upgrade all packages
-  community.general.pipx::
-    name:
-      - "{{ item }}"
+  community.general.pipx:
+    name: "{{ item }}"
     state: latest
   loop: "{{ pipx_installed_packages_extras_ytdlp }}"
   tags: ["extras", "workstation-ubuntu", "apt", "pip", "pipx", "package", 'ytdlp']
+  become: true
+  become_user: "{{ target_user }}"
+
+# Extras Refresh and Upgrade all packages installed by pip
+- name: Extras yt-dlp - pipx - Upgrade all packages
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ pip_installed_packages_extras_ytdlp }}"
+  tags: ["extras", "workstation-ubuntu", "apt", "pip", "package", 'ytdlp']
   become: true
   become_user: "{{ target_user }}"
 
