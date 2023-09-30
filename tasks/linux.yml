@@ -30,7 +30,7 @@
 
 - name: Set up Python packages
   import_tasks: tasks/python.yml
-  tags: ['workstation-ubuntu', 'python', 'pip', 'package', 'laptop-ubuntu', 'workstation-fedora', 'workstation-arch']
+  tags: ['workstation-ubuntu', 'python', 'pip', 'pipx', 'package', 'laptop-ubuntu', 'workstation-fedora', 'workstation-arch']
 
 - name: Set up flatpaks
   import_tasks: tasks/flatpak.yml

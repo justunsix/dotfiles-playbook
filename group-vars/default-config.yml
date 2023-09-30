@@ -248,6 +248,7 @@ apt_installed_packages:
   ## DevOps Languages
   - python3
   - python3-pip
+  - pipx
   - python3-virtualenv
   ### Node
   #### use nvm instead
@@ -275,7 +276,7 @@ apt_installed_packages:
   #### PlantUML
   - plantuml
   ### DevOps Infrastructure
-  #### - Ansible installed with pip
+  #### - Ansible installed with pipx
   ## Media
   - mpv
 
@@ -296,7 +297,7 @@ apt_installed_packages_extras_ytdlp:
   ### Download GUI, can use aria2
   # - uget
 
-pip_installed_packages_extras_ytdlp:
+pipx_installed_packages_extras_ytdlp:
   ## yt-dlp
   - yt-dlp
   ### Recommended - Certificates - Mozilla root certificate bundle

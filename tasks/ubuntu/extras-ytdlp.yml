@@ -7,16 +7,16 @@
   tags: ["extras", "apt", "workstation-ubuntu", "package", 'ytdlp']
 
 # Extras Refresh and Upgrade all packages installed by pip
-- name: Extras yt-dlp - pip - Upgrade all packages
-  ansible.builtin.pip:
+- name: Extras yt-dlp - pipx - Upgrade all packages
+  community.general.pipx::
     name:
       - "{{ item }}"
     state: latest
-  loop: "{{ pip_installed_packages_extras_ytdlp }}"
-  tags: ["extras", "workstation-ubuntu", "apt", "pip", "package", 'ytdlp']
+  loop: "{{ pipx_installed_packages_extras_ytdlp }}"
+  tags: ["extras", "workstation-ubuntu", "apt", "pip", "pipx", "package", 'ytdlp']
   become: true
   become_user: "{{ target_user }}"
-  
+
 # Check if PhantomJS is installed and if not install it
 - name: Extras yt-dlp - Check if PhantomJS is installed
   ansible.builtin.stat:

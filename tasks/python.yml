@@ -1,14 +1,25 @@
-# Refresh and Upgrade all packages installed by pip at user level
-- name: pip - Upgrade all packages
-  ansible.builtin.pip:
+# Refresh and Upgrade all packages installed by pipx for user
+- name: pipx - Installa and Upgrade all packages
+  community.general.pipx:
     name:
-      - ansible
-      - pip
       - tldr
       # For Emacs Python
       - python-lsp-server
+      # python package required for ansible community.general.dconf
+      - psutil
     state: latest
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'pip', 'package', 'devops-b', 'workstation-arch', 'python']
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'pip', 'pipx', 'package', 'devops-b', 'workstation-arch', 'python']
+  become: true
+  become_user: "{{ target_user }}"
+
+# Refresh and Upgrade all packages installed by pipx for user
+- name: pipx - Installa and Upgrade all packages and include applications of dependent packages
+  community.general.pipx:
+    name:
+      - ansible
+    state: latest
+    install_deps: true
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'pip', 'pipx', 'package', 'devops-b', 'workstation-arch', 'python']
   become: true
   become_user: "{{ target_user }}"
 

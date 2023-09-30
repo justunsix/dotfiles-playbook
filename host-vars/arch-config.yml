@@ -211,7 +211,7 @@ pacman_installed_packages:
 #  - plantuml
   ## DevOps Languages
   - python
-  - python-pip
+  - python-pipx
   - nodejs
   - npm
   ### Rust

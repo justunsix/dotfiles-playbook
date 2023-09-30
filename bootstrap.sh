@@ -68,10 +68,14 @@ install_ansible() {
 	# per https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 	# as of 2023-03-25
 	if ! [ -x "$(command -v ansible)" ]; then
-		echo "Ansible is not installed. Installing Ansible using pip..."
+		echo "Ansible is not installed. Installing Ansible using pip/x..."
 
 		if [ "$isUbuntu" = "true" ]; then
-			sudo apt install python3-pip -y
+			sudo apt install pipx -y
+		fi
+
+		if [ "$isArch" = "true" ]; then
+			sudo pacman -S --noconfirm python python-pipx
 		fi
 
 		if [ "$isFedora" = "true" ]; then
@@ -83,13 +87,9 @@ install_ansible() {
 			python3 -m pip install --user pywinrm
 		fi
 
-		if [ "$isArch" = "true" ]; then
-				sudo pacman -S --noconfirm python python-pipx
+		if [ "$isArch" = "true" ] || [ "$isUbuntu" = "true" ]; then
 				pipx install --include-deps ansible
-		fi
-
-		# if not Arch, install ansible using python3
-		if [ "$isArch" = "false" ]; then
+		else
 				python3 -m pip install --user ansible
 		fi
 
