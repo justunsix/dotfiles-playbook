@@ -44,20 +44,18 @@
     scope: user
     state: present
 
-# Windows Emacs Configuration
-# Assume following are installed by system tasks for Emacs:
-# - Fonts
-# - ripgrep, hunspell, pandoc
-- name: "Set target_user environment variable home to point to user's home directory"
+# Windows environment configuration
+- name: "Set target_user environment variables"
   ansible.windows.win_environment:
-    name: HOME
-    value: C:\Users\{{ target_user }}
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
     state: present
     #  Set for current Ansible user
     level: user
+  loop: "{{ environment_variables }}"
   tags: ['dotfiles', 'emacs']
 
-# TODO plantuml JAR set up per Linux emacs setup  
+# TODO plantuml JAR set up per Linux emacs setup
 
 # PSReadline requirements:
 # Ensure NuGet Package Provider is installed as latest version
