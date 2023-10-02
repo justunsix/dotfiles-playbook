@@ -141,6 +141,7 @@ scoop_installed_packages_work:
   - azure-kubelogin
   - nodejs
   - azure-cli
+  - lf
   - uutils-coreutils
 
 chocolatey_installed_packages_extras:
@@ -161,6 +162,7 @@ scoop_installed_packages:
   - fd
   - duf
   - bottom
+  - lf
   # Media
   - krita
   - upscayl
