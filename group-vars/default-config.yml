@@ -413,7 +413,7 @@ nix_installed_packages:
   - nixpkgs.thunderbird
   ## File Management
   - nixpkgs.ranger
-	- nixpkgs.lf
+  - nixpkgs.lf
   - nixpkgs.gitui
   - nixpkgs.img2pdf
   - nixpkgs.duf
