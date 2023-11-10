@@ -31,6 +31,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/topgrade"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
   - "/home/{{ target_user }}/.config/tmux"
+  - "/home/{{ target_user }}/.config/wezterm"
   - "/home/{{ target_user }}/.config/vlc"
 
 dotfiles_files:
@@ -100,6 +101,7 @@ dotfiles_files:
   - .config/todotxt-cli/.todo.actions.d/pn
   - .config/topgrade/topgrade.toml
   - .config/tmux/tmux.conf
+  - .config/wezterm/wezterm.lua
   - .config/vlc/vlcrc
   # Manage Dolphin file manager settings with copy due to frequently
   # window position changes from opening the program
