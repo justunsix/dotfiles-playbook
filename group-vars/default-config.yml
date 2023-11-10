@@ -402,6 +402,8 @@ flatpak_installed_packages:
   ## Graphics
   - org.inkscape.Inkscape
   - org.gimp.GIMP
+  ## Terminal Emulator
+  - org.wezfurlong.wezterm
 
 nix_installed_packages:
   # Fonts
