@@ -179,6 +179,7 @@ scoop_installed_packages:
   - gsudo
   - mprocs
   - dog
+  - wezterm
   ### Prompt
   - starship
   ## Office, Productivity
@@ -233,6 +234,7 @@ dotfiles_directories:
     - "{{ target_user_home_dir }}/AppData/Local/nvim"
     - "{{ target_user_home_dir }}/AppData/Roaming/topgrade"
     - "{{ target_user_home_dir }}/.config/emacs"
+    - "{{ target_user_home_dir }}/.config/wezterm"    
     - "C:/Hunspell"
 
 dotfiles_to_be_removed:
@@ -249,6 +251,7 @@ dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/", dest: "{{ target_user_home_dir }}/AppData/Roaming/topgrade" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/starship.toml", dest: "{{ target_user_home_dir }}/.config/starship.toml" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/vlc/", dest: "{{ target_user_home_dir }}/scoop/apps/vlc/current/portable_config" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/wezterm/", dest: "{{ target_user_home_dir }}/.config/wezterm" }
     - { src: "{{ dotfiles_repo_local_destination }}/.gitconfig", dest: "{{ target_user_home_dir }}/.gitconfig" }
     - { src: "{{ dotfiles_repo_local_destination }}/other/WindowsPowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1' }
     - { src: "{{ dotfiles_repo_local_destination }}/other/PowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1' }
