@@ -11,7 +11,7 @@
   ansible.builtin.apt:
     name: "{{ item }}"
     state: latest
-  loop: "{{ apt_installed_packages_devops }}"    
+  loop: "{{ apt_installed_packages_devops }}"
   tags: ['apt', 'workstation-ubuntu', 'package', 'devops-b']
 
 # DevOps - Elastic Kubernetes Service (EKS) k8x Control using bash
@@ -24,7 +24,7 @@
   register: eksctl_installed
   tags: ['devops-b', 'workstation-ubuntu']
 
-- name: DevOps - eksctl Elastic Kubernetes Service Kube Control 
+- name: DevOps - eksctl Elastic Kubernetes Service Kube Control
   ansible.builtin.shell: |
     curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
     sudo mv /tmp/eksctl /usr/local/bin
@@ -50,19 +50,36 @@
     executable: /bin/bash
   when: eksctl_fish_completion.stat.exists == False
   tags: ['workstation-ubuntu', 'devops-b']
-# Add shell completion by adding 
+# Add shell completion by adding
 # kubectl completion fish | source
 # to ~/.config/fish/config.fish
 
-- name: DevOps - deb-get
-  ansible.builtin.command: deb-get install "{{ item }}"
-  with_items: "{{ deb_get_installed_packages_devops}}"
-  tags: ['workstation-ubuntu', 'deb-get', 'package', 'devops-b']
+# - name: DevOps - deb-get
+#   ansible.builtin.command: deb-get install "{{ item }}"
+#   with_items: "{{ deb_get_installed_packages_devops}}"
+#   tags: ['workstation-ubuntu', 'deb-get', 'package', 'devops-b']
+
+- name: Nix - Check if Nix is installed
+  ansible.builtin.stat:
+    path: /home/{{ target_user }}/.nix-profile/bin/nix
+  register: nix_installed
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'devops-b']
+
+- name: DevOps - nix package
+  ansible.builtin.command: "nix-env -iA {{ item }}"
+  become: true
+  become_user: "{{ target_user }}"
+  loop: "{{ nix_installed_packages_devops }}"
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'devops-b']
+  register: nixenvia_result
+  changed_when: "'copying' in nixenvia_result.stdout"
+  failed_when: "'error' in nixenvia_result.stdout"
+  when: nix_installed.stat.exists
 
 - name: Snap - kubectl, pycharm-community
   community.general.snap:
     name: "{{ item }}"
     classic: yes
     state: present
-  loop: "{{ snap_installed_packages_devops }}"  
+  loop: "{{ snap_installed_packages_devops }}"
   tags: ['workstation-ubuntu', 'snap', 'package', 'devops-b']

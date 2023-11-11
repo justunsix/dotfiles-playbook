@@ -1,0 +1,38 @@
+dotfiles_directories:
+  # - "/home/{{ target_user }}/.config/xmonad"
+  # - "/home/{{ target_user }}/.config/xmobar"
+
+apt_installed_packages:
+  ### Node
+  #### use nvm instead
+  #### - nodejs
+  #### - npm
+  ### Rust
+  #### pkg-config required for cargo-update
+  #### - pkg-config
+  ### Haskell - GHCup Dependencies
+  #### Install GHCup manually
+  #### - build-essential
+  #### - libffi-dev
+  #### - libffi8ubuntu1
+  #### - libgmp-dev
+  #### - libgmp10
+  #### - libncurses-dev
+  #### - libncurses5
+  #### - libtinfo5
+
+apt_installed_packages_extras_ytdlp:
+  ### Download GUI, can use aria2
+  ### - uget
+
+rust_installed_packages:
+  - exa
+  - du-dust
+  - procs
+  - bottom
+  - zoxide
+  # - broot
+  - monolith
+  - topgrade
+  - sd
+  - cargo-update

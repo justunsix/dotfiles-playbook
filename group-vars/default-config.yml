@@ -1,5 +1,15 @@
 # Variables for playbooks
 
+# Whether to set up certain software, configurations
+configure_dotfiles: true
+configure_emacs: true
+configure_devops_b: true
+configure_extras: true
+configure_repos: true
+configure_mpv: true
+configure_gnome: true
+configure_dolphin: true
+
 downloads: ~/.ansible-downloads/
 
 # Location of this repository
@@ -16,8 +26,6 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/fish"
   - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.local/share/applications"
-  # - "/home/{{ target_user }}/.config/xmonad"
-  # - "/home/{{ target_user }}/.config/xmobar"
   - "/home/{{ target_user }}/.config/cool-retro-term"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
@@ -42,8 +50,6 @@ dotfiles_files:
   - .inputrc
   - Templates/New-Text-Document.txt
   - .local/share/applications/firefox-flatpak.desktop
-  # Converted to Flatpak:
-  # - .local/share/applications/fluent-reader.desktop
   - .local/share/applications/vlc-playlist.desktop
   - .local/share/applications/clipboard-html-to-org.desktop
   - .local/share/applications/screenshot-ocr.desktop
@@ -131,16 +137,6 @@ dotfiles_files_binaries:
 # Optional location of dotfile overlay to override or add to existing dotfiles in this repository
 dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
 
-# Whether to configure certain build items
-configure_dotfiles: true
-configure_emacs: true
-configure_devops_b: true
-configure_extras: false
-configure_repos: true
-configure_mpv: false
-configure_gnome: true
-configure_dolphin: true
-
 # User for which set up is being done for
 # Override with your user name
 target_user: user
@@ -194,7 +190,6 @@ apt_installed_packages:
   ### Android Phone Connectivity
   ### Requires restart to work
   - gmtp
-  # fsearch
   ## File Synchronization
   - git-all
   - stow
@@ -252,23 +247,6 @@ apt_installed_packages:
   - python3-pip
   - pipx
   - python3-virtualenv
-  ### Node
-  #### use nvm instead
-  #### - nodejs
-  #### - npm
-  ### Rust
-  #### pkg-config required for cargo-update
-  #### - pkg-config
-  ### Haskell - GHCup Dependencies
-  #### Install GHCup manually
-  #### - build-essential
-  #### - libffi-dev
-  #### - libffi8ubuntu1
-  #### - libgmp-dev
-  #### - libgmp10
-  #### - libncurses-dev
-  #### - libncurses5
-  #### - libtinfo5
   ## DevOps Support
   ### Document conversion, Emacs exports
   - pandoc
@@ -278,7 +256,6 @@ apt_installed_packages:
   #### PlantUML
   - plantuml
   ### DevOps Infrastructure
-  #### - Ansible installed with pipx
   ## Media
   - mpv
 
@@ -296,8 +273,6 @@ apt_installed_packages_extras_ytdlp:
   ## Downloaders
   ### Downloader
   - aria2
-  ### Download GUI, can use aria2
-  # - uget
 
 pipx_installed_packages:
   - ansible
@@ -326,39 +301,13 @@ pip_installed_packages_extras_ytdlp:
   #### AES-128 and similar streams
   - pycryptodomex
 
-rust_installed_packages:
-  - exa
-  - du-dust
-  - procs
-  - bottom
-  - zoxide
-  # - broot
-  - monolith
-  - topgrade
-  - sd
-  - cargo-update
-  # - alacritty install on Ubuntu using snap
-
 deb_get_installed_packages:
-  ## Devops Editors
-  - code
-  # Office, Diagramming
-  - draw.io
-  # Hardware
-  # - openrgb
-  ### Peazip will use KDE modules and get them
-  - peazip
-  - fsearch
-  ## Web
-  # - google-chrome-stable / requires manual acceptance EULA
-  - microsoft-edge-stable
   ## Security
   - nordvpn
-  - keepassxc
 
-deb_get_installed_packages_devops:
-  - minikube
-  - terraform
+nix_installed_packages_devops:
+  - nixpkgs.minikube
+  - nixpkgs.terraform
 
 apt_removed_packages:
   - emacs-common
@@ -366,15 +315,17 @@ apt_removed_packages:
   - thunderbird
 
 snap_installed_packages:
-  ## Web
+  # Web
   - firefox
-  ## Shell
+  # Shell
   - starship
   # Media, Sound, Video
   - vlc
 
 snap_installed_packages_classic:
-  # - alacritty
+  # Devops
+  ## Editors
+  - code
   - emacs
 
 snap_installed_packages_devops:
@@ -385,15 +336,16 @@ flatpak_installed_packages:
   # Web
   - org.mozilla.firefox
   - com.github.tchx84.Flatseal
+  - com.microsoft.Edge
+  ## RSS
+  - me.hyliu.fluentreader
+  ## Video
+  - io.freetubeapp.FreeTube
   # Learning
   ## Books
   - com.calibre_ebook.calibre
   ## SRS - Anki
   - net.ankiweb.Anki
-  ## RSS
-  - me.hyliu.fluentreader
-  ## YouTube
-  - io.freetubeapp.FreeTube
   ## Games
   ### - net.lutris.Lutris
   # Media
@@ -406,6 +358,14 @@ flatpak_installed_packages:
   - org.gimp.GIMP
   ## Terminal Emulator
   - org.wezfurlong.wezterm
+  # Office, Diagramming
+  - com.jgraph.drawio.desktop
+  # Files
+  ## Peazip will use KDE modules and get them
+  - io.github.peazip.PeaZip
+  - io.github.cboxdoerfer.FSearch
+  # Security
+  - org.keepassxc.KeePassXC
 
 nix_installed_packages:
   # Fonts
@@ -413,33 +373,33 @@ nix_installed_packages:
   - nixpkgs.source-code-pro
   # Even though installed by apt, require for program like exa
   - nixpkgs.fira-code
-  ## Email
+  # Email
   - nixpkgs.thunderbird
-  ## File Management
+  # File Management
   - nixpkgs.ranger
   - nixpkgs.lf
   - nixpkgs.gitui
   - nixpkgs.img2pdf
   - nixpkgs.duf
   - nixpkgs.bottom
-  ## Terminal
+  # Terminal
   - nixpkgs.tmux
   - nixpkgs.mprocs
   - nixpkgs.dogdns
-  ### Former rust cargo installs
+  ## Lower Priority
+  ## - nixpkgs.bottom
+  ## - nixpkgs.sd
+  ## Former rust cargo installs
   - nixpkgs.du-dust
-  #### Remove unmaintained - nixpkgs.exa
+  ### Remove unmaintained - nixpkgs.exa, replaced by eza
   - nixpkgs.eza
   - nixpkgs.monolith
   - nixpkgs.procs
   - nixpkgs.topgrade
   - nixpkgs.zoxide
-  ## Productivity
+  # Productivity
   - nixpkgs.super-productivity
-  ## DevOps
+  # DevOps
   - nixpkgs.neovim
-  ### Python
+  ## Python
   - nixpkgs.conda
-  #### Lower Priority
-  # - nixpkgs.bottom
-  # - nixpkgs.sd
