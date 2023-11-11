@@ -1,18 +1,18 @@
-- name: Add the extras, java buckets
+- name: scoop - Add the extras, java buckets
   community.windows.win_scoop_bucket:
     name: "{{ item }}"
     state: present
   loop:
     - extras
     - java
-- name: Install Scoop packages
+- name: scoop - Install packages
   community.windows.win_scoop:
     name: "{{ item }}"
     state: present
   loop: "{{ scoop_installed_packages }}"
   tags: ['scoop', 'workstation-windows', 'package']
 
-- name: Initialize conda scoop package for PowerShell
+- name: scoop - Initialize conda scoop package for PowerShell
   ansible.windows.win_powershell:
     script: |
       conda init powershell

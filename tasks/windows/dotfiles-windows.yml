@@ -1,6 +1,6 @@
 # Windows dotfiles
 # All dotfile directories that must exist
-- name: dotfiles - Create user binaries, Hunspell directory if it does not exist of target user
+- name: dotfiles - Create user software config directories if it does not exist of target user
   ansible.windows.win_file:
     path: "{{ item }}"
     state: directory

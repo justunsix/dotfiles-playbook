@@ -235,7 +235,7 @@ dotfiles_directories:
     - "{{ target_user_home_dir }}/AppData/Local/nvim"
     - "{{ target_user_home_dir }}/AppData/Roaming/topgrade"
     - "{{ target_user_home_dir }}/.config/emacs"
-    - "{{ target_user_home_dir }}/.config/wezterm"    
+    - "{{ target_user_home_dir }}/.config/wezterm"
     - "C:/Hunspell"
 
 dotfiles_to_be_removed:
@@ -276,5 +276,6 @@ environment_variables:
   # Assume following are installed by system tasks for Emacs:
   # - Fonts
   # - ripgrep, hunspell, pandoc
-  - { name: "HOME", value: "C:\Users\{{ target_user }}" }
+  # Set home to "C:\Users\justi\"
+  - { name: "HOME", value: "C:\\Users\\justi\\" }
   - { name: "EDITOR", value: "nvim" }
