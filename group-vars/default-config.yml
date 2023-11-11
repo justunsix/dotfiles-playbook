@@ -255,7 +255,6 @@ apt_installed_packages:
   - texlive-latex-extra
   #### PlantUML
   - plantuml
-  ### DevOps Infrastructure
   ## Media
   - mpv
 
