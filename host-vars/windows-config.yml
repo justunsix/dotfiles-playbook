@@ -143,6 +143,7 @@ scoop_installed_packages_work:
   - azure-cli
   - lf
   - uutils-coreutils
+  - wezterm
 
 chocolatey_installed_packages_extras:
   ## Games
