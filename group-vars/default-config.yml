@@ -29,6 +29,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/cool-retro-term"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
+  - "/home/{{ target_user }}/.config/nushell"
   - "/home/{{ target_user }}/.config/nvim"
   - "/home/{{ target_user }}/.config/rofi"
   - "/home/{{ target_user }}/.config/copyq"
@@ -100,6 +101,8 @@ dotfiles_files:
   - .config/mpv/scripts/autoload.lua
   - .config/mpv/script-opts/osc.conf
   - .config/mprocs/mprocs.yaml
+  - .config/nushell/config.nu
+  - .config/nushell/env.nu
   - .config/nvim/init.lua
   - .config/rofi/config.rasi
   - .config/todotxt-cli/todo.cfg
@@ -369,6 +372,8 @@ flatpak_installed_packages:
   - org.keepassxc.KeePassXC
 
 nix_installed_packages:
+  # Shell
+  - nixpkgs.nushell
   # Fonts
   - nixpkgs.iosevka
   - nixpkgs.source-code-pro
