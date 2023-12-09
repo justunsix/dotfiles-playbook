@@ -321,8 +321,6 @@ apt_removed_packages:
 snap_installed_packages:
   # Web
   - firefox
-  # Shell
-  - starship
   # Media, Sound, Video
   - vlc
 
@@ -374,6 +372,7 @@ flatpak_installed_packages:
 nix_installed_packages:
   # Shell
   - nixpkgs.nushell
+  - nixpkgs.starship
   # Fonts
   - nixpkgs.iosevka
   - nixpkgs.source-code-pro
