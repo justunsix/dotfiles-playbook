@@ -1,16 +1,22 @@
 # See https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html
 
-# Update and upgrade all apt installed packages
+# Update homebrew and upgrade all packages
 - name: homebrew - Update and upgrade all installed packages
-  community.general.homebrew:
-    name: homebrew/cask/firefox
+- community.general.homebrew:
+    update_homebrew: true
+    upgrade_all: true
+  tags: ['homebrew', 'workstation-macos', 'package']
+  become_user: "{{ target_user }}"
+
+- name: Install cask
+  community.general.homebrew_cask:
+    name: firefox
     state: latest
   tags: ['homebrew', 'workstation-macos', 'package']
   become_user: "{{ target_user }}"
 
-# Update homebrew and upgrade all packages
-- community.general.homebrew:
-    update_homebrew: true
+- name: Upgrade all casks
+  community.general.homebrew_cask:
     upgrade_all: true
   tags: ['homebrew', 'workstation-macos', 'package']
   become_user: "{{ target_user }}"
