@@ -3,7 +3,15 @@
   ansible.builtin.stat:
     path: /home/{{ target_user }}/.nix-profile/bin/nix
   register: nix_installed
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch']
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux" or ansible_distribution == "Fedora"
+
+- name: Nix - Check if Nix is installed
+  ansible.builtin.stat:
+    path: /nix
+  register: nix_installed
+  tags: ['nix', 'package', 'workstation-macos']  
+  when: ansible_distribution == "Darwin"
 
 # Update Nix
 - name: Nix - Update Nix
@@ -39,3 +47,4 @@
   become: true
   become_user: "{{ target_user }}"
   tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  when: nix_installed.stat.exists
