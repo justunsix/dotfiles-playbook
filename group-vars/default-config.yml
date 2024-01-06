@@ -9,6 +9,7 @@ configure_repos: true
 configure_mpv: true
 configure_gnome: true
 configure_dolphin: true
+configure_todoandcht: true
 
 downloads: ~/.ansible-downloads/
 

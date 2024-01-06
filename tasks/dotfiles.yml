@@ -91,6 +91,7 @@
      owner: "{{ target_user }}"
      group: "{{ target_user }}"
   tags: ['dotfiles', 'symlink']
+  when: configure_todoandcht
 
 - name: dotfiles - install cheat.sh script
   ansible.builtin.get_url:
@@ -100,6 +101,7 @@
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
   tags: ['dotfiles', 'cheat.sh']
+  when: configure_todoandcht
 
 # Create ~/.config/mpv directory if it does not exist of target user
 - name: dotfiles - Create ~/.config/mpv directory if it does not exist of target user
