@@ -17,7 +17,7 @@
     - name: Include overlay configuration
       include_vars: "{{ item }}"
       with_fileglob:
-        - "{{ dotfiles_overlay_dir }}/config.yml"
+        - "{{ dotfiles_overlay_dir }}/config-macos.yml"
       tags: ["always"]
 
   tasks:
