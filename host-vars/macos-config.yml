@@ -10,6 +10,9 @@ dotfiles_repo_local_destination: "~/Code/dotfiles"
 
 dotfiles_home: "~"
 
+# Optional location of dotfile overlay to override or add to existing dotfiles in this repository
+dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
+
 # User for which set up is being done for
 # Override with your user name
 target_user: user
