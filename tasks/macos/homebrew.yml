@@ -6,9 +6,11 @@
     name: homebrew/cask/firefox
     state: latest
   tags: ['homebrew', 'workstation-macos', 'package']
+  become_user: "{{ target_user }}"
 
 # Update homebrew and upgrade all packages
 - community.general.homebrew:
     update_homebrew: true
     upgrade_all: true
   tags: ['homebrew', 'workstation-macos', 'package']
+  become_user: "{{ target_user }}"
