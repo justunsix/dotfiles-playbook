@@ -1,0 +1,26 @@
+---
+- hosts: workstation_macos
+  # Run as root
+  become: true
+
+  # Load default variables
+  vars_files:
+    - group-vars/macos-config.yml
+
+  # Load override
+  pre_tasks:
+    - name: Include playbook configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+      tags: ["always"]
+    - name: Include overlay configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ dotfiles_overlay_dir }}/config.yml"
+      tags: ["always"]
+
+  tasks:
+    - name: Set up nix packages
+      import_tasks: tasks/nix.yml
+      tags: ["workstation-macos", "nix", "package"]

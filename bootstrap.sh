@@ -22,6 +22,7 @@ isUbuntu="false"
 isFedora="false"
 isWSLUbuntu="false"
 isArch="false"
+isMacOS="false"
 
 # Restart shell flag
 restartShell="false"
@@ -51,9 +52,14 @@ if [ -f /etc/arch-release ]; then
 		isArch="true"
 fi
 
+# Detect MacOS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+		isMacOS="true"
+fi
+
 # If Linux distribution supported distributions, exit
-if [ "$isUbuntu" = "false" ] && [ "$isFedora" = "false" ] && [ "$isWSLUbuntu" = "false" ] && [ "$isArch" = "false"  ]; then
-		echo "This Linux distribution is not supported by this script."
+if [ "$isUbuntu" = "false" ] && [ "$isFedora" = "false" ] && [ "$isWSLUbuntu" = "false" ] && [ "$isArch" = "false"  ] && [ "$isMacOS" = "false" ]; then
+		echo "This Linux/Unix distribution is not supported by this script."
 		exit 1
 fi
 

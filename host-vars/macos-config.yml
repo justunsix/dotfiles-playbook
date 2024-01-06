@@ -1,0 +1,19 @@
+# Variables for playbooks
+
+downloads: ~/.ansible-downloads/
+
+# Location of this repository
+dotfiles_repo: "git@github.com:justunsix/dotfiles.git"
+dotfiles_repo_version: "main"
+dotfiles_repo_accept_hostkey: false
+dotfiles_repo_local_destination: "~/Code/dotfiles"
+
+dotfiles_home: "~"
+
+# User for which set up is being done for
+# Override with your user name
+target_user: user
+
+nix_installed_packages:
+  # web
+  - nixpkgs.firefox

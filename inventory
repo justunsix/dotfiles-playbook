@@ -7,6 +7,9 @@
 [workstation_arch]
 127.0.0.1 ansible_connection=local
 
+[workstation_macos]
+127.0.0.1 ansible_connection=local
+
 # Get IP from ipconfig of Windows machine
 [workstation_windows]
 # 192.168.1.105
