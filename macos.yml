@@ -27,3 +27,7 @@
     - name: Set up nix packages
       import_tasks: tasks/nix.yml
       tags: ["workstation-macos", "nix", "package"]
+    - name: Set up and synchronize dotfiles
+      import_tasks: tasks/dotfiles.yml
+      when: configure_dotfiles
+      tags: ["workstation-macos", "dotfiles"]
