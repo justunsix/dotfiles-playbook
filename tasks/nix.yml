@@ -11,7 +11,7 @@
     path: /nix
   register: nix_installed
   tags: ['nix', 'package', 'workstation-macos']  
-  when: ansible_fact['os_family'] == "Darwin"
+  when: ansible_facts['os_family'] == "Darwin"
 
 # Update Nix
 - name: Nix - Update Nix
