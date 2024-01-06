@@ -5,7 +5,7 @@
     state: directory
     # User can rwx
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"
+    # group: "{{ target_user }}"
     mode: "744"
   with_items: "{{ dotfiles_directories }}"
   tags: ['dotfiles']

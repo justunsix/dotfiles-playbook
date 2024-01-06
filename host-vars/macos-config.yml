@@ -18,14 +18,14 @@ dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
 target_user: user
 
 dotfiles_directories:
-  - "/home/{{ target_user }}/usr/bin"
-  - "/home/{{ target_user }}/.config/nushell"
-  - "/home/{{ target_user }}/.config/nvim"
-  - "/home/{{ target_user }}/.config/wezterm"
+  - "/Users/{{ target_user }}/usr/bin"
+  - "/Users/{{ target_user }}/Library/Application Support/nushell"
+  - "/Users/{{ target_user }}/.config/nvim"
+  - "/Users/{{ target_user }}/.config/wezterm"
 
 dotfiles_to_be_removed:
-  - "/home/{{ target_user }}/.emacs"
-  - "/home/{{ target_user }}/.emacs.d"
+  - "/Users/{{ target_user }}/.emacs"
+  - "/Users/{{ target_user }}/.emacs.d"
 
 dotfiles_files:
   - usr/bin/jt-gc.sh
@@ -33,8 +33,9 @@ dotfiles_files:
   - usr/bin/jt-gt.sh
   - usr/bin/jt-update-all.sh
   - usr/bin/jt-clean-up.sh
-  - .config/nushell/config.nu
-  - .config/nushell/env.nu
+  # Set up to nushell config above
+  #- .config/nushell/config.nu
+  #- .config/nushell/env.nu
   - .config/nvim/init.lua
   - .config/wezterm/wezterm.lua
 
@@ -48,12 +49,15 @@ dotfiles_files_binaries:
 # Whether to configure certain build items
 configure_dotfiles: true
 configure_todoandcht: false
+configure_mpv: true
+configure_dolphin: true
 
 nix_installed_packages:
   # Shell
   - nixpkgs.nushell
   - nixpkgs.starship
   - nixpkgs.topgrade
+  - nixpkgs.zoxide
   # DevOps
   - nixpkgs.neovim
 
