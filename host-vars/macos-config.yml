@@ -21,4 +21,4 @@ nix_installed_packages:
 
 brew_installed_packages:
   # Web
-  - firefox
+  - homebrew/cask/firefox
