@@ -2,21 +2,21 @@
 
 # Update homebrew and upgrade all packages
 - name: homebrew - Update and upgrade all installed packages
-- community.general.homebrew:
+  community.general.homebrew:
     update_homebrew: true
     upgrade_all: true
-  tags: ['homebrew', 'workstation-macos', 'package']
+  tags: ["homebrew", "workstation-macos", "package"]
   become_user: "{{ target_user }}"
 
 - name: Install cask
   community.general.homebrew_cask:
     name: firefox
     state: latest
-  tags: ['homebrew', 'workstation-macos', 'package']
+  tags: ["homebrew", "workstation-macos", "package"]
   become_user: "{{ target_user }}"
 
 - name: Upgrade all casks
   community.general.homebrew_cask:
     upgrade_all: true
-  tags: ['homebrew', 'workstation-macos', 'package']
+  tags: ["homebrew", "workstation-macos", "package"]
   become_user: "{{ target_user }}"
