@@ -10,8 +10,9 @@
 
 - name: Install cask
   community.general.homebrew_cask:
-    name: firefox
+    name: "{{ item }}"
     state: latest
+  with_items: "{{ homebrew_installed_packages }}"
   tags: ["homebrew", "workstation-macos", "package"]
   become_user: "{{ target_user }}"
 

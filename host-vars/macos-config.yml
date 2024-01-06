@@ -57,7 +57,7 @@ nix_installed_packages:
   # DevOps
   - nixpkgs.neovim
 
-brew_installed_packages:
+homebrew_installed_packages:
   # Web
   - homebrew/cask/firefox
   - homebrew/cask/wezterm
