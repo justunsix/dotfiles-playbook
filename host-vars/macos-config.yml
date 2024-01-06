@@ -15,5 +15,10 @@ dotfiles_home: "~"
 target_user: user
 
 nix_installed_packages:
-  # web
-  - nixpkgs.firefox
+  # Shell
+  - nixpkgs.nushell
+  - nixpkgs.starship
+
+brew_installed_packages:
+  # Web
+  - firefox

@@ -21,6 +21,9 @@
       tags: ["always"]
 
   tasks:
+    - name: Set up brew packages
+      import_tasks: tasks/macos/homebrew.yml
+      tags: ["workstation-macos", "homebrew", "package"]
     - name: Set up nix packages
       import_tasks: tasks/nix.yml
       tags: ["workstation-macos", "nix", "package"]
