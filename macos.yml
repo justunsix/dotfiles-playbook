@@ -5,7 +5,7 @@
 
   # Load default variables
   vars_files:
-    - group-vars/macos-config.yml
+    - host-vars/macos-config.yml
 
   # Load override
   pre_tasks:
@@ -14,11 +14,11 @@
       with_fileglob:
         - "{{ playbook_dir }}/config.yml"
       tags: ["always"]
-    # - name: Include overlay configuration
-    #   include_vars: "{{ item }}"
-    #   with_fileglob:
-    #     - "{{ dotfiles_overlay_dir }}/config.yml"
-    #   tags: ["always"]
+    - name: Include overlay configuration
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ dotfiles_overlay_dir }}/config.yml"
+      tags: ["always"]
 
   tasks:
     - name: Set up brew packages
