@@ -1,0 +1,12 @@
+# For dotfiles where their link location relative to the user home directory
+# is different than the relative location in the dotfiles repository
+- name: Link dotfiles into home folder to a custom destination
+  ansible.builtin.file:
+    src: "{{ dotfiles_repo_local_destination }}/{{ item.src }}"
+    dest: "{{ dotfiles_home }}/{{ item.dest }}"
+    state: link
+    mode: 0644
+  become: true
+  become_user: "{{ target_user }}"
+  with_items: "{{ dotfiles_items_with_custom_destination }}"
+  tags: ['dotfiles', 'dotfiles-symlink']

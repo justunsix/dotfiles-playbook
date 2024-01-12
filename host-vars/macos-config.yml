@@ -38,6 +38,12 @@ dotfiles_files:
   #- .config/nushell/env.nu
   - .config/nvim/init.lua
   - .config/wezterm/wezterm.lua
+  - .config/starship.toml
+  - .config/topgrade/topgrade.toml
+
+dotfiles_items_with_custom_destination:
+    - { src: ".config/nushell/config.nu", dest: "Library/Application Support/nushell/config.nu" }
+    - { src: ".config/nushell/env.nu", dest: "Library/Application Support/nushell/env.nu" }
 
 dotfiles_files_binaries:
   - usr/bin/jt-gc.sh

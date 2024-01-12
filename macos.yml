@@ -31,3 +31,6 @@
       import_tasks: tasks/dotfiles.yml
       when: configure_dotfiles
       tags: ["workstation-macos", "dotfiles"]
+    - name: Set up and synchronize dotfiles with custom destinations
+      import_tasks: tasks/dotfiles-custom.yml
+      tags: ["workstation-macos", "dotfiles"]      
