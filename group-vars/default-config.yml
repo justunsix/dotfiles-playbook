@@ -166,7 +166,7 @@ apt_ppa_repositories:
   # - ppa:christian-boxdoerfer/fsearch-stable
   # - ppa:thopiekar/openrgb
   # - ppa:kelleyk/emacs
-  - ppa:fish-shell/release-3
+  # - ppa:fish-shell/release-3
 
 apt_installed_packages:
   # Package Management
@@ -181,7 +181,6 @@ apt_installed_packages:
   ### Starship prompt nerd font
   - fonts-firacode
   ## Shell support
-  - fish
   - rename
   - bat
   - fzf
@@ -372,6 +371,7 @@ flatpak_installed_packages:
 
 nix_installed_packages:
   # Shell
+  - nixpkgs.fish
   - nixpkgs.nushell
   - nixpkgs.starship
   # Fonts
