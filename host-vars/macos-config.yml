@@ -33,9 +33,6 @@ dotfiles_files:
   - usr/bin/jt-gt.sh
   - usr/bin/jt-update-all.sh
   - usr/bin/jt-clean-up.sh
-  # Set up to nushell config above
-  #- .config/nushell/config.nu
-  #- .config/nushell/env.nu
   - .config/nvim/init.lua
   - .config/wezterm/wezterm.lua
   - .config/starship.toml
@@ -55,8 +52,8 @@ dotfiles_files_binaries:
 # Whether to configure certain build items
 configure_dotfiles: true
 configure_todoandcht: false
-configure_mpv: true
-configure_dolphin: true
+configure_mpv: false
+configure_dolphin: false
 
 nix_installed_packages:
   # Shell
