@@ -1,5 +1,12 @@
 # See https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html
 
+# Install packages
+# - community.general.homebrew:
+#     name: "{{ item }}"
+#     state: latest
+#   with_items: "{{ homebrew_installed_packages }}"
+#   become_user: "{{ target_user }}"
+
 # Update homebrew and upgrade all packages
 - name: homebrew - Update and upgrade all installed packages
   community.general.homebrew:
@@ -12,7 +19,7 @@
   community.general.homebrew_cask:
     name: "{{ item }}"
     state: latest
-  with_items: "{{ homebrew_installed_packages }}"
+  with_items: "{{ homebrew_installed_casks }}"
   tags: ["homebrew", "workstation-macos", "package"]
   become_user: "{{ target_user }}"
 

@@ -8,7 +8,7 @@
     path: "{{ item }}"
     state: directory
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"
+    # group: "{{ target_user }}"
     mode: "0744"
   loop:
     - "~/.config/emacs"
@@ -25,7 +25,7 @@
     path: "~/.config/emacs/plantuml"
     state: directory
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"
+    # group: "{{ target_user }}"
     mode: "0744"
   tags: ['dotfiles', 'emacs']
   become: true
@@ -37,7 +37,7 @@
     url: https://github.com/plantuml/plantuml/releases/download/v1.2023.10/plantuml-1.2023.10.jar
     dest: ~/.config/emacs/plantuml/plantuml.jar
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"
+    # group: "{{ target_user }}"
     mode: "0644"
   become: true
   become_user: "{{ target_user }}"
