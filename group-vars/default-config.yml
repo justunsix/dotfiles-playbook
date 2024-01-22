@@ -32,6 +32,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/i3status"
   - "/home/{{ target_user }}/.config/nushell"
   - "/home/{{ target_user }}/.config/nvim"
+  - "/home/{{ target_user }}/.config/nvim/lua/custom/plugins"
   - "/home/{{ target_user }}/.config/rofi"
   - "/home/{{ target_user }}/.config/copyq"
   - "/home/{{ target_user }}/.config/dunst"
@@ -105,6 +106,7 @@ dotfiles_files:
   - .config/nushell/config.nu
   - .config/nushell/env.nu
   - .config/nvim/init.lua
+  - .config/nvim/lua/custom/plugins/init.lua
   - .config/rofi/config.rasi
   - .config/todotxt-cli/todo.cfg
   - .config/todotxt-cli/todo-work.cfg
