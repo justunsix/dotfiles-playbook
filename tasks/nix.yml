@@ -1,17 +1,9 @@
-# Nix - Check with if Nix command is installed
-- name: Nix - Check if Nix is installed
-  ansible.builtin.stat:
-    path: /home/{{ target_user }}/.nix-profile/bin/nix
-  register: nix_installed
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch']
-  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux" or ansible_distribution == "Fedora"
-
+# Nix - Check with if /nix directory exists
 - name: Nix - Check if Nix is installed
   ansible.builtin.stat:
     path: /nix
   register: nix_installed
-  tags: ['nix', 'package', 'workstation-macos']  
-  when: ansible_facts['os_family'] == "Darwin"
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
 
 # Update Nix
 - name: Nix - Update Nix
