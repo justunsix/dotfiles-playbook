@@ -1,10 +1,10 @@
 # Add PPA repositories to apt
-- name: apt - Add PPA repositories
-  ansible.builtin.apt_repository:
-    repo: "{{ item }}"
-    state: present
-  with_items: "{{ apt_ppa_repositories }}"
-  tags: ['apt', 'workstation-ubuntu', 'package']
+# - name: apt - Add PPA repositories
+#   ansible.builtin.apt_repository:
+#     repo: "{{ item }}"
+#     state: present
+#   with_items: "{{ apt_ppa_repositories }}"
+#   tags: ['apt', 'workstation-ubuntu', 'package']
 
 # Ensure apt Multiverse repository is enabled
 - name: apt - Ensure Multiverse repository is enabled
@@ -29,7 +29,7 @@
   loop: "{{ apt_removed_packages }}"
   tags: ['apt', 'workstation-ubuntu', 'package']
 
-# Install / Check packages with apt 
+# Install / Check packages with apt
 # Using list of items variable: apt_installed_packages
 - name: apt - Install / Update / Upgrade packages
   ansible.builtin.apt:
