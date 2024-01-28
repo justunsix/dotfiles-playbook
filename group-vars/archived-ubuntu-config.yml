@@ -24,6 +24,11 @@ apt_installed_packages:
 apt_installed_packages_extras_ytdlp:
   ### Download GUI, can use aria2
   ### - uget
+  ## yt-dlp
+  - ffmpeg
+  ## Downloaders
+  ### Downloader
+  - aria2
 
 rust_installed_packages:
   - exa
@@ -36,3 +41,24 @@ rust_installed_packages:
   - topgrade
   - sd
   - cargo-update
+
+pipx_installed_packages_extras_ytdlp:
+  ## yt-dlp
+  - yt-dlp
+  ### yt-dlp - Other Possible Dependencies
+  #### Audio metadata
+  - mutagen
+  #### File extended attributes on Linux, MacOS
+  - xattr
+
+# Packages not present in pipx
+pip_installed_packages_extras_ytdlp:
+  ## yt-dlp
+  ### Recommended - Certificates - Mozilla root certificate bundle
+  - certifi
+  ### Recommended - Encoding
+  - brotli
+  #### Downloads over websocket
+  - websockets
+  #### AES-128 and similar streams
+  - pycryptodomex

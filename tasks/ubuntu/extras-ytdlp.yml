@@ -1,51 +1,54 @@
-# Extras - apt - Install packages
-- name: Extras yt-dlp - apt - Install packages
-  ansible.builtin.apt:
-    name: "{{ item }}"
-    state: latest
-  loop: "{{ apt_installed_packages_extras_ytdlp }}"
-  tags: ["extras", "apt", "workstation-ubuntu", "package", 'ytdlp']
+# # Extras - apt - Install packages
+# - name: Extras yt-dlp - apt - Install packages
+#   ansible.builtin.apt:
+#     name: "{{ item }}"
+#     state: latest
+#   loop: "{{ apt_installed_packages_extras_ytdlp }}"
+#   tags: ["extras", "apt", "workstation-ubuntu", "package", 'ytdlp']
 
-# Extras Refresh and Upgrade all packages installed by pipx
-- name: Extras yt-dlp - pipx - Upgrade all packages
-  community.general.pipx:
-    name: "{{ item }}"
-    state: latest
-  loop: "{{ pipx_installed_packages_extras_ytdlp }}"
-  tags: ["extras", "workstation-ubuntu", "apt", "pip", "pipx", "package", 'ytdlp']
+# # Extras Refresh and Upgrade all packages installed by pipx
+# - name: Extras yt-dlp - pipx - Upgrade all packages
+#   community.general.pipx:
+#     name: "{{ item }}"
+#     state: latest
+#   loop: "{{ pipx_installed_packages_extras_ytdlp }}"
+#   tags: ["extras", "workstation-ubuntu", "apt", "pip", "pipx", "package", 'ytdlp']
+#   become: true
+#   become_user: "{{ target_user }}"
+
+# # Extras Refresh and Upgrade all packages installed by pip
+# - name: Extras yt-dlp - pipx - Upgrade all packages
+#   ansible.builtin.pip:
+#     name: "{{ item }}"
+#     state: latest
+#   loop: "{{ pip_installed_packages_extras_ytdlp }}"
+#   tags: ["extras", "workstation-ubuntu", "apt", "pip", "package", 'ytdlp']
+#   become: true
+#   become_user: "{{ target_user }}"
+
+# Install Nix packages
+- name: Nix - Install Nix packages for yt-dlp
+  ansible.builtin.command: "nix-env -iA {{ item }}"
   become: true
   become_user: "{{ target_user }}"
-
-# Extras Refresh and Upgrade all packages installed by pip
-- name: Extras yt-dlp - pipx - Upgrade all packages
-  ansible.builtin.pip:
-    name: "{{ item }}"
-    state: latest
-  loop: "{{ pip_installed_packages_extras_ytdlp }}"
-  tags: ["extras", "workstation-ubuntu", "apt", "pip", "package", 'ytdlp']
-  become: true
-  become_user: "{{ target_user }}"
+  loop: "{{ nix_installed_packages_ytdlp }}"
+  tags: ["extras", "workstation-ubuntu", 'ytdlp']
+  register: nixenvia_result
+  changed_when: "'copying' in nixenvia_result.stdout"
+  failed_when: "'error' in nixenvia_result.stdout"
 
 # Check if PhantomJS is installed and if not install it
 - name: Extras yt-dlp - Check if PhantomJS is installed
   ansible.builtin.stat:
-    path: /home/{{ target_user }}/usr/bin/phantomjs-2.1.1-linux-x86_64/bin/phantomjs
+    path: /usr/local/bin/phantomjs
   register: phantomjs_installed
   tags: ["extras", "workstation-ubuntu", 'ytdlp']
 
-# Extras - Install PhantomJS
+# Extras - Install PhantomJS using minstall_phantomjs.sh in directory of this task
 - name: Extras yt-dlp - Install PhantomJS
-  # Install PhantomJS
-  # - download https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 to ~/Downloads
-  # - cd ~/Downloads
-  # - extract to archive to /home/{{ target_user }}/usr/bin/phantomjs-2.1.1-linux-x86_64
-  ansible.builtin.command: "{{ item }}"
-  with_items:
-    - wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-    - tar -xvf /home/{{ target_user }}/Downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /home/{{ target_user }}/usr/bin
-  when: not phantomjs_installed.stat.exists
+  ansible.builtin.command: "./install_phantomjs.sh"
   args:
-    chdir: /home/{{ target_user }}/Downloads
-  become: true
-  become_user: "{{ target_user }}"
+    chdir: "{{ playbook_dir }}/tasks/ubuntu"
   tags: ["extras", "workstation-ubuntu", 'ytdlp']
+  when: not phantomjs_installed.stat.exists
+
