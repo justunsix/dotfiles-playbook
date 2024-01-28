@@ -20,6 +20,9 @@ To use this project, follow these steps:
 - Navigate to the directory containing the `Vagrantfile`.
 - Run the command `vagrant up` to start the virtual machine.
 - Once the machine is up and running, you can use `vagrant ssh` to connect to it.
+- Go to this repository assuming it is on the host machine at `~/Code/dotfiles-playbook` with `cd ~/Code/dotfiles-playbook`.
+- Run `ansible-playbook -i inventory playbook.yml` to run the playbook.
+  - If running again the `windows.yml` playbook, get a Windows IP address with `ipconfig` and update the `inventory` file with the IP address.
 - When done, use `vagrant halt` to turn off the machine.
 
 ## About the Vagrantfile
