@@ -91,59 +91,6 @@ chocolatey_installed_packages_work:
   ## File Management
   - veracrypt
 
-scoop_installed_packages_work:
-  - git
-  - extras/git-credential-manager
-  - firefox
-  - capture2text
-  - zoxide
-  - inkscape
-  - gimp
-  - starship
-  - fzf
-  - peazip
-  - vlc
-  - keepassxc
-  - vscode
-  - emacs
-  - ripgrep
-  - pandoc
-  - draw.io
-  - maven
-  - mremoteng
-  - zoxide
-  - plantuml
-  - fd
-  - gcc
-  - neovim
-  - terraform
-  - nu
-  - gitui
-  - extras/miniconda3
-  - obs-studio
-  - gsudo
-  - topgrade
-  - mprocs
-  - dotnet-sdk
-  - java/temurin-lts-jdk
-  - shellcheck
-  - imagemagick
-  - fluent-reader
-  - bleachbit
-  - ccleaner
-  - cht
-  - pycharm
-  - duf
-  - bottom
-  - dog
-  - azure-ps
-  - kubernetes-cli
-  - azure-kubelogin
-  - nodejs
-  - azure-cli
-  - lf
-  - wezterm
-
 chocolatey_installed_packages_extras:
   ## Games
   - steam
@@ -164,6 +111,7 @@ scoop_installed_packages:
   - bottom
   - lf
   - everything
+  - kondo
   # Media
   - krita
   - upscayl
