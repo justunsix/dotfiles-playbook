@@ -19,6 +19,7 @@
   become: true
   become_user: "{{ target_user }}"
   tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  ignore_errors: true
   when: nix_installed.stat.exists
 
 # Install Nix packages defined in installed_nix_packages
