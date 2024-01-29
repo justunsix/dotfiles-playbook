@@ -379,6 +379,7 @@ nix_installed_packages:
   - nixpkgs.duf
   - nixpkgs.bottom
   - nixpkgs.kondo
+  - nixpkgs.broot  
   # Terminal
   - nixpkgs.tmux
   - nixpkgs.mprocs
