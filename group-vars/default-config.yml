@@ -289,11 +289,11 @@ nix_installed_packages_ytdlp:
   - nixpkgs.atomicparsley
   # yt-dlp python packages
   - nixpkgs.python311Packages.mutagen
-  - nixpkgs.python311Packages.xattr
+  - nixpkgs.python310Packages.xattr
   - nixpkgs.python311Packages.certifi
   - nixpkgs.python311Packages.brotli
   - nixpkgs.python311Packages.websockets
-  - nixpkgs.python311Packages.pycryptodomex
+  - nixpkgs.python311Packages.pycryptodome
 
 deb_get_installed_packages:
   ## Security
@@ -379,7 +379,7 @@ nix_installed_packages:
   - nixpkgs.duf
   - nixpkgs.bottom
   - nixpkgs.kondo
-  - nixpkgs.broot  
+  - nixpkgs.broot
   # Terminal
   - nixpkgs.tmux
   - nixpkgs.mprocs
