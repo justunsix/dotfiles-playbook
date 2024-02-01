@@ -146,6 +146,7 @@ scoop_installed_packages:
   - pycharm
   - cht
   - nodejs
+  - make
   ### Python
   - miniconda3
   ### Java
