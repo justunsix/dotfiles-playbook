@@ -67,6 +67,8 @@ nix_installed_packages:
   - nixpkgs.stow
   # DevOps
   - nixpkgs.neovim
+  # vagrant: Native extensions take too long to build
+  # - nixpkgs.vagrant
 
 # homebrew_installed_packages: 
 #  - emacs
@@ -77,3 +79,5 @@ homebrew_installed_casks:
   - homebrew/cask/wezterm
   - homebrew/cask/visual-studio-code
   - homebrew/cask/emacs
+  - homebrew/cask/virtualbox
+  - homebrew/cask/vagrant
