@@ -177,11 +177,10 @@ install_prequisites() {
 			else # Linux
 
 				echo "Installing Nix..."
-				# Install Nix single user installation
-				# per https://nixos.wiki/wiki/Nix_Installation_Guide
-				# as of 2023-03-25
-				sudo install -d -m755 -o "$(id -u)" -g "$(id -g)" /nix
-				curl -L https://nixos.org/nix/install | sh
+				# Install Nix multi user installation
+				# per https://nix.dev/install-nix.html
+				# as of 2024-02-08
+				curl -L https://nixos.org/nix/install | sh -s -- --daemon
 
 				# Add Ansible and Nix bin to PATH
 				echo "export PATH=$PATH:$HOME/.nix-profile/bin/:$HOME/.local/bin" >>~/.bashrc
@@ -191,6 +190,13 @@ install_prequisites() {
 
 			restartShell="true"
 
+		fi
+
+		# Check nix home manager is installed
+		if ! [ -x "$(command -v home-manager)" ]; then
+				nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+				nix-channel --update
+				nix-shell '<home-manager>' -A install
 		fi
 
 	fi
