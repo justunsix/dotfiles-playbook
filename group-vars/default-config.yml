@@ -344,18 +344,18 @@ flatpak_installed_packages:
   # Productivity - Windows Programs
   - com.usebottles.bottles
   ## Graphics
-  - org.inkscape.Inkscape
-  - org.gimp.GIMP
+  #- org.inkscape.Inkscape
+  #- org.gimp.GIMP
   ## Terminal Emulator
   - org.wezfurlong.wezterm
   # Office, Diagramming
-  - com.jgraph.drawio.desktop
+  #- com.jgraph.drawio.desktop
   # Files
   ## Peazip will use KDE modules and get them
   - io.github.peazip.PeaZip
-  - io.github.cboxdoerfer.FSearch
+  #- io.github.cboxdoerfer.FSearch
   # Security
-  - org.keepassxc.KeePassXC
+  #- org.keepassxc.KeePassXC
 
 nix_installed_packages:
   # Shell
