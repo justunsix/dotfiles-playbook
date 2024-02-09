@@ -12,3 +12,6 @@ run-dotfiles: ## Run playbook on dotfiles tag
 
 run-nix: ## Run playbook on nix tag
 	ansible-playbook --diff "ubuntu.yml" --ask-become-pass -v --tags "nix"
+
+run-flatpak: ## Run playbook on flatpak tag
+	ansible-playbook --diff "ubuntu.yml" --ask-become-pass -v --tags "flatpak"
