@@ -328,9 +328,9 @@ flatpak_installed_packages:
   - com.github.tchx84.Flatseal
   - com.microsoft.Edge
   ## RSS
-  - me.hyliu.fluentreader
+  #- me.hyliu.fluentreader
   ## Video
-  - io.freetubeapp.FreeTube
+  #- io.freetubeapp.FreeTube
   # Learning
   ## Books
   - com.calibre_ebook.calibre
@@ -369,9 +369,9 @@ nix_installed_packages:
   # Even though installed by apt, require for program like exa
   - nixpkgs.fira-code
   # Email
-  - nixpkgs.thunderbird
+  # movd to home-manager
+  # - nixpkgs.thunderbird
   # File Management
-  - nixpkgs.ranger
   - nixpkgs.lf
   - nixpkgs.gitui
   - nixpkgs.img2pdf
@@ -394,8 +394,6 @@ nix_installed_packages:
   - nixpkgs.procs
   - nixpkgs.topgrade
   - nixpkgs.zoxide
-  # Productivity
-  - nixpkgs.super-productivity
   # DevOps
   - nixpkgs.neovim
   ## Document conversion, Emacs exports
