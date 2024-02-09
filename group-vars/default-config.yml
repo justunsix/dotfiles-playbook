@@ -327,6 +327,8 @@ flatpak_installed_packages:
   - org.mozilla.firefox
   - com.github.tchx84.Flatseal
   - com.microsoft.Edge
+  ## Email
+  - org.mozilla.Thunderbird
   ## RSS
   - me.hyliu.fluentreader
   ## Video
