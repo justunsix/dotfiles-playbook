@@ -76,7 +76,7 @@
   failed_when: "'error' in nixenvia_result.stdout"
   when: nix_installed.stat.exists
 
-- name: Snap - kubectl, pycharm-community
+- name: Snap - DevOps packages
   community.general.snap:
     name: "{{ item }}"
     classic: yes

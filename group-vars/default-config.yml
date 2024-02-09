@@ -184,7 +184,6 @@ apt_installed_packages:
   - fonts-firacode
   ## Shell support
   - rename
-  - bat
   - fzf
   ## Screenshot
   - flameshot
@@ -255,8 +254,6 @@ apt_installed_packages:
   - pipx
   - python3-virtualenv
   ## DevOps Support
-  ### Document conversion, Emacs exports
-  - pandoc
   #### Latex
   - texlive-latex-base
   - texlive-latex-extra
@@ -266,12 +263,8 @@ apt_installed_packages:
   - mpv
 
 apt_installed_packages_devops:
-  - default-jdk
-  - maven
-  - gradle
   - docker
   - docker-compose
-  - awscli
 
 pipx_installed_packages:
   - ansible
@@ -302,6 +295,10 @@ deb_get_installed_packages:
 nix_installed_packages_devops:
   - nixpkgs.minikube
   - nixpkgs.terraform
+  - nixpkgs.kubectl
+  - nixpkgs.jdk
+  - nixpkgs.maven
+  - nixpkgs.gradle
 
 apt_removed_packages:
   - emacs-common
@@ -321,7 +318,6 @@ snap_installed_packages_classic:
   - emacs
 
 snap_installed_packages_devops:
-  - kubectl
   - pycharm-community
 
 flatpak_installed_packages:
@@ -364,6 +360,7 @@ nix_installed_packages:
   - nixpkgs.fish
   - nixpkgs.nushell
   - nixpkgs.starship
+  - nixpkgs.bat
   # Fonts
   - nixpkgs.iosevka
   - nixpkgs.source-code-pro
@@ -399,5 +396,7 @@ nix_installed_packages:
   - nixpkgs.super-productivity
   # DevOps
   - nixpkgs.neovim
+  ## Document conversion, Emacs exports
+  - nixpkgs.pandoc
   ## Python
   - nixpkgs.conda
