@@ -5,6 +5,13 @@
   register: nix_installed
   tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
 
+# Nix - Check home-manager is installed
+- name: Nix - Check if home-manager is installed
+  ansible.builtin.stat:
+    path: /home/{{ target_user }}/.config/home-manager
+  register: home_manager_installed
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+
 # Update Nix
 - name: Nix - Update Nix
   ansible.builtin.command: "nix-channel --update"
@@ -21,6 +28,14 @@
   tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
   ignore_errors: true
   when: nix_installed.stat.exists
+
+# Update home-manager
+- name: Nix - Update home-manager
+  ansible.builtin.command: "home-manager switch"
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  when: home_manager_installed.stat.exists
 
 # Install Nix packages defined in installed_nix_packages
 - name: Nix - Install Nix packages
