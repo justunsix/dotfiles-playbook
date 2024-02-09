@@ -61,7 +61,7 @@
 
 - name: Nix - Check if Nix is installed
   ansible.builtin.stat:
-    path: /home/{{ target_user }}/.nix-profile/bin/nix
+    path: /nix
   register: nix_installed
   tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'devops-b']
 
@@ -69,6 +69,9 @@
   ansible.builtin.command: "nix-env -iA {{ item }}"
   become: true
   become_user: "{{ target_user }}"
+  environment:
+    # Allow unfree packages temporarily
+    NIXPKGS_ALLOW_UNFREE: "1"  
   loop: "{{ nix_installed_packages_devops }}"
   tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'devops-b']
   register: nixenvia_result
