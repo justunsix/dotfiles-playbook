@@ -8,7 +8,7 @@ run: ## Run playbook depending on system
 	./bootstrap.sh
 
 run-dotfiles: ## Run playbook on dotfiles tag
-	nsible-playbook --diff "ubuntu.yml" --ask-become-pass -v --tags "dotfiles"
+	ansible-playbook --diff "ubuntu.yml" --ask-become-pass -v --tags "dotfiles"
 
 run-nix: ## Run playbook on nix tag
 	ansible-playbook --diff "ubuntu.yml" --ask-become-pass -v --tags "nix"
