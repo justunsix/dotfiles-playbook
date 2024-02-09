@@ -47,7 +47,7 @@
   register: nixenvia_result
   changed_when: "'copying' in nixenvia_result.stdout"
   failed_when: "'error' in nixenvia_result.stdout"
-  when: nix_installed.stat.exists
+  when: nix_installed.stat.exists and not home_manager_installed.stat.exists
 
 # Garbage collect old generations
 - name: Nix - Garbage collect generations older than 30 days

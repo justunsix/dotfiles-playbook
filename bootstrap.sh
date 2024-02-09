@@ -194,6 +194,7 @@ install_prequisites() {
 
 		# Check nix home manager is installed
 		if ! [ -x "$(command -v home-manager)" ]; then
+				echo "Installing Nix: home-manager..."
 				nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 				nix-channel --update
 				nix-shell '<home-manager>' -A install
