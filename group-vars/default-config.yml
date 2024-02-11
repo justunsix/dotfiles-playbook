@@ -203,7 +203,7 @@ apt_installed_packages:
   - stow
   ## Email
   ### Replacing with Thunderbird, in testing
-  - evolution-ews
+  ## - evolution-ews
   ## Office
   - libreoffice
   ## Optical Character Recognition (OCR)
