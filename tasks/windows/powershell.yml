@@ -1,0 +1,33 @@
+# PSReadline requirements:
+# Ensure NuGet Package Provider is installed as latest version
+# Ensure Powershell Gallery is installed
+#- name: dotfiles - Install Powershell Gallery
+#  ansible.windows.win_shell: |
+#    Install-Module -Name PowerShellGet -Force
+#    Install-Module -Name PackageManagement -Force
+#    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+#  tags: ['dotfiles', 'powershell']
+
+# Install PSReadline module from PSGallery
+- name: dotfiles - Add a PowerShell module PSReadline
+  community.windows.win_psmodule:
+    name: PSReadline
+    repository: PSGallery
+    state: latest
+    accept_license: true
+  tags: ['powershell']
+
+# Install PSFzf module from PSGallery
+- name: dotfiles - Add PowerShell modules
+  community.windows.win_psmodule:
+    name: "{{ item }}"
+    repository: PSGallery
+    state: latest
+  loop:
+    - PSFzf
+    - CompletionPredictor
+    - Az.Accounts
+    - Az.Tools.Predictor
+  tags: ['powershell']
+  # Allow errors due to CompletionPredictor module
+  ignore_errors: yes
