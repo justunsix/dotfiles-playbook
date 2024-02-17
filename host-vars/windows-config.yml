@@ -144,6 +144,7 @@ scoop_installed_packages:
   ## DevOps
   - vscode
   - pycharm
+  - helix
   - cht
   - nodejs
   - make
@@ -187,6 +188,7 @@ dotfiles_directories:
     - "{{ target_user_home_dir }}/.config/wezterm"
     - "{{ target_user_home_dir }}/.config/todotxt-cli"
     - "{{ target_user_home_dir }}/.config/fish"
+    - "{{ target_user_home_dir }}/.config/helix"
     - "C:/Hunspell"
 
 dotfiles_to_be_removed:
@@ -207,6 +209,7 @@ dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/wezterm/", dest: "{{ target_user_home_dir }}/.config/wezterm" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/todotxt-cli/", dest: "{{ target_user_home_dir }}/.config/todotxt-cli" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/fish/", dest: "{{ target_user_home_dir }}/.config/fish" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/helix/", dest: "{{ target_user_home_dir }}/.config/helix" }
     - { src: "{{ dotfiles_repo_local_destination }}/.gitconfig", dest: "{{ target_user_home_dir }}/.gitconfig" }
     - { src: "{{ dotfiles_repo_local_destination }}/other/WindowsPowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1' }
     - { src: "{{ dotfiles_repo_local_destination }}/other/PowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1' }
