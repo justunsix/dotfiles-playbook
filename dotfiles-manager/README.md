@@ -1,6 +1,6 @@
 # DevOps: Virtualization
 
-This directory contains a `Vagrantfile` that is configured to set up an Ubuntu virtual machine (VM).
+This directory contains a `Vagrantfile` that is configured to set up a virtual machine (VM).
 
 This VM was created to be used to manage dotfiles in a Windows machine since Windows cannot run Ansible.
 The VM also has additional software for convenience.
@@ -27,7 +27,7 @@ To use this project, follow these steps:
 
 ## About the Vagrantfile
 
-- Sets up a virtual machine (VM) with Ubuntu
+- Sets up a Linux virtual machine (VM)
 - Installs Ansible in the VM and uses it with a playbook to further set up the VM with software. Ansible can be used to manage dotfiles later.
 - For convenience:
   - Copies certain configuration files from the host machine to the VM and mounts dotfiles repositories
