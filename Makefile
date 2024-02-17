@@ -18,6 +18,7 @@ run-flatpak: ## Run playbook on flatpak tag
 
 .ONESHELL:
 run-playbook-windows: ## Run playbook for Windows
+	# Set config explicitly to avoid error due to world writable file in Vagrant
 	export ANSIBLE_CONFIG=ansible.cfg
 	# --ask-pass --ask-become-pass for ssh connection and privilege escalation
-	ansible-playbook --diff "windows.yml" --ask-pass --ask-become-pass -v 
+	ansible-playbook --diff "windows.yml" --ask-pass --ask-become-pass -v

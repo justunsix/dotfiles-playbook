@@ -23,8 +23,8 @@ Vagrant.configure("2") do |config|
   #
   #     vagrant up --provider=docker
   #
-  config.vm.box = "ubuntu/jammy64"
-  config.vm.hostname = "ubuntu-dm"
+  config.vm.box = "debian/bookworm64"
+  config.vm.hostname = "debian-dm"
 
   ############################################################
   # Copy some host files to configure VM like the host
@@ -51,6 +51,14 @@ Vagrant.configure("2") do |config|
   if File.directory?(File.expand_path("#{ENV['HOME']}/Code"))
     config.vm.synced_folder "#{ENV['HOME']}/Code", "/home/vagrant/Code"
   end
+
+  # Install apt software
+  config.vm.provision "shell", inline: <<-SHELL
+    # Update and install
+    apt-get update
+    apt-get install -y make git
+    apt-get -y autoremove
+  SHELL
 
   ############################################################
   # Install Ansible and run Ansible playbook for additional VM configuration
