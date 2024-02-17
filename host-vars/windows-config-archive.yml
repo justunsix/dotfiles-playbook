@@ -1,0 +1,33 @@
+# For information, variable not used
+chocolatey_installed_packages_migrated_to_scoop:
+  ## File Management
+  - git
+  - git-credential-manager-for-windows
+  - ccleaner
+  ## Web
+  - firefox
+  ## OCR
+  - capture2text
+  ## Shell
+  - zoxide
+  ## Office, Productivity
+  - libreoffice-fresh
+  - peazip
+  - plantuml
+  - drawio
+  ## File Management
+  - fzf
+  - fd
+  ## Media
+  - vlc
+  - mpv
+  - obs-studio
+  ## Security
+  - keepassxc
+  ## DevOps
+  - vscode
+  ### Emacs
+  - emacs
+  - ripgrep
+  - pandoc
+  - nodejs

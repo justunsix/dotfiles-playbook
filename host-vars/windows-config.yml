@@ -23,8 +23,6 @@ target_user_home_dir: "C:/Users/{{ target_user }}"
 chocolatey_installed_packages:
   ## Package Management
   - chocolatey
-  ## System
-  - autohotkey
   ### Manage terminal using Windows store/winget instead
   ###- microsoft-windows-terminal
   ### Python required for Ansible management
@@ -34,61 +32,10 @@ chocolatey_installed_packages:
   - jetbrainsmono
   # Security
   - veracrypt
-  ## DevOps
-  - cygwin
   ### Emacs
   - hunspell.portable
   #### msys2 for org-roam sqlite gcc, replaced by scoop gcc
   #### - msys2
-
-# For information, variable not used
-chocolatey_installed_packages_migrated_to_scoop:
-  ## File Management
-  - git
-  - git-credential-manager-for-windows
-  - ccleaner
-  ## Web
-  - firefox
-  ## OCR
-  - capture2text
-  ## Shell
-  - zoxide
-  ## Office, Productivity
-  - libreoffice-fresh
-  - peazip
-  - plantuml
-  - drawio
-  ## File Management
-  - fzf
-  - fd
-  ## Media
-  - vlc
-  - mpv
-  - obs-studio
-  ## Security
-  - keepassxc
-  ## DevOps
-  - vscode
-  ### Emacs
-  - emacs
-  - ripgrep
-  - pandoc
-  - nodejs
-
-chocolatey_installed_packages_work:
-  ## VM
-  - virtualbox
-  ## System and DevOps
-  - microsoft-windows-terminal
-  - autohotkey
-  - python
-  - cygwin
-  - hunspell.portable
-  - virtualbox
-  ## Fonts
-  - jetbrainsmono
-  ## File Management
-  - veracrypt
 
 chocolatey_installed_packages_extras:
   ## Games
@@ -96,7 +43,7 @@ chocolatey_installed_packages_extras:
   - ubisoft-connect
 
 scoop_installed_packages:
-  ## Packagement
+  ## Package Management
   - topgrade
   ## File Management
   - git
@@ -108,7 +55,6 @@ scoop_installed_packages:
   - fd
   - duf
   - bottom
-  - lf
   - everything
   - kondo
   # Media
@@ -127,6 +73,7 @@ scoop_installed_packages:
   - mprocs
   - dog
   - wezterm
+  - cygwin
   ### Prompt
   - starship
   ## Office, Productivity
@@ -136,6 +83,7 @@ scoop_installed_packages:
   - draw.io
   - anki
   - calibre
+  - autohotkey  
   ## Media
   - vlc
   - mpv
@@ -145,7 +93,6 @@ scoop_installed_packages:
   - vscode
   - pycharm
   - helix
-  - cht
   - nodejs
   - make
   ### Python
@@ -234,5 +181,5 @@ environment_variables:
   # - Fonts
   # - ripgrep, hunspell, pandoc
   # Set home to "C:\Users\justi\"
-  - { name: "HOME", value: "C:\\Users\\justi\\" }
+  - { name: "HOME", value: "{{ ansible_env.USERPROFILE }}" }
   - { name: "EDITOR", value: "nvim" }
