@@ -31,6 +31,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
   - "/home/{{ target_user }}/.config/nushell"
+  - "/home/{{ target_user }}/.config/helix"
   - "/home/{{ target_user }}/.config/home-manager"
   - "/home/{{ target_user }}/.config/nvim"
   - "/home/{{ target_user }}/.config/nvim/lua/custom/plugins"
@@ -97,6 +98,7 @@ dotfiles_files:
   - .config/emacs/snippets/org-mode/plantuml
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
+  - .config/helix/config.toml
   - .config/i3/config
   - .config/i3status/config
   - .config/mpv/input.conf
