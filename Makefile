@@ -15,3 +15,9 @@ run-nix: ## Run playbook on nix tag
 
 run-flatpak: ## Run playbook on flatpak tag
 	ansible-playbook --diff "ubuntu.yml" --ask-become-pass -v --tags "flatpak"
+
+.ONESHELL:
+run-playbook-windows: ## Run playbook for Windows
+	export ANSIBLE_CONFIG=ansible.cfg
+	# --ask-pass --ask-become-pass for ssh connection and privilege escalation
+	ansible-playbook --diff "windows.yml" --ask-pass --ask-become-pass -v 
