@@ -67,7 +67,7 @@ dotfiles_files:
   - usr/bin/jt-post-i3.sh
   - usr/bin/jt-clip-html-to-org.sh
   - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
-  - usr/bin/common.sh  
+  - usr/bin/common.sh
   # Manage VS Code Settings manually due to possible sensitive settings
   #  - .config/Code/User/settings.json
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
@@ -176,6 +176,8 @@ apt_ppa_repositories:
   # - ppa:fish-shell/release-3
 
 apt_installed_packages:
+  # System
+  - input-remapper
   # Package Management
   - aptitude
   - flatpak
@@ -204,6 +206,9 @@ apt_installed_packages:
   ## File Synchronization
   - git-all
   - stow
+  ## Web
+  - transmission
+  - transmission-remote-gtk
   ## Email
   ### Replacing with Thunderbird, in testing
   ## - evolution-ews
@@ -221,7 +226,7 @@ apt_installed_packages:
   ## User Interface
   - gnome-shell-extension-manager
   - gnome-tweaks
-  ## Security
+  ## Security DNS
   - resolvconf
   ### Anti-virus
   - clamav
@@ -307,6 +312,7 @@ apt_removed_packages:
   - emacs-common
   - emacs
   - thunderbird
+  - evolution
 
 snap_installed_packages:
   # Web
