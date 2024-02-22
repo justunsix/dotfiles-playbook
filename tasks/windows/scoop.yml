@@ -1,10 +1,11 @@
-- name: scoop - Add the extras, java buckets
+- name: scoop - Add additional buckets
   community.windows.win_scoop_bucket:
     name: "{{ item }}"
     state: present
   loop:
     - extras
     - java
+    - nerd-fonts
 - name: scoop - Install packages
   community.windows.win_scoop:
     name: "{{ item }}"

@@ -23,9 +23,6 @@ chocolatey_installed_packages:
   - chocolatey
   ### Manage terminal using Windows store/winget instead
   ###- microsoft-windows-terminal
-  # - googlechrome
-  ## Fonts
-  - jetbrainsmono
   # Security
   - veracrypt
   ### Emacs
@@ -59,11 +56,14 @@ scoop_installed_packages:
   - obs-studio
   ## Web
   - firefox
+  ## Fonts
+  - JetBrains-Mono
   ### RSS
   - fluent-reader
   ## OCR
   - capture2text
   ## Shell / Terminal
+  - pwsh
   - zoxide
   - gsudo
   - mprocs
