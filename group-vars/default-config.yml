@@ -280,7 +280,7 @@ apt_installed_packages_devops:
 pipx_installed_packages:
   - ansible
   - tldr
-  # For Emacs Python
+  # For Emacs, Helix Python - pylsp
   - python-lsp-server
 
 nix_installed_packages_ytdlp:
