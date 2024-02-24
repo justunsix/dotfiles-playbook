@@ -326,7 +326,7 @@ snap_installed_packages_classic:
   # Devops
   ## Editors
   - code
-  - emacs
+  ## - emacs
 
 snap_installed_packages_devops:
   - pycharm-community
