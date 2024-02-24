@@ -27,6 +27,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/fish"
   - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.local/share/applications"
+  - "/home/{{ target_user }}/.config/broot"
   - "/home/{{ target_user }}/.config/cool-retro-term"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
@@ -70,6 +71,7 @@ dotfiles_files:
   - usr/bin/common.sh
   # Manage VS Code Settings manually due to possible sensitive settings
   #  - .config/Code/User/settings.json
+  - .config/broot/verbs.hjson
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
   - .config/copyq/copyq.conf
   - .config/copyq/copyq-commands.ini

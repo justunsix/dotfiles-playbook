@@ -134,6 +134,7 @@ dotfiles_directories:
     - "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli"
     - "{{ ansible_env.USERPROFILE }}/.config/fish"
     - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix"
+    - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config"
     - "C:/Hunspell"
 
 dotfiles_to_be_removed:
@@ -155,6 +156,7 @@ dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/todotxt-cli/", dest: "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/fish/", dest: "{{ ansible_env.USERPROFILE }}/.config/fish" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/helix/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/broot/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config" }    
     - { src: "{{ dotfiles_repo_local_destination }}/.gitconfig", dest: "{{ ansible_env.USERPROFILE }}/.gitconfig" }
     - { src: "{{ dotfiles_repo_local_destination }}/other/WindowsPowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1' }
     - { src: "{{ dotfiles_repo_local_destination }}/other/PowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1' }
