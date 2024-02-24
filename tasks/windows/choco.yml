@@ -14,10 +14,10 @@
 #   tags: ['choco', 'workstation-windows', 'package']
 
 # Arguments per https://community.chocolatey.org/packages/powershell-core
-- name: Install Chocolately Powershell-core packages
-  win_chocolatey:
-    name: powershell-core
-    state: latest
-    choco_args:
-    - --install-arguments='"ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 REGISTER_MANIFEST=1 ENABLE_PSREMOTING=1"'
-  tags: ['choco', 'workstation-windows', 'package', 'powershell-core']
+# - name: Install Chocolately Powershell-core packages
+#   win_chocolatey:
+#     name: powershell-core
+#     state: latest
+#     choco_args:
+#     - --install-arguments='"ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 REGISTER_MANIFEST=1 ENABLE_PSREMOTING=1"'
+#   tags: ['choco', 'workstation-windows', 'package', 'powershell-core']
