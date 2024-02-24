@@ -70,6 +70,7 @@ scoop_installed_packages:
   - dog
   - wezterm
   - cygwin
+  - carapace-bin
   ### Prompt
   - starship
   ## Office, Productivity

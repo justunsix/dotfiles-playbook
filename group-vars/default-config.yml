@@ -112,6 +112,7 @@ dotfiles_files:
   - .config/home-manager/home.nix
   - .config/nushell/config.nu
   - .config/nushell/env.nu
+  - .config/nushell/config-nix.nu
   - .config/nvim/init.lua
   - .config/nvim/lua/custom/plugins/init.lua
   - .config/rofi/config.rasi
