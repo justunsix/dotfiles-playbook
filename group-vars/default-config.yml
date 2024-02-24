@@ -81,6 +81,7 @@ dotfiles_files:
   - .config/emacs/setup/minimal.el
   - .config/emacs/setup/other.el
   - .config/emacs/setup/variables.el
+  - .config/emacs/setup/jt-emacs-abbrev.el
   - .config/emacs/setup/jt-emacs-package-managers.el
   - .config/emacs/setup/jt-emacs-org.el
   - .config/emacs/setup/jt-emacs-org-roam.el
