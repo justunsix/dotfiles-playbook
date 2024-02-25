@@ -1,0 +1,11 @@
+--2024-02-25 10:27:25--  https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/
+Resolving repo.nordvpn.com (repo.nordvpn.com)... 104.19.159.190, 104.16.208.203
+Connecting to repo.nordvpn.com (repo.nordvpn.com)|104.19.159.190|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘/var/cache/deb-get/nordvpn.html’
+
+     0K .......... .......... ......                           3.55M=0.007s
+
+2024-02-25 10:27:26 (3.55 MB/s) - ‘/var/cache/deb-get/nordvpn.html’ saved [26838]
+
