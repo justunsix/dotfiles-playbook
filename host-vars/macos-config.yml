@@ -20,23 +20,27 @@ target_user: user
 dotfiles_directories:
   - "/Users/{{ target_user }}/usr/bin"
   - "/Users/{{ target_user }}/Library/Application Support/nushell"
-  - "/Users/{{ target_user }}/.config/nvim"
+  # Custom nu config files
+  - "/Users/{{ target_user }}/.config/nushell"  
   - "/Users/{{ target_user }}/.config/wezterm"
+  - "/Users/{{ target_user }}/.config/helix"
 
 dotfiles_to_be_removed:
   - "/Users/{{ target_user }}/.emacs"
   - "/Users/{{ target_user }}/.emacs.d"
 
 dotfiles_files:
+  - usr/bin/common.sh
   - usr/bin/jt-gc.sh
   - usr/bin/jt-gs.sh
   - usr/bin/jt-gt.sh
   - usr/bin/jt-update-all.sh
   - usr/bin/jt-clean-up.sh
-  - .config/nvim/init.lua
   - .config/wezterm/wezterm.lua
   - .config/starship.toml
   - .config/topgrade/topgrade.toml
+  - .config/helix/config.toml
+  - .config/nushell/config-nix.nu
 
 dotfiles_items_with_custom_destination:
     - { src: ".config/nushell/config.nu", dest: "Library/Application Support/nushell/config.nu" }
@@ -44,6 +48,7 @@ dotfiles_items_with_custom_destination:
     - { src: ".config/emacs/setup/minimal.el", dest: ".config/emacs/init.el" }
 
 dotfiles_files_binaries:
+  - usr/bin/common.sh
   - usr/bin/jt-gc.sh
   - usr/bin/jt-gs.sh
   - usr/bin/jt-gt.sh
@@ -55,29 +60,30 @@ configure_dotfiles: true
 configure_todoandcht: false
 configure_mpv: false
 configure_dolphin: false
-configure_emacs: true
+configure_emacs: false
 
 nix_installed_packages:
+  # System
+  - nixpkgs.topgrade
   # Shell
   - nixpkgs.nushell
   - nixpkgs.starship
-  - nixpkgs.topgrade
   - nixpkgs.zoxide
+  - nixpkgs.carapace
+  - nixpkgs.atuin
+  - nixpkgs.broot
   # Configuration
   - nixpkgs.stow
   # DevOps
-  - nixpkgs.neovim
+  - nixpkgs.helix
   # vagrant: Native extensions take too long to build
   # - nixpkgs.vagrant
-
-# homebrew_installed_packages: 
-#  - emacs
 
 homebrew_installed_casks:
   # Web
   - homebrew/cask/firefox
   - homebrew/cask/wezterm
   - homebrew/cask/visual-studio-code
-  - homebrew/cask/emacs
+  # - homebrew/cask/emacs
   - homebrew/cask/virtualbox
   - homebrew/cask/vagrant
