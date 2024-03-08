@@ -103,6 +103,8 @@ scoop_installed_packages:
   - emacs
   - ripgrep
   - pandoc
+  #### Doom
+  - llvm
   #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
   - shellcheck
   #### Used by org-download for clipboard pasting to org
@@ -129,8 +131,9 @@ dotfiles_directories:
     - "{{ ansible_env.USERPROFILE }}/.config"
     - "{{ ansible_env.USERPROFILE }}/usr/bin"
     - "{{ ansible_env.USERPROFILE }}/AppData/Local/nvim"
-    - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade"
+    - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade"    
     - "{{ ansible_env.USERPROFILE }}/.config/emacs"
+    - "{{ ansible_env.USERPROFILE }}/.config/doom"
     - "{{ ansible_env.USERPROFILE }}/.config/wezterm"
     - "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli"
     - "{{ ansible_env.USERPROFILE }}/.config/fish"
@@ -145,6 +148,7 @@ dotfiles_to_be_removed:
 
 dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/emacs/", dest: "{{ ansible_env.USERPROFILE }}/.config/emacs" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/doom/", dest: "{{ ansible_env.USERPROFILE }}/.config/doom" }    
     - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "{{ ansible_env.USERPROFILE }}/usr/bin" }
     - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/nvim/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Local/nvim" }
