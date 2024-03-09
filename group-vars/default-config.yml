@@ -41,6 +41,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/doom"
   - "/home/{{ target_user }}/.config/doom/modules/jt/minimal"
   - "/home/{{ target_user }}/.config/doom/modules/jt/music"
+  - "/home/{{ target_user }}/.config/doom/modules/jt/doomconfig"  
   - "/home/{{ target_user }}/.config/dunst"
   - "/home/{{ target_user }}/.config/mpv/scripts"
   - "/home/{{ target_user }}/.config/mpv/script-opts"
@@ -87,6 +88,7 @@ dotfiles_files:
   - .config/doom/modules/jt/music/autoload.el
   - .config/doom/modules/jt/music/config.el
   - .config/doom/modules/jt/music/packages.el
+  - .config/doom/modules/jt/doomconfig/config.el  
   - .config/dunst/dunstrc
   - .config/emacs/init.el
   - .config/emacs/setup/extras.el
