@@ -257,7 +257,8 @@ apt_installed_packages:
   ### Windows Management i3
   - i3
   - dmenu
-  - rofi
+  #### moved to nix
+  #### - rofi
   - lxappearance
   - copyq
   - redshift
