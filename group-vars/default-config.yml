@@ -85,11 +85,11 @@ dotfiles_files:
   - .config/doom/init.el
   - .config/doom/packages.el
   - .config/doom/modules/jt/minimal/config.el
+  - .config/doom/modules/jt/minimal/autoload.el  
   - .config/doom/modules/jt/music/autoload.el
   - .config/doom/modules/jt/music/config.el
   - .config/doom/modules/jt/music/packages.el
   - .config/doom/modules/jt/doomconfig/config.el
-  - .config/doom/modules/jt/doomconfig/autoload.el
   - .config/dunst/dunstrc
   - .config/emacs/init.el
   - .config/emacs/setup/extras.el
