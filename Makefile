@@ -22,3 +22,10 @@ run-playbook-windows: ## Run playbook for Windows
 	export ANSIBLE_CONFIG=ansible.cfg
 	# --ask-pass --ask-become-pass for ssh connection and privilege escalation
 	ansible-playbook --diff "windows.yml" --ask-pass --ask-become-pass -v
+
+.ONESHELL:
+run-playbook-windows-dotfiles: ## Run dotfiles tasks for Windows
+	# Set config explicitly to avoid error due to world writable file in Vagrant
+	export ANSIBLE_CONFIG=ansible.cfg
+	# --ask-pass --ask-become-pass for ssh connection and privilege escalation
+	ansible-playbook --diff "windows.yml" --ask-pass --ask-become-pass -v --tags "dotfiles"
