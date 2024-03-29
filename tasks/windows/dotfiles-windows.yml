@@ -55,4 +55,13 @@
   loop: "{{ environment_variables }}"
   tags: ['dotfiles', 'emacs']
 
+# Windows mpv specific Windows window location
+- name: mpv - Replace geometry line in mpv.conf
+  win_lineinfile:
+    path: '{{ ansible_env.USERPROFILE }}\scoop\apps\mpv\current\portable_config\mpv.conf'
+    backrefs: yes
+    regexp: '^geometry=67%x100%\+0\+0'
+    line: 'geometry=67%x98%+0+30'
+  tags: ['dotfiles', 'mpv']    
+
 # TODO plantuml JAR set up per Linux emacs setup
