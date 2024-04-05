@@ -86,10 +86,11 @@
   when: configure_dotfiles
   tags: ['workstation-ubuntu', 'workstation-fedora', 'laptop-ubuntu', 'fonts']
 
-- name: Set up Node
-  import_tasks: tasks/node.yml
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node', 'workstation-fedora']
-  when: configure_emacs
+# Replace with nix package
+# - name: Set up Node
+#   import_tasks: tasks/node.yml
+#   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node', 'workstation-fedora']
+#   when: configure_emacs
 
 - name: Set up tmux
   import_tasks: tasks/tmux.yml
