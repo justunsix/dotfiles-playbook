@@ -64,4 +64,12 @@
     line: 'geometry=67%x98%+0+30'
   tags: ['dotfiles', 'mpv']    
 
+- name: gfold - Replace home directory in gfold.toml with Windows home directory
+  win_lineinfile:
+    path: '{{ ansible_env.USERPROFILE }}/.config/gfold.toml'
+    backrefs: yes
+    regexp: '^home = "/home/justin/Code"'
+    line: 'home = "{{ ansible_env.USERPROFILE }}"'
+  tags: ['dotfiles', 'gfold']
+
 # TODO plantuml JAR set up per Linux emacs setup
