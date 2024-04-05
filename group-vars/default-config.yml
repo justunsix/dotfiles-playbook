@@ -62,7 +62,7 @@ dotfiles_files:
   - .gitconfig
   - .inputrc
   - Templates/New-Text-Document.txt
-  # - .local/share/applications/firefox-flatpak.desktop
+  - .local/share/applications/firefox-profile-manager-flatpak.desktop
   - .local/share/applications/vlc-playlist.desktop
   - .local/share/applications/clipboard-html-to-org.desktop
   - .local/share/applications/screenshot-ocr.desktop
