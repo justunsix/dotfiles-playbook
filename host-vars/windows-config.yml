@@ -157,7 +157,9 @@ dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/nushell/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/nushell" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/starship.toml", dest: "{{ ansible_env.USERPROFILE }}/.config/starship.toml" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/gfold.toml", dest: "{{ ansible_env.USERPROFILE }}/.config/gfold.toml" }    
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/gfold.toml", dest: "{{ ansible_env.USERPROFILE }}/.config/gfold.toml" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/kdeglobals", dest: "{{ ansible_env.USERPROFILE }}/.config/kdeglobals" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/dolphinrc", dest: "{{ ansible_env.USERPROFILE }}/.config/dolphinrc" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/vlc/", dest: "{{ ansible_env.USERPROFILE }}/scoop/apps/vlc/current/portable_config" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/wezterm/", dest: "{{ ansible_env.USERPROFILE }}/.config/wezterm" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/todotxt-cli/", dest: "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli" }
