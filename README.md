@@ -1,6 +1,6 @@
 # Dotfiles-Playbook
 
-Ansible playbooks for Managing my Linux (Ubuntu, Fedora, Arch) and Windows Machines
+Ansible playbooks for Managing my Linux (Ubuntu, Fedora, Arch), Windows, MacOS Machines
 
 ## Prerequisites
 
