@@ -180,7 +180,7 @@ install_prequisites() {
 				# Install Nix multi user installation
 				# per https://nix.dev/install-nix.html
 				# as of 2024-02-08
-				curl -L https://nixos.org/nix/install | sh -s -- --daemon
+				curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
 
 				# Add Ansible and Nix bin to PATH
 				echo "export PATH=$PATH:$HOME/.nix-profile/bin/:$HOME/.local/bin" >>~/.bashrc
