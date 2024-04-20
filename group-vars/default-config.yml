@@ -185,9 +185,14 @@ git_repositories:
 
 # Other people's Git Repositories to be cloned, synchronized
 git_repositories_external:
-  - git@github.com:junegunn/fzf.git
   - git@github.com:todotxt/todo.txt-cli.git
   - git@github.com:Zren/mpv-osc-tethys.git
+
+git_repositories_reference:
+  - git@github.com:adafruit/Adafruit_CircuitPython_MacroPad.git
+  - git@github.com:daviwil/emacs-from-scratch.git
+  - git@github.com:geerlingguy/mac-dev-playbook.git
+  - git@github.com:zerolfx/copilot.el.git  
 
 git_repositories_haskell:
   - git@github.com:xmonad/xmonad.git
