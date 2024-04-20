@@ -37,8 +37,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "file", source: "#{ENV['HOME']}/.config/starship.toml", destination: ".config/starship.toml"
   end
 
-  # Copy your nushell config (uses Windows locations)
-  # if nushell directory exists, copy its contents to the VM at ~/.config/nushell
+  # Copy your fish config
   if File.directory?(File.expand_path("#{ENV['HOME']}/.config/fish/config.fish"))
     config.vm.provision "file", source: "#{ENV['HOME']}/.config/fish/config.fish", destination: ".config/fish/config.fish"
   end
