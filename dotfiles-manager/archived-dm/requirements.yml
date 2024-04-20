@@ -1,0 +1,4 @@
+- src: https://github.com/danielrolls/nix-install.git
+  scm: git
+  version: master
+  name: danielrolls.nix

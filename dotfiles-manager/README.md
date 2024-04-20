@@ -31,4 +31,4 @@ To use this project, follow these steps:
 - Installs Ansible in the VM and uses it with a playbook to further set up the VM with software. Ansible can be used to manage dotfiles later.
 - For convenience:
   - Copies certain configuration files from the host machine to the VM and mounts dotfiles repositories
-  - Installs Nix to allow install other software in the VM and include programs for easier use of a VM
+  - Installs shell related software for ease of use
