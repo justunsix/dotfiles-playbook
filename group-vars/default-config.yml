@@ -328,7 +328,7 @@ nix_installed_packages_ytdlp:
 
 deb_get_installed_packages:
   ## Security
-  - nordvpn
+  ## - nordvpn
 
 nix_installed_packages_devops:
   - nixpkgs.minikube

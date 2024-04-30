@@ -9,10 +9,11 @@
   tags: ['workstation-ubuntu', 'apt', 'package', 'laptop-ubuntu']
   when: ansible_distribution == "Ubuntu"
 
-- name: Set up deb-get packages
-  import_tasks: tasks/ubuntu/deb-get.yml
-  tags: ['workstation-ubuntu', 'deb-get', 'package', 'laptop-ubuntu']
-  when: ansible_distribution == "Ubuntu"
+# 2024-04-30: Remove deb-get for Ubuntu 24.04 and later
+# - name: Set up deb-get packages
+#   import_tasks: tasks/ubuntu/deb-get.yml
+#   tags: ['workstation-ubuntu', 'deb-get', 'package', 'laptop-ubuntu']
+#   when: ansible_distribution == "Ubuntu"
 
 - name: Set up pacman packages
   import_tasks: tasks/arch/pacman.yml
