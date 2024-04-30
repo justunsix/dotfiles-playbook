@@ -8,6 +8,7 @@
 # 4. If the bootstrap script has an argument "-r" and there are Ansible requirements, install them
 # 5. Run the Ansible playbook.
 
+# Exit immediately if any command the script executes fails (returns a non-zero status).
 set -e
 
 ##########################################
@@ -30,16 +31,15 @@ restartShell="false"
 # If Linux distribution is Ubuntu, set isUbuntu variable to "true"
 if [ -f /etc/os-release ]; then
 	# Get os-release variables
+	# shellcheck source=/dev/null
 	. /etc/os-release
 	if [ "$ID" = "ubuntu" ]; then
 		isUbuntu="true"
 	fi
 fi
 
-# If file exist at /mnt/c, it is WSL
 if [ -f /mnt/c/Windows/System32/wsl.exe ]; then
 	isWSLUbuntu="true"
-	isUbuntu="false"
 fi
 
 # If Linux distribution is Fedora, set isFedora variable to "true"
@@ -74,39 +74,31 @@ install_ansible() {
 	# per https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 	# as of 2023-03-25
 	if ! [ -x "$(command -v ansible)" ]; then
-		echo "Ansible is not installed. Installing Ansible using pip/x..."
+		echo "Ansible is not installed. Installing Ansible using pipx..."
 
-		if [ "$isWSLUbuntu" = "true" ]; then
-			sudo apt install python3-pip -y
-			python3 -m pip install --user pywinrm ansible
-		else
-
-			if [ "$isUbuntu" = "true" ]; then
-				sudo apt install pipx -y
-			fi
-
-			if [ "$isArch" = "true" ]; then
-				sudo pacman -S --noconfirm python python-pipx
-			fi
-
-			if [ "$isFedora" = "true" ]; then
-				sudo dnf install pipx -y
-			fi
-
-			if [ "$isMacOS" = "true" ]; then
-
-				echo "Installing Homebrew and pipx"
-				echo "*** Run last commands in Homebrew install manually to add it to path ***"
-				# Install Brew package manager
-				/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-				# from https://github.com/pypa/pipx
-				brew install pipx
-				pipx ensurepath
-			fi
-
-			pipx install --include-deps ansible
+		if [ "$isUbuntu" = "true" ]; then
+			sudo apt install pipx -y
 		fi
+
+		if [ "$isArch" = "true" ]; then
+			sudo pacman -S --noconfirm python python-pipx
+		fi
+
+		if [ "$isFedora" = "true" ]; then
+			sudo dnf install pipx -y
+		fi
+
+		if [ "$isMacOS" = "true" ]; then
+			echo "Installing Homebrew and pipx"
+			echo "*** Run last commands in Homebrew install manually to add it to path ***"
+			# Install Brew package manager
+			/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+			# from https://github.com/pypa/pipx
+			brew install pipx
+			pipx ensurepath
+		fi
+
+		pipx install --include-deps ansible
 
 		restartShell="true"
 
@@ -114,97 +106,31 @@ install_ansible() {
 
 }
 
-# Install software that is easier to install in command line
-install_software_command_line() {
-
-	# Check if Starship is installed
-	if ! [ -x "$(command -v starship)" ]; then
-		if [ "$isFedora" = "true" ]; then
-			# Install starship
-			# per https://starship.rs/guide/#%F0%9F%9A%80-installation
-			# as of 2023-03-25
-			echo "Installing Starship..."
-			curl -sS https://starship.rs/install.sh | sh
-		fi
-	fi
-
-	# Check if deb-get is installed for Ubuntu native
-	if [[ "$isUbuntu" = "true" && "$isWSLUbuntu" = "false" ]]; then
-		if ! [ -x "$(command -v deb-get)" ]; then
-			# Install deb-get
-			# per https://github.com/wimpysworld/deb-get
-			# as of 2023-03-25
-			echo "deb-get is not installed. Installing deb-get..."
-			sudo apt install curl
-			curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
-		fi
-	fi
-
-	# Check rustup is installed
-	# if ! [ -x "$(command -v rustup)" ]; then
-	#  	echo "Installing Rustup..."
-	#	# Install Rustup
-	#	# per https://www.rust-lang.org/tools/install
-	#	# as of 2023-02-20
-	#	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-	#	restartShell="true"
-	# fi
-
-}
-
 # Installs commands that the Ansible playbook needs
 install_prequisites() {
 
-	install_ansible
-
-	# Install software from command line except for Arch
-	if [ "$isArch" = "false" ]; then
-		install_software_command_line
+	if ! [ -x "$(command -v nix-env)" ]; then
+		echo "Nix is not installed:"
+		echo "- Install the multi user installation manually per https://nixos.org/download/#nix-install-linux"
+		echo "- Restart shell, then re-run this script"
+		exit 1
 	fi
 
-	# Install Nix
-	if [[ "$isWSLUbuntu" = "false" ]]; then
+	install_ansible
 
-		# Check nix is installed
-		if ! [ -x "$(command -v nix-env)" ]; then
-
-			if [ "$isMacOS" = "true" ]; then
-
-				# Install nix multi user installation, there is no single user installation for MacOS
-				# per https://nixos.org/download#nix-install-macos
-				sh <(curl -L https://nixos.org/nix/install) --daemon
-
-			else # Linux
-
-				echo "Installing Nix..."
-				# Install Nix multi user installation
-				# per https://nix.dev/install-nix.html
-				# as of 2024-02-08
-				curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
-
-				# Add Ansible and Nix bin to PATH
-				echo "export PATH=$PATH:$HOME/.nix-profile/bin/:$HOME/.local/bin" >>~/.bashrc
-				echo "source $HOME/.nix-profile/etc/profile.d/nix.sh" >>~/.bashrc
-
-			fi
-
-			restartShell="true"
-
-		fi
-
-		# Check nix home manager is installed
+	if [ -x "$(command -v nix-env)" ]; then
+		# Install nix home manager per https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone
 		if ! [ -x "$(command -v home-manager)" ]; then
-				echo "Installing Nix: home-manager..."
-				nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-				nix-channel --update
-				nix-shell '<home-manager>' -A install
+			echo "Installing Nix: home-manager..."
+			nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+			nix-channel --update
+			nix-shell '<home-manager>' -A install
 		fi
-
 	fi
 
 	# if restartShell is true, tell user to restart shell and exit script
 	if [ "$restartShell" = "true" ]; then
-		# Since sourcing does not work for nix and rust requires shell restart to get PATH changes
+		# Since sourcing does not work for some programs and need shell restart to get PATH changes
 		echo "Restart shell to get PATH changes"
 		echo "and re-run with bootstrap.sh -r"
 		exit 0
@@ -271,10 +197,6 @@ else
 
 	if [ "$isFedora" = "true" ]; then
 		ansible-playbook --diff "$DOTFILES/fedora.yml" --ask-become-pass -v
-	fi
-
-	if [ "$isWSLUbuntu" = "true" ]; then
-		ansible-playbook --diff "$DOTFILES/windows.yml" --ask-pass -v
 	fi
 
 	if [ "$isArch" = "true" ]; then
