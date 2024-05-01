@@ -12,33 +12,34 @@
     mode: "0744"
   loop:
     - "~/.config/emacs"
-    - "~/.config/emacs/setup"
-    - "~/.config/emacs/snippets"
-    - "~/.config/emacs/snippets/org-mode"
+    # - "~/.config/emacs/setup"
+    # - "~/.config/emacs/snippets"
+    # - "~/.config/emacs/snippets/org-mode"
   tags: ['dotfiles', 'emacs']
   become: true
   become_user: "{{ target_user }}"
 
 # Configure plantuml
-- name: "Create directory ~/.config/emacs/plantuml"
-  ansible.builtin.file:
-    path: "~/.config/emacs/plantuml"
-    state: directory
-    owner: "{{ target_user }}"
-    # group: "{{ target_user }}"
-    mode: "0744"
-  tags: ['dotfiles', 'emacs']
-  become: true
-  become_user: "{{ target_user }}"
-- name: "Get plantuml.jar"
-  ansible.builtin.get_url:
-    # per https://github.com/plantuml/plantuml/releases
-    # as of 2023-08-03
-    url: https://github.com/plantuml/plantuml/releases/download/v1.2023.10/plantuml-1.2023.10.jar
-    dest: ~/.config/emacs/plantuml/plantuml.jar
-    owner: "{{ target_user }}"
-    # group: "{{ target_user }}"
-    mode: "0644"
-  become: true
-  become_user: "{{ target_user }}"
-  tags: ['dotfiles', 'emacs']
+## Replaced with Doom Emacs framework
+# - name: "Create directory ~/.config/emacs/plantuml"
+#   ansible.builtin.file:
+#     path: "~/.config/emacs/plantuml"
+#     state: directory
+#     owner: "{{ target_user }}"
+#     # group: "{{ target_user }}"
+#     mode: "0744"
+#   tags: ['dotfiles', 'emacs']
+#   become: true
+#   become_user: "{{ target_user }}"
+# - name: "Get plantuml.jar"
+#   ansible.builtin.get_url:
+#     # per https://github.com/plantuml/plantuml/releases
+#     # as of 2023-08-03
+#     url: https://github.com/plantuml/plantuml/releases/download/v1.2023.10/plantuml-1.2023.10.jar
+#     dest: ~/.config/emacs/plantuml/plantuml.jar
+#     owner: "{{ target_user }}"
+#     # group: "{{ target_user }}"
+#     mode: "0644"
+#   become: true
+#   become_user: "{{ target_user }}"
+#   tags: ['dotfiles', 'emacs']

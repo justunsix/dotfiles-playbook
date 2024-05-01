@@ -95,30 +95,30 @@ dotfiles_files:
   - .config/doom/modules/jt/hyperbole/config.el
   - .config/doom/modules/jt/hyperbole/packages.el
   - .config/dunst/dunstrc
-  - .config/emacs/init.el
-  - .config/emacs/setup/extras.el
-  - .config/emacs/setup/minimal.el
-  - .config/emacs/setup/other.el
-  - .config/emacs/setup/variables.el
-  - .config/emacs/setup/jt-emacs-abbrev.el
-  - .config/emacs/setup/jt-emacs-package-managers.el
-  - .config/emacs/setup/jt-emacs-org.el
-  - .config/emacs/setup/jt-emacs-org-roam.el
-  - .config/emacs/setup/jt-emacs-org-babel-literate.el
-  - .config/emacs/setup/jt-emacs-org-srs-anki.el
-  - .config/emacs/setup/jt-emacs-org-present.el
-  - .config/emacs/setup/jt-emacs-ai.el
-  - .config/emacs/setup/jt-emacs-ui.el
-  - .config/emacs/setup/jt-emacs-languages.el
-  - .config/emacs/setup/jt-emacs-languages-python.el
-  - .config/emacs/setup/jt-emacs-languages-java.el
-  - .config/emacs/setup/jt-emacs-terminal.el
-  - .config/emacs/setup/jt-emacs-spelling.el
-  - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
-  - .config/emacs/setup/jt-emacs-dired.el
-  - .config/emacs/snippets/org-mode/filetags
-  - .config/emacs/snippets/org-mode/new-note
-  - .config/emacs/snippets/org-mode/plantuml
+  # - .config/emacs/init.el
+  # - .config/emacs/setup/extras.el
+  # - .config/emacs/setup/minimal.el
+  # - .config/emacs/setup/other.el
+  # - .config/emacs/setup/variables.el
+  # - .config/emacs/setup/jt-emacs-abbrev.el
+  # - .config/emacs/setup/jt-emacs-package-managers.el
+  # - .config/emacs/setup/jt-emacs-org.el
+  # - .config/emacs/setup/jt-emacs-org-roam.el
+  # - .config/emacs/setup/jt-emacs-org-babel-literate.el
+  # - .config/emacs/setup/jt-emacs-org-srs-anki.el
+  # - .config/emacs/setup/jt-emacs-org-present.el
+  # - .config/emacs/setup/jt-emacs-ai.el
+  # - .config/emacs/setup/jt-emacs-ui.el
+  # - .config/emacs/setup/jt-emacs-languages.el
+  # - .config/emacs/setup/jt-emacs-languages-python.el
+  # - .config/emacs/setup/jt-emacs-languages-java.el
+  # - .config/emacs/setup/jt-emacs-terminal.el
+  # - .config/emacs/setup/jt-emacs-spelling.el
+  # - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
+  # - .config/emacs/setup/jt-emacs-dired.el
+  # - .config/emacs/snippets/org-mode/filetags
+  # - .config/emacs/snippets/org-mode/new-note
+  # - .config/emacs/snippets/org-mode/plantuml
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/helix/config.toml
