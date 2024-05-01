@@ -219,7 +219,6 @@ apt_installed_packages:
   ### Starship prompt nerd font
   - fonts-firacode
   ## Shell support
-  - rename
   - fzf
   ## Screenshot
   - flameshot
@@ -234,7 +233,6 @@ apt_installed_packages:
   - gmtp
   ## File Synchronization
   - git-all
-  - stow
   ## Web
   - transmission
   - transmission-remote-gtk
@@ -264,7 +262,6 @@ apt_installed_packages:
   #### Remove in Ubuntu 24.04
   #### - libclamunrar9
   ## System
-  - htop
   - bleachbit
   ### Windows Management i3
   - i3
@@ -273,7 +270,6 @@ apt_installed_packages:
   #### - rofi
   - lxappearance
   - copyq
-  - redshift
   ### System - Language
   - language-pack-gnome-en
   - language-pack-gnome-fr
@@ -286,7 +282,6 @@ apt_installed_packages:
   - hunspell
   - hunspell-en-gb
   - hunspell-fr
-  - ripgrep
   #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
   - shellcheck
   ## DevOps Languages
@@ -304,8 +299,8 @@ apt_installed_packages:
   - mpv
 
 apt_installed_packages_devops:
-  - docker
-  - docker-compose
+  # - docker
+  # - docker-compose
 
 pipx_installed_packages:
   - ansible
@@ -368,6 +363,7 @@ flatpak_installed_packages:
   - org.mozilla.firefox
   - com.github.tchx84.Flatseal
   - com.microsoft.Edge
+  - io.github.ungoogled_software.ungoogled_chromium
   ## Email
   - org.mozilla.Thunderbird
   ## RSS
