@@ -99,7 +99,8 @@ install_ansible() {
 		fi
 
 		pipx install --include-deps ansible
-
+		# Add pipx bin path to shell
+		echo "export PATH=$PATH:$HOME/.local/bin" >>~/.bashrc
 		restartShell="true"
 
 	fi
