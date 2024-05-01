@@ -41,10 +41,11 @@
 #   import_tasks: tasks/rust.yml
 #   tags: ['workstation-ubuntu', 'rust', 'package', 'laptop-ubuntu', 'workstation-fedora']
 
-- name: Set up DevOps packages
-  import_tasks: tasks/ubuntu/devops-b.yml
-  tags: ['workstation-ubuntu', 'devops-b', 'laptop-ubuntu']
-  when: configure_devops_b and ansible_distribution == "Ubuntu"
+# Remove to be replaced by nix later
+# - name: Set up DevOps packages
+#   import_tasks: tasks/ubuntu/devops-b.yml
+#   tags: ['workstation-ubuntu', 'devops-b', 'laptop-ubuntu']
+#   when: configure_devops_b and ansible_distribution == "Ubuntu"
 
 - name: Set up yt-dlp optional packages
   import_tasks: tasks/ubuntu/extras-ytdlp.yml

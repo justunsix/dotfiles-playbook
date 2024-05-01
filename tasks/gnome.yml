@@ -1,10 +1,3 @@
-# Install python package required for ansible community.general.dconf
-- name: Python pip - Install psutil python package required for ansible community.general.dconf
-  ansible.builtin.pip:
-    name: psutil
-    state: latest
-  tags: ['workstation-fedora', 'workstation-ubuntu',  'gnome', 'desktop', 'pip']
-
 # Modify GNOME Settings in loop
 - name: GNOME - Modify settings
   community.general.dconf:

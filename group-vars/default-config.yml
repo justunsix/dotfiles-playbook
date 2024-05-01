@@ -261,7 +261,8 @@ apt_installed_packages:
   - clamav
   - clamav-daemon
   #### RAR scanning support for ClamAV
-  - libclamunrar9
+  #### Remove in Ubuntu 24.04
+  #### - libclamunrar9
   ## System
   - htop
   - bleachbit
@@ -294,6 +295,8 @@ apt_installed_packages:
   - pipx
   - python3-virtualenv
   ## DevOps Support
+  #### Python package required for ansible community.general.dconf
+  - python3-psutil
   #### Latex
   - texlive-latex-base
   - texlive-latex-extra
@@ -354,10 +357,11 @@ snap_installed_packages_classic:
   # Devops
   ## Editors
   - code
+  - pycharm-community  
   ## - emacs
 
 snap_installed_packages_devops:
-  - pycharm-community
+  # - pycharm-community
 
 flatpak_installed_packages:
   # Web
