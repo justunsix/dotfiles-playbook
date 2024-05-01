@@ -2,22 +2,43 @@
 # - Fonts
 # - ripgrep, hunspell, pandoc
 
-# Create directory ~/.config/emacs and subdirectories
-- name: "Create directory ~/.config/emacs"
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    owner: "{{ target_user }}"
-    # group: "{{ target_user }}"
-    mode: "0744"
-  loop:
-    - "~/.config/emacs"
-    # - "~/.config/emacs/setup"
-    # - "~/.config/emacs/snippets"
-    # - "~/.config/emacs/snippets/org-mode"
+- name: "Check if ~/.config/emacs exists"
+  ansible.builtin.stat:
+    path: "~/.config/emacs"
+  register: emacs_dir
   tags: ['dotfiles', 'emacs']
   become: true
   become_user: "{{ target_user }}"
+
+# Clone the Doom Emacs framework into ~/.config/emacs if it doesn't exist
+# per https://github.com/doomemacs/doomemacs/blob/master/docs/getting_started.org#doom-emacs
+- name: "Install Doom Emacs"
+  ansible.builtin.git:
+    repo: https://github.com/doomemacs/doomemacs.git
+    dest: ~/.config/emacs
+    version: master
+    force: yes
+  tags: ['dotfiles', 'emacs']
+  become: true
+  become_user: "{{ target_user }}"    
+  when: emacs_dir.stat.exists == False  
+
+# Create directory ~/.config/emacs and subdirectories
+# - name: "Create directory ~/.config/emacs"
+#   ansible.builtin.file:
+#     path: "{{ item }}"
+#     state: directory
+#     owner: "{{ target_user }}"
+#     # group: "{{ target_user }}"
+#     mode: "0744"
+#   loop:
+#     - "~/.config/emacs"
+#     # - "~/.config/emacs/setup"
+#     # - "~/.config/emacs/snippets"
+#     # - "~/.config/emacs/snippets/org-mode"
+#   tags: ['dotfiles', 'emacs']
+#   become: true
+#   become_user: "{{ target_user }}"
 
 # Configure plantuml
 ## Replaced with Doom Emacs framework
