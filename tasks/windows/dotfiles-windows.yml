@@ -60,7 +60,8 @@
   win_lineinfile:
     path: '{{ ansible_env.USERPROFILE }}\scoop\apps\mpv\current\portable_config\mpv.conf'
     backrefs: yes
-    regexp: '^geometry=67%x100%\+0\+0'
+    regexp: '^geometry=1800x1370\+0\+0'
+    # regexp: '^geometry=67%x100%\+0\+0'
     line: 'geometry=67%x98%+0+30'
   tags: ['dotfiles', 'mpv']    
 
@@ -71,5 +72,3 @@
     regexp: '^home = "/home/justin/Code"'
     line: 'home = "{{ ansible_env.USERPROFILE }}"'
   tags: ['dotfiles', 'gfold']
-
-# TODO plantuml JAR set up per Linux emacs setup
