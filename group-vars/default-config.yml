@@ -219,6 +219,7 @@ apt_installed_packages:
   ### Starship prompt nerd font
   - fonts-firacode
   ## Shell support
+  ### Keep apt installed due to sourcing Debian key bindings
   - fzf
   ## Screenshot
   - flameshot
