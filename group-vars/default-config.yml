@@ -211,7 +211,7 @@ apt_installed_packages:
   - aptitude
   - flatpak
   - curl
-  ## Fonts, Codes
+  ## Fonts, Codecs
   - ubuntu-restricted-extras
   ### Emacs
   - fonts-cantarell
@@ -290,8 +290,10 @@ apt_installed_packages:
   - pipx
   - python3-virtualenv
   ## DevOps Support
-  #### Python package required for ansible community.general.dconf
+  ### Python package required for ansible community.general.dconf
   - python3-psutil
+  ### Virtualization
+  - virtualbox
   #### Latex
   - texlive-latex-base
   - texlive-latex-extra
