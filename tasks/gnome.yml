@@ -23,6 +23,8 @@
     - { key: "/org/gnome/desktop/background/picture-uri-dark", value: "''" }
     # Set background to black
     - { key: "/org/gnome/desktop/background/primary-color", value: "'#000000000000'" }
+    # Click an icon in the launcher, allow open and minimize
+    - { key: "/org/gnome/shell/extensions/dash-to-dock/click-action", value: "'minimize'" }
     # GNOME Desktop Languages
     # To use ç , use right alt plus , and c or C in US International alt
     - { key: "/org/gnome/desktop/input-sources/sources", value: "[('xkb', 'us+alt-intl'), ('xkb', 'us')]" }
