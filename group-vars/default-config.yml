@@ -66,7 +66,7 @@ dotfiles_files:
   - .local/share/applications/vlc-playlist.desktop
   - .local/share/applications/clipboard-html-to-org.desktop
   - .local/share/applications/screenshot-ocr.desktop
-  - .local/share/applications/emacs-doom.desktop
+  # - .local/share/applications/emacs-doom.desktop
   - usr/bin/jt-gc.sh
   - usr/bin/jt-gs.sh
   - usr/bin/jt-gt.sh
