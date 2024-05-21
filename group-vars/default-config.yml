@@ -388,6 +388,7 @@ flatpak_installed_packages:
   ## Graphics
   - org.inkscape.Inkscape
   - org.gimp.GIMP
+  - org.kde.krita
   ## Terminal Emulator
   - org.wezfurlong.wezterm
   # Office, Diagramming
