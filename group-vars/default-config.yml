@@ -207,6 +207,8 @@ apt_ppa_repositories:
 apt_installed_packages:
   # System
   - input-remapper
+  # X Clipboard management, integration with pyperclip
+  - xsel
   # Package Management
   - aptitude
   - flatpak
