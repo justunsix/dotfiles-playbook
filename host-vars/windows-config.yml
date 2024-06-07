@@ -50,7 +50,8 @@ scoop_installed_packages:
   - bottom
   - everything
   - kondo
-  - extra/dolphin
+  ## To differentiate from dolphin emulator
+  - extras/dolphin
   # Media
   - krita
   - upscayl

@@ -8,9 +8,9 @@
     - nerd-fonts
 - name: scoop - Install packages
   community.windows.win_scoop:
-    name: "{{ item }}"
+    # Separate packages with a space from yaml list
+    name: "{{ scoop_installed_packages | join(' ') }}"
     state: present
-  loop: "{{ scoop_installed_packages }}"
   tags: ['scoop', 'workstation-windows', 'package']
 
 - name: scoop - Initialize conda scoop package for PowerShell
