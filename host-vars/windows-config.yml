@@ -50,6 +50,7 @@ scoop_installed_packages:
   - bottom
   - everything
   - kondo
+  - extra/dolphin
   # Media
   - krita
   - upscayl
