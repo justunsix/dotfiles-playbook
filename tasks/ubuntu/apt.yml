@@ -24,22 +24,24 @@
 # Using list of items variable: apt_removed_packages
 - name: apt - Remove packages
   ansible.builtin.apt:
-    name: "{{ item }}"
+    name:  "{{ apt_removed_packages | join(', ') }}"
     state: absent
-  loop: "{{ apt_removed_packages }}"
   tags: ['apt', 'workstation-ubuntu', 'package']
 
 # Install / Check packages with apt
 # Using list of items variable: apt_installed_packages
-- name: apt - Install / Update / Upgrade packages
+- name: apt - Install packages
   ansible.builtin.apt:
-    name: "{{ item }}"
-    state: latest
-  loop: "{{ apt_installed_packages }}"
+    pkg: "{{ apt_installed_packages }}"
   tags: ['apt', 'workstation-ubuntu', 'package']
 
-# Auto remove packages
-- name: apt - Auto remove packages
+- name: apt - Remove useless packages from the cache
+  ansible.builtin.apt:
+    autoclean: yes
+  tags: ['apt', 'workstation-ubuntu', 'package']
+
+- name: apt - Auto remove packages no longer required and delete their configuration files
   ansible.builtin.apt:
     autoremove: yes
+    purge: true    
   tags: ['apt', 'workstation-ubuntu', 'package']
