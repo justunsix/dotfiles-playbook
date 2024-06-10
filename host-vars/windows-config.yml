@@ -41,7 +41,7 @@ scoop_installed_packages:
   ## File Management
   - git
   - git-credential-manager
-  - gitui
+  - lazygit
   - bleachbit
   - ccleaner
   - fzf
@@ -118,7 +118,6 @@ scoop_installed_packages:
   #### Astrovim dependencies
   - win32yank
   - tree-sitter
-  - lazygit
   #### For Neovim and Emacs org-roam SQLite
   - gcc
   ### Polyglot literate programming
