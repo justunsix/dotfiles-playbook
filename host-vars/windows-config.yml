@@ -50,8 +50,15 @@ scoop_installed_packages:
   - bottom
   - everything
   - kondo
+  - broot 
   ## To differentiate from dolphin emulator
   - extras/dolphin
+  ### yazi file manager and supporting programs
+  - yazi
+  #### yazi optional dependencies
+  - unar
+  - jq
+  - poppler
   # Media
   - krita
   - upscayl
@@ -73,6 +80,7 @@ scoop_installed_packages:
   - wezterm
   - cygwin
   - carapace-bin
+  - nu
   ### Prompt
   - starship
   ## Office, Productivity
@@ -93,25 +101,28 @@ scoop_installed_packages:
   - pycharm
   - helix
   - nodejs
+  ### Languages
   - make
-  ### Python
-  #### Required for Ansible management
+  #### Python
+  ##### Required for Ansible management
   - python
   - miniconda3
-  ### Java
+  #### Java
   - temurin-lts-jdk
   - maven
-  ### Emacs
+  #### VS Code Polyglot literate programming
+  - dotnet-sdk
+  ### Emacs and Supporting Programs
   - emacs
   - ripgrep
   - pandoc
-  #### Doom
+  #### Emacs Doom Framework
   - llvm
   #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
   - shellcheck
   #### Used by org-download for clipboard pasting to org
   - imagemagick
-  ### Neovim
+  ### Neovim and Supporting Programs
   - neovim
   #### for telescope fzf native
   - cmake
@@ -120,8 +131,6 @@ scoop_installed_packages:
   - tree-sitter
   #### For Neovim and Emacs org-roam SQLite
   - gcc
-  ### Polyglot literate programming
-  - dotnet-sdk
 
 scoop_installed_packages_extras:
   ## Communications
