@@ -181,8 +181,8 @@ dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/helix/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/broot/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config" }    
     - { src: "{{ dotfiles_repo_local_destination }}/.gitconfig", dest: "{{ ansible_env.USERPROFILE }}/.gitconfig" }
-    - { src: "{{ dotfiles_repo_local_destination }}/other/WindowsPowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1' }
-    - { src: "{{ dotfiles_repo_local_destination }}/other/PowerShell/Microsoft.PowerShell_profile.ps1", dest: 'C:/Users/{{ target_user }}/OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1' }
+    - { src: "{{ dotfiles_repo_local_destination }}/other/WindowsPowerShell/Microsoft.PowerShell_profile.ps1", dest: '{{ ansible_env.USERPROFILE }}/OneDrive/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1' }
+    - { src: "{{ dotfiles_repo_local_destination }}/other/PowerShell/Microsoft.PowerShell_profile.ps1", dest: '{{ ansible_env.USERPROFILE }}/OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1' }
 
 hunspell_dictionaries:
   - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: 'C:/Hunspell' }
