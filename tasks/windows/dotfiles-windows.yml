@@ -69,6 +69,6 @@
   win_lineinfile:
     path: '{{ ansible_env.USERPROFILE }}/.config/gfold.toml'
     backrefs: yes
-    regexp: '^home = "/home/justin/Code"'
-    line: 'home = "{{ ansible_env.USERPROFILE }}"'
+    regexp: '/home/justin'
+    line: "{{ ansible_env.USERPROFILE }}"
   tags: ['dotfiles', 'gfold']
