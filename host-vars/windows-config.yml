@@ -45,7 +45,10 @@ scoop_installed_packages:
   - bleachbit
   - ccleaner
   - fzf
+  ### fd optional for Emacs and nvim frameworks
   - fd
+  ### rg optional for Emacs and nvim frameworks
+  - ripgrep
   - duf
   - bottom
   - everything
@@ -114,7 +117,6 @@ scoop_installed_packages:
   - dotnet-sdk
   ### Emacs and Supporting Programs
   - emacs
-  - ripgrep
   - pandoc
   #### Emacs Doom Framework
   - llvm
