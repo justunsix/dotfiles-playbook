@@ -44,6 +44,9 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/doom/modules/jt/doomconfig"
   - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"  
   - "/home/{{ target_user }}/.config/dunst"
+  - "/home/{{ target_user }}/.config/lazyvim"
+  - "/home/{{ target_user }}/.config/lazyvim/lua/plugins"
+  - "/home/{{ target_user }}/.config/lazyvim/lua/config"
   - "/home/{{ target_user }}/.config/mpv/scripts"
   - "/home/{{ target_user }}/.config/mpv/script-opts"
   - "/home/{{ target_user }}/.config/mprocs"
@@ -124,6 +127,10 @@ dotfiles_files:
   - .config/helix/config.toml
   - .config/i3/config
   - .config/i3status/config
+  - .config/lazyvim/lua/config/keymaps.lua
+  - .config/lazyvim/lua/config/options.lua
+  - .config/lazyvim/lua/plugins/neo-tree.lua
+  - .config/lazyvim/lua/plugins/org-mode.lua
   - .config/mpv/input.conf
   - .config/mpv/mpv.conf
   - .config/mpv/scripts/autoload.lua

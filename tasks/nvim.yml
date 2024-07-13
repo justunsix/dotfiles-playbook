@@ -1,0 +1,20 @@
+- name: "Check if ~/.config/lazyvim exists"
+  ansible.builtin.stat:
+    path: "~/.config/lazyvim"
+  register: lazyvim_dir
+  tags: ['dotfiles', 'nvim']
+  become: true
+  become_user: "{{ target_user }}"
+
+# Clone the Lazyvim Neovim framework into ~/.config/lazyvim if it doesn't exist
+# per http://www.lazyvim.org/installation
+- name: "Install LazyVim Neovim Setup"
+  ansible.builtin.git:
+    repo: https://github.com/LazyVim/starter
+    dest: ~/.config/lazyvim
+    version: main
+    force: yes
+  tags: ['dotfiles', 'nvim']
+  become: true
+  become_user: "{{ target_user }}"
+  when: nvim_dir.stat.exists == False
