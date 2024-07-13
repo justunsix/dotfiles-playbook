@@ -17,4 +17,4 @@
   tags: ['dotfiles', 'nvim']
   become: true
   become_user: "{{ target_user }}"
-  when: nvim_dir.stat.exists == False
+  when: lazyvim_dir.stat.exists == False

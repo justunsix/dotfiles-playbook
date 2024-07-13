@@ -78,6 +78,11 @@
   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'emacs', 'workstation-fedora', 'workstation-arch']
   when: configure_emacs
 
+- name: Set up Neovim
+  import_tasks: tasks/nvim.yml
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'nvim', 'workstation-fedora', 'workstation-arch']
+  when: configure_emacs
+
 - name: Set up and synchronize dotfiles
   import_tasks: tasks/dotfiles.yml
   when: configure_dotfiles
