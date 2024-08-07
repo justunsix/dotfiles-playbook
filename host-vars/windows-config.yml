@@ -45,6 +45,7 @@ scoop_installed_packages:
   - bleachbit
   - ccleaner
   - fzf
+  - uutils-coreutils
   ### fd optional for Emacs and nvim frameworks
   - fd
   ### rg optional for Emacs and nvim frameworks
