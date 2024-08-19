@@ -72,3 +72,11 @@
     regexp: '/home/justin'
     line: "{{ ansible_env.USERPROFILE }}"
   tags: ['dotfiles', 'gfold']
+
+- name: Doom Emacs - Disable roam 
+  win_lineinfile:
+    path: '{{ ansible_env.USERPROFILE }}/.config/doom/init.el'
+    backrefs: yes
+    regexp: '+roam2'
+    line: ';; +roam2'
+  tags: ['dotfiles', 'emacs']
