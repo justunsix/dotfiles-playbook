@@ -156,6 +156,7 @@ dotfiles_directories:
     - "{{ ansible_env.USERPROFILE }}/.config/fish"
     - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix"
     - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config"
+    - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi"
     - "C:/Hunspell"
 
 dotfiles_to_be_removed:
@@ -173,6 +174,7 @@ dotfiles_items:
     - { src: "{{ dotfiles_repo_local_destination }}/.config/mpv/", dest: "{{ ansible_env.USERPROFILE }}/scoop/apps/mpv/current/portable_config" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/nushell/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/nushell" }
+    - { src: "{{ dotfiles_repo_local_destination }}/.config/navi/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/starship.toml", dest: "{{ ansible_env.USERPROFILE }}/.config/starship.toml" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/gfold.toml", dest: "{{ ansible_env.USERPROFILE }}/.config/gfold.toml" }
     - { src: "{{ dotfiles_repo_local_destination }}/.config/kdeglobals", dest: "{{ ansible_env.USERPROFILE }}/.config/kdeglobals" }

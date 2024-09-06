@@ -34,6 +34,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/nushell"
   - "/home/{{ target_user }}/.config/helix"
   - "/home/{{ target_user }}/.config/home-manager"
+  - "/home/{{ target_user }}/.config/navi"
   - "/home/{{ target_user }}/.config/nvim"
   - "/home/{{ target_user }}/.config/nvim/lua/custom/plugins"
   - "/home/{{ target_user }}/.config/rofi"
@@ -137,6 +138,7 @@ dotfiles_files:
   - .config/mpv/script-opts/osc.conf
   - .config/mprocs/mprocs.yaml
   - .config/home-manager/home.nix
+  - .config/navi/config.yaml
   - .config/nushell/config.nu
   - .config/nushell/env.nu
   - .config/nushell/config-nix.nu
