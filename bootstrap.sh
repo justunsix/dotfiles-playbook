@@ -96,6 +96,7 @@ install_ansible() {
 			# from https://github.com/pypa/pipx
 			brew install pipx
 			pipx ensurepath
+
 		fi
 
 		pipx install --include-deps ansible
@@ -103,6 +104,28 @@ install_ansible() {
 		echo "export PATH=$PATH:$HOME/.local/bin" >>~/.bashrc
 		restartShell="true"
 
+	fi
+
+}
+
+install_nix_home_manager() {
+
+	if [ -x "$(command -v nix-env)" ]; then
+		# Install nix home manager per https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone
+		if ! [ -x "$(command -v home-manager)" ]; then
+			echo "Installing Nix: home-manager..."
+			if [ "$isMacOS" = "true" ]; then
+			  if [ -f "$HOME/Code/dotfiles-nix/minimal/home.nix" ]; then
+					echo "Symlinking minimal home.nix to ~/.config/home-manager/home.nix"
+					ln -s ~/Code/dotfiles-nix/minimal/home.nix ~/.config/home-manager/home.nix
+			  else
+					echo "Download dotfiles-nix's minimal home.nix before the home-manager install, exiting"
+					exit 1
+				fi
+			nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+			nix-channel --update
+			nix-shell '<home-manager>' -A install
+		fi
 	fi
 
 }
@@ -119,15 +142,7 @@ install_prequisites() {
 
 	install_ansible
 
-	if [ -x "$(command -v nix-env)" ]; then
-		# Install nix home manager per https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone
-		if ! [ -x "$(command -v home-manager)" ]; then
-			echo "Installing Nix: home-manager..."
-			nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-			nix-channel --update
-			nix-shell '<home-manager>' -A install
-		fi
-	fi
+	install_nix_home_manager
 
 	# if restartShell is true, tell user to restart shell and exit script
 	if [ "$restartShell" = "true" ]; then

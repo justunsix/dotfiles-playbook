@@ -62,23 +62,6 @@ configure_mpv: false
 configure_dolphin: false
 configure_emacs: false
 
-nix_installed_packages:
-  # System
-  - nixpkgs.topgrade
-  # Shell
-  - nixpkgs.nushell
-  - nixpkgs.starship
-  - nixpkgs.zoxide
-  - nixpkgs.carapace
-  - nixpkgs.atuin
-  - nixpkgs.broot
-  # Configuration
-  - nixpkgs.stow
-  # DevOps
-  - nixpkgs.helix
-  # vagrant: Native extensions take too long to build
-  # - nixpkgs.vagrant
-
 homebrew_installed_casks:
   # Web
   - homebrew/cask/firefox
@@ -87,3 +70,21 @@ homebrew_installed_casks:
   # - homebrew/cask/emacs
   - homebrew/cask/virtualbox
   - homebrew/cask/vagrant
+
+nix_installed_packages:
+  # Configuration
+  - nixpkgs.stow
+  # Archived, managed by home-manager instead
+  # # System
+  # - nixpkgs.topgrade
+  # # Shell
+  # - nixpkgs.nushell
+  # - nixpkgs.starship
+  # - nixpkgs.zoxide
+  # - nixpkgs.carapace
+  # - nixpkgs.atuin
+  # - nixpkgs.broot
+  # DevOps
+  # - nixpkgs.helix
+  # vagrant: Native extensions take too long to build
+  # - nixpkgs.vagrant
