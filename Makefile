@@ -29,3 +29,12 @@ run-playbook-windows-dotfiles: ## Run dotfiles tasks for Windows
 	export ANSIBLE_CONFIG=ansible.cfg
 	# --ask-pass --ask-become-pass for ssh connection and privilege escalation
 	ansible-playbook --diff "windows.yml" --ask-pass --ask-become-pass -v --tags "dotfiles"
+
+.ONESHELL:
+run-playbook-windows-interactive: ## Run playbook with user-specified tags for Windows
+	# Set config explicitly to avoid error due to world writable file in Vagrant
+	export ANSIBLE_CONFIG=ansible.cfg
+	# Prompt the user for the tag they want to run
+	read -p "Enter the tag you want to run: " TAG
+	# --ask-pass --ask-become-pass for ssh connection and privilege escalation
+	ansible-playbook --diff "windows.yml" --ask-pass --ask-become-pass -v --tags "$$TAG"	
