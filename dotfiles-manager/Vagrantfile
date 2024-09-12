@@ -7,7 +7,7 @@ $script = <<-'SCRIPT'
 pacman --noconfirm -Syyu
 # Install Ansible 
 # Install convenience software
-pacman --noconfirm -S fish starship ansible python-pywinrm zoxide make
+pacman --noconfirm -S fish starship ansible python-pywinrm zoxide make vim
 # Track VM creation time                      
 date > /etc/vagrant_provisioned_at
 # Add cd to dotfiles-playbook and fish start to .bashrc
