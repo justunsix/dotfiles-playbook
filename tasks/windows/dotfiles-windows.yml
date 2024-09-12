@@ -77,7 +77,7 @@
   win_lineinfile:
     path: '{{ ansible_env.USERPROFILE }}/.config/doom/init.el'
     backrefs: yes
-    regexp: '+roam2'
+    regexp: '\+roam2'
     line: ';; +roam2'
   tags: ['dotfiles', 'emacs']
 
