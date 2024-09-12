@@ -13,8 +13,18 @@
     state: present
   tags: ['scoop', 'workstation-windows', 'package']
 
-- name: scoop - Initialize conda scoop package for PowerShell
+# Disable auto-activation of base conda environment
+# conda config --set auto_activate_base false
+- name: Disable auto-activation of base conda environment
   ansible.windows.win_powershell:
     script: |
-      conda init powershell
+      conda config --set auto_activate_base false
   tags: ['scoop', 'workstation-windows', 'package', 'conda']
+
+# Replaced with function inside PowerShell profile
+#
+# - name: scoop - Initialize conda scoop package for PowerShell
+#   ansible.windows.win_powershell:
+#     script: |
+#       conda init powershell
+#   tags: ['scoop', 'workstation-windows', 'package', 'conda']
