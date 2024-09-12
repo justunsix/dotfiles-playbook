@@ -10,8 +10,11 @@
 [workstation_macos]
 127.0.0.1 ansible_connection=local
 
-# Get IP from initial vagrant login
-# or ipconfig of Windows machine
+# Get IP from initial vagrant login message:
+# Last login from...
+# or ipconfig of Windows machine:
+# on line IPv4 Address...:
+# Turn off private networking if there are connection issues
 [workstation_windows]
 10.0.2.2
 
