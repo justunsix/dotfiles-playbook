@@ -60,7 +60,7 @@
   win_lineinfile:
     path: '{{ ansible_env.USERPROFILE }}\scoop\apps\mpv\current\portable_config\mpv.conf'
     backrefs: yes
-    regexp: '^geometry=1800x1370\+0\+0'
+    regexp: '^geometry=70%x100%\+0\+0'
     # regexp: '^geometry=67%x100%\+0\+0'
     line: 'geometry=67%x98%+0+30'
   tags: ['dotfiles', 'mpv']    
