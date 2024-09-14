@@ -30,3 +30,11 @@
   become_user: "{{ target_user }}"
   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
   when: ansible_distribution == "Ubuntu" and conda_shell_exists.stat.exists
+
+- name: conda - Set conda to not auto-activate base environment
+  ansible.builtin.shell: |
+    conda config --set auto_activate_base false
+  become: true
+  become_user: "{{ target_user }}"
+  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
+  when: ansible_distribution == "Ubuntu" and conda_shell_exists.stat.exists
