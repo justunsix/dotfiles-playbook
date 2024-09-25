@@ -96,6 +96,7 @@ dotfiles_files:
   - .config/doom/modules/jt/music/config.el
   - .config/doom/modules/jt/music/packages.el
   - .config/doom/modules/jt/doomconfig/config.el
+  - .config/doom/modules/jt/doomconfig/autoload.el
   - .config/doom/modules/jt/hyperbole/config.el
   - .config/doom/modules/jt/hyperbole/packages.el
   - .config/dunst/dunstrc
