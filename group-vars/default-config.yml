@@ -133,6 +133,7 @@ dotfiles_files:
   - .config/lazyvim/lua/config/options.lua
   - .config/lazyvim/lua/plugins/neo-tree.lua
   - .config/lazyvim/lua/plugins/org-mode.lua
+  - .config/lazyvim/lua/plugins/gen.lua
   - .config/mpv/input.conf
   - .config/mpv/mpv.conf
   - .config/mpv/scripts/autoload.lua
