@@ -95,7 +95,7 @@ scoop_installed_packages:
   - draw.io
   - anki
   - calibre
-  - autohotkey  
+  - autohotkey
   ## Media
   - vlc
   - mpv
@@ -103,7 +103,7 @@ scoop_installed_packages:
   - keepassxc
   ## DevOps
   - vscode
-  - pycharm
+  # - pycharm
   - helix
   - nodejs
   ### Languages
