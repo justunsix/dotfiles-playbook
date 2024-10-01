@@ -131,9 +131,10 @@ dotfiles_files:
   - .config/i3status/config
   - .config/lazyvim/lua/config/keymaps.lua
   - .config/lazyvim/lua/config/options.lua
-  - .config/lazyvim/lua/plugins/extend-neo-tree.lua
   - .config/lazyvim/lua/plugins/org-mode.lua
   - .config/lazyvim/lua/plugins/gen.lua
+  - .config/lazyvim/lua/plugins/extend-neo-tree.lua
+  - .config/lazyvim/lua/plugins/extend-lazyvim.lua
   - .config/mpv/input.conf
   - .config/mpv/mpv.conf
   - .config/mpv/scripts/autoload.lua
