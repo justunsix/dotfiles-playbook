@@ -55,7 +55,7 @@ scoop_installed_packages:
   - bottom
   - everything
   - kondo
-  - broot 
+  - broot
   ## To differentiate from dolphin emulator
   - extras/dolphin
   ### yazi file manager and supporting programs
@@ -65,9 +65,7 @@ scoop_installed_packages:
   - jq
   - poppler
   # Media
-  - krita
   - upscayl
-  - obs-studio
   ## Web
   - firefox
   ## Fonts
