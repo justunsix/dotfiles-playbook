@@ -136,6 +136,7 @@ dotfiles_files:
   - .config/lazyvim/lua/plugins/gen.lua
   - .config/lazyvim/lua/plugins/extend-neo-tree.lua
   - .config/lazyvim/lua/plugins/extend-lazyvim.lua
+  - .config/lazyvim/lua/plugins/extend-which-key-with-legendary.lua
   - .config/mpv/input.conf
   - .config/mpv/mpv.conf
   - .config/mpv/scripts/autoload.lua
