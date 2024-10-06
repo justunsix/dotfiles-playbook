@@ -221,7 +221,9 @@ apt_ppa_repositories:
 apt_installed_packages:
   # System
   - input-remapper
-  # X Clipboard management, integration with pyperclip
+  # X Clipboard management, for:
+  ## - Integration with pyperclip
+  ## - OCR to clipboard shell script
   - xsel
   # Package Management
   - aptitude
