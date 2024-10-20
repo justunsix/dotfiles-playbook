@@ -1,12 +1,12 @@
 ---
 - name: Set up snap packages
   import_tasks: tasks/snap.yml
-  tags: ['workstation-ubuntu', 'snap', 'package', 'laptop-ubuntu']
+  tags: ["workstation-ubuntu", "snap", "package", "laptop-ubuntu"]
   when: ansible_distribution == "Ubuntu"
 
 - name: Set up apt packages
   import_tasks: tasks/ubuntu/apt.yml
-  tags: ['workstation-ubuntu', 'apt', 'package', 'laptop-ubuntu']
+  tags: ["workstation-ubuntu", "apt", "package", "laptop-ubuntu"]
   when: ansible_distribution == "Ubuntu"
 
 # 2024-04-30: Remove deb-get for Ubuntu 24.04 and later
@@ -17,29 +17,53 @@
 
 - name: Set up pacman packages
   import_tasks: tasks/arch/pacman.yml
-  tags: ['workstation-arch', 'pacman', 'package']
+  tags: ["workstation-arch", "pacman", "package"]
   when: ansible_distribution == "Archlinux"
 
 - name: Set up dnf packages
   import_tasks: tasks/fedora/dnf.yml
-  tags: ['workstation-fedora', 'dnf', 'package']
+  tags: ["workstation-fedora", "dnf", "package"]
   when: ansible_distribution == "Fedora"
 
 - name: Set up nix packages
   import_tasks: tasks/nix.yml
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-fedora']
+  tags:
+    [
+      "workstation-ubuntu",
+      "nix",
+      "package",
+      "laptop-ubuntu",
+      "workstation-fedora",
+    ]
 
 - name: Set up Python packages
   import_tasks: tasks/python.yml
-  tags: ['workstation-ubuntu', 'python', 'pip', 'pipx', 'package', 'laptop-ubuntu', 'workstation-fedora', 'workstation-arch']
+  tags:
+    [
+      "workstation-ubuntu",
+      "python",
+      "pip",
+      "pipx",
+      "package",
+      "laptop-ubuntu",
+      "workstation-fedora",
+      "workstation-arch",
+    ]
 
 - name: Set up flatpaks
   import_tasks: tasks/flatpak.yml
-  tags: ['workstation-ubuntu', 'flatpak', 'package', 'workstation-fedora']
+  tags: ["workstation-ubuntu", "flatpak", "package", "workstation-fedora"]
 
-# - name: Set up Rust packages
-#   import_tasks: tasks/rust.yml
-#   tags: ['workstation-ubuntu', 'rust', 'package', 'laptop-ubuntu', 'workstation-fedora']
+- name: Set up Rust packages
+  import_tasks: tasks/rust.yml
+  tags:
+    [
+      "workstation-ubuntu",
+      "rust",
+      "package",
+      "laptop-ubuntu",
+      "workstation-fedora",
+    ]
 
 # Remove to be replaced by nix later
 # - name: Set up DevOps packages
@@ -49,18 +73,18 @@
 
 - name: Set up yt-dlp optional packages
   import_tasks: tasks/ubuntu/extras-ytdlp.yml
-  tags: ['workstation-ubuntu', 'extras', 'laptop-ubuntu', 'ytdlp']
+  tags: ["workstation-ubuntu", "extras", "laptop-ubuntu", "ytdlp"]
   when: configure_extras and ansible_distribution == "Ubuntu"
 
 - name: Configure Gnome settings
   import_tasks: tasks/gnome.yml
-  tags: ['workstation-ubuntu', 'gnome', 'desktop', 'workstation-fedora']
+  tags: ["workstation-ubuntu", "gnome", "desktop", "workstation-fedora"]
   when: configure_gnome
 
 - name: Set up Gnome dnf packages
 
   import_tasks: tasks/fedora/dnf-gnome.yml
-  tags: ["workstation-fedora", "dnf-gnome", "package", 'workstation-fedora']
+  tags: ["workstation-fedora", "dnf-gnome", "package", "workstation-fedora"]
   when: configure_gnome and ansible_distribution == "Fedora"
 
 - name: Set up other Fedora settings
@@ -70,28 +94,49 @@
 
 - name: Synchronize git repositories
   import_tasks: tasks/repos.yml
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'repos', 'workstation-fedora']
+  tags: ["workstation-ubuntu", "laptop-ubuntu", "repos", "workstation-fedora"]
   when: configure_repos
 
 - name: Set up Emacs
   import_tasks: tasks/emacs.yml
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'emacs', 'workstation-fedora', 'workstation-arch']
+  tags:
+    [
+      "workstation-ubuntu",
+      "laptop-ubuntu",
+      "emacs",
+      "workstation-fedora",
+      "workstation-arch",
+    ]
   when: configure_emacs
 
 - name: Set up Neovim
   import_tasks: tasks/nvim.yml
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'nvim', 'workstation-fedora', 'workstation-arch']
+  tags:
+    [
+      "workstation-ubuntu",
+      "laptop-ubuntu",
+      "nvim",
+      "workstation-fedora",
+      "workstation-arch",
+    ]
   when: configure_emacs
 
 - name: Set up and synchronize dotfiles
   import_tasks: tasks/dotfiles.yml
   when: configure_dotfiles
-  tags: ['workstation-ubuntu', 'workstation-fedora', 'laptop-ubuntu', 'dotfiles', 'workstation-arch']
+  tags:
+    [
+      "workstation-ubuntu",
+      "workstation-fedora",
+      "laptop-ubuntu",
+      "dotfiles",
+      "workstation-arch",
+    ]
 
 - name: Set up fonts
   import_tasks: tasks/fonts.yml
   when: configure_dotfiles
-  tags: ['workstation-ubuntu', 'workstation-fedora', 'laptop-ubuntu', 'fonts']
+  tags: ["workstation-ubuntu", "workstation-fedora", "laptop-ubuntu", "fonts"]
 
 # Replace with nix package
 # - name: Set up Node
@@ -101,8 +146,7 @@
 
 - name: Set up tmux
   import_tasks: tasks/tmux.yml
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'tmux', 'workstation-fedora']
-
+  tags: ["workstation-ubuntu", "laptop-ubuntu", "tmux", "workstation-fedora"]
 # Use distribution package managers instead
 #    - import_tasks: tasks/haskell.yml
 #      tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']

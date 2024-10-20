@@ -1,9 +1,22 @@
 # Refresh and Upgrade rust packages installed by cargo
-- name: rust - Upgrade all packages
-  community.general.cargo:
-    name: "{{ item }}"
-    state: latest
-  loop: "{{ rust_installed_packages }}"
-  tags: ['workstation-ubuntu', 'rust', 'package', 'laptop-ubuntu', 'workstation-fedora']
+# - name: rust - Upgrade all packages
+#   community.general.cargo:
+#     name: "{{ item }}"
+#     state: latest
+#   loop: "{{ rust_installed_packages }}"
+#   tags: ['workstation-ubuntu', 'rust', 'package', 'laptop-ubuntu', 'workstation-fedora']
+#   become: true
+#   become_user: "{{ target_user }}"
+
+# Install rust
+- name: rust - add rustup, accept defaults
+  ansible.builtin.command: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+  tags: ["workstation-ubuntu", "rust", "package", "workstation-fedora"]
+  become: true
+  become_user: "{{ target_user }}"
+
+- name: rust - add rust-analyzer, clippy, rustfmt
+  ansible.builtin.command: "rustup component add rustfmt clippy rustfmt"
+  tags: ["workstation-ubuntu", "rust", "package", "workstation-fedora"]
   become: true
   become_user: "{{ target_user }}"
