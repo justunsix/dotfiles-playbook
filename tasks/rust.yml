@@ -16,7 +16,7 @@
   become_user: "{{ target_user }}"
 
 - name: rust - add rust-analyzer, clippy, rustfmt
-  ansible.builtin.command: "rustup component add rustfmt clippy rustfmt"
+  ansible.builtin.command: "rustup component add rustfmt clippy rust-analyzer"
   tags: ["workstation-ubuntu", "rust", "package", "workstation-fedora"]
   become: true
   become_user: "{{ target_user }}"
