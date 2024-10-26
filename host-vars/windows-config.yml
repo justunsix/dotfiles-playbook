@@ -146,66 +146,129 @@ hunspell_dict_en_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-en"
 hunspell_dict_fr_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-fr"
 
 dotfiles_directories:
-    - "{{ ansible_env.USERPROFILE }}/.config"
-    - "{{ ansible_env.USERPROFILE }}/usr/bin"
-    - "{{ ansible_env.USERPROFILE }}/AppData/Local/nvim"
-    - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade"    
-    - "{{ ansible_env.USERPROFILE }}/.config/emacs"
-    - "{{ ansible_env.USERPROFILE }}/.config/doom"
-    - "{{ ansible_env.USERPROFILE }}/.config/wezterm"
-    - "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli"
-    - "{{ ansible_env.USERPROFILE }}/.config/fish"
-    - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix"
-    - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config"
-    - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi"
-    - "C:/Hunspell"
+  - "{{ ansible_env.USERPROFILE }}/.config"
+  - "{{ ansible_env.USERPROFILE }}/usr/bin"
+  - "{{ ansible_env.USERPROFILE }}/AppData/Local/nvim"
+  - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade"
+  - "{{ ansible_env.USERPROFILE }}/.config/emacs"
+  - "{{ ansible_env.USERPROFILE }}/.config/doom"
+  - "{{ ansible_env.USERPROFILE }}/.config/wezterm"
+  - "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli"
+  - "{{ ansible_env.USERPROFILE }}/.config/fish"
+  - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix"
+  - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config"
+  - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi"
+  - "C:/Hunspell"
 
 dotfiles_to_be_removed:
-    - "{{ ansible_env.USERPROFILE }}/AppData/Local/topgrade.toml"
-    - "{{ ansible_env.USERPROFILE }}/.emacs"
-    - "{{ ansible_env.USERPROFILE }}/.emacs.d"
-    - "{{ ansible_env.USERPROFILE }}/.emacs.d"    
-    - "{{ ansible_env.USERPROFILE }}/Documents/PowerShell/profile.ps1"
-    - "{{ ansible_env.USERPROFILE }}/Documents/WindowsPowerShell/profile.ps1"
+  - "{{ ansible_env.USERPROFILE }}/AppData/Local/topgrade.toml"
+  - "{{ ansible_env.USERPROFILE }}/.emacs"
+  - "{{ ansible_env.USERPROFILE }}/.emacs.d"
+  - "{{ ansible_env.USERPROFILE }}/.emacs.d"
+  - "{{ ansible_env.USERPROFILE }}/Documents/PowerShell/profile.ps1"
+  - "{{ ansible_env.USERPROFILE }}/Documents/WindowsPowerShell/profile.ps1"
 
 dotfiles_items:
-    # Reserve for Doom Emacs install
-    # - { src: "{{ dotfiles_repo_local_destination }}/.config/emacs/", dest: "{{ ansible_env.USERPROFILE }}/.config/emacs" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/doom/", dest: "{{ ansible_env.USERPROFILE }}/.config/doom" }    
-    - { src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/", dest: "{{ ansible_env.USERPROFILE }}/usr/bin" }
-    - { src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/", dest: 'C:/Hunspell' }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/nvim/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Local/nvim" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/mpv/", dest: "{{ ansible_env.USERPROFILE }}/scoop/apps/mpv/current/portable_config" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/nushell/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/nushell" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/navi/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/starship.toml", dest: "{{ ansible_env.USERPROFILE }}/.config/starship.toml" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/gfold.toml", dest: "{{ ansible_env.USERPROFILE }}/.config/gfold.toml" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/kdeglobals", dest: "{{ ansible_env.USERPROFILE }}/.config/kdeglobals" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/dolphinrc", dest: "{{ ansible_env.USERPROFILE }}/.config/dolphinrc" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/vlc/", dest: "{{ ansible_env.USERPROFILE }}/scoop/apps/vlc/current/portable_config" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/wezterm/", dest: "{{ ansible_env.USERPROFILE }}/.config/wezterm" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/todotxt-cli/", dest: "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/fish/", dest: "{{ ansible_env.USERPROFILE }}/.config/fish" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/helix/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix" }
-    - { src: "{{ dotfiles_repo_local_destination }}/.config/broot/", dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config" }    
-    - { src: "{{ dotfiles_repo_local_destination }}/.gitconfig", dest: "{{ ansible_env.USERPROFILE }}/.gitconfig" }
-    - { src: "{{ dotfiles_repo_local_destination }}/other/WindowsPowerShell/Microsoft.PowerShell_profile.ps1", dest: '{{ ansible_env.USERPROFILE }}/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1' }
-    - { src: "{{ dotfiles_repo_local_destination }}/other/PowerShell/Microsoft.PowerShell_profile.ps1", dest: '{{ ansible_env.USERPROFILE }}/Documents/PowerShell/Microsoft.PowerShell_profile.ps1' }
+  # Reserve for Doom Emacs install
+  # - { src: "{{ dotfiles_repo_local_destination }}/.config/emacs/", dest: "{{ ansible_env.USERPROFILE }}/.config/emacs" }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/doom/",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/doom",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/",
+      dest: "{{ ansible_env.USERPROFILE }}/usr/bin",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/",
+      dest: "C:/Hunspell",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/nvim/",
+      dest: "{{ ansible_env.USERPROFILE }}/AppData/Local/nvim",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/mpv/",
+      dest: "{{ ansible_env.USERPROFILE }}/scoop/apps/mpv/current/portable_config",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/",
+      dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/nushell/",
+      dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/nushell",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/navi/",
+      dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/starship.toml",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/starship.toml",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/gfold.toml",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/gfold.toml",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/kdeglobals",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/kdeglobals",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/dolphinrc",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/dolphinrc",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/vlc/",
+      dest: "{{ ansible_env.USERPROFILE }}/scoop/apps/vlc/current/portable_config",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/wezterm/",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/wezterm",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/todotxt-cli/",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/fish/",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/fish",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/helix/",
+      dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/broot/",
+      dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.gitconfig",
+      dest: "{{ ansible_env.USERPROFILE }}/.gitconfig",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/other/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
+      dest: "{{ ansible_env.USERPROFILE }}/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/other/PowerShell/Microsoft.PowerShell_profile.ps1",
+      dest: "{{ ansible_env.USERPROFILE }}/Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
+    }
 
 hunspell_dictionaries:
-  - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_AU.dic", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_CA.aff", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_CA.dic", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_GB.aff", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_GB.dic", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_US.aff", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_US.dic", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_ZA.aff", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_ZA.dic", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_fr_dir }}\\fr.aff", dest: 'C:/Hunspell' }
-  - { src: "{{ hunspell_dict_fr_dir }}\\fr.dic", dest: 'C:/Hunspell' }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_AU.dic", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_CA.aff", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_CA.dic", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_GB.aff", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_GB.dic", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_US.aff", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_US.dic", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_ZA.aff", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_en_dir }}\\en_ZA.dic", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_fr_dir }}\\fr.aff", dest: "C:/Hunspell" }
+  - { src: "{{ hunspell_dict_fr_dir }}\\fr.dic", dest: "C:/Hunspell" }
 
 environment_variables:
   # Windows Emacs Configuration
