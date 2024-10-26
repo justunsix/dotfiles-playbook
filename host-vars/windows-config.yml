@@ -109,7 +109,9 @@ scoop_installed_packages:
   #### Python
   ##### Required for Ansible management
   - python
+  ##### Virtual environments
   - miniconda3
+  - pipx
   #### Java
   - temurin-lts-jdk
   - maven
