@@ -4,37 +4,48 @@
     name: "{{ item }}"
     state: latest
   loop: "{{ pipx_installed_packages }}"
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'pip', 'pipx', 'package', 'devops-b', 'workstation-arch', 'python']
+  tags:
+    [
+      "workstation-ubuntu",
+      "laptop-ubuntu",
+      "pip",
+      "pipx",
+      "package",
+      "devops-b",
+      "workstation-arch",
+      "python",
+    ]
   become: true
   become_user: "{{ target_user }}"
 
 # Check conda-shell command installed by nix exists
-- name: conda-shell - Check if conda-shell command exists
-  ansible.builtin.stat:
-    path: "/home/{{ target_user }}/.nix-profile/bin/conda-shell"
-  register: conda_shell_exists
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
+#- name: conda-shell - Check if conda-shell command exists
+#  ansible.builtin.stat:
+#   path: "/home/{{ target_user }}/.nix-profile/bin/conda-shell"
+# register: conda_shell_exists
+#tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
 
 # Set up conda package manager installed by Nix
 # Per conda section at https://nixos.wiki/wiki/Python
 # Shell configuration changes have already been made in dotfiles repo
-- name: conda - Set up conda package manager from conda-shell installed by Nix
-  ansible.builtin.shell: |
-    conda-shell
-    conda-install
-  args:
-    executable: /bin/bash
-    chdir: "/home/{{ target_user }}"
-    creates: "$HOME/.conda/bin/conda"
-  become: true
-  become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
-  when: ansible_distribution == "Ubuntu" and conda_shell_exists.stat.exists
+# - name: conda - Set up conda package manager from conda-shell installed by Nix
+#   ansible.builtin.shell: |
+#     conda-shell
+#     conda-install
+#   args:
+#     executable: /bin/bash
+#     chdir: "/home/{{ target_user }}"
+#     creates: "$HOME/.conda/bin/conda"
+#   become: true
+#   become_user: "{{ target_user }}"
+#   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
+#   when: ansible_distribution == "Ubuntu" and conda_shell_exists.stat.exists
 
 - name: conda - Set conda to not auto-activate base environment
   ansible.builtin.shell: |
     conda config --set auto_activate_base false
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
+  tags: ["workstation-ubuntu", "laptop-ubuntu", "python", "conda", "package"]
   when: ansible_distribution == "Ubuntu" and conda_shell_exists.stat.exists
+
