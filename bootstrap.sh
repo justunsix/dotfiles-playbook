@@ -122,9 +122,7 @@ install_nix_home_manager() {
 					echo "Download dotfiles-nix's minimal home.nix before the home-manager install, exiting"
 					exit 1
 				fi
-			nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-			nix-channel --update
-			nix-shell '<home-manager>' -A install
+      sh scripts/install-nix-home-manager.sh
 		fi
 	fi
 
@@ -134,10 +132,10 @@ install_nix_home_manager() {
 install_prequisites() {
 
 	if ! [ -x "$(command -v nix-env)" ]; then
-		echo "Nix is not installed:"
-		echo "- Install the multi user installation manually per https://nixos.org/download/#nix-install-linux"
-		echo "- Restart shell, then re-run this script"
-		exit 1
+		echo "Nix is not installed, running install"
+    sh scripts/install-nix.sh
+    echo "Restart shell and re-run this script"
+    exit 1
 	fi
 
 	install_ansible
