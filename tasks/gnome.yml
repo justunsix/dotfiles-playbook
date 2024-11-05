@@ -1,63 +1,116 @@
 # Modify GNOME Settings in loop
 - name: GNOME - Modify settings
   community.general.dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-    state: present
+      key: "{{ item.key }}"
+      value: "{{ item.value }}"
+      state: present
   loop:
-    # Idle screen lock timeout
-    - { key: "/org/gnome/desktop/session/idle-delay", value: "900" }
-    # Remove lock screen from screensaver
-    - { key: "/org/gnome/desktop/screensaver/lock-enabled", value: "false" }
-    # Set gtk theme, ' ' required for strings
-    - { key: "/org/gnome/desktop/interface/gtk-theme", value: "'Adwaita-dark'" }
-    # Disable problem reporting
-    - { key: "/org/gnome/desktop/privacy/report-technical-problems", value: "false" }
-    # Disable stat reporting
-    - { key: "/org/gnome/desktop/privacy/send-software-usage-stats", value: "false" }
-    # Show weekday in clock
-    - { key: "/org/gnome/desktop/interface/clock-show-weekday", value: "true" }
-    # Set GNOME Background to Black with no wallpaper
-    - { key: "/org/gnome/desktop/background/picture-uri", value: "''" }
-    # Remove wallpaper - dark theme
-    - { key: "/org/gnome/desktop/background/picture-uri-dark", value: "''" }
-    # Set background to black
-    - { key: "/org/gnome/desktop/background/primary-color", value: "'#000000000000'" }
-    # Click an icon in the launcher, allow open and minimize
-    - { key: "/org/gnome/shell/extensions/dash-to-dock/click-action", value: "'minimize'" }
-    # GNOME Desktop Languages
-    # To use ç , use right alt plus , and c or C in US International alt
-    - { key: "/org/gnome/desktop/input-sources/sources", value: "[('xkb', 'us+alt-intl'), ('xkb', 'us')]" }
-    # GNOME Custom Keybindings
-    ## binding for rofi
-    - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings", value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"}
-    - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command", value: "'rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3'"}
-    - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name", value: "'rofi'"}
-    - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding", value: "'<Alt>F3'"}
-  tags: ['workstation-fedora', 'workstation-ubuntu',  'gnome', 'desktop']
+      # Idle screen lock timeout
+      - { key: "/org/gnome/desktop/session/idle-delay", value: "900" }
+      # Remove lock screen from screensaver
+      - { key: "/org/gnome/desktop/screensaver/lock-enabled", value: "false" }
+      # Set gtk theme, ' ' required for strings
+      - {
+            key: "/org/gnome/desktop/interface/gtk-theme",
+            value: "'Adwaita-dark'",
+        }
+      # Disable problem reporting
+      - {
+            key: "/org/gnome/desktop/privacy/report-technical-problems",
+            value: "false",
+        }
+      # Disable stat reporting
+      - {
+            key: "/org/gnome/desktop/privacy/send-software-usage-stats",
+            value: "false",
+        }
+      # Show weekday in clock
+      - {
+            key: "/org/gnome/desktop/interface/clock-show-weekday",
+            value: "true",
+        }
+      # Set GNOME Background to Black with no wallpaper
+      - { key: "/org/gnome/desktop/background/picture-uri", value: "''" }
+      # Remove wallpaper - dark theme
+      - { key: "/org/gnome/desktop/background/picture-uri-dark", value: "''" }
+      # Set background to black
+      - {
+            key: "/org/gnome/desktop/background/primary-color",
+            value: "'#000000000000'",
+        }
+      # GNOME Desktop Languages
+      # To use ç , use right alt plus , and c or C in US International alt
+      - {
+            key: "/org/gnome/desktop/input-sources/sources",
+            value: "[('xkb', 'us+alt-intl'), ('xkb', 'us')]",
+        }
+      # GNOME Custom Keybindings
+      ## binding for rofi
+      # - {
+      #       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings",
+      #       value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']",
+      #   }
+      # - {
+      #       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command",
+      #       value: "'rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3'",
+      #   }
+      # - {
+      #       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name",
+      #       value: "'rofi'",
+      #   }
+      # - {
+      #       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding",
+      #       value: "'<Alt>F3'",
+      #   }
+      ## Click an icon in the launcher, allow open and minimize
+      ## https://itsfoss.com/click-to-minimize-ubuntu/
+      ## to minimize apps on click
+      - {
+            key: "/org/gnome/shell/extensions/dash-to-dock/click-action",
+            value: "'minimize'",
+        }
+  tags: ["workstation-fedora", "workstation-ubuntu", "gnome", "desktop"]
 
 # Evolution
 - name: GNOME Evolution - Modify settings
   community.general.dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-    state: present
+      key: "{{ item.key }}"
+      value: "{{ item.value }}"
+      state: present
   loop:
-    # Use 24 hour format in calendar
-    - { key: "/org/gnome/evolution/calendar/use-24hour-format", value: "true" }
-    # Composer - Format messages
-    - { key: "/org/gnome/evolution/mail/composer-mode", value: "'html'" }
-    # Composer - Spell checking languages
-    - { key: "/org/gnome/evolution/mail/composer-spell-languages", value: "['en_CA', 'en_US']" }
-    # Composer - Signature in Replies
-    - { key: "/org/gnome/evolution/mail/composer-reply-keep-signature", value: "true" }
-    # Mail - Reply line format
-    - { key: "/org/gnome/evolution/mail/reply-style-name", value: "'outlook'" }
-    # Mail - Signature at top of replies
-    - { key: "/org/gnome/evolution/mail/composer-top-signature", value: "true" }
-    # HTML colours in message previews
-    # If enabled, unset colors in HTML messages, forcing use of desktop theme colors instead
-    - { key: "/org/gnome/evolution/mail/preview-unset-html-colors", value: "true" }
-    # Mail - Timeout for marking messages as seen to 0.5 seconds
-    - { key: "/org/gnome/evolution/mail/mark-seen-timeout", value: "500" }
-  tags: ['workstation-fedora', 'workstation-ubuntu',  'gnome', 'desktop']
+      # Use 24 hour format in calendar
+      - {
+            key: "/org/gnome/evolution/calendar/use-24hour-format",
+            value: "true",
+        }
+      # Composer - Format messages
+      - { key: "/org/gnome/evolution/mail/composer-mode", value: "'html'" }
+      # Composer - Spell checking languages
+      - {
+            key: "/org/gnome/evolution/mail/composer-spell-languages",
+            value: "['en_CA', 'en_US']",
+        }
+      # Composer - Signature in Replies
+      - {
+            key: "/org/gnome/evolution/mail/composer-reply-keep-signature",
+            value: "true",
+        }
+      # Mail - Reply line format
+      - {
+            key: "/org/gnome/evolution/mail/reply-style-name",
+            value: "'outlook'",
+        }
+      # Mail - Signature at top of replies
+      - {
+            key: "/org/gnome/evolution/mail/composer-top-signature",
+            value: "true",
+        }
+      # HTML colours in message previews
+      # If enabled, unset colors in HTML messages, forcing use of desktop theme colors instead
+      - {
+            key: "/org/gnome/evolution/mail/preview-unset-html-colors",
+            value: "true",
+        }
+      # Mail - Timeout for marking messages as seen to 0.5 seconds
+      - { key: "/org/gnome/evolution/mail/mark-seen-timeout", value: "500" }
+  tags: ["workstation-fedora", "workstation-ubuntu", "gnome", "desktop"]
