@@ -264,6 +264,7 @@ apt_installed_packages:
   ## User Interface
   - gnome-shell-extension-manager
   - gnome-tweaks
+  - dconf-editor
   ## Security DNS
   - resolvconf
   ### Anti-virus
