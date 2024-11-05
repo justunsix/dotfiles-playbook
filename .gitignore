@@ -11,6 +11,7 @@
 auto-save-list
 tramp
 .\#*
+log*.*
 
 ### VS Code ###
 *.code-workspace
