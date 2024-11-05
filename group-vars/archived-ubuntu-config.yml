@@ -1,3 +1,29 @@
+nix_installed_packages_devops:
+  - nixpkgs.minikube
+  - nixpkgs.terraform
+  - nixpkgs.kubectl
+  - nixpkgs.jdk
+  - nixpkgs.maven
+  - nixpkgs.gradle
+
+deb_get_installed_packages:
+  ## Security
+  ## - nordvpn
+
+apt_installed_packages_devops:
+  # - docker
+  # - docker-compose
+
+apt_ppa_repositories:
+  # - ppa:christian-boxdoerfer/fsearch-stable
+  # - ppa:thopiekar/openrgb
+  # - ppa:kelleyk/emacs
+  # - ppa:fish-shell/release-3
+
+git_repositories_haskell:
+  - git@github.com:xmonad/xmonad.git
+  - git@github.com:xmonad/xmonad-contrib.git
+
 dotfiles_directories:
   # - "/home/{{ target_user }}/.config/xmonad"
   # - "/home/{{ target_user }}/.config/xmobar"

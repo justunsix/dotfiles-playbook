@@ -43,7 +43,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/doom/modules/jt/minimal"
   - "/home/{{ target_user }}/.config/doom/modules/jt/music"
   - "/home/{{ target_user }}/.config/doom/modules/jt/doomconfig"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"  
+  - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"
   - "/home/{{ target_user }}/.config/dunst"
   - "/home/{{ target_user }}/.config/lazyvim"
   - "/home/{{ target_user }}/.config/lazyvim/lua/plugins"
@@ -91,7 +91,7 @@ dotfiles_files:
   - .config/doom/init.el
   - .config/doom/packages.el
   - .config/doom/modules/jt/minimal/config.el
-  - .config/doom/modules/jt/minimal/autoload.el  
+  - .config/doom/modules/jt/minimal/autoload.el
   - .config/doom/modules/jt/music/autoload.el
   - .config/doom/modules/jt/music/config.el
   - .config/doom/modules/jt/music/packages.el
@@ -163,7 +163,7 @@ dotfiles_files:
   # - .config/dolphinrc
   - .config/kdeglobals
   - .config/starship.toml
-  - .config/gfold.toml  
+  - .config/gfold.toml
 
 dotfiles_to_be_removed:
   - "/home/{{ target_user }}/.config/topgrade.toml"
@@ -206,11 +206,6 @@ git_repositories_reference:
   - git@github.com:adafruit/Adafruit_CircuitPython_MacroPad.git
   - git@github.com:daviwil/emacs-from-scratch.git
   - git@github.com:geerlingguy/mac-dev-playbook.git
-  - git@github.com:zerolfx/copilot.el.git  
-
-git_repositories_haskell:
-  - git@github.com:xmonad/xmonad.git
-  - git@github.com:xmonad/xmonad-contrib.git
 
 apt_ppa_repositories:
   # - ppa:christian-boxdoerfer/fsearch-stable
@@ -283,8 +278,8 @@ apt_installed_packages:
   ## System
   - bleachbit
   ### Windows Management i3
-  - i3
-  - dmenu
+  # - i3
+  # - dmenu
   #### moved to nix
   #### - rofi
   - lxappearance
@@ -301,8 +296,6 @@ apt_installed_packages:
   - hunspell
   - hunspell-en-gb
   - hunspell-fr
-  #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
-  - shellcheck
   ## DevOps Languages
   - python3
   - python3-pip
@@ -318,10 +311,6 @@ apt_installed_packages:
   - texlive-latex-extra
   ## Media
   - mpv
-
-apt_installed_packages_devops:
-  # - docker
-  # - docker-compose
 
 pipx_installed_packages:
   - ansible
@@ -345,18 +334,6 @@ nix_installed_packages_ytdlp:
   - nixpkgs.python311Packages.websockets
   - nixpkgs.python311Packages.pycryptodome
 
-deb_get_installed_packages:
-  ## Security
-  ## - nordvpn
-
-nix_installed_packages_devops:
-  - nixpkgs.minikube
-  - nixpkgs.terraform
-  - nixpkgs.kubectl
-  - nixpkgs.jdk
-  - nixpkgs.maven
-  - nixpkgs.gradle
-
 apt_removed_packages:
   - emacs-common
   - emacs
@@ -373,20 +350,15 @@ snap_installed_packages_classic:
   # Devops
   ## Editors
   - code
-  - pycharm-community  
-  ## - emacs
-
-snap_installed_packages_devops:
-  # - pycharm-community
+  ## - pycharm-community
 
 flatpak_installed_packages:
   # Web
   - org.mozilla.firefox
   - com.github.tchx84.Flatseal
-  - com.microsoft.Edge
   - io.github.ungoogled_software.ungoogled_chromium
   ## Email
-  - org.mozilla.Thunderbird
+  ### - org.mozilla.Thunderbird
   ## RSS
   - me.hyliu.fluentreader
   ## Video
@@ -396,8 +368,6 @@ flatpak_installed_packages:
   - com.calibre_ebook.calibre
   ## SRS - Anki
   - net.ankiweb.Anki
-  ## Games
-  ### - net.lutris.Lutris
   # Media
   ## Bino (3d, VR player) (Optional)
   ## - org.bino3d.bino
