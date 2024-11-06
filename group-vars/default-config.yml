@@ -234,6 +234,7 @@ apt_installed_packages:
   ## Screenshot
   - flameshot
   ## File Management
+  - p7zip-full
   - dolphin
   - kde-cli-tools
   - qt5ct
