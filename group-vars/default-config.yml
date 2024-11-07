@@ -44,6 +44,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/doom/modules/jt/music"
   - "/home/{{ target_user }}/.config/doom/modules/jt/doomconfig"
   - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"
+  - "/home/{{ target_user }}/.config/doom/snippets/org-mode"
   - "/home/{{ target_user }}/.config/dunst"
   - "/home/{{ target_user }}/.config/lazyvim"
   - "/home/{{ target_user }}/.config/lazyvim/lua/plugins"
@@ -99,6 +100,9 @@ dotfiles_files:
   - .config/doom/modules/jt/doomconfig/autoload.el
   - .config/doom/modules/jt/hyperbole/config.el
   - .config/doom/modules/jt/hyperbole/packages.el
+  - .config/doom/snippets/org-mode/new-note
+  - .config/doom/snippets/org-mode/plantuml
+  - .config/doom/snippets/org-mode/shell
   - .config/dunst/dunstrc
   # - .config/emacs/init.el
   # - .config/emacs/setup/extras.el
@@ -121,7 +125,6 @@ dotfiles_files:
   # - .config/emacs/setup/jt-emacs-spelling.el
   # - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
   # - .config/emacs/setup/jt-emacs-dired.el
-  # - .config/emacs/snippets/org-mode/filetags
   # - .config/emacs/snippets/org-mode/new-note
   # - .config/emacs/snippets/org-mode/plantuml
   - .config/fish/config.fish
