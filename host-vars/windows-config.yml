@@ -92,7 +92,7 @@ scoop_installed_packages:
   - plantuml
   - draw.io
   - anki
-  - calibre
+  # - calibre
   - autohotkey
   ## Media
   - vlc
