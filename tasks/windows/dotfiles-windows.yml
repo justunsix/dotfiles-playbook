@@ -4,7 +4,7 @@
   ansible.windows.win_file:
     path: "{{ item }}"
     state: directory
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
   with_items: "{{ dotfiles_directories }}"
 
 # Remove any dotfiles in different locations if they exist already
@@ -14,7 +14,7 @@
   ansible.windows.win_file:
     path: "{{ item }}"
     state: absent
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
   with_items: "{{ dotfiles_to_be_removed }}"
 
 - name: dotfiles - Sync user dotfiles, scripts
@@ -23,7 +23,7 @@
     # use src without "/" to copy directory itself
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
   loop: "{{ dotfiles_items }}"
 
 - name: dotfiles - Sync Hunspell dictionaries with Libreoffice dictionaries on Windows
@@ -31,16 +31,16 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     remote_src: yes
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
   loop: "{{ hunspell_dictionaries }}"
 
 - name: dotfiles - add directories to PATH if they do not exist already
   ansible.windows.win_path:
     name: PATH
     elements:
-    - C:\Users\{{ target_user }}\usr\bin
-    - C:\ProgramData\chocolatey\bin
-    - C:\Program Files\Git\bin
+      - C:\Users\{{ target_user }}\usr\bin
+      - C:\ProgramData\chocolatey\bin
+      - C:\Program Files\Git\bin
     scope: user
     state: present
 
@@ -53,7 +53,7 @@
     #  Set for current Ansible user
     level: user
   loop: "{{ environment_variables }}"
-  tags: ['dotfiles', 'emacs']
+  tags: ["dotfiles", "emacs"]
 
 # Windows mpv specific Windows window location
 - name: mpv - Replace geometry line in mpv.conf
@@ -62,29 +62,36 @@
     backrefs: yes
     regexp: '^geometry=70%x100%\+0\+0'
     # regexp: '^geometry=67%x100%\+0\+0'
-    line: 'geometry=67%x98%+0+30'
-  tags: ['dotfiles', 'mpv']    
+    line: "geometry=67%x98%+0+30"
+  tags: ["dotfiles", "mpv"]
 
 - name: gfold - Replace home directory in gfold.toml with Windows home directory
   win_lineinfile:
-    path: '{{ ansible_env.USERPROFILE }}/.config/gfold.toml'
+    path: "{{ ansible_env.USERPROFILE }}/.config/gfold.toml"
     backrefs: yes
-    regexp: '/home/justin'
+    regexp: "/home/justin"
     line: "{{ ansible_env.USERPROFILE }}"
-  tags: ['dotfiles', 'gfold']
+  tags: ["dotfiles", "gfold"]
 
-- name: Doom Emacs - Disable roam 
+- name: Doom Emacs - Disable roam
   win_lineinfile:
-    path: '{{ ansible_env.USERPROFILE }}/.config/doom/init.el'
+    path: "{{ ansible_env.USERPROFILE }}/.config/doom/init.el"
     backrefs: yes
     regexp: '\+roam2'
-    line: ';; +roam2'
-  tags: ['dotfiles', 'emacs']
+    line: ";; +roam2"
+  tags: ["dotfiles", "emacs"]
 
 - name: navi - Replace shell with cmd.exe
   win_lineinfile:
-    path: '{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi/config.yaml'
+    path: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi/config.yaml"
     backrefs: yes
-    regexp: 'bash'
+    regexp: "bash"
     line: "cmd.exe"
-  tags: ['dotfiles', 'navi']
+  tags: ["dotfiles", "navi"]
+
+- name: lazyvim - disable extras.lang.nix, remove line from file
+  win_lineinfile:
+    path: "{{ ansible_env.USERPROFILE }}/AppData/Local/lazyvim/lua/config/lazy.lua"
+    regexp: "extras.lang.nix"
+    state: absent
+  tags: ["dotfiles", "lazyvim"]
