@@ -5,10 +5,10 @@ $script = <<-'SCRIPT'
 
 # Update system
 pacman --noconfirm -Syyu
-# Install Ansible 
-# Install convenience software
+# Install Ansible and convenience software
+## python-pywinrm is needed for some tasks on Windows
 pacman --noconfirm -S fish starship ansible python-pywinrm zoxide make vim
-# Track VM creation time                      
+# Track VM creation time
 date > /etc/vagrant_provisioned_at
 # Add cd to dotfiles-playbook and fish start to .bashrc
 echo "cd /home/vagrant/Code/dotfiles-playbook" >> /home/vagrant/.bashrc
