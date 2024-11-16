@@ -22,152 +22,125 @@ dotfiles_repo_local_destination: "~/Code/dotfiles"
 dotfiles_home: "~"
 
 dotfiles_directories:
-  - "/home/{{ target_user }}/usr/bin"
-  - "/home/{{ target_user }}/Templates"
-  - "/home/{{ target_user }}/.config/fish"
-  - "/home/{{ target_user }}/.config/hunspell"
-  - "/home/{{ target_user }}/.local/share/applications"
   - "/home/{{ target_user }}/.config/broot"
   - "/home/{{ target_user }}/.config/cool-retro-term"
-  - "/home/{{ target_user }}/.config/i3"
-  - "/home/{{ target_user }}/.config/i3status"
-  - "/home/{{ target_user }}/.config/nushell"
+  - "/home/{{ target_user }}/.config/copyq"
+  - "/home/{{ target_user }}/.config/doom"
+  - "/home/{{ target_user }}/.config/doom/modules/jt/doomconfig"
+  - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"
+  - "/home/{{ target_user }}/.config/doom/modules/jt/minimal"
+  - "/home/{{ target_user }}/.config/doom/modules/jt/music"
+  - "/home/{{ target_user }}/.config/doom/snippets/org-mode"
+  - "/home/{{ target_user }}/.config/dunst"
+  - "/home/{{ target_user }}/.config/fish"
+  - "/home/{{ target_user }}/.config/fontconfig/conf.d"
   - "/home/{{ target_user }}/.config/helix"
   - "/home/{{ target_user }}/.config/home-manager"
+  - "/home/{{ target_user }}/.config/hunspell"
+  - "/home/{{ target_user }}/.config/i3"
+  - "/home/{{ target_user }}/.config/i3status"
+  - "/home/{{ target_user }}/.config/lazyvim"
+  - "/home/{{ target_user }}/.config/lazyvim/lua/config"
+  - "/home/{{ target_user }}/.config/lazyvim/lua/plugins"
+  - "/home/{{ target_user }}/.config/mprocs"
+  - "/home/{{ target_user }}/.config/mpv/script-opts"
+  - "/home/{{ target_user }}/.config/mpv/scripts"
   - "/home/{{ target_user }}/.config/navi"
+  - "/home/{{ target_user }}/.config/nushell"
   - "/home/{{ target_user }}/.config/nvim"
   - "/home/{{ target_user }}/.config/nvim/lua/custom/plugins"
   - "/home/{{ target_user }}/.config/rofi"
-  - "/home/{{ target_user }}/.config/copyq"
-  - "/home/{{ target_user }}/.config/doom"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/minimal"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/music"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/doomconfig"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"
-  - "/home/{{ target_user }}/.config/doom/snippets/org-mode"
-  - "/home/{{ target_user }}/.config/dunst"
-  - "/home/{{ target_user }}/.config/lazyvim"
-  - "/home/{{ target_user }}/.config/lazyvim/lua/plugins"
-  - "/home/{{ target_user }}/.config/lazyvim/lua/config"
-  - "/home/{{ target_user }}/.config/mpv/scripts"
-  - "/home/{{ target_user }}/.config/mpv/script-opts"
-  - "/home/{{ target_user }}/.config/mprocs"
+  - "/home/{{ target_user }}/.config/tmux"
   - "/home/{{ target_user }}/.config/todotxt-cli"
   - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
   - "/home/{{ target_user }}/.config/topgrade"
-  - "/home/{{ target_user }}/.config/fontconfig/conf.d"
-  - "/home/{{ target_user }}/.config/tmux"
-  - "/home/{{ target_user }}/.config/wezterm"
   - "/home/{{ target_user }}/.config/vlc"
+  - "/home/{{ target_user }}/.config/wezterm"
+  - "/home/{{ target_user }}/.config/yazi"
+  - "/home/{{ target_user }}/.local/share/applications"
+  - "/home/{{ target_user }}/Templates"
+  - "/home/{{ target_user }}/usr/bin"
 
 dotfiles_files:
-  - .bashrc
   - .bash_aliases
   - .bash_profile
-  - .gitconfig
-  - .inputrc
-  - Templates/New-Text-Document.txt
-  - .local/share/applications/firefox-profile-manager-flatpak.desktop
-  - .local/share/applications/vlc-playlist.desktop
-  - .local/share/applications/clipboard-html-to-org.desktop
-  - .local/share/applications/screenshot-ocr.desktop
-  # - .local/share/applications/emacs-doom.desktop
-  - usr/bin/jt-gc.sh
-  - usr/bin/jt-gs.sh
-  - usr/bin/jt-gt.sh
-  - usr/bin/jt-update-all.sh
-  - usr/bin/jt-clean-up.sh
-  - usr/bin/jt-ocr-to-clipboard.sh
-  - usr/bin/jt-post-i3.sh
-  - usr/bin/jt-clip-html-to-org.sh
-  - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
-  - usr/bin/common.sh
-  # Manage VS Code Settings manually due to possible sensitive settings
-  #  - .config/Code/User/settings.json
+  - .bashrc
   - .config/broot/verbs.hjson
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
-  - .config/copyq/copyq.conf
   - .config/copyq/copyq-commands.ini
+  - .config/copyq/copyq.conf
   - .config/doom/config.el
   - .config/doom/init.el
-  - .config/doom/packages.el
-  - .config/doom/modules/jt/minimal/config.el
+  - .config/doom/modules/jt/doomconfig/autoload.el
+  - .config/doom/modules/jt/doomconfig/config.el
+  - .config/doom/modules/jt/hyperbole/config.el
+  - .config/doom/modules/jt/hyperbole/packages.el
   - .config/doom/modules/jt/minimal/autoload.el
+  - .config/doom/modules/jt/minimal/config.el
   - .config/doom/modules/jt/music/autoload.el
   - .config/doom/modules/jt/music/config.el
   - .config/doom/modules/jt/music/packages.el
-  - .config/doom/modules/jt/doomconfig/config.el
-  - .config/doom/modules/jt/doomconfig/autoload.el
-  - .config/doom/modules/jt/hyperbole/config.el
-  - .config/doom/modules/jt/hyperbole/packages.el
+  - .config/doom/packages.el
   - .config/doom/snippets/org-mode/new-note
   - .config/doom/snippets/org-mode/plantuml
   - .config/doom/snippets/org-mode/shell
   - .config/dunst/dunstrc
-  # - .config/emacs/init.el
-  # - .config/emacs/setup/extras.el
-  # - .config/emacs/setup/minimal.el
-  # - .config/emacs/setup/other.el
-  # - .config/emacs/setup/variables.el
-  # - .config/emacs/setup/jt-emacs-abbrev.el
-  # - .config/emacs/setup/jt-emacs-package-managers.el
-  # - .config/emacs/setup/jt-emacs-org.el
-  # - .config/emacs/setup/jt-emacs-org-roam.el
-  # - .config/emacs/setup/jt-emacs-org-babel-literate.el
-  # - .config/emacs/setup/jt-emacs-org-srs-anki.el
-  # - .config/emacs/setup/jt-emacs-org-present.el
-  # - .config/emacs/setup/jt-emacs-ai.el
-  # - .config/emacs/setup/jt-emacs-ui.el
-  # - .config/emacs/setup/jt-emacs-languages.el
-  # - .config/emacs/setup/jt-emacs-languages-python.el
-  # - .config/emacs/setup/jt-emacs-languages-java.el
-  # - .config/emacs/setup/jt-emacs-terminal.el
-  # - .config/emacs/setup/jt-emacs-spelling.el
-  # - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
-  # - .config/emacs/setup/jt-emacs-dired.el
-  # - .config/emacs/snippets/org-mode/new-note
-  # - .config/emacs/snippets/org-mode/plantuml
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
+  - .config/gfold.toml
   - .config/helix/config.toml
   - .config/helix/languages.toml
+  - .config/home-manager/home.nix
   - .config/i3/config
   - .config/i3status/config
+  - .config/kdeglobals
   - .config/lazyvim/lua/config/keymaps.lua
-  - .config/lazyvim/lua/config/options.lua
   - .config/lazyvim/lua/config/lazy.lua
-  - .config/lazyvim/lua/plugins/org-mode.lua
-  - .config/lazyvim/lua/plugins/extend-neo-tree.lua
+  - .config/lazyvim/lua/config/options.lua
   - .config/lazyvim/lua/plugins/extend-lazyvim.lua
+  - .config/lazyvim/lua/plugins/extend-neo-tree.lua
   - .config/lazyvim/lua/plugins/extend-which-key-with-legendary.lua
+  - .config/lazyvim/lua/plugins/org-mode.lua
+  - .config/mprocs/mprocs.yaml
   - .config/mpv/input.conf
   - .config/mpv/mpv.conf
-  - .config/mpv/scripts/autoload.lua
   - .config/mpv/script-opts/osc.conf
-  - .config/mprocs/mprocs.yaml
-  - .config/home-manager/home.nix
+  - .config/mpv/scripts/autoload.lua
   - .config/navi/config.yaml
+  - .config/nushell/config-nix.nu
   - .config/nushell/config.nu
   - .config/nushell/env.nu
-  - .config/nushell/config-nix.nu
   - .config/nvim/init.lua
   - .config/nvim/lua/custom/plugins/init.lua
   - .config/rofi/config.rasi
-  - .config/todotxt-cli/todo.cfg
-  - .config/todotxt-cli/todo-work.cfg
+  - .config/starship.toml
+  - .config/tmux/tmux.conf
   - .config/todotxt-cli/.todo.actions.d/edit
   - .config/todotxt-cli/.todo.actions.d/pn
+  - .config/todotxt-cli/todo-work.cfg
+  - .config/todotxt-cli/todo.cfg
   - .config/topgrade/topgrade.toml
-  - .config/tmux/tmux.conf
-  - .config/wezterm/wezterm.lua
   - .config/vlc/vlcrc
-  # Manage Dolphin file manager settings with copy due to frequently
-  # window position changes from opening the program
-  # - .config/dolphinrc
-  - .config/kdeglobals
-  - .config/starship.toml
-  - .config/gfold.toml
-
+  - .config/wezterm/wezterm.lua
+  - .config/yazi/theme.toml
+  - .config/yazi/yazi.toml
+  - .gitconfig
+  - .inputrc
+  - .local/share/applications/clipboard-html-to-org.desktop
+  - .local/share/applications/firefox-profile-manager-flatpak.desktop
+  - .local/share/applications/screenshot-ocr.desktop
+  - .local/share/applications/vlc-playlist.desktop
+  - Templates/New-Text-Document.txt
+  - usr/bin/common.sh
+  - usr/bin/jt-clean-up.sh
+  - usr/bin/jt-clip-html-to-org.sh
+  - usr/bin/jt-gc.sh
+  - usr/bin/jt-gs.sh
+  - usr/bin/jt-gt.sh
+  - usr/bin/jt-ocr-to-clipboard.sh
+  - usr/bin/jt-post-i3.sh
+  - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
+  - usr/bin/jt-update-all.sh
 dotfiles_to_be_removed:
   - "/home/{{ target_user }}/.config/topgrade.toml"
   - "/home/{{ target_user }}/.emacs"
