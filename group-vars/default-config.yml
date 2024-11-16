@@ -130,6 +130,7 @@ dotfiles_files:
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/helix/config.toml
+  - .config/helix/languages.toml
   - .config/i3/config
   - .config/i3status/config
   - .config/lazyvim/lua/config/keymaps.lua
