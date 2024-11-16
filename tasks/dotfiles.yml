@@ -8,7 +8,7 @@
     # group: "{{ target_user }}"
     mode: "744"
   with_items: "{{ dotfiles_directories }}"
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
 
 # Remove any dotfiles in different locations if they exist already
 # These files might have been automatically generated when a program was run before
@@ -18,7 +18,7 @@
     path: "{{ item }}"
     state: absent
   with_items: "{{ dotfiles_to_be_removed }}"
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
   become: true
   become_user: "{{ target_user }}"
 
@@ -35,7 +35,7 @@
   become: true
   become_user: "{{ target_user }}"
   ignore_errors: true
-  tags: ['dotfiles', 'dotfiles-symlink']
+  tags: ["dotfiles", "dotfiles-symlink"]
 
 - name: Ensure all configured dotfiles are links.
   ansible.builtin.command: "ls -F {{ dotfiles_home }}/{{ item }}"
@@ -44,7 +44,7 @@
   check_mode: false
   changed_when: false
   with_items: "{{ dotfiles_files }}"
-  tags: ['dotfiles', 'dotfiles-symlink']
+  tags: ["dotfiles", "dotfiles-symlink"]
   become: true
   become_user: "{{ target_user }}"
 
@@ -56,7 +56,7 @@
   with_indexed_items: "{{ existing_dotfile_info.results }}"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['dotfiles', 'dotfiles-symlink']
+  tags: ["dotfiles", "dotfiles-symlink"]
 
 - name: Link dotfiles into home folder.
   ansible.builtin.file:
@@ -67,7 +67,7 @@
   become: true
   become_user: "{{ target_user }}"
   with_items: "{{ dotfiles_files }}"
-  tags: ['dotfiles', 'dotfiles-symlink']
+  tags: ["dotfiles", "dotfiles-symlink"]
 
 # End geerlinguy ansible role adaptation
 ###################################################################################################
@@ -79,18 +79,18 @@
   become: true
   become_user: "{{ target_user }}"
   with_items: "{{ dotfiles_files_binaries }}"
-  tags: ['dotfiles', 'dotfiles-symlink-binaries']
+  tags: ["dotfiles", "dotfiles-symlink-binaries"]
 
 # Force create symlink to ~/Code/External/todo.txt-cli/todo.sh from ~/usr/bin
 - name: dotfiles - Force create symlink to latest todo.sh
   ansible.builtin.file:
-     src: "/home/{{ target_user }}/Code/External/todo.txt-cli/todo.sh"
-     dest: "/home/{{ target_user }}/usr/bin/todo.sh"
-     state: link
-     force: yes
-     owner: "{{ target_user }}"
-     group: "{{ target_user }}"
-  tags: ['dotfiles', 'symlink']
+    src: "/home/{{ target_user }}/Code/External/todo.txt-cli/todo.sh"
+    dest: "/home/{{ target_user }}/usr/bin/todo.sh"
+    state: link
+    force: yes
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+  tags: ["dotfiles", "symlink"]
   when: configure_todoandcht
 
 # - name: dotfiles - install cheat.sh script
@@ -112,7 +112,7 @@
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
     mode: "744"
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
   when: configure_mpv
 
 # Copy dolphinrc to ~/.config/dolphinrc
@@ -125,22 +125,28 @@
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
     mode: "0644"
-  tags: ['dotfiles', 'dolphin']
+  tags: ["dotfiles", "dolphin"]
   when: configure_dolphin
 
 # Force create symlinks to ~/Code/External/mpv-osc-tethys from ~/.config/mpv/scripts
 - name: dotfiles - Force create symlink to latest mpv tethys theme files
   ansible.builtin.file:
-     src: "{{ item.src }}"
-     dest: "{{ item.dest }}"
-     state: link
-     force: yes
-     owner: "{{ target_user }}"
-     group: "{{ target_user }}"
-  tags: ['dotfiles', 'symlink']
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+    force: yes
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+  tags: ["dotfiles", "symlink"]
   loop:
-    - { src: '/home/{{ target_user }}/Code/External/mpv-osc-tethys/osc_tethys.lua', dest: '/home/{{ target_user }}/.config/mpv/scripts/osc_tethys.lua' }
-    - { src: '/home/{{ target_user }}/Code/External/mpv-osc-tethys/mpv_thumbnail_script_server.lua', dest: '/home/{{ target_user }}/.config/mpv/scripts/mpv_thumbnail_script_server.lua' }
+    - {
+        src: "/home/{{ target_user }}/Code/External/mpv-osc-tethys/osc_tethys.lua",
+        dest: "/home/{{ target_user }}/.config/mpv/scripts/osc_tethys.lua",
+      }
+    - {
+        src: "/home/{{ target_user }}/Code/External/mpv-osc-tethys/mpv_thumbnail_script_server.lua",
+        dest: "/home/{{ target_user }}/.config/mpv/scripts/mpv_thumbnail_script_server.lua",
+      }
   when: configure_mpv
 
 # Check if Clamd is installed
@@ -148,7 +154,7 @@
   ansible.builtin.stat:
     path: /usr/bin/clamd
   register: clamd_installed
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
 
 # Copy ClamAV clamd.conf to /etc/clamav/clamd.conf
 - name: dotfiles - Copy ClamAV clamd.conf to /etc/clamav/clamd.conf
@@ -158,7 +164,7 @@
     owner: root
     group: root
     mode: "0644"
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
   when: clamd_installed.stat.exists
 
 # Copy ClamAV freshclam.conf to /etc/clamav/freshclam.conf
@@ -169,5 +175,5 @@
     owner: clamav
     group: adm
     mode: "0444"
-  tags: ['dotfiles']
+  tags: ["dotfiles"]
   when: clamd_installed.stat.exists
