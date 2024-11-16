@@ -1,0 +1,5 @@
+- name: yazi - install theme
+  ansible.builtin.shell: "ya pack -a yazi-rs/flavors:catppuccin-mocha"
+  tags: ["workstation-ubuntu", "yazi", "package", "workstation-fedora"]
+  become: true
+  become_user: "{{ target_user }}"

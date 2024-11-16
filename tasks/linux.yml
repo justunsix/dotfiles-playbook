@@ -142,11 +142,6 @@
 #   import_tasks: tasks/node.yml
 #   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'node', 'workstation-fedora']
 #   when: configure_emacs
-
-- name: Set up tmux
-  import_tasks: tasks/tmux.yml
-  tags: ["workstation-ubuntu", "laptop-ubuntu", "tmux", "workstation-fedora"]
-  
 # Use distribution package managers instead
 #    - import_tasks: tasks/haskell.yml
 #      tags: ['workstation-ubuntu', 'laptop-ubuntu', 'haskell']
@@ -158,3 +153,11 @@
 #            loop_var: outer_item
 #          with_fileglob: "{{ post_provision_tasks|default(omit) }}"
 #      tags: ['post']
+
+- name: Set up tmux
+  import_tasks: tasks/tmux.yml
+  tags: ["workstation-ubuntu", "laptop-ubuntu", "tmux", "workstation-fedora"]
+
+- name: Set up yazi
+  import_tasks: tasks/yazi.yml
+  tags: ["workstation-ubuntu", "laptop-ubuntu", "yazi", "workstation-fedora"]
