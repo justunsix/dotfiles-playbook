@@ -6,6 +6,37 @@ nix_installed_packages_devops:
   - nixpkgs.maven
   - nixpkgs.gradle
 
+dotfiles_files_archive:
+  # - .local/share/applications/emacs-doom.desktop
+  # Manage VS Code Settings manually due to possible sensitive settings
+  #  - .config/Code/User/settings.json
+  # - .config/emacs/init.el
+  # - .config/emacs/setup/extras.el
+  # - .config/emacs/setup/minimal.el
+  # - .config/emacs/setup/other.el
+  # - .config/emacs/setup/variables.el
+  # - .config/emacs/setup/jt-emacs-abbrev.el
+  # - .config/emacs/setup/jt-emacs-package-managers.el
+  # - .config/emacs/setup/jt-emacs-org.el
+  # - .config/emacs/setup/jt-emacs-org-roam.el
+  # - .config/emacs/setup/jt-emacs-org-babel-literate.el
+  # - .config/emacs/setup/jt-emacs-org-srs-anki.el
+  # - .config/emacs/setup/jt-emacs-org-present.el
+  # - .config/emacs/setup/jt-emacs-ai.el
+  # - .config/emacs/setup/jt-emacs-ui.el
+  # - .config/emacs/setup/jt-emacs-languages.el
+  # - .config/emacs/setup/jt-emacs-languages-python.el
+  # - .config/emacs/setup/jt-emacs-languages-java.el
+  # - .config/emacs/setup/jt-emacs-terminal.el
+  # - .config/emacs/setup/jt-emacs-spelling.el
+  # - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
+  # - .config/emacs/setup/jt-emacs-dired.el
+  # - .config/emacs/snippets/org-mode/new-note
+  # - .config/emacs/snippets/org-mode/plantuml
+  # Manage Dolphin file manager settings with copy due to frequently
+  # window position changes from opening the program
+  # - .config/dolphinrc
+
 deb_get_installed_packages:
   ## Security
   ## - nordvpn
