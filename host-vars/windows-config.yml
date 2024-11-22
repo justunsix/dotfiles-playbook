@@ -47,6 +47,8 @@ scoop_installed_packages:
   - fzf
   - uutils-coreutils
   - eza
+  - less
+  - bat
   ### fd optional for Emacs and nvim frameworks
   - fd
   ### rg optional for Emacs and nvim frameworks
