@@ -116,6 +116,8 @@ scoop_installed_packages:
   ##### Virtual environments
   - miniconda3
   - pipx
+  ##### Python package, project, tool manager
+  - uv
   #### Java
   - temurin-lts-jdk
   - maven
