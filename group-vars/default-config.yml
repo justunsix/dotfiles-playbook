@@ -292,6 +292,8 @@ pipx_installed_packages:
   - tldr
   # For Emacs, Helix Python - pylsp
   - python-lsp-server
+  # Python project, package, tool manager
+  - uv
 
 nix_installed_packages_ytdlp:
   # yt-dlp
