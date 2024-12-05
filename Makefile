@@ -20,6 +20,8 @@ run-flatpak: ## Run playbook on flatpak tag
 run-playbook-windows: ## Run playbook for Windows
 	# Set config explicitly to avoid error due to world writable file in Vagrant
 	export ANSIBLE_CONFIG=ansible.cfg
+	# Ensure requirements are installed
+	ansible-galaxy collection install -r requirements-windows.yml
 	# --ask-pass --ask-become-pass for ssh connection and privilege escalation
 	ansible-playbook --diff "windows.yml" --ask-pass --ask-become-pass -v
 
