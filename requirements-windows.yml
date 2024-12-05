@@ -1,5 +1,7 @@
 ---
 collections:
-# Collection name:
-- chocolatey.chocolatey
-- community.windows
+  # Collection name:
+  - chocolatey.chocolatey
+  - community.windows
+  - ansible.windows
+
