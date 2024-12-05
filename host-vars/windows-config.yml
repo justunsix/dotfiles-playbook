@@ -128,6 +128,8 @@ scoop_installed_packages:
   - pandoc
   #### Emacs Doom Framework
   - llvm
+  #### For use with Emacs diff
+  - diffutils
   #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
   - shellcheck
   #### Used by org-download for clipboard pasting to org
