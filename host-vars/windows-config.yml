@@ -115,7 +115,8 @@ scoop_installed_packages:
   - python
   ##### Virtual environments
   - miniconda3
-  - pipx
+  # Replace pipx with uv
+  # - pipx
   ##### Python package, project, tool manager
   - uv
   #### Java
