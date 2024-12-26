@@ -34,6 +34,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/dunst"
   - "/home/{{ target_user }}/.config/fish"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
+  - "/home/{{ target_user }}/.config/ghostty"
   - "/home/{{ target_user }}/.config/helix"
   - "/home/{{ target_user }}/.config/home-manager"
   - "/home/{{ target_user }}/.config/hunspell"
@@ -88,6 +89,7 @@ dotfiles_files:
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/gfold.toml
+  - .config/ghostty/config
   - .config/helix/config.toml
   - .config/helix/languages.toml
   - .config/home-manager/home.nix
