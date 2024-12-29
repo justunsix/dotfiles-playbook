@@ -357,10 +357,11 @@ flatpak_installed_packages:
   ## - org.bino3d.bino
   # Productivity - Windows Programs
   - com.usebottles.bottles
-  ## Graphics
+  ## Graphics/Video
   - org.inkscape.Inkscape
   - org.gimp.GIMP
   - org.kde.krita
+  - org.kde.kdenlive
   ## Terminal Emulator
   - org.wezfurlong.wezterm
   # Office, Diagramming
