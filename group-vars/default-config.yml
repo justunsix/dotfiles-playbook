@@ -56,6 +56,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
   - "/home/{{ target_user }}/.config/topgrade"
   - "/home/{{ target_user }}/.config/vlc"
+  - "/home/{{ target_user }}/snap/vlc/common"
   - "/home/{{ target_user }}/.config/wezterm"
   - "/home/{{ target_user }}/.config/yazi"
   - "/home/{{ target_user }}/.local/share/applications"
@@ -147,6 +148,10 @@ dotfiles_to_be_removed:
   - "/home/{{ target_user }}/.config/topgrade.toml"
   - "/home/{{ target_user }}/.emacs"
   - "/home/{{ target_user }}/.emacs.d"
+  - "/home/{{ target_user }}/snap/vlc/common/vlcrc"
+
+dotfiles_items_with_custom_destination:
+  - { src: ".config/vlc/vlcrc", dest: "snap/vlc/common/vlcrc" }
 
 dotfiles_files_binaries:
   - usr/bin/jt-gc.sh

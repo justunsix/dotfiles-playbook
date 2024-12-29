@@ -13,24 +13,16 @@
       include_vars: "{{ item }}"
       with_fileglob:
         - "{{ playbook_dir }}/config.yml"
-      tags: ['always']
+      tags: ["always"]
     - name: Include overlay configuration
       include_vars: "{{ item }}"
       with_fileglob:
         - "{{ dotfiles_overlay_dir }}/config.yml"
-      tags: ['always']
-
-#  roles:
-#    - role: user.dotfiles
-#      when: configure_dotfiles
-#      tags: ['dotfiles']
-   
-  # - hosts: all
-  #   tags: ['base']
-  #   become: true
-  #   roles:
-  #     - workstation-base
+      tags: ["always"]
 
   tasks:
     - name: Set up Linux desktop
       import_tasks: tasks/linux.yml
+    - name: Set up and synchronize dotfiles with custom destinations
+      import_tasks: tasks/dotfiles-custom.yml
+      tags: ["workstation-ubuntu", "dotfiles", "dotfiles-custom"]
