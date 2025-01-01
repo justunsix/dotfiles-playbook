@@ -305,7 +305,7 @@ pipx_installed_packages:
 nix_installed_packages_ytdlp:
   # yt-dlp
   - nixpkgs.yt-dlp
-  - nixpkgs.ffmpeg_5-full
+  - nixpkgs.ffmpeg_6-full
   ## Downloader - aria2c
   - nixpkgs.aria
   ## Meta data
