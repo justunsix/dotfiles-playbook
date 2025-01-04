@@ -97,7 +97,7 @@ dotfiles_files:
   - .config/i3/config
   - .config/i3status/config
   - .config/kdeglobals
-  - .config/lazyvim/lua/lazyvim.json
+  - .config/lazyvim/lazyvim.json
   - .config/lazyvim/lua/config/keymaps.lua
   - .config/lazyvim/lua/config/lazy.lua
   - .config/lazyvim/lua/config/options.lua
