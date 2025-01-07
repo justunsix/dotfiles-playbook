@@ -36,6 +36,8 @@ chocolatey_installed_packages_extras:
   - ubisoft-connect
 
 scoop_installed_packages:
+  ## System
+  - btop
   ## Package Management
   - topgrade
   ## File Management
