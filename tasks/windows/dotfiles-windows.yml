@@ -91,7 +91,7 @@
 
 - name: lazyvim - disable extras.lang.nix, remove line from file
   win_lineinfile:
-    path: "{{ ansible_env.USERPROFILE }}/AppData/Local/lazyvim/lua/config/lazy.lua"
+    path: "{{ ansible_env.USERPROFILE }}/AppData/Local/lazyvim/lazyvim.json"
     regexp: "extras.lang.nix"
     state: absent
   tags: ["dotfiles", "lazyvim"]
