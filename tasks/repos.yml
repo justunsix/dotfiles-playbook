@@ -13,8 +13,8 @@
   with_items: "{{ git_repositories }}"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu','repos', 'repos-personal', 'workstation-arch']
-  ignore_errors: yes
+  tags: ["workstation-ubuntu", "repos", "repos-personal", "workstation-arch"]
+  ignore_errors: true
 
 - name: Git - Create directories ~/Code/External and ~/usr/Reference
   file:
@@ -25,7 +25,7 @@
     mode: 0755
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu','repos', 'repos-external', 'workstation-arch']
+  tags: ["workstation-ubuntu", "repos", "repos-external", "workstation-arch"]
 
 - name: Git - Create directories ~/Code/External and ~/usr/Reference
   ansible.builtin.file:
@@ -35,8 +35,9 @@
     owner: "{{ target_user }}"
     # group: "{{ target_user }}"
     mode: "744"
-  with_items: ["/home/{{ target_user }}/usr/reference", "/home/{{ target_user }}/usr/bin"]
-  tags: ['workstation-ubuntu','repos', 'repos-external', 'workstation-arch']
+  with_items:
+    ["/home/{{ target_user }}/usr/reference", "/home/{{ target_user }}/usr/bin"]
+  tags: ["workstation-ubuntu", "repos", "repos-external", "workstation-arch"]
 
 - name: Git - Sychronize other external repositories
   ansible.builtin.git:
@@ -46,8 +47,8 @@
   with_items: "{{ git_repositories_external }}"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu','repos', 'repos-external', 'workstation-arch']
-  ignore_errors: yes
+  tags: ["workstation-ubuntu", "repos", "repos-external", "workstation-arch"]
+  ignore_errors: true
 
 - name: Git - Sychronize repositories for reference
   ansible.builtin.git:
@@ -57,5 +58,5 @@
   with_items: "{{ git_repositories_reference }}"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu','repos', 'repos-reference', 'workstation-arch']
-  ignore_errors: yes
+  tags: ["workstation-ubuntu", "repos", "repos-reference", "workstation-arch"]
+  ignore_errors: true
