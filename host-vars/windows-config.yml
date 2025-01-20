@@ -38,10 +38,11 @@ chocolatey_installed_packages_extras:
 scoop_installed_packages:
   ## System
   - btop
+  ### git including bash
+  - git
   ## Package Management
   - topgrade
   ## File Management
-  - git
   - git-credential-manager
   - lazygit
   - bleachbit
