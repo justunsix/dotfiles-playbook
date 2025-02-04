@@ -297,7 +297,6 @@ apt_installed_packages:
 
 pipx_installed_packages:
   - ansible
-  - tldr
   # For Emacs, Helix Python - pylsp
   - python-lsp-server
   # Python project, package, tool manager
