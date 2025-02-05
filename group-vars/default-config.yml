@@ -30,6 +30,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"
   - "/home/{{ target_user }}/.config/doom/modules/jt/minimal"
   - "/home/{{ target_user }}/.config/doom/modules/jt/music"
+  - "/home/{{ target_user }}/.config/doom/modules/jt/org-web-tools"
   - "/home/{{ target_user }}/.config/doom/snippets/org-mode"
   - "/home/{{ target_user }}/.config/dunst"
   - "/home/{{ target_user }}/.config/fish"
@@ -82,6 +83,8 @@ dotfiles_files:
   - .config/doom/modules/jt/music/autoload.el
   - .config/doom/modules/jt/music/config.el
   - .config/doom/modules/jt/music/packages.el
+  - .config/doom/modules/jt/org-web-tools/config.el
+  - .config/doom/modules/jt/org-web-tools/packages.el
   - .config/doom/packages.el
   - .config/doom/snippets/org-mode/new-note
   - .config/doom/snippets/org-mode/plantuml
