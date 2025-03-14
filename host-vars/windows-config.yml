@@ -105,6 +105,7 @@ scoop_installed_packages:
   - vlc
   - mpv
   ## Security
+  - gpg4win
   - keepassxc
   ## DevOps
   - vscode
