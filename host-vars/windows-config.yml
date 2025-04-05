@@ -99,6 +99,7 @@ scoop_installed_packages:
   - plantuml
   - draw.io
   - anki
+  - okular
   # - calibre
   - autohotkey
   ## Media
