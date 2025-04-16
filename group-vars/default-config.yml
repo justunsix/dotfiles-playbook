@@ -215,9 +215,6 @@ apt_installed_packages:
   - ubuntu-restricted-extras
   ### Emacs
   - fonts-cantarell
-  - fonts-jetbrains-mono
-  ### Starship prompt nerd font
-  - fonts-firacode
   ## Screenshot
   - flameshot
   ## File Management
