@@ -119,7 +119,7 @@ scoop_installed_packages:
   ##### Required for Ansible management
   - python
   ##### Virtual environments
-  - miniconda3
+  # - miniconda3
   # Replace pipx with uv
   # - pipx
   ##### Python package, project, tool manager

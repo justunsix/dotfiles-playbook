@@ -11,15 +11,14 @@
     # Separate packages with a space from yaml list
     name: "{{ scoop_installed_packages | join(' ') }}"
     state: present
-  tags: ['scoop', 'workstation-windows', 'package']
-
+  tags: ["scoop", "workstation-windows", "package"]
 # Disable auto-activation of base conda environment
 # conda config --set auto_activate_base false
-- name: Disable auto-activation of base conda environment
-  ansible.windows.win_powershell:
-    script: |
-      conda config --set auto_activate_base false
-  tags: ['scoop', 'workstation-windows', 'package', 'conda']
+# - name: Disable auto-activation of base conda environment
+#   ansible.windows.win_powershell:
+#     script: |
+#       conda config --set auto_activate_base false
+#   tags: ['scoop', 'workstation-windows', 'package', 'conda']
 
 # Replaced with function inside PowerShell profile
 #
