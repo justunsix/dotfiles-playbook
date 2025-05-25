@@ -33,6 +33,9 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/doom/modules/jt/org-web-tools"
   - "/home/{{ target_user }}/.config/doom/snippets/org-mode"
   - "/home/{{ target_user }}/.config/dunst"
+  - "/home/{{ target_user }}/.config/espanso"
+  - "/home/{{ target_user }}/.config/espanso/match"
+  - "/home/{{ target_user }}/.config/espanso/config"
   - "/home/{{ target_user }}/.config/fish"
   - "/home/{{ target_user }}/.config/fontconfig/conf.d"
   - "/home/{{ target_user }}/.config/ghostty"
@@ -90,6 +93,8 @@ dotfiles_files:
   - .config/doom/snippets/org-mode/plantuml
   - .config/doom/snippets/org-mode/shell
   - .config/dunst/dunstrc
+  - .config/espanso/config/default.yml
+  - .config/espanso/match/base.yml
   - .config/fish/config.fish
   - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/gfold.toml
