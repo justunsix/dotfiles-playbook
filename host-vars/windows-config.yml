@@ -38,6 +38,7 @@ chocolatey_installed_packages_extras:
 scoop_installed_packages:
   ## System
   - btop
+  - espanso
   ### git including bash
   - git
   ## Package Management
@@ -164,6 +165,7 @@ dotfiles_directories:
   - "{{ ansible_env.USERPROFILE }}/usr/bin"
   - "{{ ansible_env.USERPROFILE }}/AppData/Local/nvim"
   - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade"
+  - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/espanso"
   - "{{ ansible_env.USERPROFILE }}/.config/emacs"
   - "{{ ansible_env.USERPROFILE }}/.config/doom"
   - "{{ ansible_env.USERPROFILE }}/.config/wezterm"
@@ -208,6 +210,10 @@ dotfiles_items:
   - {
       src: "{{ dotfiles_repo_local_destination }}/.config/topgrade/",
       dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/topgrade",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/espanso/",
+      dest: "{{ ansible_env.USERPROFILE }}/AppData/Roaming/espanso/",
     }
   - {
       src: "{{ dotfiles_repo_local_destination }}/.config/nushell/",
