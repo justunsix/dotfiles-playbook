@@ -87,7 +87,6 @@ scoop_installed_packages:
   - mprocs
   - dog
   - wezterm
-  - cygwin
   - carapace-bin
   - nu
   ### protobuf required for cargo binstall atuin
