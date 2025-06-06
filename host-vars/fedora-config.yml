@@ -118,7 +118,6 @@ configure_repos: true
 configure_mpv: false
 configure_gnome: false
 configure_dolphin: false
-configure_todoandcht: false
 
 # User for which set up is being done for
 # Override with your user name

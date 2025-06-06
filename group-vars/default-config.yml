@@ -9,7 +9,6 @@ configure_repos: true
 configure_mpv: true
 configure_gnome: true
 configure_dolphin: true
-configure_todoandcht: true
 
 downloads: ~/.ansible-downloads/
 
@@ -191,7 +190,6 @@ git_repositories:
 
 # Other people's Git Repositories to be cloned, synchronized
 git_repositories_external:
-  - git@github.com:todotxt/todo.txt-cli.git
   - git@github.com:Zren/mpv-osc-tethys.git
 
 git_repositories_reference:

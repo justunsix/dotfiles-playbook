@@ -57,7 +57,6 @@ dotfiles_files_binaries:
 
 # Whether to configure certain build items
 configure_dotfiles: true
-configure_todoandcht: false
 configure_mpv: false
 configure_dolphin: false
 configure_emacs: false

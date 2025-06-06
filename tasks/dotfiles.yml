@@ -81,28 +81,6 @@
   with_items: "{{ dotfiles_files_binaries }}"
   tags: ["dotfiles", "dotfiles-symlink-binaries"]
 
-# Force create symlink to ~/Code/External/todo.txt-cli/todo.sh from ~/usr/bin
-- name: dotfiles - Force create symlink to latest todo.sh
-  ansible.builtin.file:
-    src: "/home/{{ target_user }}/Code/External/todo.txt-cli/todo.sh"
-    dest: "/home/{{ target_user }}/usr/bin/todo.sh"
-    state: link
-    force: yes
-    owner: "{{ target_user }}"
-    group: "{{ target_user }}"
-  tags: ["dotfiles", "symlink"]
-  when: configure_todoandcht
-
-# - name: dotfiles - install cheat.sh script
-#   ansible.builtin.get_url:
-#     url: https://cht.sh/:cht.sh
-#     dest: /home/{{ target_user }}/usr/bin/cht.sh
-#     mode: "0744"
-#     owner: "{{ target_user }}"
-#     group: "{{ target_user }}"
-#   tags: ['dotfiles', 'cheat.sh']
-#   when: configure_todoandcht
-
 # Create ~/.config/mpv directory if it does not exist of target user
 - name: dotfiles - Create ~/.config/mpv directory if it does not exist of target user
   ansible.builtin.file:
