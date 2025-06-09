@@ -227,6 +227,7 @@ apt_installed_packages:
   - qt5ct
   - adwaita-qt
   - konsole
+  - plocate
   ### Android Phone Connectivity
   ### Requires restart to work
   - gmtp
