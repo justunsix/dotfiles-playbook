@@ -85,7 +85,7 @@ scoop_installed_packages:
   - zoxide
   - gsudo
   - mprocs
-  - dog
+  - doggo
   - wezterm
   - carapace-bin
   - nu
