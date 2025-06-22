@@ -58,7 +58,6 @@ scoop_installed_packages:
   ### rg optional for Emacs and nvim frameworks
   - ripgrep
   - duf
-  - bottom
   - everything
   - kondo
   - broot
@@ -70,14 +69,10 @@ scoop_installed_packages:
   - unar
   - jq
   - poppler
-  # Media
-  - upscayl
   ## Web
   - firefox
   ## Fonts
   - JetBrains-Mono
-  ### RSS
-  - fluent-reader
   ## OCR
   - capture2text
   ## Shell / Terminal
@@ -85,7 +80,6 @@ scoop_installed_packages:
   - zoxide
   - gsudo
   - mprocs
-  - doggo
   - wezterm
   - carapace-bin
   - nu
@@ -100,9 +94,9 @@ scoop_installed_packages:
   - draw.io
   - anki
   - okular
-  # - calibre
   - autohotkey
   ## Media
+  - krita
   - vlc
   - mpv
   ## Security
@@ -124,9 +118,6 @@ scoop_installed_packages:
   # - pipx
   ##### Python package, project, tool manager
   - uv
-  #### Java
-  - temurin-lts-jdk
-  - maven
   #### VS Code Polyglot literate programming
   - dotnet-sdk
   ### Emacs and Supporting Programs
