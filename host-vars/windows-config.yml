@@ -72,7 +72,7 @@ scoop_installed_packages:
   ## Web
   - firefox
   ## Fonts
-  - JetBrains-Mono
+  - nerd-fonts/JetBrainsMono-NF-Mono
   ## OCR
   - capture2text
   ## Shell / Terminal
