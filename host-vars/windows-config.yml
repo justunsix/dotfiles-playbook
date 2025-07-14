@@ -47,7 +47,6 @@ scoop_installed_packages:
   - git-credential-manager
   - lazygit
   - bleachbit
-  - ccleaner
   - fzf
   - uutils-coreutils
   - eza
