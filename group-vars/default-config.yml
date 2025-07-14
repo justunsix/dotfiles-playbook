@@ -113,7 +113,6 @@ dotfiles_files:
   - .config/lazyvim/lua/config/options.lua
   - .config/lazyvim/lua/plugins/extend-lazyvim.lua
   - .config/lazyvim/lua/plugins/extend-neo-tree.lua
-  - .config/lazyvim/lua/plugins/extend-which-key-with-legendary.lua
   - .config/lazyvim/lua/plugins/org-mode.lua
   - .config/mprocs/mprocs.yaml
   - .config/mpv/input.conf
