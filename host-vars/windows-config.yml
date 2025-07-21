@@ -25,10 +25,6 @@ chocolatey_installed_packages:
   ###- microsoft-windows-terminal
   # Security
   - veracrypt
-  ### Emacs
-  - hunspell.portable
-  #### msys2 for org-roam sqlite gcc, replaced by scoop gcc
-  #### - msys2
 
 chocolatey_installed_packages_extras:
   ## Games
@@ -125,6 +121,7 @@ scoop_installed_packages:
   ### Emacs and Supporting Programs
   - emacs
   - pandoc
+  - aspell
   #### Emacs Doom Framework
   - llvm
   #### For use with Emacs diff
