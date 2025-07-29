@@ -41,7 +41,6 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/ghostty"
   - "/home/{{ target_user }}/.config/helix"
   - "/home/{{ target_user }}/.config/home-manager"
-  - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
   - "/home/{{ target_user }}/.config/lazyvim"
@@ -281,10 +280,8 @@ apt_installed_packages:
   ## DevOps Editors
   - vim
   ### Emacs
-  # - emacs28-nativecomp
-  - hunspell
-  - hunspell-en-gb
-  - hunspell-fr
+  - aspell
+  - aspell-en
   ## DevOps Languages
   - python3
   - python3-pip

@@ -144,11 +144,6 @@ scoop_installed_packages_extras:
   ## Communications
   - discord
 
-# Default dictionary directories installed by chocolately
-libre_office_dir: "C:\\Users\\{{ target_user }}\\scoop\\apps\\libreoffice\\current\\LibreOffice"
-hunspell_dict_en_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-en"
-hunspell_dict_fr_dir: "{{ libre_office_dir }}\\share\\extensions\\dict-fr"
-
 dotfiles_directories:
   - "{{ ansible_env.USERPROFILE }}/.config"
   - "{{ ansible_env.USERPROFILE }}/usr/bin"
@@ -163,7 +158,6 @@ dotfiles_directories:
   - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/helix"
   - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/dystroy/broot/config"
   - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/navi"
-  - "C:/Hunspell"
 
 dotfiles_to_be_removed:
   - "{{ ansible_env.USERPROFILE }}/AppData/Local/topgrade.toml"
@@ -183,10 +177,6 @@ dotfiles_items:
   - {
       src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/",
       dest: "{{ ansible_env.USERPROFILE }}/usr/bin",
-    }
-  - {
-      src: "{{ dotfiles_repo_local_destination }}//other/Hunspell/",
-      dest: "C:/Hunspell",
     }
   - {
       src: "{{ dotfiles_repo_local_destination }}/.config/nvim/",
@@ -265,25 +255,11 @@ dotfiles_items:
       dest: "{{ ansible_env.USERPROFILE }}/Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
     }
 
-hunspell_dictionaries:
-  - { src: "{{ hunspell_dict_en_dir }}\\en_AU.aff", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_AU.dic", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_CA.aff", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_CA.dic", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_GB.aff", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_GB.dic", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_US.aff", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_US.dic", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_ZA.aff", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_en_dir }}\\en_ZA.dic", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_fr_dir }}\\fr.aff", dest: "C:/Hunspell" }
-  - { src: "{{ hunspell_dict_fr_dir }}\\fr.dic", dest: "C:/Hunspell" }
-
 environment_variables:
   # Windows Emacs Configuration
   # Assume following are installed by system tasks for Emacs:
   # - Fonts
-  # - ripgrep, hunspell, pandoc
+  # - ripgrep, aspell, pandoc
   # Set home to "C:\Users\justi\"
   - { name: "HOME", value: "{{ ansible_env.USERPROFILE }}" }
   - { name: "EDITOR", value: "nvim" }

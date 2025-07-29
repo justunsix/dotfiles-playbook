@@ -12,11 +12,10 @@ dotfiles_home: "~"
 
 dotfiles_directories:
   - "/home/{{ target_user }}/usr/bin"
-#  - "/home/{{ target_user }}/Templates"
+  #  - "/home/{{ target_user }}/Templates"
   - "/home/{{ target_user }}/.config/fish"
-  - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.local/share/applications"
-#  - "/home/{{ target_user }}/.config/cool-retro-term"
+  #  - "/home/{{ target_user }}/.config/cool-retro-term"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
   - "/home/{{ target_user }}/.config/rofi"
@@ -34,7 +33,7 @@ dotfiles_files:
   - .bash_profile
   - .gitconfig
   - .inputrc
-#  - Templates/New-Text-Document.txt
+  #  - Templates/New-Text-Document.txt
   - .local/share/applications/clipboard-html-to-org.desktop
   - .local/share/applications/screenshot-ocr.desktop
   - usr/bin/jt-gc.sh
@@ -68,7 +67,7 @@ dotfiles_files:
   - .config/emacs/setup/jt-emacs-completion-ivy-counsel.el
   - .config/emacs/setup/jt-emacs-dired.el
   - .config/fish/config.fish
-#  - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
+  #  - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
   - .config/i3/config
   - .config/i3status/config
   - .config/rofi/config.rasi
@@ -178,7 +177,7 @@ pacman_installed_packages:
   - perl-anyevent-i3
   - perl-json-xs
   ## Office
-#  - libreoffice
+  #  - libreoffice
   ## Optical Character Recognition (OCR)
   - tesseract
   - tesseract-data-eng
@@ -191,24 +190,22 @@ pacman_installed_packages:
   - keepassxc
   ## System
   - htop
-#  - bleachbit
+  #  - bleachbit
   ### System - Language
   ## Media, Sound, Video
   - pavucontrol
   - mpv
   # - gimp
   ## DevOps Editors
-#  - code
+  #  - code
   - vim
   ### Emacs and Support
   - emacs
-  - hunspell
-  - hunspell-en_gb
-  - hunspell-en_us
-  - hunspell-fr
+  - aspell
+  - aspell-en
   - ripgrep
   #### PlantUML
-#  - plantuml
+  #  - plantuml
   ## DevOps Languages
   - python
   - python-pipx
@@ -216,7 +213,7 @@ pacman_installed_packages:
   - npm
   ### Rust
   #### openssl-devel required for cargo-update
-#  - openssl-devel
+  #  - openssl-devel
   ## DevOps Support
   - pandoc
 

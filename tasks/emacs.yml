@@ -1,12 +1,12 @@
 # Assume following are installed by system tasks for Emacs:
 # - Fonts
-# - ripgrep, hunspell, pandoc
+# - ripgrep, aspell, pandoc
 
 - name: "Check if ~/.config/emacs exists"
   ansible.builtin.stat:
     path: "~/.config/emacs"
   register: emacs_dir
-  tags: ['dotfiles', 'emacs']
+  tags: ["dotfiles", "emacs"]
   become: true
   become_user: "{{ target_user }}"
 
@@ -18,11 +18,10 @@
     dest: ~/.config/emacs
     version: master
     force: yes
-  tags: ['dotfiles', 'emacs']
+  tags: ["dotfiles", "emacs"]
   become: true
-  become_user: "{{ target_user }}"    
-  when: emacs_dir.stat.exists == False  
-
+  become_user: "{{ target_user }}"
+  when: emacs_dir.stat.exists == False
 # Create directory ~/.config/emacs and subdirectories
 # - name: "Create directory ~/.config/emacs"
 #   ansible.builtin.file:

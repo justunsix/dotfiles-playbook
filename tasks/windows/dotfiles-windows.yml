@@ -26,14 +26,6 @@
   tags: ["dotfiles"]
   loop: "{{ dotfiles_items }}"
 
-- name: dotfiles - Sync Hunspell dictionaries with Libreoffice dictionaries on Windows
-  ansible.windows.win_copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    remote_src: yes
-  tags: ["dotfiles"]
-  loop: "{{ hunspell_dictionaries }}"
-
 - name: dotfiles - add directories to PATH if they do not exist already
   ansible.windows.win_path:
     name: PATH

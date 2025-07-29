@@ -14,11 +14,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/usr/bin"
   - "/home/{{ target_user }}/Templates"
   - "/home/{{ target_user }}/.config/fish"
-  - "/home/{{ target_user }}/.config/hunspell"
   - "/home/{{ target_user }}/.local/share/applications"
-  - "/home/{{ target_user }}/.config/hunspell"
-# - "/home/{{ target_user }}/.config/xmonad"
-# - "/home/{{ target_user }}/.config/xmobar"
   - "/home/{{ target_user }}/.config/cool-retro-term"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
@@ -147,13 +143,13 @@ dnf_installed_packages:
   - rofi
   - keychain
   - copyq
-### xmonad
-#  - xmobar
-#  - xmonad
-#  - ghc-xmonad-contrib-devel
-#  - xterm
-### Fedora workaround to usr/lib/rpm/redhat/redhat-annobin-cc1 no such file error during gcc
-#  - redhat-rpm-config
+  ### xmonad
+  #  - xmobar
+  #  - xmonad
+  #  - ghc-xmonad-contrib-devel
+  #  - xterm
+  ### Fedora workaround to usr/lib/rpm/redhat/redhat-annobin-cc1 no such file error during gcc
+  #  - redhat-rpm-config
   ## Web
   - firefox
   ## Fonts, Codes
@@ -204,10 +200,8 @@ dnf_installed_packages:
   - vim
   ### Emacs and Support
   - emacs
-  - hunspell
-  - hunspell-en-GB
-  - hunspell-en-US
-  - hunspell-fr
+  - aspell
+  - aspell-en
   - ripgrep
   #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
   - shellcheck
@@ -261,7 +255,7 @@ rust_installed_packages:
   - procs
   - bottom
   - zoxide
-#  - broot
+  #  - broot
   - monolith
   - topgrade
   - sd
