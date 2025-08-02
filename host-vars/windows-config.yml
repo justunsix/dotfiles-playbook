@@ -101,8 +101,6 @@ scoop_installed_packages:
   - gpg4win
   - keepassxc
   ## DevOps
-  - vscode
-  # - pycharm
   - helix
   - nodejs
   ### Languages
