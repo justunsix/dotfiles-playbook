@@ -336,7 +336,7 @@ snap_installed_packages:
 snap_installed_packages_classic:
   # Devops
   ## Editors
-  - code
+  # - code
   ## - pycharm-community
 
 flatpak_installed_packages:
