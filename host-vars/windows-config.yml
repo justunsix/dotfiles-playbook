@@ -122,8 +122,10 @@ scoop_installed_packages:
   - aspell
   #### Emacs Doom Framework
   - llvm
-  #### For use with Emacs diff
+  #### For use with Emacs diff, grep
   - diffutils
+  - grep
+  - gzip
   #### Shellcheck used by Emacs Flymake for shell scripts by default - Emacs 29.1
   - shellcheck
   #### Used by org-download for clipboard pasting to org
