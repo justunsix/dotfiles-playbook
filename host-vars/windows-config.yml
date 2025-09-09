@@ -89,6 +89,8 @@ scoop_installed_packages:
   - libreoffice
   - peazip
   - plantuml
+  ### graphiz is needed by plantuml for diagram generation
+  - graphviz
   - draw.io
   - anki
   - okular
@@ -108,6 +110,8 @@ scoop_installed_packages:
   #### Python
   ##### Required for Ansible management
   - python
+  #### sh, required by Emacs
+  - shfmt
   ##### Virtual environments
   # - miniconda3
   # Replace pipx with uv
