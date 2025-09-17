@@ -138,9 +138,8 @@ scoop_installed_packages:
   - neovim
   #### for telescope fzf native
   - cmake
-  #### Astrovim dependencies
-  # - win32yank
-  # - tree-sitter
+  #### nvim-treesitter
+  - tree-sitter
   #### For Neovim and Emacs org-roam SQLite
   - gcc
 
