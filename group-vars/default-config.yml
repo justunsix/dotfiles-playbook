@@ -43,9 +43,6 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/home-manager"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
-  - "/home/{{ target_user }}/.config/nvim-lazyvim"
-  - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/config"
-  - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/plugins"
   - "/home/{{ target_user }}/.config/mprocs"
   - "/home/{{ target_user }}/.config/mpv/script-opts"
   - "/home/{{ target_user }}/.config/mpv/scripts"
@@ -53,6 +50,14 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/nushell"
   - "/home/{{ target_user }}/.config/nvim"
   - "/home/{{ target_user }}/.config/nvim/lua/custom/plugins"
+  - "/home/{{ target_user }}/.config/nvim-lazyvim"
+  - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/config"
+  - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/plugins"
+  - "/home/{{ target_user }}/.config/nvim-aon"
+  - "/home/{{ target_user }}/.config/nvim-aon/after/ftplugin"
+  - "/home/{{ target_user }}/.config/nvim-aon/lua/config/"
+  - "/home/{{ target_user }}/.config/nvim-aon/lua/config/telescope"
+  - "/home/{{ target_user }}/.config/nvim-aon/lua/plugins"
   - "/home/{{ target_user }}/.config/rofi"
   - "/home/{{ target_user }}/.config/tmux"
   - "/home/{{ target_user }}/.config/todotxt-cli"
@@ -106,13 +111,6 @@ dotfiles_files:
   - .config/i3/config
   - .config/i3status/config
   - .config/kdeglobals
-  - .config/nvim-lazyvim/lazyvim.json
-  - .config/nvim-lazyvim/lua/config/keymaps.lua
-  - .config/nvim-lazyvim/lua/config/lazy.lua
-  - .config/nvim-lazyvim/lua/config/options.lua
-  - .config/nvim-lazyvim/lua/plugins/extend-lazyvim.lua
-  - .config/nvim-lazyvim/lua/plugins/extend-neo-tree.lua
-  - .config/nvim-lazyvim/lua/plugins/org-mode.lua
   - .config/mprocs/mprocs.yaml
   - .config/mpv/input.conf
   - .config/mpv/mpv.conf
@@ -124,6 +122,24 @@ dotfiles_files:
   - .config/nushell/env.nu
   - .config/nvim/init.lua
   - .config/nvim/lua/custom/plugins/init.lua
+  - .config/nvim-lazyvim/lazyvim.json
+  - .config/nvim-lazyvim/lua/config/keymaps.lua
+  - .config/nvim-lazyvim/lua/config/lazy.lua
+  - .config/nvim-lazyvim/lua/config/options.lua
+  - .config/nvim-lazyvim/lua/plugins/extend-lazyvim.lua
+  - .config/nvim-lazyvim/lua/plugins/extend-neo-tree.lua
+  - .config/nvim-lazyvim/lua/plugins/org-mode.lua
+  - .config/nvim-aon/init.lua
+  - .config/nvim-aon/after/ftplugin/lua.lua
+  - .config/nvim-aon/lua/config/lazy.lua
+  - .config/nvim-aon/lua/config/telescope/multigrep.lua
+  - .config/nvim-aon/lua/plugins/completion.lua
+  - .config/nvim-aon/lua/plugins/files.lua
+  - .config/nvim-aon/lua/plugins/lsp.lua
+  - .config/nvim-aon/lua/plugins/mini.lua
+  - .config/nvim-aon/lua/plugins/telescope.lua
+  - .config/nvim-aon/lua/plugins/tokyonight.lua
+  - .config/nvim-aon/lua/plugins/treesitter.lua
   - .config/rofi/config.rasi
   - .config/starship.toml
   - .config/tmux/tmux.conf
