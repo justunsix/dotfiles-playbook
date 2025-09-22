@@ -43,9 +43,9 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/home-manager"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
-  - "/home/{{ target_user }}/.config/lazyvim"
-  - "/home/{{ target_user }}/.config/lazyvim/lua/config"
-  - "/home/{{ target_user }}/.config/lazyvim/lua/plugins"
+  - "/home/{{ target_user }}/.config/nvim-lazyvim"
+  - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/config"
+  - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/plugins"
   - "/home/{{ target_user }}/.config/mprocs"
   - "/home/{{ target_user }}/.config/mpv/script-opts"
   - "/home/{{ target_user }}/.config/mpv/scripts"
@@ -106,13 +106,13 @@ dotfiles_files:
   - .config/i3/config
   - .config/i3status/config
   - .config/kdeglobals
-  - .config/lazyvim/lazyvim.json
-  - .config/lazyvim/lua/config/keymaps.lua
-  - .config/lazyvim/lua/config/lazy.lua
-  - .config/lazyvim/lua/config/options.lua
-  - .config/lazyvim/lua/plugins/extend-lazyvim.lua
-  - .config/lazyvim/lua/plugins/extend-neo-tree.lua
-  - .config/lazyvim/lua/plugins/org-mode.lua
+  - .config/nvim-lazyvim/lazyvim.json
+  - .config/nvim-lazyvim/lua/config/keymaps.lua
+  - .config/nvim-lazyvim/lua/config/lazy.lua
+  - .config/nvim-lazyvim/lua/config/options.lua
+  - .config/nvim-lazyvim/lua/plugins/extend-lazyvim.lua
+  - .config/nvim-lazyvim/lua/plugins/extend-neo-tree.lua
+  - .config/nvim-lazyvim/lua/plugins/org-mode.lua
   - .config/mprocs/mprocs.yaml
   - .config/mpv/input.conf
   - .config/mpv/mpv.conf
