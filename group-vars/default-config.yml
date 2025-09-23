@@ -132,6 +132,8 @@ dotfiles_files:
   - .config/nvim-aon/init.lua
   - .config/nvim-aon/after/ftplugin/lua.lua
   - .config/nvim-aon/lua/config/lazy.lua
+  - .config/nvim-aon/lua/config/minimal.lua
+  - .config/nvim-aon/lua/config/terminal.lua
   - .config/nvim-aon/lua/config/telescope/multigrep.lua
   - .config/nvim-aon/lua/plugins/completion.lua
   - .config/nvim-aon/lua/plugins/files.lua
