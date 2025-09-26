@@ -21,179 +21,182 @@ dotfiles_repo_local_destination: "~/Code/dotfiles"
 dotfiles_home: "~"
 
 dotfiles_directories:
-  - "/home/{{ target_user }}/.config/broot"
-  - "/home/{{ target_user }}/.config/cool-retro-term"
-  - "/home/{{ target_user }}/.config/copyq"
-  - "/home/{{ target_user }}/.config/doom"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/doomconfig"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/minimal"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/music"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/org-web-tools"
-  - "/home/{{ target_user }}/.config/doom/modules/jt/anki-editor"
-  - "/home/{{ target_user }}/.config/doom/snippets/org-mode"
-  - "/home/{{ target_user }}/.config/dunst"
-  - "/home/{{ target_user }}/.config/espanso"
-  - "/home/{{ target_user }}/.config/espanso/match"
-  - "/home/{{ target_user }}/.config/espanso/config"
-  - "/home/{{ target_user }}/.config/fish"
-  - "/home/{{ target_user }}/.config/fontconfig/conf.d"
-  - "/home/{{ target_user }}/.config/ghostty"
-  - "/home/{{ target_user }}/.config/helix"
-  - "/home/{{ target_user }}/.config/home-manager"
-  - "/home/{{ target_user }}/.config/i3"
-  - "/home/{{ target_user }}/.config/i3status"
-  - "/home/{{ target_user }}/.config/mprocs"
-  - "/home/{{ target_user }}/.config/mpv/script-opts"
-  - "/home/{{ target_user }}/.config/mpv/scripts"
-  - "/home/{{ target_user }}/.config/navi"
-  - "/home/{{ target_user }}/.config/nushell"
-  - "/home/{{ target_user }}/.config/nvim"
-  - "/home/{{ target_user }}/.config/nvim/lua/custom/plugins"
-  - "/home/{{ target_user }}/.config/nvim-lazyvim"
-  - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/config"
-  - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/plugins"
-  - "/home/{{ target_user }}/.config/nvim-aon"
-  - "/home/{{ target_user }}/.config/nvim-aon/after/ftplugin"
-  - "/home/{{ target_user }}/.config/nvim-aon/lua/config/"
-  - "/home/{{ target_user }}/.config/nvim-aon/lua/config/telescope"
-  - "/home/{{ target_user }}/.config/nvim-aon/lua/plugins"
-  - "/home/{{ target_user }}/.config/rofi"
-  - "/home/{{ target_user }}/.config/tmux"
-  - "/home/{{ target_user }}/.config/todotxt-cli"
-  - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
-  - "/home/{{ target_user }}/.config/topgrade"
-  - "/home/{{ target_user }}/.config/vlc"
-  - "/home/{{ target_user }}/snap/vlc/common"
-  - "/home/{{ target_user }}/.config/wezterm"
-  - "/home/{{ target_user }}/.config/yazi"
-  - "/home/{{ target_user }}/.local/share/applications"
-  - "/home/{{ target_user }}/Templates"
-  - "/home/{{ target_user }}/usr/bin"
+    - "/home/{{ target_user }}/.config/broot"
+    - "/home/{{ target_user }}/.config/cool-retro-term"
+    - "/home/{{ target_user }}/.config/copyq"
+    - "/home/{{ target_user }}/.config/doom"
+    - "/home/{{ target_user }}/.config/doom/modules/jt/doomconfig"
+    - "/home/{{ target_user }}/.config/doom/modules/jt/hyperbole"
+    - "/home/{{ target_user }}/.config/doom/modules/jt/minimal"
+    - "/home/{{ target_user }}/.config/doom/modules/jt/music"
+    - "/home/{{ target_user }}/.config/doom/modules/jt/org-web-tools"
+    - "/home/{{ target_user }}/.config/doom/modules/jt/anki-editor"
+    - "/home/{{ target_user }}/.config/doom/snippets/org-mode"
+    - "/home/{{ target_user }}/.config/dunst"
+    - "/home/{{ target_user }}/.config/espanso"
+    - "/home/{{ target_user }}/.config/espanso/match"
+    - "/home/{{ target_user }}/.config/espanso/config"
+    - "/home/{{ target_user }}/.config/fish"
+    - "/home/{{ target_user }}/.config/fontconfig/conf.d"
+    - "/home/{{ target_user }}/.config/ghostty"
+    - "/home/{{ target_user }}/.config/helix"
+    - "/home/{{ target_user }}/.config/home-manager"
+    - "/home/{{ target_user }}/.config/i3"
+    - "/home/{{ target_user }}/.config/i3status"
+    - "/home/{{ target_user }}/.config/mprocs"
+    - "/home/{{ target_user }}/.config/mpv/script-opts"
+    - "/home/{{ target_user }}/.config/mpv/scripts"
+    - "/home/{{ target_user }}/.config/navi"
+    - "/home/{{ target_user }}/.config/nushell"
+    - "/home/{{ target_user }}/.config/nvim"
+    - "/home/{{ target_user }}/.config/nvim/lua/custom/plugins"
+    - "/home/{{ target_user }}/.config/nvim-lazyvim"
+    - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/config"
+    - "/home/{{ target_user }}/.config/nvim-lazyvim/lua/plugins"
+    - "/home/{{ target_user }}/.config/nvim-aon"
+    - "/home/{{ target_user }}/.config/nvim-aon/after/ftplugin"
+    - "/home/{{ target_user }}/.config/nvim-aon/lua/config/"
+    - "/home/{{ target_user }}/.config/nvim-aon/lua/config/telescope"
+    - "/home/{{ target_user }}/.config/nvim-aon/lua/plugins"
+    - "/home/{{ target_user }}/.config/rofi"
+    - "/home/{{ target_user }}/.config/tmux"
+    - "/home/{{ target_user }}/.config/todotxt-cli"
+    - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
+    - "/home/{{ target_user }}/.config/topgrade"
+    - "/home/{{ target_user }}/.config/vlc"
+    - "/home/{{ target_user }}/snap/vlc/common"
+    - "/home/{{ target_user }}/.config/wezterm"
+    - "/home/{{ target_user }}/.config/yazi"
+    - "/home/{{ target_user }}/.local/share/applications"
+    - "/home/{{ target_user }}/Templates"
+    - "/home/{{ target_user }}/usr/bin"
 
 dotfiles_files:
-  - .bash_aliases
-  - .bash_profile
-  - .bashrc
-  - .config/broot/verbs.hjson
-  - .config/cool-retro-term/cool-retro-term-my-futuristic.json
-  - .config/copyq/copyq-commands.ini
-  - .config/copyq/copyq.conf
-  - .config/doom/config.el
-  - .config/doom/init.el
-  - .config/doom/modules/jt/doomconfig/autoload.el
-  - .config/doom/modules/jt/doomconfig/config.el
-  - .config/doom/modules/jt/hyperbole/config.el
-  - .config/doom/modules/jt/hyperbole/packages.el
-  - .config/doom/modules/jt/minimal/autoload.el
-  - .config/doom/modules/jt/minimal/config.el
-  - .config/doom/modules/jt/music/autoload.el
-  - .config/doom/modules/jt/music/config.el
-  - .config/doom/modules/jt/music/packages.el
-  - .config/doom/modules/jt/org-web-tools/config.el
-  - .config/doom/modules/jt/org-web-tools/packages.el
-  - .config/doom/modules/jt/anki-editor/config.el
-  - .config/doom/modules/jt/anki-editor/packages.el
-  - .config/doom/packages.el
-  - .config/doom/snippets/org-mode/new-note
-  - .config/doom/snippets/org-mode/plantuml
-  - .config/doom/snippets/org-mode/shell
-  - .config/dunst/dunstrc
-  - .config/espanso/config/default.yml
-  - .config/espanso/match/base.yml
-  - .config/fish/config.fish
-  - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
-  - .config/gfold.toml
-  - .config/ghostty/config
-  - .config/helix/config.toml
-  - .config/helix/languages.toml
-  - .config/home-manager/home.nix
-  - .config/i3/config
-  - .config/i3status/config
-  - .config/kdeglobals
-  - .config/mprocs/mprocs.yaml
-  - .config/mpv/input.conf
-  - .config/mpv/mpv.conf
-  - .config/mpv/script-opts/osc.conf
-  - .config/mpv/scripts/autoload.lua
-  - .config/navi/config.yaml
-  - .config/nushell/config-nix.nu
-  - .config/nushell/config.nu
-  - .config/nushell/env.nu
-  - .config/nvim/init.lua
-  - .config/nvim/lua/custom/plugins/init.lua
-  - .config/nvim-lazyvim/lazyvim.json
-  - .config/nvim-lazyvim/lua/config/keymaps.lua
-  - .config/nvim-lazyvim/lua/config/lazy.lua
-  - .config/nvim-lazyvim/lua/config/options.lua
-  - .config/nvim-lazyvim/lua/plugins/extend-lazyvim.lua
-  - .config/nvim-lazyvim/lua/plugins/extend-neo-tree.lua
-  - .config/nvim-lazyvim/lua/plugins/org-mode.lua
-  - .config/nvim-aon/init.lua
-  - .config/nvim-aon/after/ftplugin/lua.lua
-  - .config/nvim-aon/lua/config/lazy.lua
-  - .config/nvim-aon/lua/config/minimal.lua
-  - .config/nvim-aon/lua/config/terminal.lua
-  - .config/nvim-aon/lua/config/telescope/multigrep.lua
-  - .config/nvim-aon/lua/plugins/completion.lua
-  - .config/nvim-aon/lua/plugins/files.lua
-  - .config/nvim-aon/lua/plugins/lsp.lua
-  - .config/nvim-aon/lua/plugins/mini.lua
-  - .config/nvim-aon/lua/plugins/telescope.lua
-  - .config/nvim-aon/lua/plugins/tokyonight.lua
-  - .config/nvim-aon/lua/plugins/treesitter.lua
-  - .config/rofi/config.rasi
-  - .config/starship.toml
-  - .config/tmux/tmux.conf
-  - .config/todotxt-cli/.todo.actions.d/edit
-  - .config/todotxt-cli/.todo.actions.d/pn
-  - .config/todotxt-cli/todo-work.cfg
-  - .config/todotxt-cli/todo.cfg
-  - .config/topgrade/topgrade.toml
-  - .config/vlc/vlcrc
-  - .config/wezterm/wezterm.lua
-  - .config/yazi/theme.toml
-  - .config/yazi/yazi.toml
-  - .gitconfig
-  - .inputrc
-  - .local/share/applications/clipboard-html-to-org.desktop
-  - .local/share/applications/firefox-profile-manager-flatpak.desktop
-  - .local/share/applications/screenshot-ocr.desktop
-  - .local/share/applications/vlc-playlist.desktop
-  - Templates/New-Text-Document.txt
-  - usr/bin/common.sh
-  - usr/bin/jt-clean-up.sh
-  - usr/bin/jt-clip-html-to-org.sh
-  - usr/bin/jt-gc.sh
-  - usr/bin/jt-gs.sh
-  - usr/bin/jt-gt.sh
-  - usr/bin/jt-ocr-to-clipboard.sh
-  - usr/bin/jt-post-i3.sh
-  - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
-  - usr/bin/jt-update-all.sh
+    - .bash_aliases
+    - .bash_profile
+    - .bashrc
+    - .config/broot/verbs.hjson
+    - .config/cool-retro-term/cool-retro-term-my-futuristic.json
+    - .config/copyq/copyq-commands.ini
+    - .config/copyq/copyq.conf
+    - .config/doom/config.el
+    - .config/doom/init.el
+    - .config/doom/modules/jt/doomconfig/autoload.el
+    - .config/doom/modules/jt/doomconfig/config.el
+    - .config/doom/modules/jt/hyperbole/config.el
+    - .config/doom/modules/jt/hyperbole/packages.el
+    - .config/doom/modules/jt/minimal/autoload.el
+    - .config/doom/modules/jt/minimal/config.el
+    - .config/doom/modules/jt/music/autoload.el
+    - .config/doom/modules/jt/music/config.el
+    - .config/doom/modules/jt/music/packages.el
+    - .config/doom/modules/jt/org-web-tools/config.el
+    - .config/doom/modules/jt/org-web-tools/packages.el
+    - .config/doom/modules/jt/anki-editor/config.el
+    - .config/doom/modules/jt/anki-editor/packages.el
+    - .config/doom/packages.el
+    - .config/doom/snippets/org-mode/new-note
+    - .config/doom/snippets/org-mode/plantuml
+    - .config/doom/snippets/org-mode/shell
+    - .config/dunst/dunstrc
+    - .config/espanso/config/default.yml
+    - .config/espanso/match/base.yml
+    - .config/fish/config.fish
+    - .config/fontconfig/conf.d/10-nixpkg-fonts.conf
+    - .config/gfold.toml
+    - .config/ghostty/config
+    - .config/helix/config.toml
+    - .config/helix/languages.toml
+    - .config/home-manager/home.nix
+    - .config/i3/config
+    - .config/i3status/config
+    - .config/kdeglobals
+    - .config/mprocs/mprocs.yaml
+    - .config/mpv/input.conf
+    - .config/mpv/mpv.conf
+    - .config/mpv/script-opts/osc.conf
+    - .config/mpv/scripts/autoload.lua
+    - .config/navi/config.yaml
+    - .config/nushell/config-nix.nu
+    - .config/nushell/config.nu
+    - .config/nushell/env.nu
+    - .config/nvim/init.lua
+    - .config/nvim/lua/custom/plugins/init.lua
+    - .config/nvim-lazyvim/lazyvim.json
+    - .config/nvim-lazyvim/lua/config/keymaps.lua
+    - .config/nvim-lazyvim/lua/config/lazy.lua
+    - .config/nvim-lazyvim/lua/config/options.lua
+    - .config/nvim-lazyvim/lua/plugins/extend-lazyvim.lua
+    - .config/nvim-lazyvim/lua/plugins/extend-neo-tree.lua
+    - .config/nvim-lazyvim/lua/plugins/org-mode.lua
+    - .config/nvim-aon/init.lua
+    - .config/nvim-aon/after/ftplugin/lua.lua
+    - .config/nvim-aon/lua/config/lazy.lua
+    - .config/nvim-aon/lua/config/minimal.lua
+    - .config/nvim-aon/lua/config/terminal.lua
+    - .config/nvim-aon/lua/config/telescope/multigrep.lua
+    - .config/nvim-aon/lua/plugins/completion.lua
+    - .config/nvim-aon/lua/plugins/files.lua
+    - .config/nvim-aon/lua/plugins/lsp.lua
+    - .config/nvim-aon/lua/plugins/mini.lua
+    - .config/nvim-aon/lua/plugins/telescope.lua
+    - .config/nvim-aon/lua/plugins/tokyonight.lua
+    - .config/nvim-aon/lua/plugins/treesitter.lua
+    - .config/rofi/config.rasi
+    - .config/starship.toml
+    - .config/tmux/tmux.conf
+    - .config/todotxt-cli/.todo.actions.d/edit
+    - .config/todotxt-cli/.todo.actions.d/pn
+    - .config/todotxt-cli/todo-work.cfg
+    - .config/todotxt-cli/todo.cfg
+    - .config/topgrade/topgrade.toml
+    - .config/vlc/vlcrc
+    - .config/wezterm/wezterm.lua
+    - .config/yazi/theme.toml
+    - .config/yazi/yazi.toml
+    - .gitconfig
+    - .inputrc
+    - .local/share/applications/clipboard-html-to-org.desktop
+    - .local/share/applications/firefox-profile-manager-flatpak.desktop
+    - .local/share/applications/screenshot-ocr.desktop
+    - .local/share/applications/vlc-playlist.desktop
+    - Templates/New-Text-Document.txt
+    - usr/bin/common.sh
+    - usr/bin/jt-clean-up.sh
+    - usr/bin/jt-clip-html-to-org.sh
+    - usr/bin/jt-gc.sh
+    - usr/bin/jt-gs.sh
+    - usr/bin/jt-gt.sh
+    - usr/bin/jt-ocr-to-clipboard.sh
+    - usr/bin/jt-post-i3.sh
+    - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
+    - usr/bin/jt-update-all.sh
+    - usr/bin/fmake.sh
+
 dotfiles_to_be_removed:
-  - "/home/{{ target_user }}/.config/topgrade.toml"
-  - "/home/{{ target_user }}/.emacs"
-  - "/home/{{ target_user }}/.emacs.d"
-  - "/home/{{ target_user }}/snap/vlc/common/vlcrc"
+    - "/home/{{ target_user }}/.config/topgrade.toml"
+    - "/home/{{ target_user }}/.emacs"
+    - "/home/{{ target_user }}/.emacs.d"
+    - "/home/{{ target_user }}/snap/vlc/common/vlcrc"
 
 dotfiles_items_with_custom_destination:
-  - { src: ".config/vlc/vlcrc", dest: "snap/vlc/common/vlcrc" }
+    - { src: ".config/vlc/vlcrc", dest: "snap/vlc/common/vlcrc" }
 
 dotfiles_files_binaries:
-  - usr/bin/jt-gc.sh
-  - usr/bin/jt-gs.sh
-  - usr/bin/jt-gt.sh
-  - usr/bin/jt-update-all.sh
-  - usr/bin/jt-clean-up.sh
-  - usr/bin/jt-ocr-to-clipboard.sh
-  - usr/bin/jt-post-i3.sh
-  - usr/bin/jt-clip-html-to-org.sh
-  - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
-  - .config/todotxt-cli/.todo.actions.d/edit
-  - .config/todotxt-cli/.todo.actions.d/pn
-  # ensure directory is executable as a symlink
-  # - .config/emacs/snippets
+    - usr/bin/fmake.sh
+    - usr/bin/jt-gc.sh
+    - usr/bin/jt-gs.sh
+    - usr/bin/jt-gt.sh
+    - usr/bin/jt-update-all.sh
+    - usr/bin/jt-clean-up.sh
+    - usr/bin/jt-ocr-to-clipboard.sh
+    - usr/bin/jt-post-i3.sh
+    - usr/bin/jt-clip-html-to-org.sh
+    - usr/bin/jt-uninstall-cargo-rust-and-packages.sh
+    - .config/todotxt-cli/.todo.actions.d/edit
+    - .config/todotxt-cli/.todo.actions.d/pn
+    # ensure directory is executable as a symlink
+    # - .config/emacs/snippets
 
 # Optional location of dotfile overlay to override or add to existing dotfiles in this repository
 dotfiles_overlay_dir: "{{ playbook_dir }}/../dotfiles-overlay"
@@ -204,192 +207,192 @@ target_user: user
 
 # Personal Repositories to be cloned, synchronized
 git_repositories:
-  # Value of dotfiles_repo variable
-  - "{{ dotfiles_repo }}"
+    # Value of dotfiles_repo variable
+    - "{{ dotfiles_repo }}"
 
 # Other people's Git Repositories to be cloned, synchronized
 git_repositories_external:
-  - git@github.com:Zren/mpv-osc-tethys.git
+    - git@github.com:Zren/mpv-osc-tethys.git
 
 git_repositories_reference:
-  - git@github.com:adafruit/Adafruit_CircuitPython_MacroPad.git
-  - git@github.com:daviwil/emacs-from-scratch.git
-  - git@github.com:geerlingguy/mac-dev-playbook.git
+    - git@github.com:adafruit/Adafruit_CircuitPython_MacroPad.git
+    - git@github.com:daviwil/emacs-from-scratch.git
+    - git@github.com:geerlingguy/mac-dev-playbook.git
 
 apt_ppa_repositories:
-  # - ppa:christian-boxdoerfer/fsearch-stable
-  # - ppa:thopiekar/openrgb
-  # - ppa:kelleyk/emacs
-  # - ppa:fish-shell/release-3
+    # - ppa:christian-boxdoerfer/fsearch-stable
+    # - ppa:thopiekar/openrgb
+    # - ppa:kelleyk/emacs
+    # - ppa:fish-shell/release-3
 
 apt_installed_packages:
-  # System
-  - input-remapper
-  # X Clipboard management, for:
-  ## - Integration with pyperclip
-  ## - OCR to clipboard shell script
-  - xsel
-  # Package Management
-  - aptitude
-  - flatpak
-  - curl
-  ## Fonts, Codecs
-  - ubuntu-restricted-extras
-  ### Emacs
-  - fonts-cantarell
-  ## Screenshot
-  - flameshot
-  ## File Management
-  - p7zip-full
-  - dolphin
-  - kde-cli-tools
-  - qt5ct
-  - adwaita-qt
-  - konsole
-  - plocate
-  ### Android Phone Connectivity
-  ### Requires restart to work
-  - gmtp
-  ## File Synchronization
-  - git-all
-  ## Web
-  - transmission
-  - transmission-remote-gtk
-  ## Email
-  ### Replacing with Thunderbird, in testing
-  ## - evolution-ews
-  ## Office
-  - libreoffice
-  ## Optical Character Recognition (OCR)
-  - tesseract-ocr
-  - tesseract-ocr-eng
-  - tesseract-ocr-fra
-  - tesseract-ocr-chi-sim
-  - tesseract-ocr-chi-tra
-  - gimagereader
-  ## Key Bindings
-  - input-remapper
-  ## User Interface
-  - gnome-shell-extension-manager
-  - gnome-tweaks
-  - dconf-editor
-  ## Security DNS
-  - resolvconf
-  ### Anti-virus
-  - clamav
-  - clamav-daemon
-  #### RAR scanning support for ClamAV
-  #### Remove in Ubuntu 24.04
-  #### - libclamunrar9
-  ## System
-  - bleachbit
-  ### Windows Management i3
-  # - i3
-  # - dmenu
-  #### moved to nix
-  #### - rofi
-  - lxappearance
-  - copyq
-  ### System - Language
-  - language-pack-gnome-en
-  - language-pack-gnome-fr
-  ## Media, Sound, Video
-  - pavucontrol
-  ## DevOps Editors
-  - vim
-  ### Emacs
-  - aspell
-  - aspell-en
-  ## DevOps Languages
-  - python3
-  - python3-pip
-  - pipx
-  - python3-virtualenv
-  ## DevOps Support
-  ### Python package required for ansible community.general.dconf
-  - python3-psutil
-  ### Virtualization
-  - virtualbox
-  #### Latex
-  - texlive-latex-base
-  - texlive-latex-extra
-  ## Media
-  - mpv
+    # System
+    - input-remapper
+    # X Clipboard management, for:
+    ## - Integration with pyperclip
+    ## - OCR to clipboard shell script
+    - xsel
+    # Package Management
+    - aptitude
+    - flatpak
+    - curl
+    ## Fonts, Codecs
+    - ubuntu-restricted-extras
+    ### Emacs
+    - fonts-cantarell
+    ## Screenshot
+    - flameshot
+    ## File Management
+    - p7zip-full
+    - dolphin
+    - kde-cli-tools
+    - qt5ct
+    - adwaita-qt
+    - konsole
+    - plocate
+    ### Android Phone Connectivity
+    ### Requires restart to work
+    - gmtp
+    ## File Synchronization
+    - git-all
+    ## Web
+    - transmission
+    - transmission-remote-gtk
+    ## Email
+    ### Replacing with Thunderbird, in testing
+    ## - evolution-ews
+    ## Office
+    - libreoffice
+    ## Optical Character Recognition (OCR)
+    - tesseract-ocr
+    - tesseract-ocr-eng
+    - tesseract-ocr-fra
+    - tesseract-ocr-chi-sim
+    - tesseract-ocr-chi-tra
+    - gimagereader
+    ## Key Bindings
+    - input-remapper
+    ## User Interface
+    - gnome-shell-extension-manager
+    - gnome-tweaks
+    - dconf-editor
+    ## Security DNS
+    - resolvconf
+    ### Anti-virus
+    - clamav
+    - clamav-daemon
+    #### RAR scanning support for ClamAV
+    #### Remove in Ubuntu 24.04
+    #### - libclamunrar9
+    ## System
+    - bleachbit
+    ### Windows Management i3
+    # - i3
+    # - dmenu
+    #### moved to nix
+    #### - rofi
+    - lxappearance
+    - copyq
+    ### System - Language
+    - language-pack-gnome-en
+    - language-pack-gnome-fr
+    ## Media, Sound, Video
+    - pavucontrol
+    ## DevOps Editors
+    - vim
+    ### Emacs
+    - aspell
+    - aspell-en
+    ## DevOps Languages
+    - python3
+    - python3-pip
+    - pipx
+    - python3-virtualenv
+    ## DevOps Support
+    ### Python package required for ansible community.general.dconf
+    - python3-psutil
+    ### Virtualization
+    - virtualbox
+    #### Latex
+    - texlive-latex-base
+    - texlive-latex-extra
+    ## Media
+    - mpv
 
 pipx_installed_packages:
-  - ansible
-  # For Emacs, Helix Python - pylsp
-  - python-lsp-server
-  # Python project, package, tool manager
-  - uv
+    - ansible
+    # For Emacs, Helix Python - pylsp
+    - python-lsp-server
+    # Python project, package, tool manager
+    - uv
 
 nix_installed_packages_ytdlp:
-  # yt-dlp
-  - nixpkgs.yt-dlp
-  - nixpkgs.ffmpeg_6-full
-  ## Downloader - aria2c
-  - nixpkgs.aria
-  ## Meta data
-  - nixpkgs.atomicparsley
-  # yt-dlp python packages
-  - nixpkgs.python311Packages.mutagen
-  - nixpkgs.python310Packages.xattr
-  - nixpkgs.python311Packages.certifi
-  - nixpkgs.python311Packages.brotli
-  - nixpkgs.python311Packages.websockets
-  - nixpkgs.python311Packages.pycryptodome
+    # yt-dlp
+    - nixpkgs.yt-dlp
+    - nixpkgs.ffmpeg_6-full
+    ## Downloader - aria2c
+    - nixpkgs.aria
+    ## Meta data
+    - nixpkgs.atomicparsley
+    # yt-dlp python packages
+    - nixpkgs.python311Packages.mutagen
+    - nixpkgs.python310Packages.xattr
+    - nixpkgs.python311Packages.certifi
+    - nixpkgs.python311Packages.brotli
+    - nixpkgs.python311Packages.websockets
+    - nixpkgs.python311Packages.pycryptodome
 
 apt_removed_packages:
-  - emacs-common
-  - emacs
-  - thunderbird
-  - evolution
+    - emacs-common
+    - emacs
+    - thunderbird
+    - evolution
 
 snap_installed_packages:
-  # Web
-  ## - firefox - use flatpak only
-  # Media, Sound, Video
-  - vlc
+    # Web
+    ## - firefox - use flatpak only
+    # Media, Sound, Video
+    - vlc
 
 snap_installed_packages_classic:
-  # Devops
-  ## Editors
-  # - code
-  ## - pycharm-community
+    # Devops
+    ## Editors
+    # - code
+    ## - pycharm-community
 
 flatpak_installed_packages:
-  # Web
-  - org.mozilla.firefox
-  - com.github.tchx84.Flatseal
-  - io.github.ungoogled_software.ungoogled_chromium
-  ## Email
-  ### - org.mozilla.Thunderbird
-  ## RSS
-  - me.hyliu.fluentreader
-  ## Video
-  - io.freetubeapp.FreeTube
-  # Learning
-  ## Books
-  - com.calibre_ebook.calibre
-  ## SRS - Anki
-  - net.ankiweb.Anki
-  # Media
-  ## Bino (3d, VR player) (Optional)
-  ## - org.bino3d.bino
-  # Productivity - Windows Programs
-  - com.usebottles.bottles
-  ## Graphics/Video
-  - org.inkscape.Inkscape
-  - org.gimp.GIMP
-  - org.kde.krita
-  - org.kde.kdenlive
-  ## Terminal Emulator
-  - org.wezfurlong.wezterm
-  # Office, Diagramming
-  - com.jgraph.drawio.desktop
-  # Files
-  ## Peazip will use KDE modules and get them
-  - io.github.peazip.PeaZip
-  - io.github.cboxdoerfer.FSearch
-  # Security
-  - org.keepassxc.KeePassXC
+    # Web
+    - org.mozilla.firefox
+    - com.github.tchx84.Flatseal
+    - io.github.ungoogled_software.ungoogled_chromium
+    ## Email
+    ### - org.mozilla.Thunderbird
+    ## RSS
+    - me.hyliu.fluentreader
+    ## Video
+    - io.freetubeapp.FreeTube
+    # Learning
+    ## Books
+    - com.calibre_ebook.calibre
+    ## SRS - Anki
+    - net.ankiweb.Anki
+    # Media
+    ## Bino (3d, VR player) (Optional)
+    ## - org.bino3d.bino
+    # Productivity - Windows Programs
+    - com.usebottles.bottles
+    ## Graphics/Video
+    - org.inkscape.Inkscape
+    - org.gimp.GIMP
+    - org.kde.krita
+    - org.kde.kdenlive
+    ## Terminal Emulator
+    - org.wezfurlong.wezterm
+    # Office, Diagramming
+    - com.jgraph.drawio.desktop
+    # Files
+    ## Peazip will use KDE modules and get them
+    - io.github.peazip.PeaZip
+    - io.github.cboxdoerfer.FSearch
+    # Security
+    - org.keepassxc.KeePassXC
