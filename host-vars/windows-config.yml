@@ -44,6 +44,7 @@ scoop_installed_packages:
   - lazygit
   - bleachbit
   - fzf
+  - extras/television
   - uutils-coreutils
   - eza
   - less
