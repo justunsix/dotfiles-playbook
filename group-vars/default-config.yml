@@ -325,6 +325,8 @@ pipx_installed_packages:
     - python-lsp-server
     # Python project, package, tool manager
     - uv
+    # Version control systems
+    - vcstool
 
 nix_installed_packages_ytdlp:
     # yt-dlp
