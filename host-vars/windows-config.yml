@@ -29,7 +29,7 @@ chocolatey_installed_packages:
 chocolatey_installed_packages_extras:
   ## Games
   - steam
-  - ubisoft-connect
+  # - ubisoft-connect
 
 scoop_installed_packages:
   ## System
