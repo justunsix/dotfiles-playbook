@@ -82,6 +82,7 @@ scoop_installed_packages:
   - wezterm
   - carapace-bin
   - nu
+  - atuin
   ### protobuf required for cargo binstall atuin
   - protobuf
   ### Prompt
