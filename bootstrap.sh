@@ -75,28 +75,29 @@ install_ansible() {
   # as of 2023-03-25
   if ! [ -x "$(command -v ansible)" ]; then
     echo "Ansible is not installed. Installing Ansible using pipx..."
+    if ! [ -x "$(command -v pipx)" ]; then
 
-    if [ "$isUbuntu" = "true" ]; then
-      sudo apt install pipx -y
-    fi
+      if [ "$isUbuntu" = "true" ]; then
+        sudo apt install pipx -y
+      fi
 
-    if [ "$isArch" = "true" ]; then
-      sudo pacman -S --noconfirm python python-pipx
-    fi
+      if [ "$isArch" = "true" ]; then
+        sudo pacman -S --noconfirm python python-pipx
+      fi
 
-    if [ "$isFedora" = "true" ]; then
-      sudo dnf install pipx -y
-    fi
+      if [ "$isFedora" = "true" ]; then
+        sudo dnf install pipx -y
+      fi
 
-    if [ "$isMacOS" = "true" ]; then
-      echo "Installing Homebrew and pipx"
-      echo "*** Run last commands in Homebrew install manually to add it to path ***"
-      # Install Brew package manager
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      # from https://github.com/pypa/pipx
-      brew install pipx
-      pipx ensurepath
-
+      if [ "$isMacOS" = "true" ]; then
+        echo "Installing Homebrew and pipx"
+        echo "*** Run last commands in Homebrew install manually to add it to path ***"
+        # Install Brew package manager
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        # from https://github.com/pypa/pipx
+        brew install pipx
+        pipx ensurepath
+      fi
     fi
 
     pipx install --include-deps ansible
