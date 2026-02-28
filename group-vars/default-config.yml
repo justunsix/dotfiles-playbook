@@ -235,6 +235,8 @@ apt_installed_packages:
   # Package Management
   - aptitude
   - flatpak
+  # Flatpak: GNOME Software plugin makes it possible to install apps without needing the command line
+  - gnome-software-plugin-flatpak
   - curl
   ## Fonts, Codecs
   - ubuntu-restricted-extras
@@ -303,13 +305,14 @@ apt_installed_packages:
   ## DevOps Languages
   - python3
   - python3-pip
-  - pipx
   - python3-virtualenv
+  - pipx
   ## DevOps Support
   ### Python package required for ansible community.general.dconf
   - python3-psutil
   ### Virtualization
-  - virtualbox
+  # Remove due to kernal issues with dependencies as of 2026-02
+  #- virtualbox
   #### Latex
   - texlive-latex-base
   - texlive-latex-extra
@@ -366,12 +369,10 @@ flatpak_installed_packages:
   - org.mozilla.firefox
   - com.github.tchx84.Flatseal
   - io.github.ungoogled_software.ungoogled_chromium
-  ## Email
-  ### - org.mozilla.Thunderbird
   ## RSS
   - me.hyliu.fluentreader
   ## Video
-  - io.freetubeapp.FreeTube
+  # - io.freetubeapp.FreeTube
   # Learning
   ## Books
   - com.calibre_ebook.calibre
