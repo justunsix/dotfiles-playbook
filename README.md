@@ -40,7 +40,7 @@ Run `bootstrap.sh`.
   - Use
     [`ansible.builtin.setup`](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/setup_module.html)
     settings
-    - `Ansible_distribution` for conditionals on Fedora and Ubuntu playbook
+    - `ansible_facts['distribution']` for conditionals on Fedora and Ubuntu playbook
   - Build on `default_config.yaml` and override for other Linux distributions
 - Set up
   [Ansible logging](https://docs.ansible.com/automation-controller/latest/html/administration/logging.html)
