@@ -17,13 +17,16 @@
     ]
   become: true
   become_user: "{{ target_user }}"
+  # Leave conditional for Ubuntu 24.04 until fixed or upgrade for ansible
+  # https://bugs.launchpad.net/ubuntu/+source/python-pipx/+bug/2131679
+  when: ansible_facts['distribution'] != "Ubuntu"
 
 # Check conda-shell command installed by nix exists
-#- name: conda-shell - Check if conda-shell command exists
-#  ansible.builtin.stat:
-#   path: "/home/{{ target_user }}/.nix-profile/bin/conda-shell"
-# register: conda_shell_exists
-#tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
+- name: conda-shell - Check if conda-shell command exists
+  ansible.builtin.stat:
+    path: "/home/{{ target_user }}/.nix-profile/bin/conda-shell"
+  register: conda_shell_exists
+  tags: ["workstation-ubuntu", "laptop-ubuntu", "python", "conda", "package"]
 
 # Set up conda package manager installed by Nix
 # Per conda section at https://nixos.wiki/wiki/Python
@@ -39,7 +42,7 @@
 #   become: true
 #   become_user: "{{ target_user }}"
 #   tags: ['workstation-ubuntu', 'laptop-ubuntu', 'python', 'conda', 'package']
-#   when: ansible_distribution == "Ubuntu" and conda_shell_exists.stat.exists
+#   when: ansible_facts['distribution'] == "Ubuntu" and conda_shell_exists.stat.exists
 
 - name: conda - Set conda to not auto-activate base environment
   ansible.builtin.shell: |
@@ -47,5 +50,4 @@
   become: true
   become_user: "{{ target_user }}"
   tags: ["workstation-ubuntu", "laptop-ubuntu", "python", "conda", "package"]
-  when: ansible_distribution == "Ubuntu" and conda_shell_exists.stat.exists
-
+  when: ansible_facts['distribution'] == "Ubuntu" and conda_shell_exists.stat.exists
