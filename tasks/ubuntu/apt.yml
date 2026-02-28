@@ -9,39 +9,39 @@
 # Ensure apt Multiverse repository is enabled
 - name: apt - Ensure Multiverse repository is enabled
   ansible.builtin.apt_repository:
-    repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse"
+    repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_facts['distribution_release'] }} multiverse"
     state: present
-  tags: ['apt', 'workstation-ubuntu', 'package']
+  tags: ["apt", "workstation-ubuntu", "package"]
 
 # Update and upgrade all apt installed packages
 - name: apt - Update and upgrade all installed packages
   ansible.builtin.apt:
     upgrade: yes
     update_cache: yes
-  tags: ['apt', 'workstation-ubuntu', 'package']
+  tags: ["apt", "workstation-ubuntu", "package"]
 
 # Remove unneed packages
 # Using list of items variable: apt_removed_packages
 - name: apt - Remove packages
   ansible.builtin.apt:
-    name:  "{{ apt_removed_packages | join(', ') }}"
+    name: "{{ apt_removed_packages | join(', ') }}"
     state: absent
-  tags: ['apt', 'workstation-ubuntu', 'package']
+  tags: ["apt", "workstation-ubuntu", "package"]
 
 # Install / Check packages with apt
 # Using list of items variable: apt_installed_packages
 - name: apt - Install packages
   ansible.builtin.apt:
     pkg: "{{ apt_installed_packages }}"
-  tags: ['apt', 'workstation-ubuntu', 'package']
+  tags: ["apt", "workstation-ubuntu", "package"]
 
 - name: apt - Remove useless packages from the cache
   ansible.builtin.apt:
     autoclean: yes
-  tags: ['apt', 'workstation-ubuntu', 'package']
+  tags: ["apt", "workstation-ubuntu", "package"]
 
 - name: apt - Auto remove packages no longer required and delete their configuration files
   ansible.builtin.apt:
     autoremove: yes
-    purge: true    
-  tags: ['apt', 'workstation-ubuntu', 'package']
+    purge: true
+  tags: ["apt", "workstation-ubuntu", "package"]
