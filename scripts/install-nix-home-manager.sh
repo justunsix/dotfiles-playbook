@@ -11,7 +11,7 @@ if ! command -v home-manager >/dev/null; then
   # https://nix-community.github.io/home-manager/index.xhtml
 
   # Create a folder $HOME/.config/home-manager
-  mkdir -p $HOME/.config/home-manager
+  mkdir -p "$HOME/.config/home-manager"
 
   # Install home-manager
   nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
