@@ -372,7 +372,7 @@ flatpak_installed_packages:
   ## RSS
   - me.hyliu.fluentreader
   ## Video
-  # - io.freetubeapp.FreeTube
+  - io.freetubeapp.FreeTube
   # Learning
   ## Books
   - com.calibre_ebook.calibre
