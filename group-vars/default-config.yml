@@ -386,8 +386,6 @@ flatpak_installed_packages:
   - org.gimp.GIMP
   - org.kde.krita
   - org.kde.kdenlive
-  ## Terminal Emulator
-  - org.wezfurlong.wezterm
   # Office, Diagramming
   - com.jgraph.drawio.desktop
   # Files
