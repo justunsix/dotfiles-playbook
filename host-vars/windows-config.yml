@@ -155,6 +155,7 @@ dotfiles_directories:
   - "{{ ansible_env.USERPROFILE }}/AppData/Roaming/espanso"
   - "{{ ansible_env.USERPROFILE }}/.config/emacs"
   - "{{ ansible_env.USERPROFILE }}/.config/doom"
+  - "{{ ansible_env.USERPROFILE }}/.config/git"
   - "{{ ansible_env.USERPROFILE }}/.config/wezterm"
   - "{{ ansible_env.USERPROFILE }}/.config/todotxt-cli"
   - "{{ ansible_env.USERPROFILE }}/.config/fish"
@@ -180,6 +181,10 @@ dotfiles_items:
   - {
       src: "{{ dotfiles_repo_local_destination }}/usr/bin-windows/",
       dest: "{{ ansible_env.USERPROFILE }}/usr/bin",
+    }
+  - {
+      src: "{{ dotfiles_repo_local_destination }}/.config/git",
+      dest: "{{ ansible_env.USERPROFILE }}/.config/git",
     }
   - {
       src: "{{ dotfiles_repo_local_destination }}/.config/nvim/",
