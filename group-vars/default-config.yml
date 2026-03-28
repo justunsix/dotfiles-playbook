@@ -57,6 +57,8 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/nvim-aon"
   - "/home/{{ target_user }}/.config/nvim-aon/after/ftplugin"
   - "/home/{{ target_user }}/.config/nvim-aon/lua/config/"
+  - "/home/{{ target_user }}/.config/opencode"
+  - "/home/{{ target_user }}/.config/opencode/agents"
   - "/home/{{ target_user }}/.config/nvim-aon/lua/config/telescope"
   - "/home/{{ target_user }}/.config/nvim-aon/lua/plugins"
   - "/home/{{ target_user }}/.config/rofi"
