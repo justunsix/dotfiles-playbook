@@ -159,6 +159,9 @@ dotfiles_files:
   - .config/yazi/yazi.toml
   - .config/git/config
   - .config/git/.gitignore_global
+  - .config/opencode/agents/python-reviewer-focused.md
+  - .config/opencode/agents/terraform-developer.md
+  - .config/opencode/agents/terraform-iac-reviewer.md
   - .inputrc
   - .local/share/applications/clipboard-html-to-org.desktop
   - .local/share/applications/firefox-profile-manager-flatpak.desktop
