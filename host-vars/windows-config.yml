@@ -168,7 +168,7 @@ dotfiles_to_be_removed:
   - "{{ ansible_env.USERPROFILE }}/AppData/Local/topgrade.toml"
   - "{{ ansible_env.USERPROFILE }}/.emacs"
   - "{{ ansible_env.USERPROFILE }}/.emacs.d"
-  - "{{ ansible_env.USERPROFILE }}/.emacs.d"
+  - "{{ ansible_env.USERPROFILE }}/.gitconfig"
   - "{{ ansible_env.USERPROFILE }}/Documents/PowerShell/profile.ps1"
   - "{{ ansible_env.USERPROFILE }}/Documents/WindowsPowerShell/profile.ps1"
 
