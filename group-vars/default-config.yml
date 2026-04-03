@@ -325,6 +325,7 @@ apt_installed_packages:
   - texlive-latex-base
   - texlive-latex-extra
   ## Media
+  ### Use OS mpv package due to GPU integration and stability
   - mpv
   ## Windows Programs Support
   - wine
