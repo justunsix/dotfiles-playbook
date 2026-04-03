@@ -27,28 +27,27 @@
 #   become_user: "{{ target_user }}"
 
 # Install Nix packages
-- name: Nix - Install Nix packages for yt-dlp
-  ansible.builtin.command: "nix-env -iA {{ item }}"
-  become: true
-  become_user: "{{ target_user }}"
-  loop: "{{ nix_installed_packages_ytdlp }}"
-  tags: ["extras", "workstation-ubuntu", 'ytdlp']
-  register: nixenvia_result
-  changed_when: "'copying' in nixenvia_result.stdout"
-  failed_when: "'error' in nixenvia_result.stdout"
+# - name: Nix - Install Nix packages for yt-dlp
+#   ansible.builtin.command: "nix-env -iA {{ item }}"
+#   become: true
+#   become_user: "{{ target_user }}"
+#   loop: "{{ nix_installed_packages_ytdlp }}"
+#   tags: ["extras", "workstation-ubuntu", 'ytdlp']
+#   register: nixenvia_result
+#   changed_when: "'copying' in nixenvia_result.stdout"
+#   failed_when: "'error' in nixenvia_result.stdout"
 
 # Check if PhantomJS is installed and if not install it
 - name: Extras yt-dlp - Check if PhantomJS is installed
   ansible.builtin.stat:
     path: /usr/local/bin/phantomjs
   register: phantomjs_installed
-  tags: ["extras", "workstation-ubuntu", 'ytdlp']
+  tags: ["extras", "workstation-ubuntu", "ytdlp"]
 
 # Extras - Install PhantomJS using minstall_phantomjs.sh in directory of this task
 - name: Extras yt-dlp - Install PhantomJS
   ansible.builtin.command: "./install_phantomjs.sh"
   args:
     chdir: "{{ playbook_dir }}/tasks/ubuntu"
-  tags: ["extras", "workstation-ubuntu", 'ytdlp']
+  tags: ["extras", "workstation-ubuntu", "ytdlp"]
   when: not phantomjs_installed.stat.exists
-
