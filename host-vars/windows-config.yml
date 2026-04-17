@@ -104,6 +104,7 @@ scoop_installed_packages:
   - keepassxc
   ## DevOps
   - helix
+  - mise
   - nodejs
   ### Languages
   - make
