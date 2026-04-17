@@ -83,8 +83,6 @@ scoop_installed_packages:
   - carapace-bin
   - nu
   - atuin
-  ### protobuf required for cargo binstall atuin
-  - protobuf
   ### Prompt
   - starship
   ## Office, Productivity
@@ -120,8 +118,6 @@ scoop_installed_packages:
   # - pipx
   ##### Python package, project, tool manager
   - uv
-  #### VS Code Polyglot literate programming
-  - dotnet-sdk
   ### Emacs and Supporting Programs
   - emacs
   - pandoc
