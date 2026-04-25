@@ -115,6 +115,7 @@ install_nix_home_manager() {
     # Install nix home manager per https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone
     if ! [ -x "$(command -v home-manager)" ]; then
       echo "Installing Nix: home-manager..."
+
       if [ "$isMacOS" = "true" ]; then
         if [ -f "$HOME/Code/dotfiles-nix/minimal/home.nix" ]; then
           echo "Symlinking minimal home.nix to ~/.config/home-manager/home.nix"
@@ -123,8 +124,10 @@ install_nix_home_manager() {
           echo "Download dotfiles-nix's minimal home.nix before the home-manager install, exiting"
           exit 1
         fi
+      else
+        # On Linux or other *nix
+        scripts/install-nix-home-manager.sh
       fi
-      scripts/install-nix-home-manager.sh
     fi
   fi
 
