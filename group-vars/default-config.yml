@@ -308,7 +308,10 @@ apt_installed_packages:
   - language-pack-gnome-fr
   ## Media, Sound, Video
   - pavucontrol
-  ## DevOps Editors
+  ## DevOps
+  ### Containers
+  - podman
+  ### Editors
   - vim
   ### Emacs
   - aspell
