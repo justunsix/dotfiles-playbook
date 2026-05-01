@@ -129,7 +129,9 @@ dotfiles_files:
   - .config/nvim/init.lua
   - .config/nvim/lua/custom/plugins/init.lua
   - .config/nvim-lazyvim/lazyvim.json
+  - .config/nvim-lazyvim/init.lua
   - .config/nvim-lazyvim/lua/config/keymaps.lua
+  - .config/nvim-lazyvim/lua/config/commands.lua
   - .config/nvim-lazyvim/lua/config/lazy.lua
   - .config/nvim-lazyvim/lua/config/options.lua
   - .config/nvim-lazyvim/lua/plugins/extend-lazyvim.lua
