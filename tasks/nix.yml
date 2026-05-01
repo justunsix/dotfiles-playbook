@@ -3,21 +3,45 @@
   ansible.builtin.stat:
     path: /nix
   register: nix_installed
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  tags:
+    [
+      "workstation-ubuntu",
+      "nix",
+      "package",
+      "laptop-ubuntu",
+      "workstation-arch",
+      "workstation-macos",
+    ]
 
 # Nix - Check home-manager is installed
 - name: Nix - Check if home-manager is installed
   ansible.builtin.stat:
     path: /home/{{ target_user }}/.config/home-manager
   register: home_manager_installed
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  tags:
+    [
+      "workstation-ubuntu",
+      "nix",
+      "package",
+      "laptop-ubuntu",
+      "workstation-arch",
+      "workstation-macos",
+    ]
 
 # Update Nix
 - name: Nix - Update Nix
   ansible.builtin.command: "nix-channel --update"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  tags:
+    [
+      "workstation-ubuntu",
+      "nix",
+      "package",
+      "laptop-ubuntu",
+      "workstation-arch",
+      "workstation-macos",
+    ]
   when: nix_installed.stat.exists
 
 # Upgrade all Nix packages
@@ -25,16 +49,32 @@
   ansible.builtin.command: "nix-env -u"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  tags:
+    [
+      "workstation-ubuntu",
+      "nix",
+      "package",
+      "laptop-ubuntu",
+      "workstation-arch",
+      "workstation-macos",
+    ]
   ignore_errors: true
   when: nix_installed.stat.exists
 
 # Update home-manager
 - name: Nix - Update home-manager
-  ansible.builtin.command: "home-manager switch"
+  ansible.builtin.command: "home-manager switch -b backup"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  tags:
+    [
+      "workstation-ubuntu",
+      "nix",
+      "package",
+      "laptop-ubuntu",
+      "workstation-arch",
+      "workstation-macos",
+    ]
   when: home_manager_installed.stat.exists
 
 # Install Nix packages defined in installed_nix_packages
@@ -43,7 +83,15 @@
   become: true
   become_user: "{{ target_user }}"
   loop: "{{ nix_installed_packages }}"
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  tags:
+    [
+      "workstation-ubuntu",
+      "nix",
+      "package",
+      "laptop-ubuntu",
+      "workstation-arch",
+      "workstation-macos",
+    ]
   register: nixenvia_result
   changed_when: "'copying' in nixenvia_result.stdout"
   failed_when: "'error' in nixenvia_result.stdout"
@@ -54,5 +102,13 @@
   ansible.builtin.command: "nix-collect-garbage --delete-older-than 30d"
   become: true
   become_user: "{{ target_user }}"
-  tags: ['workstation-ubuntu', 'nix', 'package', 'laptop-ubuntu', 'workstation-arch', 'workstation-macos']
+  tags:
+    [
+      "workstation-ubuntu",
+      "nix",
+      "package",
+      "laptop-ubuntu",
+      "workstation-arch",
+      "workstation-macos",
+    ]
   when: nix_installed.stat.exists
