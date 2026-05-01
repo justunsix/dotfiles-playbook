@@ -25,6 +25,18 @@
   tags: ["workstation-fedora", "dnf", "package"]
   when: ansible_facts['distribution'] == "Fedora"
 
+- name: Set up and synchronize dotfiles
+  import_tasks: tasks/dotfiles.yml
+  when: configure_dotfiles
+  tags:
+    [
+      "workstation-ubuntu",
+      "workstation-fedora",
+      "laptop-ubuntu",
+      "dotfiles",
+      "workstation-arch",
+    ]
+
 - name: Set up nix packages
   import_tasks: tasks/nix.yml
   tags:
@@ -82,7 +94,6 @@
   when: configure_gnome
 
 - name: Set up Gnome dnf packages
-
   import_tasks: tasks/fedora/dnf-gnome.yml
   tags: ["workstation-fedora", "dnf-gnome", "package", "workstation-fedora"]
   when: configure_gnome and ansible_facts['distribution'] == "Fedora"
@@ -117,18 +128,6 @@
       "laptop-ubuntu",
       "nvim",
       "workstation-fedora",
-      "workstation-arch",
-    ]
-
-- name: Set up and synchronize dotfiles
-  import_tasks: tasks/dotfiles.yml
-  when: configure_dotfiles
-  tags:
-    [
-      "workstation-ubuntu",
-      "workstation-fedora",
-      "laptop-ubuntu",
-      "dotfiles",
       "workstation-arch",
     ]
 
