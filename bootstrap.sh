@@ -136,6 +136,10 @@ install_nix_home_manager() {
 # Installs commands that the Ansible playbook needs
 install_prequisites() {
 
+  if [ "$isUbuntu" = "true" ]; then
+    sudo apt install git-all curl -y
+  fi
+
   if ! [ -x "$(command -v nix-env)" ]; then
     echo "Nix is not installed, running install"
     scripts/install-nix.sh
