@@ -68,6 +68,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/todotxt-cli/.todo.actions.d"
   - "/home/{{ target_user }}/.config/topgrade"
   - "/home/{{ target_user }}/.config/vlc"
+  - "/home/{{ target_user }}/.config/zellij"
   - "/home/{{ target_user }}/snap/vlc/common"
   - "/home/{{ target_user }}/.config/wezterm"
   - "/home/{{ target_user }}/.config/yazi"
@@ -162,6 +163,7 @@ dotfiles_files:
   - .config/wezterm/wezterm.lua
   - .config/yazi/theme.toml
   - .config/yazi/yazi.toml
+  - .config/zellij/config.kdl
   - .config/git/config
   - .config/git/.gitignore_global
   - .config/opencode/agents/python-reviewer-focused.md
