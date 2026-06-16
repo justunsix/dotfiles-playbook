@@ -45,6 +45,7 @@ dotfiles_directories:
   - "/home/{{ target_user }}/.config/home-manager"
   - "/home/{{ target_user }}/.config/i3"
   - "/home/{{ target_user }}/.config/i3status"
+  - "/home/{{ target_user }}/.config/lazygit"
   - "/home/{{ target_user }}/.config/mprocs"
   - "/home/{{ target_user }}/.config/mpv/script-opts"
   - "/home/{{ target_user }}/.config/mpv/scripts"
@@ -117,6 +118,7 @@ dotfiles_files:
   - .config/home-manager/home.nix
   - .config/i3/config
   - .config/i3status/config
+  - .config/lazygit/config.yml
   - .config/kdeglobals
   - .config/mprocs/mprocs.yaml
   - .config/mpv/input.conf
