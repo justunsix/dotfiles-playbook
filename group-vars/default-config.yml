@@ -21,6 +21,7 @@ dotfiles_repo_local_destination: "~/Code/dotfiles"
 dotfiles_home: "~"
 
 dotfiles_directories:
+  - "/home/{{ target_user }}/.config/alacritty"
   - "/home/{{ target_user }}/.config/broot"
   - "/home/{{ target_user }}/.config/cool-retro-term"
   - "/home/{{ target_user }}/.config/copyq"
@@ -81,6 +82,7 @@ dotfiles_files:
   - .bash_aliases
   - .bash_profile
   - .bashrc
+  - .config/alacritty/alacritty.toml
   - .config/broot/verbs.hjson
   - .config/cool-retro-term/cool-retro-term-my-futuristic.json
   - .config/copyq/copyq-commands.ini
